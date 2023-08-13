@@ -1,0 +1,126 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&family=Noto+Serif+JP&family=Noto+Serif:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap');
+   
+        body {
+            font-family: "Noto Serif JP";
+            color:#303028;
+            background-color: #e3e3e3;
+			font-weight:300;
+        } 
+		
+		div{
+			margin:auto;
+			width:50%;
+		}
+		
+		.verse{
+			padding-top:30px;
+			padding-bottom:30px;
+		}
+		
+		p{
+			font-size:30px;
+			margin-top:8px;
+			margin-bottom:8px;
+		}
+		
+		.english{
+			font-style:italic;
+		}
+
+		.song p{
+			color: #595941;
+			font-size:20px;
+			font-weight:900;
+		}
+		
+		rt {
+			color: #595941;
+		}
+		
+		.note{
+			padding:8px;
+			color:#d3c8c3;
+			background-color:#db9c42;
+			border-radius: 50%;
+			display:inline-block;
+			text-align: center;
+			width:10px;
+			height:10px;
+			line-height:10px;
+			margin:8px;
+		}
+		
+		a:link {
+		  color: #757541;
+		}
+		a:visited {
+		  color: #757541;
+		}
+		a:hover {
+		  color: #595941;
+		  background-color:#d3c8c3;
+		}
+		a:active {
+  		  color: #595941;
+  		  background-color:#d3c8c3;
+		}
+		
+		.switch {
+		  position: relative;
+		  display: inline-block;
+		  width: 40px;
+		  height: 20px;
+		}
+
+		.switch input {
+		  opacity: 0;
+		  width: 0;
+		  height: 0;
+		}
+
+		.slider {
+		  position: absolute;
+		  cursor: pointer;
+		  top: 0;
+		  left: 0;
+		  right: 0;
+		  bottom: 0;
+		  background-color: #d3c8c3;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		}
+
+		.slider:before {
+		  position: absolute;
+		  content: "";
+		  height: 20px;
+		  width: 20px;
+		  left: 0px;
+		  bottom: 0px;
+		  background-color: #db9c42;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		}
+
+		input:checked + .slider {
+		  background-color: #d3c8c3;
+		}
+
+		/*input:focus + .slider {
+		  box-shadow: 0 0 1px #2196F3;
+		}*/
+
+		input:checked + .slider:before {
+		  -webkit-transform: translateX(20px);
+		  -ms-transform: translateX(20px);
+		  transform: translateX(20px);
+		}
+
+		.slider.round {
+		  border-radius: 20px;
+		}
+
+		.slider.round:before {
+		  border-radius: 50%;
+		}
