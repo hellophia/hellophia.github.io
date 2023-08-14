@@ -39,9 +39,9 @@
 		}
 		
 		.note{
+			color: var(--notecolor);
+			background-color: var(--notebgcolor);
 			padding:8px;
-			color:#d3c8c3;
-			background-color:#db9c42;
 			border-radius: 50%;
 			display:inline-block;
 			text-align: center;
