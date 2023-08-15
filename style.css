@@ -36,6 +36,7 @@
 		
 		rt {
 			color: #595941;
+			user-select: none;
 		}
 		
 		.note{
