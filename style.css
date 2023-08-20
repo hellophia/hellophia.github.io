@@ -60,6 +60,36 @@
 			background-color: #757541;
 		}
 		
+		.words{
+			display:inline-block;
+			height:100%;
+			margin:0;
+		}
+		
+		.words.lower-elementary {
+			background-color:#b0b4b4;
+		}
+		
+		.words.upper-elementary {
+			background-color:#86aeaf;
+		}
+		
+		.words.lower-intermediate {
+			background-color:#d4be96;
+		}
+		
+		.words.upper-intermediate {
+			background-color:#e3a347
+		}
+		
+		.words.lower-advanced {
+			background-color:#dcb38b;
+		}
+		
+		.words.upper-advanced {
+			background-color:#f7884c;
+		}
+		
 		a:link {
 		  color: #757541;
 		}
