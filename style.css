@@ -3,9 +3,9 @@
    
         body {
             font-family: "Noto Serif JP";
-            color:#303028;
+            color: #595941;
             background-color: #e3e3e3;
-			font-weight:300;
+			font-size:10px;
         } 
 		
 		div{
@@ -18,20 +18,21 @@
 			padding-bottom:30px;
 		}
 		
-		p{
-			font-size:30px;
+		.verse p{
 			margin-top:8px;
 			margin-bottom:8px;
+			color:#303028;
+			font-size:30px;
+			font-weight:300;
+		}
+
+		.song{
+			font-size:16px;
+			font-weight:900;
 		}
 		
 		.english{
 			font-style:italic;
-		}
-
-		.song p{
-			color: #595941;
-			font-size:20px;
-			font-weight:900;
 		}
 		
 		rt {
@@ -60,34 +61,56 @@
 			background-color: #757541;
 		}
 		
+		.datas{
+			color:#e3e3e3;
+			background-color:#d3c8c3;
+			padding:4px;
+		}
+		
 		.words{
 			display:inline-block;
+			position:relative;
 			height:100%;
 			margin:0;
 		}
 		
-		.words.lower-elementary {
+		.lower-elementary {
 			background-color:#b0b4b4;
 		}
 		
-		.words.upper-elementary {
+		.upper-elementary {
 			background-color:#86aeaf;
 		}
 		
-		.words.lower-intermediate {
+		.lower-intermediate {
 			background-color:#d4be96;
 		}
 		
-		.words.upper-intermediate {
-			background-color:#e3a347
+		.upper-intermediate {
+			background-color:#e3a347;
 		}
 		
-		.words.lower-advanced {
+		.lower-advanced {
 			background-color:#dcb38b;
 		}
 		
-		.words.upper-advanced {
+		.upper-advanced {
 			background-color:#f7884c;
+		}
+
+		.words .tooltiptext {
+		  visibility: hidden;
+		  width: auto;
+		  top: 100%;
+		  left: 0%;
+		  padding:4px;
+		  white-space:nowrap;
+		  position: absolute;
+		  z-index: 1;
+		}
+
+		.words:hover .tooltiptext {
+		  visibility: visible;
 		}
 		
 		a:link {
@@ -145,10 +168,6 @@
 		input:checked + .slider {
 		  background-color: #d3c8c3;
 		}
-
-		/*input:focus + .slider {
-		  box-shadow: 0 0 1px #2196F3;
-		}*/
 
 		input:checked + .slider:before {
 		  -webkit-transform: translateX(20px);
