@@ -9,7 +9,7 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play sample twine game.</tw-noscript></noscript></tw-story>
-<tw-storydata name="sample twine game" startnode="1" creator="Twine" creator-version="2.7.1" format="Harlowe" format-version="3.3.7" ifid="13453ACD-9C73-4722-A876-1604139E644D" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url('https://fonts.googleapis.com/css2?family=Bitter&family=Merriweather:wght@300&family=Press+Start+2P&family=Roboto+Mono&family=Roboto+Serif:opsz,wght@8..144,300&family=Roboto+Slab&display=swap');
+<tw-storydata name="sample twine game" startnode="1" creator="Twine" creator-version="2.7.1" format="Harlowe" format-version="3.3.7" ifid="13453ACD-9C73-4722-A876-1604139E644D" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url('https://fonts.googleapis.com/css2?family=Bitter&family=Flow+Block&family=Merriweather:wght@300&family=Press+Start+2P&family=Roboto+Mono&family=Roboto+Serif:opsz,wght@8..144,300&family=Roboto+Slab&display=swap');
 
 tw-story{
  font-family: 'Roboto Serif', serif; 
@@ -50,6 +50,10 @@ tw-story tw-link.visited{
 
 tw-story tw-link.visited:hover{
   color:#cc9d10;
+}
+
+tw-hook[name="glitch1"] {
+font-family: 'Flow Block', cursive; 
 }
 
 tw-hook[name="fakegame"] {
@@ -246,14 +250,20 @@ for a big reference sheet of all the fun weird stuff you can do in twine, [[clic
 
 [[countdown timer]]
 
-[[probability]]</tw-passagedata><tw-passagedata pid="3" name="change background color" tags="day bgcolor" position="400,525" size="100,100">The sun was approaching the [[horizon-&gt;sunset]].</tw-passagedata><tw-passagedata pid="4" name="countdown timer" tags="countdown" position="800,200" size="100,100">You see a countdown timer on a screen, and two buttons underneath.
+[[probability]]
+
+[[write out phrases]]
+
+[[write out letters]]
+
+[[write out paragraphs]]</tw-passagedata><tw-passagedata pid="3" name="change background color" tags="day bgcolor" position="400,525" size="100,100">The sun was approaching the [[horizon-&gt;sunset]].</tw-passagedata><tw-passagedata pid="4" name="countdown timer" tags="countdown" position="825,175" size="100,100">You see a countdown timer on a screen, and two buttons underneath.
 =&gt;&lt;=
 
 (live: .25s)[&lt;h3&gt;(print: (round: 10 - (time / 1000)))&lt;/h3&gt;]&lt;countdown|
 
 &lt;span class=&quot;red&quot;&gt;[[red button]]&lt;/span&gt; &amp;emsp; &lt;span class=&quot;green&quot;&gt;[[green button]]&lt;/span&gt;
 
-(after: 10s)[(go-to:&quot;dead&quot;)]</tw-passagedata><tw-passagedata pid="5" name="boolean variables" tags="" position="1000,425" size="100,100">{(set: $holywater to false)
+(after: 10s)[(go-to:&quot;dead&quot;)]</tw-passagedata><tw-passagedata pid="5" name="boolean variables" tags="" position="1075,325" size="100,100">{(set: $holywater to false)
 (set: $thermometer to false)
 (set: $flashlight to false)
 
@@ -263,7 +273,7 @@ for a big reference sheet of all the fun weird stuff you can do in twine, [[clic
 
 []&lt;toolzone|
 
-[[OK, let&#39;s go!]]</tw-passagedata><tw-passagedata pid="6" name="string variables" tags="" position="1000,550" size="100,100">{(set: $names to (a:&quot;Lucy&quot;,&quot;Omar&quot;,&quot;Bill&quot;,&quot;Tomoko&quot;,&quot;Ines&quot;,&quot;Marco&quot;,&quot;Jack&quot;,&quot;Wei&quot;,&quot;Anna&quot;,&quot;Miguel&quot;))
+[[OK, let&#39;s go!]]</tw-passagedata><tw-passagedata pid="6" name="string variables" tags="" position="1075,450" size="100,100">{(set: $names to (a:&quot;Lucy&quot;,&quot;Omar&quot;,&quot;Bill&quot;,&quot;Tomoko&quot;,&quot;Ines&quot;,&quot;Marco&quot;,&quot;Jack&quot;,&quot;Wei&quot;,&quot;Anna&quot;,&quot;Miguel&quot;))
 
 }You arrive at the entrance of a fancy castle. The footman asks for your name.
 
@@ -271,7 +281,7 @@ for a big reference sheet of all the fun weird stuff you can do in twine, [[clic
 
 The footman announces your name for all in the hall to hear. &quot;(print:1st of $names) has arrived!&quot;])]]]&lt;nameq|
 
-(display:&quot;backtoreference&quot;)</tw-passagedata><tw-passagedata pid="7" name="number variables" tags="choco" position="1000,675" size="100,100">{(set: $numberofbars to 0)
+(display:&quot;backtoreference&quot;)</tw-passagedata><tw-passagedata pid="7" name="number variables" tags="choco" position="1075,575" size="100,100">{(set: $numberofbars to 0)
 
 }You break into the chocolate bar factory at midnight.
 
@@ -279,7 +289,7 @@ You can steal as many chocolate bars as you want!!!
 
 (link-repeat: &quot;Grab a bar!&quot;)[(if: $numberofbars is 0)[ You grabbed a bar.(set: $numberofbars to it + 1)](else:)[ You grabbed another bar.(set: $numberofbars to it + 1)]]
 
-[[OK, time to leave.-&gt;leave]]</tw-passagedata><tw-passagedata pid="8" name="probability" tags="" position="1100,300" size="100,100">{(set: $probability to 15)
+[[OK, time to leave.-&gt;leave]]</tw-passagedata><tw-passagedata pid="8" name="probability" tags="" position="1175,200" size="100,100">{(set: $probability to 15)
 
 }You&#39;re thinking about eating the last slice of cake in the fridge.
 
@@ -345,9 +355,9 @@ normal&amp;emsp;(text-style: &quot;subscript&quot;)[subscript]&amp;emsp;(text-st
 
 (after: 4s)[(t8n:&quot;dissolve&quot;)[Time to [[go to the club?]]]]</tw-passagedata><tw-passagedata pid="12" name="go to the club?" tags="club bgcolor" position="25,525" size="100,100">wooooooooo
 
-[[back to reference-&gt;reference]]</tw-passagedata><tw-passagedata pid="13" name="red button" tags="countdown" position="800,75" size="100,100">(display:&quot;dead&quot;)</tw-passagedata><tw-passagedata pid="14" name="green button" tags="countdown" position="925,200" size="100,100">Crisis averted!
+[[back to reference-&gt;reference]]</tw-passagedata><tw-passagedata pid="13" name="red button" tags="countdown" position="825,50" size="100,100">(display:&quot;dead&quot;)</tw-passagedata><tw-passagedata pid="14" name="green button" tags="countdown" position="950,175" size="100,100">Crisis averted!
 
-&lt;span style=&quot;background-color:#000000;padding-right:10px;padding-left:10px;&quot;&gt;[[back to reference-&gt;reference]]&lt;/span&gt;</tw-passagedata><tw-passagedata pid="15" name="dead" tags="countdown" position="925,75" size="100,100">The facility explodes and you die.
+&lt;span style=&quot;background-color:#000000;padding-right:10px;padding-left:10px;&quot;&gt;[[back to reference-&gt;reference]]&lt;/span&gt;</tw-passagedata><tw-passagedata pid="15" name="dead" tags="countdown" position="950,50" size="100,100">The facility explodes and you die.
 
 &lt;span style=&quot;background-color:#000000;padding-right:10px;padding-left:10px;&quot;&gt;[[back to reference-&gt;reference]]&lt;/span&gt;</tw-passagedata><tw-passagedata pid="16" name="passage links" tags="" position="675,825" size="100,100">pages in twine are called passages, imagine them like passages in a dungeon.
 
@@ -413,7 +423,7 @@ This sentence, which mentions the city (either:&quot;Toronto&quot;,&quot;Busan&q
 
 all transitions can have their timing adjusted.
 
-(display:&quot;backtoreference&quot;)</tw-passagedata><tw-passagedata pid="26" name="leave" tags="choco" position="875,675" size="100,100">You hightail it outta there.
+(display:&quot;backtoreference&quot;)</tw-passagedata><tw-passagedata pid="26" name="leave" tags="choco" position="950,575" size="100,100">You hightail it outta there.
 
 You grabbed {
 (if: $numberofbars &lt; 10)[fewer than ten bars.]
@@ -428,7 +438,7 @@ In fact, you scored $numberofbars!{
 
 In the stillness of deep night you ask yourself – what was the point of breaking into the chocolate bar factory if you weren&#39;t going to steal any chocolate bars?]
 
-&lt;span style=&quot;background-color:#4c2e1b;padding-right:10px;padding-left:10px;&quot;&gt;[[back to reference-&gt;reference]]&lt;/span&gt;</tw-passagedata><tw-passagedata pid="27" name="OK, let&#39;s go!" tags="" position="1125,425" size="100,100">From around a corner down a dark hallway, the demon lurches!!
+&lt;span style=&quot;background-color:#4c2e1b;padding-right:10px;padding-left:10px;&quot;&gt;[[back to reference-&gt;reference]]&lt;/span&gt;</tw-passagedata><tw-passagedata pid="27" name="OK, let&#39;s go!" tags="" position="1200,325" size="100,100">From around a corner down a dark hallway, the demon lurches!!
 
 (link-reveal:&quot;Time to act!&quot;)[
 
@@ -462,7 +472,46 @@ The demon glides right for you and bites your face off.]]{
 
 Feebly you invoke some saints. You manage to name a couple before your intestines are on the ceiling.]]]]]
 
-(display:&quot;backtoreference&quot;)</tw-passagedata><tw-passagedata pid="28" name="Eat it!" tags="" position="1225,300" size="100,100">(if: (random: 0, 100) &lt;= $probability)[Your roommate ate the cake. 😭💔](else:)[You ate it and it was delicious and your roommate said it was totally fine.]
+(display:&quot;backtoreference&quot;)</tw-passagedata><tw-passagedata pid="28" name="Eat it!" tags="" position="1300,200" size="100,100">(if: (random: 0, 100) &lt;= $probability)[Your roommate ate the cake. 😭💔](else:)[You ate it and it was delicious and your roommate said it was totally fine.]
+
+(display:&quot;backtoreference&quot;)</tw-passagedata><tw-passagedata pid="29" name="write out phrases" tags="" position="1025,825" size="100,100">{(set:$phrases to (a:&quot;Suddenly,&quot;,&quot; a lime green frog jumps out,&quot;,&quot; startling you so much you fall backwards.&quot;,&quot; As fast as a bouncing tennis ball,&quot;,&quot; it hops over to the open window,&quot;,&quot; leaps onto the sill,&quot;,&quot; and vanishes into the outdoors.&quot;))
+
+}You&#39;re in a room with a wooden box the size of a loaf of bread.
+
+(link:&quot;Open it?&quot;)[{
+
+(set:$timing to time)
+
+}(for: each _i, ...(range:1,$phrases&#39;s length))[(after:$timing + (_i * 500))[(print:$phrases&#39;s _i)]]
+
+]
+
+(display:&quot;backtoreference&quot;)</tw-passagedata><tw-passagedata pid="30" name="write out letters" tags="" position="1025,950" size="100,100">[Hello. I see you&#39;ve found this computer console. Well, please listen carefully, as time is running out. This facilty is at risk for containment breach unless you initiate the lockdown procedure. You need to go to the main security office and flip [1234 5678 9]&lt;glitch1| yellow while [consectetur adipiscing elit]&lt;glitch1| or else [In nec tellus suscipit, sagittis diam sed Nulla in AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]&lt;glitch1|
+
+(display:&quot;backtoreference&quot;)](text|
+
+(after:1s)[
+(enchant: ?passage&#39;s chars, via (t8n-delay:pos * 30) + (t8n:&#39;instant&#39;))
+(show:?text)
+]</tw-passagedata><tw-passagedata pid="31" name="write out paragraphs" tags="" position="1025,1075" size="100,100">{(set:$dialogue to (a:
+&quot;I saw you take that key from the minister&#39;s desk drawer.&quot;,
+&quot;You&#39;re planning something, aren&#39;t you?&quot;,
+&quot;I&#39;m gonna tell on you! Unless...&quot;,
+&quot;Unless you think you can make it worth my while to keep quiet...!&quot;,
+&quot;What about it, huh?&quot;,
+))
+
+(set:$step to 1)
+
+}Hold it right there, mister![]&lt;next|
+====&gt;&lt;=
+(text-style:&quot;buoy&quot;)[▼]&lt;continue|{
+
+}(click-rerun:?continue)[(append:?next)[
+
+(print:$dialogue&#39;s $step)(set: $step to it + 1)(if:$step is $dialogue&#39;s length)[(replace:?continue)[]]]]
+
+&lt;==
 
 (display:&quot;backtoreference&quot;)</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
