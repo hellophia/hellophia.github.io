@@ -9,7 +9,7 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play mickey z.</tw-noscript></noscript></tw-story>
-<tw-storydata name="mickey z" startnode="1" creator="Twine" creator-version="2.7.1" format="Harlowe" format-version="3.3.7" ifid="60F36D1C-C7F5-4435-8A26-EFC1BE8DE366" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url('https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,700;1,400&family=Crimson+Text:ital,wght@0,400;0,700;1,400&family=DotGothic16&family=Lora&family=Noto+Sans:wght@200&family=Overpass+Mono&family=PT+Serif&family=Playfair+Display&family=Press+Start+2P&family=Roboto+Slab:wght@300&display=swap');
+<tw-storydata name="mickey z" startnode="1" creator="Twine" creator-version="2.7.1" format="Harlowe" format-version="3.3.7" ifid="60F36D1C-C7F5-4435-8A26-EFC1BE8DE366" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url('https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,700;1,400&family=Crimson+Text:ital,wght@0,400;0,700;1,400&family=DotGothic16&family=Lato&family=Lora&family=Noto+Sans:wght@200&family=Overpass+Mono&family=PT+Serif&family=Playfair+Display&family=Press+Start+2P&family=Roboto+Slab:wght@300&display=swap');
 
 @import url(https://db.onlinewebfonts.com/c/6228016f2b172c06410f3a2356d33f6c?family=Roobert-Regular);
 
@@ -61,24 +61,22 @@ tw-story[tags~="fran"] tw-link.visited:hover{
 
 tw-story[tags~="bgpink"] {
   background-color: #e6abab;
-  animation: nightchange 3s linear;
-  -webkit-animation: nightchange 3s linear;
+  animation: pinkchange 3s linear;
+  -webkit-animation: pinkchange 3s linear;
 }
 
-@keyframes nightchange {
+@keyframes pinkchange {
 	0%   {background: #c2c663;}
 	100% {background: #e6abab;}
 }
 
-@-webkit-keyframes nightchange {
+@-webkit-keyframes pinkchange {
 	0%   {background: #c2c663;}
 	100% {background: #e6abab;}
 }
 
-tw-story[tags~="fran"] h3{
+tw-hook[name="countdown"] {
   font-family: 'Press Start 2P', monospace;
-  padding:0;
-  margin:0;
 }
 
 tw-story[tags~="zoe"] {
@@ -219,22 +217,40 @@ tw-story[tags~="mdf"] tw-link:hover{
 
 tw-story[tags~="bgblack"] {
   background-color: #000000;
-  animation: nightchange 3s linear;
-  -webkit-animation: nightchange 3s linear;
+  animation: blackchange 3s linear;
+  -webkit-animation: blackchange 3s linear;
 }
 
-@keyframes nightchange {
+@keyframes blackchange {
 	0%   {background: #465840;}
 	100% {background: #000000;}
 }
 
-@-webkit-keyframes nightchange {
+@-webkit-keyframes blackchange {
 	0%   {background: #465840;}
 	100% {background: #000000;}
+}
+
+tw-story[tags~="emma"] {
+ font-family: 'Lato', sans-serif; 
+  background-color:#212121;
+  color:#e3e3e3;
+}
+
+tw-story[tags~="emma"] tw-link{
+ color:#f149d6;
+}
+
+tw-story[tags~="emma"] tw-link:hover{
+  color:#6e3bf9;
+}
+
+tw-hook[name="guysharmed"] {
+  font-family: 'Press Start 2P', monospace;
 }
 
 tw-story[tags~="em-c"] {
- font-family: 'Bitter', sans-serif; 
+ font-family: 'Bitter', serif; 
   background-color:#302e2f;
   color:#8d7985;
 }
@@ -249,11 +265,11 @@ tw-story[tags~="em-c"] tw-link:hover{
 
 tw-story[tags~="bgsunset"] {
   background-color: #302e2f;
-  animation: nightchange 5s linear;
-  -webkit-animation: nightchange 5s linear;
+  animation: sunsetchange 5s linear;
+  -webkit-animation: sunsetchange 5s linear;
 }
 
-@keyframes nightchange {
+@keyframes sunsetchange {
   0%   {background: #465840;}
   16%   {background: #5f627e;}
   33%   {background: #8d7985;}
@@ -263,7 +279,7 @@ tw-story[tags~="bgsunset"] {
   100% {background: #302e2f;}
 }
 
-@-webkit-keyframes nightchange {
+@-webkit-keyframes sunsetchange {
   0%   {background: #465840;}
   16%   {background: #5f627e;}
   33%   {background: #8d7985;}
@@ -353,7 +369,11 @@ Mickey rolls around in pain and drag herself to get some ibuprofen
 
 (link-repeat:&quot;Take an ibuprofen.&quot;)[ Mickey takes an ibuprofen.(set:$ibuprofens to it + 1)]
 
-(link:&quot;That is enough ibuprofen&quot;)[DAMN GIRL
+(link:&quot;That is enough ibuprofen&quot;)[{
+
+(replace:&quot;Take an ibuprofen.&quot;)[]
+
+}DAMN GIRL
 
 Mickey swallowed all $ibuprofens ibuprofens dry and now her throat is scratchy, also, she’s not sure if that was a good amount to take
 
@@ -383,23 +403,26 @@ Mickeys neighbour (text-style: &quot;rumble&quot;)[catches] her!
 
 Mickey is arrested for fruit murder and goes to jail for 75.6 years
 
-[[DEAD END-&gt;start]]</tw-passagedata><tw-passagedata pid="7" name="do not take" tags="fran" position="1675,1700" size="100,100">Gulp 
+[[DEAD END-&gt;start]]</tw-passagedata><tw-passagedata pid="7" name="do not take" tags="fran" position="1675,1700" size="100,100">{(set:$countdown to 10)
+
+}(after:1s)[Gulp]
 =&gt;&lt;=
-Gulp
+(after:1.5s)[Gulp]
 ==&gt;
-Gulp
+(after:2s)[Gulp]
 &lt;==
-The burst of sugar convinces her to purchase a (text-style: &quot;mark&quot;)[lottery ticket]
+(after:3s)[The burst of sugar convinces her to purchase a (text-style: &quot;mark&quot;)[lottery ticket]]
 
-the cashier’s eyes drift into a wall-eyed stare as she drops her buckets of change on the counter
+(after:4s)[the cashier’s eyes drift into a wall-eyed stare as she drops her buckets of change on the counter]
 
-(live: .25s)[&lt;h3&gt;(print: (round: 10 - (time / 1000)))&lt;/h3&gt;]&lt;countdown|
+=&gt;&lt;=
+(after:5s)[(live: 1s)[$countdown(set:$countdown to it-1)(if:$countdown is 0)[(go-to:&quot;Trust in the lord and saviour Jesus Christ Almighty&quot;)]]&lt;countdown|
+&lt;==
 
-[[Mickey Double checks her change]]
+(after:time+1s)[{
+}[[Mickey Double checks her change]]
 
-[[Trust in the lord and saviour Jesus Christ Almighty]]{
-
-(after: 10s)[(go-to:&quot;Trust in the lord and saviour Jesus Christ Almighty&quot;)]}</tw-passagedata><tw-passagedata pid="8" name="Mickey Double checks her change" tags="fran bgpink" position="1675,1825" size="100,100">The cashier notices her checking the change, and, feeling immense pity, gives her the ticket for &#39;&#39;free&#39;&#39;
+[[Trust in the lord and saviour Jesus Christ Almighty]]]]</tw-passagedata><tw-passagedata pid="8" name="Mickey Double checks her change" tags="fran bgpink" position="1675,1825" size="100,100">The cashier notices her checking the change, and, feeling immense pity, gives her the ticket for &#39;&#39;free&#39;&#39;
 
 Mickey walks into a dark secluded corner of the store and scratches the ticket
 
@@ -826,7 +849,20 @@ You don’t have to piss, do you?
 
 (after:1s)[(t8n: &quot;fade&quot;)[[[Okay. I’ll be right back. Do you want anything else from the kitchen while I’m there?-&gt;03path2-12]]]]</tw-passagedata><tw-passagedata pid="93" name="03path2-12" tags="mdf" position="2275,125" size="100,100">&lt;img src=&quot;mdf/twine03-path2-12.jpg&quot;&gt;
 
-(after:1s)[(t8n: &quot;fade&quot;)[[[Leave.-&gt;start]]]]</tw-passagedata><tw-passagedata pid="94" name="emma" tags="emma" position="2075,1225" size="100,100"></tw-passagedata><tw-passagedata pid="95" name="yes, I need a sippy." tags="kevin" position="800,800" size="100,100">[[go to fridge]]
+(after:1s)[(t8n: &quot;fade&quot;)[[[Leave.-&gt;start]]]]</tw-passagedata><tw-passagedata pid="94" name="emma" tags="emma" position="2675,925" size="100,100">{(set:$guysharmed to 0)
+
+}You check your voicemail.
+There are two messages. Choose one.
+
+[(link-replace:&quot;this one&amp;emsp;&amp;emsp;&amp;emsp;&quot;)[(append:?messages)[
+
+One from the Babby judge&#39;s panel, who inform you that one of this year&#39;s nominees has been cancelled.]]](link-replace:&quot;that one&quot;)[(append:?messages)[
+
+One from Cool Dog, who (in bow wows and woofs) explains that they&#39;ve been sent to Cool Jail because they were framed for a murder they obviously did not commit bc they&#39;re too chill.
+
+[[Ignore Cool Dog&#39;s plea for help-&gt;start]]
+
+[[Vow to break Cool Dog out of prison.]]]][]&lt;messages|</tw-passagedata><tw-passagedata pid="95" name="yes, I need a sippy." tags="kevin" position="800,800" size="100,100">[[go to fridge]]
 
 [[go outside?]]</tw-passagedata><tw-passagedata pid="96" name="go outside?" tags="kevin" position="425,1050" size="100,100">You’re outside! The sun is shinin’, the birds are chirpin’ and the wind is fuckin’, now what about that drink...
 
@@ -1130,7 +1166,65 @@ Suddenly you are nearly nose to nose with her. She smells great, honestly.
 
 [[I&#39;m going out to gather firewood, Janet.]]</tw-passagedata><tw-passagedata pid="147" name="I&#39;m going out to gather firewood, Janet." tags="em-c" position="2900,1975" size="100,100">&quot;But you&#39;ve already made this beautiful fire here!&quot;
 
-[[I didn&#39;t make this one, Janet.-&gt;&quot;Uh, yeah. Yeah, Janet, it is. I didn&#39;t make it though.&quot;]] </tw-passagedata></tw-storydata>
+[[I didn&#39;t make this one, Janet.-&gt;&quot;Uh, yeah. Yeah, Janet, it is. I didn&#39;t make it though.&quot;]] </tw-passagedata><tw-passagedata pid="148" name="Vow to break Cool Dog out of prison." tags="emma" position="2800,925" size="100,100">You arrive at the lobby of Cool Jail.
+
+You try to convince the guards that Cool Dog would never do such a thing, but they are unmoved.
+
+Guess you&#39;ll have to do this the old-fashioned way.
+
+(display:&quot;guys harmed&quot;)
+
+(link-reveal:&quot;Use your status as a famous Twitch streamer to convince the guards to let you pass.&quot;)[
+
+This does not work - these cops appear to be uncultured swine who have never even heard of Mickey Z]
+
+[[Create a distraction]]
+
+[[Disguise self as Cool Dog]]
+
+[[Engage the guards in hand to hand combat.]]</tw-passagedata><tw-passagedata pid="149" name="guys harmed" tags="" position="2800,800" size="100,100">[Guys harmed: $guysharmed]&lt;guysharmed|</tw-passagedata><tw-passagedata pid="150" name="Create a distraction" tags="emma" position="2800,1050" size="100,100">Start a fire or something. Regardless, you&#39;re able to slip back to where the cells are. You can hear screams in the lobby.{
+
+(set:$guysharmed to it+5)}
+
+(display:&quot;guys harmed&quot;)
+
+(display:&quot;cell&quot;)</tw-passagedata><tw-passagedata pid="151" name="Disguise self as Cool Dog" tags="emma" position="2925,1050" size="100,100">A guard thinks you&#39;ve escaped and brings you back to your cell. When you arrive, it&#39;s obvious that you are not Cool Dog because Cool Dog is still in their cell. In this befuddled state, you knock out the guard with ease.
+
+You check his pockets - there are no cell keys.{
+
+(set:$guysharmed to it+1)}
+
+(display:&quot;guys harmed&quot;)
+
+(display:&quot;cell&quot;)</tw-passagedata><tw-passagedata pid="152" name="Engage the guards in hand to hand combat." tags="emma" position="2675,1050" size="100,100">Some sort of fight scene, followed by you slipping back to the cells.{
+
+(set:$guysharmed to it+3)}
+
+(display:&quot;guys harmed&quot;)
+
+(display:&quot;cell&quot;)</tw-passagedata><tw-passagedata pid="153" name="cell" tags="emma" position="2800,1175" size="100,100">{(set:$turns to 0)
+
+}You arrive at Cool Dog&#39;s cell.
+
+Cool Dog explains in bow wows and woofs that they are innocent. You reassure them that you believe them and you&#39;re going to break them out.
+
+(link-repeat:&quot;Try to pick the lock.&quot;)[(if: (random: 1, 3) &lt; 3)[ Failure! Try again?{
+
+(set:$turns to it+1)
+
+(if:$turns is 3)[(go-to:&quot;guard&quot;)]
+
+}](else:)[(link-goto:&quot; The prison door swings open.&quot;,&quot;The prison door swings open.&quot;)(replace:&quot;Try to pick the lock.&quot;)[Try to pick the lock.](replace:&quot;Think. Maybe you&#39;ll come up with another idea.&quot;)[Think. Maybe you&#39;ll come up with another idea.]]]
+
+(link-repeat:&quot;Think. Maybe you&#39;ll come up with another idea.&quot;)[ Nothing springs to mind, but maybe if you think even harder, something will come to you.(set:$turns to it+1)(if:$turns is 3)[(go-to:&quot;guard&quot;)]]</tw-passagedata><tw-passagedata pid="154" name="guard" tags="emma" position="2925,1175" size="100,100">A guard comes along and catches you where you&#39;re not supposed to be.
+
+You knock him out with ease and take his keyring. You use one of the keys to open the cell.{
+
+(set:$guysharmed to it+1)}
+
+(display:&quot;The prison door swings open.&quot;)</tw-passagedata><tw-passagedata pid="155" name="The prison door swings open." tags="emma" position="2875,1300" size="100,100">Cool Dog is finally free. They say to you: &quot;Thank you for freeing me and harming $guysharmed guys in the process. That&#39;s exactly the amount of guys I like to be harmed.&quot;
+
+The two of you sneak out of Cool Jail together and they decide to lay low at [[Mickey&#39;s place.-&gt;start]]</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
