@@ -784,7 +784,7 @@ quelaag-sword: ./gal/quelaag-sword.wav</tw-passagedata><tw-passagedata pid="29" 
 
 [[Stay on the sidelines and spectate the race. After all, this is a chatter’s game]]</tw-passagedata><tw-passagedata pid="32" name="Reject the tyranny of marbles and instead pay the enlightened game of Vampire Survivors" tags="kris" position="1850,800" size="100,100">You play a delightful game of Vampire Survivors and later have a splendid time playing DayZ and chatting to your friends who love you.
  
- [[the end-&gt;start]]</tw-passagedata><tw-passagedata pid="33" name="!play joining the game of marbles yourself" tags="kris" position="2000,700" size="100,100">The game starts up and all the marbles assemble. The gang’s all here: `pichu_slapping_butt`, hellophia, `gravy_ETs`, librarylion, galuigi, walfhord, JamesKuoDraws, Yoskidroski, JohnsonRCool, boobypuppy, et cetera. A marble appears labeled SpiderBabby, that’s you! :) The marbles are arranged around a large, circular saucer with a hole in the middle. The hole leads to the rest of the marble track. 
+ [[the end-&gt;start]]</tw-passagedata><tw-passagedata pid="33" name="!play joining the game of marbles yourself" tags="kris" position="2000,700" size="100,100">The game starts up and all the marbles assemble. The gang’s all here: `pichu_slapping_butt`, hellophia, `gravy_ETs`, librarylion, galuigi, walfhord, JamesKuoDraws, Yoskidroski, JohnsonRCool, boobypuppy, et cetera. A marble appears labeled spiderbabby, that’s you! :) The marbles are arranged around a large, circular saucer with a hole in the middle. The hole leads to the rest of the marble track. 
 
 The timer counts down and the race begins, all the marbles roll towards the hole. 
 
@@ -813,9 +813,9 @@ Your friends are on all sides of you, having a blast. It’s exhilarating, it fe
 
 [[Well that’s weird, but it’s not gonna ruin my day.-&gt;keep rolling]]</tw-passagedata><tw-passagedata pid="39" name="Definitely don’t look too close at the corn" tags="kris" position="2400,850" size="100,100">You avert your eyes and [[keep rolling]]…</tw-passagedata><tw-passagedata pid="40" name="keep rolling" tags="kris" position="2375,1025" size="100,100">BOOF! Suddenly you find yourself jammed in a pile of marbles yourself. There’s a fork in the road and all the marbles have piled up around the two diverging tracks. 
 
-[[Go right]]
+&lt;span style=&quot;float: left;&quot;&gt;[[Go left]]&lt;/span&gt;{
 
-[[Go left]]</tw-passagedata><tw-passagedata pid="41" name="Go right" tags="kris" position="2400,1150" size="100,100">You roll onto the right side of the divide and find your marble body shooting up into the air next to `pichu_slapping_butt`.
+}&lt;span style=&quot;float: right;&quot;&gt;[[Go right]]&lt;/span&gt;</tw-passagedata><tw-passagedata pid="41" name="Go right" tags="kris" position="2400,1150" size="100,100">You roll onto the right side of the divide and find your marble body shooting up into the air next to `pichu_slapping_butt`.
 
 [`pichu_slapping_butt`: sup lit mickey! Happy birthday!]&lt;chat|
 
@@ -1403,6 +1403,8 @@ Success. There is no more noise.
 
 [[&quot;Janet? Janet, you little devil, where are you!&quot;-&gt;Ok, this doesn&#39;t feel right. Where did she go?]]]]]]]]</tw-passagedata><tw-passagedata pid="157" name="slimy" tags="slimy" position="1350,1675" size="100,100">{(set:$hasOnion to false)
 (set:$hasToblerone to false)
+(set:$endingO to false)
+(set:$endingT to false)
 
 }you think you hear something... a gust of wind? a cat outside your window? Some little guy living in the walls?
 
@@ -1430,7 +1432,7 @@ so you...
 
 }[[call the burger restaurant]]{
 
-}]</tw-passagedata><tw-passagedata pid="159" name="go fishing" tags="slimy" position="1250,1925" size="100,100">you walk down to the ocean
+}]</tw-passagedata><tw-passagedata pid="159" name="go fishing" tags="slimy" position="1275,1950" size="100,100">you walk down to the ocean
 
 it&#39;s beautiful... the waves and so on...a seagull is there...
 
@@ -1438,17 +1440,21 @@ you see the perfect secluded spot to fish
 
 [[cast your line?]]</tw-passagedata><tw-passagedata pid="160" name="check your couch cushions" tags="slimy" position="1550,1900" size="100,100">you dig around for a few minutes...
 
-(if: (random: 1, 10) &lt; 10)[you find an empty toblerone box
+[you find an empty toblerone box]&lt;toblerzone|
 
-keep searching?
+[keep searching?
 
-[[yes-&gt;check your couch cushions]]
+you could swear there&#39;s something in here...
 
-(link-replace:&quot;no&quot;)[(link-goto:&quot;you hear that familiar sound again...&quot;,&quot;listen closer...&quot;)]](else:)[you find a delicious toblerone, fully sealed and intact, and it looks good enough to eat(set:$hasToblerone to true)
+(link-repeat:&quot;yes&quot;)[(if: (random: 1, 10) &lt; 10)[(append:?toblerzone)[
+
+you find an empty toblerone box]](else:)[(replace:?questions)[you find a delicious toblerone, fully sealed and intact, and it looks good enough to eat(set:$hasToblerone to true)
 
 You put it away for later
 
-[[you hear that familiar sound again...-&gt;listen closer...]]]</tw-passagedata><tw-passagedata pid="161" name="call the burger restaurant" tags="slimy" position="1350,2050" size="100,100">you ask for a burger with
+[[you hear that familiar sound again...-&gt;listen closer...]]]]]
+
+(link-replace:&quot;no&quot;)[(link-goto:&quot;you hear that familiar sound again...&quot;,&quot;listen closer...&quot;)]]&lt;questions|</tw-passagedata><tw-passagedata pid="161" name="call the burger restaurant" tags="slimy" position="1400,2025" size="100,100">you ask for a burger with
 
 (link-replace:&quot;cheese&quot;)[sorry no cheese...]
 
@@ -1512,7 +1518,7 @@ try again?
 
 the ocean, while still beautiful, strikes you as a cold, lonely place...
 
-[[you begin to hear that familiar sound again...-&gt;listen closer...]]</tw-passagedata><tw-passagedata pid="166" name="yes that&#39;s what I want" tags="slimy" position="1475,2050" size="100,100">you get your burger delivered. It looks so good.(if:$hasOnion is true)[
+[[you begin to hear that familiar sound again...-&gt;listen closer...]]</tw-passagedata><tw-passagedata pid="166" name="yes that&#39;s what I want" tags="slimy" position="1525,2025" size="100,100">you get your burger delivered. It looks so good.(if:$hasOnion is true)[
 
 You&#39;re very happy to see there&#39;s so much onion.]
 
@@ -1524,7 +1530,9 @@ You go viral online and mr. beast gives you his banking information. Within the 
 
 That rumbling hole in your stomach... it&#39;s no longer there.
 
-[[the end-&gt;start]]</tw-passagedata><tw-passagedata pid="168" name="ending2" tags="slimy" position="1125,2200" size="100,100">mr. beast and all his frends are there. They&#39;ve taken pity on you and give you gifts.
+[[the end-&gt;start]]</tw-passagedata><tw-passagedata pid="168" name="ending2" tags="slimy" position="1125,2200" size="100,100">{(set:$endingO to true)
+
+}mr. beast and all his frends are there. They&#39;ve taken pity on you and give you gifts.
 
 you get a twenty dollar bill and a mr. beast chocolate bar.
 
@@ -1532,13 +1540,23 @@ dinner is served
 
 You are not given an opportunity to plug your tiktok... :·(
 
-[[the end-&gt;start]]</tw-passagedata><tw-passagedata pid="169" name="ending1" tags="slimy" position="1000,2200" size="100,100">you catch a beautiful eel
+[[... .... ....-&gt;you feel like]]</tw-passagedata><tw-passagedata pid="169" name="ending1" tags="slimy" position="1000,2200" size="100,100">{(set:$endingT to true)
+
+}you catch a beautiful eel
 
 and she has barely even touched your toblerone
 
 dinner is served
 
-[[the end-&gt;start]]</tw-passagedata><tw-passagedata pid="170" name="sunmi" tags="" position="2800,1500" size="100,100"></tw-passagedata></tw-storydata>
+[[... .... ....-&gt;you feel like]]</tw-passagedata><tw-passagedata pid="170" name="sunmi" tags="" position="2800,1500" size="100,100"></tw-passagedata><tw-passagedata pid="171" name="you feel like" tags="slimy" position="1050,2400" size="100,100">... you feel like there could be more out there for you... maybe love... maybe going incredibly viral...
+
+(link:&quot;listen to your gut&quot;)[{
+
+}[[you hear that familiar sound again...-&gt;listen closer...]]{
+
+}]
+
+[[call it a day-&gt;start]]</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
