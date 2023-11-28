@@ -15,10 +15,26 @@
 
 @import url(https://db.onlinewebfonts.com/c/045528df847940a9c65c05087e21af07?family=Roobert+TWHINT+Bold);
 
+.central{
+  display:flex;
+  align-items:center;
+  font-size:80%;
+  padding-top:10px;
+  padding-bottom:10px;
+}
+
+.central img{
+ margin-right:10px;
+ margin-left:10px;
+}
+
 tw-story[tags~="start"] {
  font-family: 'Lora', serif; 
   background-color:#465840;
   color:#2d261b;
+  padding-top:0px;
+  padding-left:10px;
+  padding-right:10px;
 }
 
 tw-story[tags~="start"] tw-link{
@@ -628,8 +644,48 @@ tw-hook[name="tooltip"] .tooltiptext {
   left: 105%;
 }
 
+tw-hook[name="tooltip2"] {
+  position: relative;
+  display: inline-block;
+}
+
+tw-hook[name="tooltip2"] .tooltiptext {
+  visibility: hidden;
+  background-color: #37231e;
+  color: #465840;
+  text-align: center;
+  padding: 0.25em;
+  position: absolute;
+  z-index: 1;
+  top: -5px;
+  right: 105%;
+}
+
 tw-hook[name="tooltip"]:hover .tooltiptext {
 	visibility: visible;
+}
+
+tw-hook[name="tooltip2"]:hover .tooltiptext {
+	visibility: visible;
+}
+
+/* container */
+.responsive-three-columns {
+    display:flex;
+    flex-wrap:wrap;
+}
+
+/* columns */
+.responsive-three-columns > * {
+    width:100%;
+    padding:1rem;
+}
+
+/* tablet breakpoint */
+@media (min-width:768px) {
+    .responsive-three-columns > * {
+        width:calc(100% / 3);
+    }
 }
 
 /**
@@ -2023,59 +2079,48 @@ Your head high above the neighborhood, you stare down at your easily 50-foot fra
 (after:time+1s)[.... .... ...
 
 (after:time+1s)[there it is again... like a knocking noise or a grumbling rolling type thing]]]</tw-passagedata><tw-passagedata pid="224" name="start" tags="start" position="1550,1075" size="100,100">{(group: &#39;playing&#39;, &#39;stop&#39;)
+}&lt;div class=&quot;responsive-three-columns&quot;&gt;
+&lt;div&gt;
+&lt;div class=&quot;central&quot; style=&quot;justify-content:right;&quot;&gt;&lt;img src=&quot;start/fran.gif&quot;&gt;(text-style: &quot;shudder&quot;)[(link-goto:&quot;squats&quot;,&quot;fran&quot;)&lt;span class=&quot;tooltiptext&quot;&gt;fran&lt;/span&gt;]&lt;tooltip|&lt;/div&gt;{
 
-}
-=&gt;&lt;=
+}&lt;div class=&quot;central&quot; style=&quot;justify-content:right;&quot;&gt;&lt;img src=&quot;start/gal.gif&quot;&gt;|tooltip&gt;[(link-goto:&quot;Open your window&quot;,&quot;gal&quot;)&lt;span class=&quot;tooltiptext&quot;&gt;gal&lt;/span&gt;]&amp;emsp;&amp;emsp;&lt;/div&gt;{
+
+}&lt;div class=&quot;central&quot; style=&quot;justify-content:center;&quot;&gt;&lt;img src=&quot;start/zoe.gif&quot;&gt;|tooltip&gt;[(link-goto:&quot;You decide to boot up Armored Core VI: Fires of Rubicon&quot;,&quot;zoe&quot;)&lt;span class=&quot;tooltiptext&quot;&gt;zoe&lt;/span&gt;]&lt;/div&gt;{
+
+}&lt;div class=&quot;central&quot; style=&quot;justify-content:left;&quot;&gt;&lt;img src=&quot;start/james.gif&quot;&gt;|tooltip&gt;[(link-goto:&quot;get in the f-word robot&quot;,&quot;james&quot;)&lt;span class=&quot;tooltiptext&quot;&gt;james&lt;/span&gt;]&lt;/div&gt;{
+
+}&lt;div class=&quot;central&quot; style=&quot;justify-content:left;&quot;&gt;&lt;img src=&quot;start/kris.gif&quot;&gt;|tooltip&gt;[(link-goto:&quot;marbles.&quot;,&quot;kris&quot;)&lt;span class=&quot;tooltiptext&quot;&gt;kris&lt;/span&gt;]&lt;/div&gt;{
+
+}&lt;div class=&quot;central&quot; style=&quot;justify-content:center;&quot;&gt;&lt;img src=&quot;start/em.gif&quot;&gt;|tooltip&gt;[(link-goto:&quot;Play DayZ.&quot;,&quot;em c&quot;)&lt;span class=&quot;tooltiptext&quot;&gt;em&lt;/span&gt;]&lt;/div&gt;{
+
+}&lt;div class=&quot;central&quot; style=&quot;justify-content:right;&quot;&gt;&lt;img src=&quot;start/mdf.gif&quot;&gt;|tooltip&gt;[(link-goto:&quot;go into the hatch&quot;,&quot;mdf&quot;)&lt;span class=&quot;tooltiptext&quot;&gt;mdf&lt;/span&gt;]&amp;emsp;&amp;emsp;&lt;/div&gt;{
+
+}&lt;div class=&quot;central&quot; style=&quot;justify-content:right;&quot;&gt;&lt;img src=&quot;start/kevin.gif&quot;&gt;|tooltip&gt;[(link-goto:&quot;think about if you are thirsty&quot;,&quot;kevin&quot;)&lt;span class=&quot;tooltiptext&quot;&gt;kevin&lt;/span&gt;]&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style=&quot;text-align:center;&quot;&gt;
+&lt;img src=&quot;start/mickey.gif&quot;&gt;
 you are mickey z.
 you&#39;re sitting in your room.
 what will u do?
-&lt;==
+&lt;/div&gt;
+&lt;div&gt;
+&lt;div class=&quot;central&quot; style=&quot;justify-content:left;&quot;&gt;|tooltip2&gt;[(link-goto:&quot;listen for sounds&quot;,&quot;slimy&quot;)&lt;span class=&quot;tooltiptext&quot;&gt;slimy&lt;/span&gt;]&lt;img src=&quot;start/slimy.gif&quot;&gt;&lt;/div&gt;{
 
-&lt;span style=&quot;float: left;&quot;&gt;&amp;emsp;(text-style: &quot;shudder&quot;)[(link-goto:&quot;squats&quot;,&quot;fran&quot;)&lt;span class=&quot;tooltiptext&quot;&gt;fran&lt;/span&gt;]&lt;tooltip|&lt;/span&gt;{
+}&lt;div class=&quot;central&quot; style=&quot;justify-content:left;&quot;&gt;&amp;emsp;&amp;emsp;|tooltip2&gt;[(link-goto:&quot;You check your voicemail.&quot;,&quot;emma&quot;)&lt;span class=&quot;tooltiptext&quot;&gt;emma&lt;/span&gt;]&lt;img src=&quot;start/emma.gif&quot;&gt;&lt;/div&gt;{
 
-}&lt;span style=&quot;float: right;&quot;&gt;|tooltip&gt;[(link-goto:&quot;Open your window&quot;,&quot;gal&quot;)&lt;span class=&quot;tooltiptext&quot;&gt;gal&lt;/span&gt;]&lt;/span&gt;
-=&gt;&lt;=
+}&lt;div class=&quot;central&quot; style=&quot;justify-content:center;&quot;&gt;|tooltip2&gt;[(link-goto:&quot;browse tiktok&quot;,&quot;sunmi&quot;)&lt;span class=&quot;tooltiptext&quot;&gt;sunmi&lt;/span&gt;]&lt;img src=&quot;start/sunmi.gif&quot;&gt;&lt;/div&gt;{
 
-|tooltip&gt;[(link-goto:&quot;You decide to boot up Armored Core VI: Fires of Rubicon&quot;,&quot;zoe&quot;)&lt;span class=&quot;tooltiptext&quot;&gt;zoe&lt;/span&gt;]
-&lt;==
+}&lt;div class=&quot;central&quot; style=&quot;justify-content:right;&quot;&gt;|tooltip2&gt;[(link-goto:&quot;Go inside the awful filthy cave&quot;)&lt;span class=&quot;tooltiptext&quot;&gt;gb&lt;/span&gt;]&lt;img src=&quot;start/gb.gif&quot;&gt;&lt;/div&gt;{
 
-&lt;span style=&quot;float: left;&quot;&gt;|tooltip&gt;[(link-goto:&quot;get in the f-word robot&quot;,&quot;james&quot;)&lt;span class=&quot;tooltiptext&quot;&gt;james&lt;/span&gt;]&lt;/span&gt;{
+}&lt;div class=&quot;central&quot; style=&quot;justify-content:right;&quot;&gt;|tooltip2&gt;[(link-goto:&quot;go for a WALK&quot;)&lt;span class=&quot;tooltiptext&quot;&gt;evan&lt;/span&gt;]&lt;img src=&quot;start/evan.gif&quot;&gt;&lt;/div&gt;{
 
-}&lt;span style=&quot;float: right;&quot;&gt;|tooltip&gt;[(link-goto:&quot;marbles.&quot;,&quot;kris&quot;)&lt;span class=&quot;tooltiptext&quot;&gt;kris&lt;/span&gt;]&lt;/span&gt;
-=&gt;&lt;=
+}&lt;div class=&quot;central&quot; style=&quot;justify-content:center;&quot;&gt;|tooltip2&gt;[(link-goto:&quot;chill in yard&quot;,&quot;pual&quot;)&lt;span class=&quot;tooltiptext&quot;&gt;pual&lt;/span&gt;]&lt;img src=&quot;start/pual.gif&quot;&gt;&lt;/div&gt;{
 
-|tooltip&gt;[(link-goto:&quot;Play DayZ.&quot;,&quot;em c&quot;)&lt;span class=&quot;tooltiptext&quot;&gt;em&lt;/span&gt;]
-==&gt;
+}&lt;div class=&quot;central&quot; style=&quot;justify-content:left;&quot;&gt;&amp;emsp;&amp;emsp;|tooltip2&gt;[(link-goto:&quot;read graveyard ducks&quot;,&quot;jared&quot;)&lt;span class=&quot;tooltiptext&quot;&gt;jared&lt;/span&gt;]&lt;img src=&quot;start/jared.gif&quot;&gt;&lt;/div&gt;{
 
-|tooltip&gt;[(link-goto:&quot;go into the hatch&quot;,&quot;mdf&quot;)&lt;span class=&quot;tooltiptext&quot;&gt;mdf&lt;/span&gt;]&amp;emsp;&amp;emsp;&amp;emsp;
-&lt;==
-
-&amp;emsp;&amp;emsp;|tooltip&gt;[(link-goto:&quot;think about if you are thirsty&quot;,&quot;kevin&quot;)&lt;span class=&quot;tooltiptext&quot;&gt;kevin&lt;/span&gt;]
-==&gt;
-
-&lt;span style=&quot;float: left;&quot;&gt;|tooltip&gt;[(link-goto:&quot;listen for sounds&quot;,&quot;slimy&quot;)&lt;span class=&quot;tooltiptext&quot;&gt;slimy&lt;/span&gt;]&lt;/span&gt;{
-
-}&lt;span style=&quot;float: right;&quot;&gt;|tooltip&gt;[(link-goto:&quot;You check your voicemail.&quot;,&quot;emma&quot;)&lt;span class=&quot;tooltiptext&quot;&gt;emma&lt;/span&gt;]&lt;/span&gt;
-=&gt;&lt;=
-
-|tooltip&gt;[(link-goto:&quot;browse tiktok&quot;,&quot;sunmi&quot;)&lt;span class=&quot;tooltiptext&quot;&gt;sunmi&lt;/span&gt;]
-&lt;==
-
-&lt;span style=&quot;float: left;&quot;&gt;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;|tooltip&gt;[(link-goto:&quot;Go inside the awful filthy cave&quot;)&lt;span class=&quot;tooltiptext&quot;&gt;gb&lt;/span&gt;]&lt;/span&gt;{
-
-}&lt;span style=&quot;float: right;&quot;&gt;|tooltip&gt;[(link-goto:&quot;go for a WALK&quot;)&lt;span class=&quot;tooltiptext&quot;&gt;evan&lt;/span&gt;]&amp;emsp;&amp;emsp;&lt;/span&gt;
-
-|tooltip&gt;[(link-goto:&quot;chill in yard&quot;,&quot;pual&quot;)&lt;span class=&quot;tooltiptext&quot;&gt;pual&lt;/span&gt;]
-==&gt;
-
-|tooltip&gt;[(link-goto:&quot;read graveyard ducks&quot;,&quot;jared&quot;)&lt;span class=&quot;tooltiptext&quot;&gt;jared&lt;/span&gt;]&amp;emsp;
-
-|tooltip&gt;[(link-goto:&quot;Take a nap&quot;,&quot;exe&quot;)&lt;span class=&quot;tooltiptext&quot;&gt;exe&lt;/span&gt;]&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;
-
-
-
-
-
+}&lt;div class=&quot;central&quot; style=&quot;justify-content:left;&quot;&gt;|tooltip2&gt;[(link-goto:&quot;Take a nap&quot;,&quot;exe&quot;)&lt;span class=&quot;tooltiptext&quot;&gt;exe&lt;/span&gt;]&lt;img src=&quot;start/exe.gif&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 </tw-passagedata><tw-passagedata pid="225" name="still not big enough" tags="" position="4525,800" size="100,100">for real?
 
 ##[(text-colour:#8ae619)[(text-style:&quot;smear&quot;)[(text-colour:#8ae619)[(font: &quot;Comic Sans MS&quot;)[
@@ -3117,13 +3162,13 @@ You hear an angry response from up in a tree,
 
 &quot;Shut up!&quot; He straightens up, dusting himself off and trying to play it off like his fall was on purpose.
 
-[[Ask about the headphones]]
+(if: (history:) contains &quot;Ask about the headphones&quot;)[{
+}[[Ask about a way out of the forest]]](else:)[{
+}[[Ask about the headphones]]]</tw-passagedata><tw-passagedata pid="403" name="Ask about the headphones" tags="exe" position="2500,4850" size="100,100">&quot;Oh, these?&quot; A smug grin spreads across his face as he pulls them off, exposing the inside of the blocks. Inside you see several small birds tweeting raucously a certain tune that after a few moments you recognize as &quot;Talk that Talk&quot; by Twice. &quot;I bet you are jealous!&quot;
 
-[[Ask about a way out of the forest]]</tw-passagedata><tw-passagedata pid="403" name="Ask about the headphones" tags="exe" position="2500,4850" size="100,100">&quot;Oh, these?&quot; A smug grin spreads across his face as he pulls them off, exposing the inside of the blocks. Inside you see several small birds tweeting raucously a certain tune that after a few moments you recognize as &quot;Talk that Talk&quot; by Twice. &quot;I bet you are jealous!&quot;
-
-[[Ask who the cat is]]
-
-[[Ask about a way out of the forest]]</tw-passagedata><tw-passagedata pid="404" name="Ask about a way out of the forest" tags="exe" position="2425,4975" size="100,100">&quot;A way out of the forest huh?&quot; He looks you up and down. &quot;I&#39;ve never seen the likes of you before, you&#39;re a suspicious character!&quot;
+(if: (history:) contains &quot;Ask who the cat is&quot;)[{
+}[[Ask about a way out of the forest]]](else:)[{
+}[[Ask who the cat is]]]</tw-passagedata><tw-passagedata pid="404" name="Ask about a way out of the forest" tags="exe" position="2425,4975" size="100,100">&quot;A way out of the forest huh?&quot; He looks you up and down. &quot;I&#39;ve never seen the likes of you before, you&#39;re a suspicious character!&quot;
 
 Something suddenly occurs to him as he looks you over and a look of fear falls across his face.
 
@@ -3176,7 +3221,7 @@ However, the other villagers are not so lucky. After the twitch cop zooms off, y
 
 [[Wait until dark]]](else:)[Unable to resist the allure of the flute playing a tune that sounds suspiciously like Hips Don&#39;t Lie by Shakira, you stand up out of your barrel, as does Jarody. The barrels topple over and begin rolling down the hill, with you in them, eventually crashing into a well at the center of town. The two of you slowly get up, entranced by the music. You turn toward the twitch cop and start walking. He turns and shoots you both with a beam, transforming you into rubber band balls.
 
-[[GAME OVER-&gt;start]]]</tw-passagedata><tw-passagedata pid="407" name="Don&#39;t sip" tags="exe" position="2775,4300" size="100,100">30 minutes? That isn&#39;t that long. Come on. You think these things to yourself as you push the bottle away.
+[[you wake up in your bed, more tired than you were before-&gt;start]]]</tw-passagedata><tw-passagedata pid="407" name="Don&#39;t sip" tags="exe" position="2775,4300" size="100,100">30 minutes? That isn&#39;t that long. Come on. You think these things to yourself as you push the bottle away.
 
 &quot;I&#39;m fine.&quot; you hear yourself say. A worried expression sets upon the villager&#39;s face.
 
@@ -3242,9 +3287,7 @@ The knowledgeable sphinx walks up, licking a lollipop.
 
 &quot;Now you must move on to the next story. Farewell!&quot;
 
-A white wind begins swirling around you, and before you know it you are back in your bed, back in your room, fully rested.
-
-[[THE END-&gt;start]]</tw-passagedata><tw-passagedata pid="415" name="exewrong" tags="exe" position="3700,4450" size="100,100">WRONG!
+[[A white wind begins swirling around you, and before you know it you are back in your bed, back in your room, fully rested.-&gt;start]]</tw-passagedata><tw-passagedata pid="415" name="exewrong" tags="exe" position="3700,4450" size="100,100">WRONG!
 
 The creature shrieks and you instantly transform into a rubber band ball, with a pop.
 
@@ -3274,7 +3317,7 @@ The creature shrieks and you instantly transform into a rubber band ball, with a
 
 (font:&quot;Roboto Slab&quot;)[Sphinx of black quartz, judge my vow.]
 
-(font:&quot;Zilla Slab&quot;)[How vexingly quick daft zebras jump!]</tw-passagedata></tw-storydata>
+(font:&quot;Zilla Slab&quot;)[How vexingly quick daft zebras jump!]</tw-passagedata><tw-passagedata pid="417" name="booby" tags="" position="3000,3400" size="100,100"></tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
