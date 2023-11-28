@@ -2338,19 +2338,17 @@ the attendant LOOKS up from his magazine. you can&#39;t HELP but notice that the
 [[better get a drink-&gt;go to the cooler]]](else:)[{
 }he doesn&#39;t even bother to respond
 (set: $ATTENDANT to 1)
-[[better get your drink and get out-&gt;go to the cooler]]]</tw-passagedata><tw-passagedata pid="258" name="Untitled Passage" tags="evan" position="100,3500" size="100,100">wishlist:
-- corner store allows movement through snacks and cooler in either direction
-- intersection links to fountain, AFTER visiting lot</tw-passagedata><tw-passagedata pid="259" name="a popsicle is a DRINK, change my mind" tags="evan" position="250,4300" size="100,100">you go up to the ICE CREAM STAND. there is no ATTENDANT, all the treats are in a big BARREL. there are three KINDS:
+[[better get your drink and get out-&gt;go to the cooler]]]</tw-passagedata><tw-passagedata pid="258" name="a popsicle is a DRINK, change my mind" tags="evan" position="250,4300" size="100,100">you go up to the ICE CREAM STAND. there is no ATTENDANT, all the treats are in a big BARREL. there are three KINDS:
 
 [[CHOCOLATE fudgecicle]]
 [[BLUE ice pop]]
-[[MYSTERY pop]]</tw-passagedata><tw-passagedata pid="260" name="ask him how he is" tags="evan" position="175,2850" size="100,100">&quot;how are you today?&quot;
+[[MYSTERY pop]]</tw-passagedata><tw-passagedata pid="259" name="ask him how he is" tags="evan" position="175,2850" size="100,100">&quot;how are you today?&quot;
 
 the cat looks at you, then licks his paw
 
 i guess that&#39;s an answer.
 
-what now? [[go RIGHT]] [[go LEFT]]</tw-passagedata><tw-passagedata pid="261" name="ask him to ACCOMPANY you" tags="evan" position="300,2850" size="100,100">you say &quot;i&#39;m going out. do you want to come with me?&quot;
+what now? [[go RIGHT]] [[go LEFT]]</tw-passagedata><tw-passagedata pid="260" name="ask him to ACCOMPANY you" tags="evan" position="300,2850" size="100,100">you say &quot;i&#39;m going out. do you want to come with me?&quot;
 
 the cat stands up and looks READY to follow you
 
@@ -2359,24 +2357,24 @@ what now?
 [[ask the cat WHERE he wants to go]]
 [[just start WALKING-&gt;go FORWARD]]
 
-(set: $CAT to 1)</tw-passagedata><tw-passagedata pid="262" name="ask the cat WHERE he wants to go" tags="evan" position="425,2975" size="100,100">&quot;where to?&quot; you ask. the CAT gestures towards the [[corner store-&gt;go to the shop]]
+(set: $CAT to 1)</tw-passagedata><tw-passagedata pid="261" name="ask the cat WHERE he wants to go" tags="evan" position="425,2975" size="100,100">&quot;where to?&quot; you ask. the CAT gestures towards the [[corner store-&gt;go to the shop]]
 
-(set: $CAT to 1)</tw-passagedata><tw-passagedata pid="263" name="better head back in" tags="evan" position="1600,4700" size="100,100">(set: $THIRST to -1)
+(set: $CAT to 1)</tw-passagedata><tw-passagedata pid="262" name="better head back in" tags="evan" position="1600,4700" size="100,100">(set: $THIRST to -1)
 (if: $SQUID is 0)[you get out of the WATER. you feel REFRESHED and full of energy.](if: $SQUID is 1)[you stand up and LOOK around. you feel the POWER of the mystery pop returning.(if: $CAT is 1)[ the cat gazes at you, KNOWINGLY.]]
 
 [[DIG in the sand]]
-[[leave the beach-&gt;time to LEAVE]]</tw-passagedata><tw-passagedata pid="264" name="better not" tags="evan" position="100,4300" size="100,100">you reach back into the BARREL
+[[leave the beach-&gt;time to LEAVE]]</tw-passagedata><tw-passagedata pid="263" name="better not" tags="evan" position="100,4300" size="100,100">you reach back into the BARREL
 
 [[CHOCOLATE fudgecicle]]
 [[BLUE ice pop]]
-[[MYSTERY pop]]</tw-passagedata><tw-passagedata pid="265" name="better not touch it" tags="evan" position="300,3100" size="100,100">you are certain the money is a trap. you glance back at the cat. he WINKS, then he gets up. he looks READY to follow you
+[[MYSTERY pop]]</tw-passagedata><tw-passagedata pid="264" name="better not touch it" tags="evan" position="300,3100" size="100,100">you are certain the money is a trap. you glance back at the cat. he WINKS, then he gets up. he looks READY to follow you
 
 [[ask the cat WHERE he wants to go]]
-[[leave him, just start WALKING]]</tw-passagedata><tw-passagedata pid="266" name="check out the LOT" tags="evan" position="1675,4250" size="100,100">you (if: $CAT is 1)[and the cat ]walk towards the LOT. there are SHRUBS and TALL GRASS obscuring your view of the interior. it is VERDANT. the smell is INTOXICATING. as you weave your way further in, you can hear the RUSTLING of small creatures all around you.
+[[leave him, just start WALKING]]</tw-passagedata><tw-passagedata pid="265" name="check out the LOT" tags="evan" position="1675,4250" size="100,100">you (if: $CAT is 1)[and the cat ]walk towards the LOT. there are SHRUBS and TALL GRASS obscuring your view of the interior. it is VERDANT. the smell is INTOXICATING. as you weave your way further in, you can hear the RUSTLING of small creatures all around you.
 
 [[INVESTIGATE rustling]]
 [[keep going-&gt;interior lot]]
-[[leave the lot-&gt;go back to the INTERSECTION]]</tw-passagedata><tw-passagedata pid="267" name="classifiedsbeach" tags="evan" position="250,5100" size="100,100">you flip to the CLASSIFIEDS section. the first ad jumps out at you
+[[leave the lot-&gt;go back to the INTERSECTION]]</tw-passagedata><tw-passagedata pid="266" name="classifiedsbeach" tags="evan" position="250,5100" size="100,100">you flip to the CLASSIFIEDS section. the first ad jumps out at you
 
 &quot;MMEET ME AT THE CURSED FOUNTIN AT NOON. ~UR SECREWT LOVER~&quot;
 
@@ -2384,7 +2382,7 @@ woah, wonder who that&#39;s for. . . . .
 
 [[[okay this is great but you&#39;re still thirsty-&gt;go to the cooler]]]
 
-(set: $MEMORY to 1)</tw-passagedata><tw-passagedata pid="268" name="classifiedslot" tags="evan" position="1250,4250" size="100,100">you flip to the CLASSIFIEDS section. the first ad jumps out at you
+(set: $MEMORY to 1)</tw-passagedata><tw-passagedata pid="267" name="classifiedslot" tags="evan" position="1250,4250" size="100,100">you flip to the CLASSIFIEDS section. the first ad jumps out at you
 
 &quot;MMEET ME AT THE CURSED FOUNTIN AT NOON. ~UR SECREWT LOVER~&quot;
 
@@ -2392,84 +2390,82 @@ woah, wonder who that&#39;s for. . . . .
 
 [[[maybe we should check out the LOT across the street-&gt;check out the LOT]]]
 
-(set: $MEMORY to 1)</tw-passagedata><tw-passagedata pid="269" name="drink GATORADE" tags="evan" position="575,2400" size="100,100">good thing you REMEMBERED to bring gatorade
+(set: $MEMORY to 1)</tw-passagedata><tw-passagedata pid="268" name="drink GATORADE" tags="evan" position="575,2400" size="100,100">good thing you REMEMBERED to bring gatorade
 (click-replace: &quot;good thing you REMEMBERED to bring gatorade&quot;)[ you DRINK some of the gatorade]
 (click-replace: &quot;you DRINK some of the gatorade&quot;)[you are no longer thirsty]
 (click-replace: &quot;you are no longer thirsty&quot;)[[[keep going-&gt;keep going]]]
-(set: $THIRST to it -1)</tw-passagedata><tw-passagedata pid="270" name="drink GATORADE beach" tags="evan" position="525,3925" size="100,100">good thing you REMEMBERED to bring gatorade
+(set: $THIRST to it -1)</tw-passagedata><tw-passagedata pid="269" name="drink GATORADE beach" tags="evan" position="525,3925" size="100,100">good thing you REMEMBERED to bring gatorade
 (click-replace: &quot;good thing you REMEMBERED to bring gatorade&quot;)[ you DRINK some of the gatorade]
 (click-replace: &quot;you DRINK some of the gatorade&quot;)[you are no longer thirsty]
 (click-replace: &quot;you are no longer thirsty&quot;)[[[keep going-&gt;SAND]]]
-(set: $THIRST to it -2)</tw-passagedata><tw-passagedata pid="271" name="drink WATER" tags="evan" position="575,2650" size="100,100">good thing you REMEMBERED to bring water
+(set: $THIRST to it -2)</tw-passagedata><tw-passagedata pid="270" name="drink WATER" tags="evan" position="575,2650" size="100,100">good thing you REMEMBERED to bring water
 (click-replace: &quot;good thing you REMEMBERED to bring water&quot;)[ you DRINK some of the water]
 (click-replace: &quot;you DRINK some of the water&quot;)[you are no longer thirsty]
 (click-replace: &quot;you are no longer thirsty&quot;)[[[keep going-&gt;keep going]]]
-(set: $THIRST to it -1)</tw-passagedata><tw-passagedata pid="272" name="drink WATER beach" tags="evan" position="400,3925" size="100,100">good thing you REMEMBERED to bring water
+(set: $THIRST to it -1)</tw-passagedata><tw-passagedata pid="271" name="drink WATER beach" tags="evan" position="400,3925" size="100,100">good thing you REMEMBERED to bring water
 (click-replace: &quot;good thing you REMEMBERED to bring water&quot;)[ you DRINK some of the water]
 (click-replace: &quot;you DRINK some of the water&quot;)[you are no longer thirsty]
 (click-replace: &quot;you are no longer thirsty&quot;)[[[keep going-&gt;SAND]]]
-(set: $THIRST to it -2)</tw-passagedata><tw-passagedata pid="273" name="eat it" tags="evan" position="150,4550" size="100,100">you EAT the mystery pop. it has no taste but you are getting less THIRSTY. you feel GREAT. (if: $CAT is 1)[the cat PURRS loudly.] you are now IMMUNE to the effects of THIRST and HEAT. you feel a newfound POWER coursing through your veins. [[time to go to the beach &gt;; )-&gt;exit near beach]]
+(set: $THIRST to it -2)</tw-passagedata><tw-passagedata pid="272" name="eat it" tags="evan" position="150,4550" size="100,100">you EAT the mystery pop. it has no taste but you are getting less THIRSTY. you feel GREAT. (if: $CAT is 1)[the cat PURRS loudly.] you are now IMMUNE to the effects of THIRST and HEAT. you feel a newfound POWER coursing through your veins. [[time to go to the beach &gt;; )-&gt;exit near beach]]
 
 (set: $THIRST to -273.15)
 (set: $HEAT to -273.15)
-(set: $IMMUNE to 1)</tw-passagedata><tw-passagedata pid="274" name="everything starts to go DIM" tags="evan evan-turnblack" position="600,3500" size="100,100">(t8n-depart:&quot;dissolve&quot;)+(t8n-arrive:&quot;blur&quot;)+(t8n-time:2s)(click-goto:?page,&quot;start&quot;)
-==&gt;&lt;==
-(after:3s)[&lt;img src=&quot;https://media.tenor.com/ZpBMkWyufhMAAAAC/dead.gif&quot;&gt;]</tw-passagedata><tw-passagedata pid="275" name="examine your SURROUNDINGS" tags="evan" position="1850,4400" size="100,100">you look around the BASE of the fountain. there is something very very very small leaning against the marble. you squint, &quot;MIPPY?!?? Wow, what are you doing here??&quot;
+(set: $IMMUNE to 1)</tw-passagedata><tw-passagedata pid="273" name="everything starts to go DIM" tags="evan evan-turnblack" position="600,3500" size="100,100">(after:3s)[(link:&#39;&lt;img src=&quot;https://media.tenor.com/ZpBMkWyufhMAAAAC/dead.gif&quot; style=&quot;display: block;margin-left: auto;margin-right: auto;width: 50%;&quot;&gt;&#39;)[(t8n-depart:&quot;dissolve&quot;)+(t8n-arrive:&quot;blur&quot;)+(t8n-time:2s)(go-to:&quot;start&quot;)]]</tw-passagedata><tw-passagedata pid="274" name="examine your SURROUNDINGS" tags="evan" position="1850,4400" size="100,100">you look around the BASE of the fountain. there is something very very very small leaning against the marble. you squint, &quot;MIPPY?!?? Wow, what are you doing here??&quot;
 
 she ignores your question. &quot;WAHT TOOK U SO LONNNNNNG?? I&#39;ve been waiting here allllll afteroon and NOBODY came. I had my intern take out THREE ADS in the magaziens. I have to go meet my boyfriedn jellysprout and I LOST the jewel I made him at the beach. I send my interns to find it but NONE OF THEM came back. U HAVE THE JEWELLE, RIGHT????&quot;
 
 (if: $PENDANT is 1 and $OFFERPENDANT is 0)[[[is this yours?(show pendant to MIPPY) -&gt;show pendant]]]
 (if: $PENDANT is 1 and $OFFERPENDANT is 1)[[[MIPPY wtf are you talking about??(lie) -&gt;lie pendant]]]
 (if: $PENDANT is 0)[[[MIPPY wtf are you talking about??-&gt;no pendant]]]
-(set: $MIPPY to 1)</tw-passagedata><tw-passagedata pid="276" name="exit near beach" tags="evan" position="750,4300" size="100,100">you turn back towards the BEACH. finally you are ready to go out on the [[SAND]]</tw-passagedata><tw-passagedata pid="277" name="fill water bottle" tags="evan" position="200,2325" size="100,100">whew that was close, what if you&#39;d gotten THIRSTY out there?
+(set: $MIPPY to 1)</tw-passagedata><tw-passagedata pid="275" name="exit near beach" tags="evan" position="750,4300" size="100,100">you turn back towards the BEACH. finally you are ready to go out on the [[SAND]]</tw-passagedata><tw-passagedata pid="276" name="fill water bottle" tags="evan" position="200,2325" size="100,100">whew that was close, what if you&#39;d gotten THIRSTY out there?
 
 [[[head for the DOOR-&gt;get hat?]]]
 
-(set: $WATER to it +1)</tw-passagedata><tw-passagedata pid="278" name="fine beach" tags="evan" position="100,3900" size="100,100">you are now VERY VERY VERY thirsty
+(set: $WATER to it +1)</tw-passagedata><tw-passagedata pid="277" name="fine beach" tags="evan" position="100,3900" size="100,100">you are now VERY VERY VERY thirsty
 (click-replace: &quot;you are now VERY VERY VERY thirsty&quot;)[you are now too WEAK to walk]
 (click-replace: &quot;you are now too WEAK to walk&quot;)[you collapse in the SAND]
 (click-replace: &quot;you collapse in the SAND&quot;)[the SUN beats down on you]
 (click-replace: &quot;the SUN beats down on you&quot;)[your HAT can&#39;t save you now]
-(click-replace: &quot;your HAT can&#39;t save you now&quot;)[(if: $CAT is 1)[the cat is GRINNING at you. his gaze pierces your psyche. ][[everything starts to go DIM-&gt;everything starts to go DIM]]]</tw-passagedata><tw-passagedata pid="279" name="forget about all that i want to read OCEAN FLOOR magazine" tags="evan" position="1500,2450" size="100,100">you pick up the magazine. it is BEAUTIFUL. there are photos of a myriad of SEA LIFE on every page. you are ENTHRALLED. you flip to the back. there is a POEM and a CLASSIFIEDS section.
+(click-replace: &quot;your HAT can&#39;t save you now&quot;)[(if: $CAT is 1)[the cat is GRINNING at you. his gaze pierces your psyche. ][[everything starts to go DIM-&gt;everything starts to go DIM]]]</tw-passagedata><tw-passagedata pid="278" name="forget about all that i want to read OCEAN FLOOR magazine" tags="evan" position="1500,2450" size="100,100">you pick up the magazine. it is BEAUTIFUL. there are photos of a myriad of SEA LIFE on every page. you are ENTHRALLED. you flip to the back. there is a POEM and a CLASSIFIEDS section.
 
 [[read the POEM]]
-[[who cares about poems show me the CLASSIFIEDS]]</tw-passagedata><tw-passagedata pid="280" name="fuck it i don&#39;t need KEYS" tags="evan" position="325,2325" size="100,100">[[[head for the DOOR-&gt;get hat?]]]</tw-passagedata><tw-passagedata pid="281" name="gatorbeach" tags="evan" position="875,4975" size="100,100">{(set: $GATORADE to it +1)
+[[who cares about poems show me the CLASSIFIEDS]]</tw-passagedata><tw-passagedata pid="279" name="fuck it i don&#39;t need KEYS" tags="evan" position="325,2325" size="100,100">[[[head for the DOOR-&gt;get hat?]]]</tw-passagedata><tw-passagedata pid="280" name="gatorbeach" tags="evan" position="875,4975" size="100,100">{(set: $GATORADE to it +1)
 (set: $GATORADES to it -1)
 (set: $THIRST to it -1)
 
 }(if: $ATTENDANT is 0)[[you grab a gatorade and take a SIP. why not grab a SNACK, as long as the attendant isn&#39;t here-&gt;go to the snacks]]
-(if: $ATTENDANT is 1)[[you grab a gatorade and take a SIP. you are no longer THIRSTY. time to leave this HORRIBLE store. you SLINK out-&gt;exit near beach]](if: $CAT is 1 and $ATTENDANT is 1)[, the cat FOLLOWS you.]</tw-passagedata><tw-passagedata pid="282" name="get HAT" tags="evan" position="75,2575" size="100,100">you grab your HAT
+(if: $ATTENDANT is 1)[[you grab a gatorade and take a SIP. you are no longer THIRSTY. time to leave this HORRIBLE store. you SLINK out-&gt;exit near beach]](if: $CAT is 1 and $ATTENDANT is 1)[, the cat FOLLOWS you.]</tw-passagedata><tw-passagedata pid="281" name="get HAT" tags="evan" position="75,2575" size="100,100">you grab your HAT
 
 [[head for the DOOR]]
 
-(set: $HAT to 1)</tw-passagedata><tw-passagedata pid="283" name="get KEYS" tags="evan" position="125,2200" size="100,100">you got the KEYS
+(set: $HAT to 1)</tw-passagedata><tw-passagedata pid="282" name="get KEYS" tags="evan" position="125,2200" size="100,100">you got the KEYS
 
 oh shit what if you get thirsty?? you need a DRINK
 
 [[fill water bottle]]
 [[get gatorade from fridge]]
 
-(set: $KEYS to 1)</tw-passagedata><tw-passagedata pid="284" name="get gatorade from fridge" tags="evan" position="75,2325" size="100,100">whew that was CLOSE, what if you&#39;d gotten thirsty out there?
+(set: $KEYS to 1)</tw-passagedata><tw-passagedata pid="283" name="get gatorade from fridge" tags="evan" position="75,2325" size="100,100">whew that was CLOSE, what if you&#39;d gotten thirsty out there?
 
 [[[head for the DOOR-&gt;get hat?]]]
 
-(set: $GATORADE to it +1)</tw-passagedata><tw-passagedata pid="285" name="get hat?" tags="evan" position="150,2450" size="100,100">WAIT, what about your HAT?
+(set: $GATORADE to it +1)</tw-passagedata><tw-passagedata pid="284" name="get hat?" tags="evan" position="150,2450" size="100,100">WAIT, what about your HAT?
 
 [[get HAT]]
-[[fuck it i don&#39;t need HAT-&gt;head for the DOOR]]</tw-passagedata><tw-passagedata pid="286" name="gethat" tags="evan" position="875,3825" size="100,100">(if: $HATLESS is &gt; 0 and $TARP is 0)[[[you search the AREA. there is a big paper BAG on the ground. you FASHION a makeshift hat from the BAG-&gt;never mind all that let&#39;s go to the BEACH]]](if: $HATLESS is &gt; 0 and $TARP is 1)[[[you FASHION a makeshift hat from your TARP-&gt;never mind all that let&#39;s go to the BEACH]]]
+[[fuck it i don&#39;t need HAT-&gt;head for the DOOR]]</tw-passagedata><tw-passagedata pid="285" name="gethat" tags="evan" position="875,3825" size="100,100">(if: $HATLESS is &gt; 0 and $TARP is 0)[[[you search the AREA. there is a big paper BAG on the ground. you FASHION a makeshift hat from the BAG-&gt;never mind all that let&#39;s go to the BEACH]]](if: $HATLESS is &gt; 0 and $TARP is 1)[[[you FASHION a makeshift hat from your TARP-&gt;never mind all that let&#39;s go to the BEACH]]]
 (if: $HATLESS is 0 and $TARP is 0)[[[you search the AREA. there is a big paper BAG on the ground. you FASHION a makeshift hat from the BAG-&gt;never mind all that let&#39;s go to the BEACH]]](if: $HATLESS is  0 and $TARP is 1)[[[you FASHION a makeshift hat from your TARP-&gt;never mind all that let&#39;s go to the BEACH]]]
-(set:$PREBEACHHAT to 1)</tw-passagedata><tw-passagedata pid="287" name="go FORWARD" tags="evan" position="425,2850" size="100,100">you WALK straight ahead. the CAT follows you. you walk a few blocks. you are ENJOYING the scenery. the temperature is FAIR.
+(set:$PREBEACHHAT to 1)</tw-passagedata><tw-passagedata pid="286" name="go FORWARD" tags="evan" position="425,2850" size="100,100">you WALK straight ahead. the CAT follows you. you walk a few blocks. you are ENJOYING the scenery. the temperature is FAIR.
 
 you see a TARP lying on the sidewalk.
 
 [[pick up the TARP]]
-[[walk over it]]</tw-passagedata><tw-passagedata pid="288" name="go LEFT" tags="evan" position="175,2975" size="100,100">you head LEFT. you walk a few steps. you see a SHINY new 10 dollar bill on the ground.
+[[walk over it]]</tw-passagedata><tw-passagedata pid="287" name="go LEFT" tags="evan" position="175,2975" size="100,100">you head LEFT. you walk a few steps. you see a SHINY new 10 dollar bill on the ground.
 
 [[pick it up]]
-[[better not touch it]]</tw-passagedata><tw-passagedata pid="289" name="go RIGHT" tags="evan" position="50,2975" size="100,100">you head RIGHT. you walk a few steps. you see a shiny new ACORN on the ground.
+[[better not touch it]]</tw-passagedata><tw-passagedata pid="288" name="go RIGHT" tags="evan" position="50,2975" size="100,100">you head RIGHT. you walk a few steps. you see a shiny new ACORN on the ground.
 
 [[pick it up]]
-[[who cares]]</tw-passagedata><tw-passagedata pid="290" name="go back to the INTERSECTION" tags="evan" position="1350,3875" size="100,100">you WALK back the way you came. everything is very LUSH and (text-colour:#82c91e)[GREEN]. you ADMIRE the greenery once more. the afternoon sun is (text-colour:yellow)[SHINING]. you bask in the LIGHT. (if: $CAT is 1)[the cat FOLLOWS not far behind you.]
+[[who cares]]</tw-passagedata><tw-passagedata pid="289" name="go back to the INTERSECTION" tags="evan" position="1350,3875" size="100,100">you WALK back the way you came. everything is very LUSH and (text-colour:#82c91e)[GREEN]. you ADMIRE the greenery once more. the afternoon sun is (text-colour:yellow)[SHINING]. you bask in the LIGHT. (if: $CAT is 1)[the cat FOLLOWS not far behind you.]
 
 you come to that same five-way INTERSECTION. on one corner you see a vacant LOT. it is overgrown with SHRUBS and TALL GRASSES. there are grasshoppers SINGING and there is a gentle BREEZE
 
@@ -2479,19 +2475,19 @@ nearby, in the shadow of a house you see a tattered MAGAZINE
 [[pick up the MAGAZINE]]
 (if: $SWIM is 0 and $PENDANT is 0)[[[never mind all that let&#39;s go to the BEACH-&gt;prebeachhat]]]
 (if: $HATLESS is &gt; 0 and $IMMUNE is 0)[[[look around for something to use as a hat-&gt;gethat]]]
-(if: $HATLESS is &gt; 0 and $TARP is 1 and $IMMUNE is 0)[[[use your TARP to fashion a makeshift HAT-&gt;gethat]]]</tw-passagedata><tw-passagedata pid="291" name="go back to the SAND" tags="evan" position="1325,5025" size="100,100">&quot;too much WORK for too little PAYOFF&quot;, you say to yourself
+(if: $HATLESS is &gt; 0 and $TARP is 1 and $IMMUNE is 0)[[[use your TARP to fashion a makeshift HAT-&gt;gethat]]]</tw-passagedata><tw-passagedata pid="290" name="go back to the SAND" tags="evan" position="1325,5025" size="100,100">&quot;too much WORK for too little PAYOFF&quot;, you say to yourself
 
 [[leave the BEACH-&gt;time to LEAVE]]
 [[REST a bit more]]
-[[go for a SWIM]]</tw-passagedata><tw-passagedata pid="292" name="go down to the WATER" tags="evan" position="1175,4750" size="100,100">you VENTURE down to the water. (if: $CAT is 1)[the cat remains by the SAND. ]the waves LAP agaist the shoreline, which stretches as far as you can SEE in both directions. there is PLENTY of sand here too. you can see something MOVING in the water a ways off shore.
+[[go for a SWIM]]</tw-passagedata><tw-passagedata pid="291" name="go down to the WATER" tags="evan" position="1175,4750" size="100,100">you VENTURE down to the water. (if: $CAT is 1)[the cat remains by the SAND. ]the waves LAP agaist the shoreline, which stretches as far as you can SEE in both directions. there is PLENTY of sand here too. you can see something MOVING in the water a ways off shore.
 
 [[DIG in the sand]]
-[[go for a SWIM]]</tw-passagedata><tw-passagedata pid="293" name="go for a SWIM" tags="evan" position="1600,4825" size="100,100">you RUN to the water and dive in. it is WARM and SLIPPERY. you can SEE fish, crabs, lobsters, jellyfish, sea stars, snails, limpets, and sea cucumbers. you are surrounded by all manner of SEA LIFE. you love SEA LIFE. further out you can see SOMETHING moving.
+[[go for a SWIM]]</tw-passagedata><tw-passagedata pid="292" name="go for a SWIM" tags="evan" position="1600,4825" size="100,100">you RUN to the water and dive in. it is WARM and SLIPPERY. you can SEE fish, crabs, lobsters, jellyfish, sea stars, snails, limpets, and sea cucumbers. you are surrounded by all manner of SEA LIFE. you love SEA LIFE. further out you can see SOMETHING moving.
 
 [[swim further out]]
 [[better head back in]]
 
-(set: $SWIM to 1)</tw-passagedata><tw-passagedata pid="294" name="go for a WALK" tags="evan" position="250,2200" size="100,100">oh shit right you need your KEYS
+(set: $SWIM to 1)</tw-passagedata><tw-passagedata pid="293" name="go for a WALK" tags="evan" position="250,2200" size="100,100">oh shit right you need your KEYS
 
 [[get KEYS]]
 [[fuck it i don&#39;t need KEYS]]
@@ -2519,47 +2515,47 @@ nearby, in the shadow of a house you see a tattered MAGAZINE
 (set: $CURSE to 0))
 (set: $OFFERPENDANT to 0)
 (set: $MIPPYDONE to 0)
-(set: $FOUNTAINDRINK to 0)</tw-passagedata><tw-passagedata pid="295" name="go to the cooler" tags="evan" position="500,5100" size="100,100">there are only two kinds of DRINK in this dump. what gives?
+(set: $FOUNTAINDRINK to 0)</tw-passagedata><tw-passagedata pid="294" name="go to the cooler" tags="evan" position="500,5100" size="100,100">there are only two kinds of DRINK in this dump. what gives?
 
 there are $GATORADES GATORADES and $WATERS WATER in the cooler
 
 [[take a gatorade-&gt;gatorbeach]]
-(if: $WATERS &gt; 0)[[take a water-&gt;waterbeach]]</tw-passagedata><tw-passagedata pid="296" name="go to the cooler1" tags="evan" position="1500,2600" size="100,100">you move to the cooler. there are $GATORADES GATORADES and $WATERS WATER in the cooler
+(if: $WATERS &gt; 0)[[take a water-&gt;waterbeach]]</tw-passagedata><tw-passagedata pid="295" name="go to the cooler1" tags="evan" position="1500,2600" size="100,100">you move to the cooler. there are $GATORADES GATORADES and $WATERS WATER in the cooler
 
 [[take a gatorade-&gt;takegator2]]
-(if: $WATERS &gt; 0)[[take a water-&gt;takewater2]]</tw-passagedata><tw-passagedata pid="297" name="go to the shop" tags="evan" position="1250,2550" size="100,100">you STUMBLE into the shop. there is a big sign that says &quot;NO CATS&quot; in the window. (if: $CAT is 1)[the cat FOLLOWS you in.]
+(if: $WATERS &gt; 0)[[take a water-&gt;takewater2]]</tw-passagedata><tw-passagedata pid="296" name="go to the shop" tags="evan" position="1250,2550" size="100,100">you STUMBLE into the shop. there is a big sign that says &quot;NO CATS&quot; in the window. (if: $CAT is 1)[the cat FOLLOWS you in.]
 
 the shopkeep LOOKS up at you from her magazine. you can&#39;t HELP but notice that the magazine is called &quot;OCEAN FLOOR&quot;. what&#39;s that about? she looks (if: $CAT is 1)[at the CAT, then ]at YOU.
 
 (if: $CAT is 1)[the shopkeep says &quot;we don&#39;t allow CATS in here.&quot;]
 
 (if: $THIRST is &gt; 0)[[tell her you&#39;re very thirsty]]
-(if: $CAT is 1)[[say nothing]]</tw-passagedata><tw-passagedata pid="298" name="go to the snacks" tags="evan" position="725,4475" size="100,100">you LOOK at the snacks. there are only two snacks in this good for nothing GAS station, a giant GUMMY WORM, and a TOBLERONE
+(if: $CAT is 1)[[say nothing]]</tw-passagedata><tw-passagedata pid="297" name="go to the snacks" tags="evan" position="725,4475" size="100,100">you LOOK at the snacks. there are only two snacks in this good for nothing GAS station, a giant GUMMY WORM, and a TOBLERONE
 
 [[take the worm-&gt;wormbeach]]
-[[take the toblerone-&gt;toblerbeach]]</tw-passagedata><tw-passagedata pid="299" name="head for the DOOR" tags="evan" position="200,2600" size="100,100">you open the DOOR and step OUTSIDE, it&#39;s a beautiful sunny (text-colour:#228be6)[SUMMER] day. the roads are (text-colour:grey)[EMPTY] of cars. the (text-colour:red)[CICADAS] are singing and a few big white (text-colour:white)[clouds] FLOAT overhead. everything is lush and (text-colour:#82c91e)[GREEN]. there&#39;s a (text-colour:#fd7e14)[HUGE] orange tomcat sitting next to your door.
+[[take the toblerone-&gt;toblerbeach]]</tw-passagedata><tw-passagedata pid="298" name="head for the DOOR" tags="evan" position="200,2600" size="100,100">you open the DOOR and step OUTSIDE, it&#39;s a beautiful sunny (text-colour:#228be6)[SUMMER] day. the roads are (text-colour:grey)[EMPTY] of cars. the (text-colour:red)[CICADAS] are singing and a few big white (text-colour:white)[clouds] FLOAT overhead. everything is lush and (text-colour:#82c91e)[GREEN]. there&#39;s a (text-colour:#fd7e14)[HUGE] orange tomcat sitting next to your door.
 
 [[ask him how he is]]
 [[ask him to ACCOMPANY you]]
-[[ignore him]]</tw-passagedata><tw-passagedata pid="300" name="i don&#39;t have a drink" tags="evan" position="575,2525" size="100,100">you are very very thirsty. there is a shop nearby that sells drinks.
+[[ignore him]]</tw-passagedata><tw-passagedata pid="299" name="i don&#39;t have a drink" tags="evan" position="575,2525" size="100,100">you are very very thirsty. there is a shop nearby that sells drinks.
 
 [[go to the shop]]
-[[i&#39;ll be fine, it&#39;s not a big deal]]</tw-passagedata><tw-passagedata pid="301" name="i&#39;ll be fine, it&#39;s not a big deal" tags="evan" position="1000,2725" size="100,100">you are very very very thirsty
+[[i&#39;ll be fine, it&#39;s not a big deal]]</tw-passagedata><tw-passagedata pid="300" name="i&#39;ll be fine, it&#39;s not a big deal" tags="evan" position="1000,2725" size="100,100">you are very very very thirsty
 (click-replace: &quot;you are very very very thirsty&quot;)[you are now too weak to walk]
 (click-replace: &quot;you are now too weak to walk&quot;)[you collapse on the ground]
 (click-replace: &quot;you collapse on the ground&quot;)[that cat is GRINNING at you]
 (click-replace: &quot;that cat is GRINNING at you&quot;)[his gaze pierces your PSYCHE]
-(click-replace: &quot;his gaze pierces your PSYCHE&quot;)[[[everything starts to go DIM-&gt;everything starts to go DIM]]]</tw-passagedata><tw-passagedata pid="302" name="i&#39;m not thirsty" tags="evan" position="1550,2800" size="100,100">you LOOK at the snacks. there are only two snacks in this HORRIBLE shop, a giant GUMMY WORM, and a TOBLERONE
+(click-replace: &quot;his gaze pierces your PSYCHE&quot;)[[[everything starts to go DIM-&gt;everything starts to go DIM]]]</tw-passagedata><tw-passagedata pid="301" name="i&#39;m not thirsty" tags="evan" position="1550,2800" size="100,100">you LOOK at the snacks. there are only two snacks in this HORRIBLE shop, a giant GUMMY WORM, and a TOBLERONE
 
 [[take the worm-&gt;take the gummy worm]]
-[[take the toblerone]]</tw-passagedata><tw-passagedata pid="303" name="ignore him" tags="evan" position="50,2850" size="100,100">you INGORE the cat. he INGORES you.
+[[take the toblerone]]</tw-passagedata><tw-passagedata pid="302" name="ignore him" tags="evan" position="50,2850" size="100,100">you INGORE the cat. he INGORES you.
 
 [[go RIGHT]]
-[[go LEFT]]</tw-passagedata><tw-passagedata pid="304" name="interior lot" tags="evan" position="1800,4250" size="100,100">you keep moving further INTO the lot. the greenery is getting DENSER. the sound of the cicadas and grasshoppers is DEAFENING. (if: $CAT is 0)[you NOTICE it is getting darker.](if: $CAT is 1)[you notice the cat has LEFT your side.] you are SURROUNDED by thick greenery. you can&#39;t even tell you are in a city anymore. 
+[[go LEFT]]</tw-passagedata><tw-passagedata pid="303" name="interior lot" tags="evan" position="1800,4250" size="100,100">you keep moving further INTO the lot. the greenery is getting DENSER. the sound of the cicadas and grasshoppers is DEAFENING. (if: $CAT is 0)[you NOTICE it is getting darker.](if: $CAT is 1)[you notice the cat has LEFT your side.] you are SURROUNDED by thick greenery. you can&#39;t even tell you are in a city anymore. 
 
 (click-replace:&quot;you can&#39;t even tell you are in a city anymore.&quot;)[suddenly, you STUMBLE into the centre of the lot]
 
-(click-replace: &quot;suddenly, you STUMBLE into the centre of the lot&quot;)[(link-replace:&quot;you see a small clearing in front of you, at the far side is a short stone wall with a bubbling FOUNTAIN built into the side&quot;)[[[approach the FOUNTAIN-&gt;FOUNTAIN]]]]</tw-passagedata><tw-passagedata pid="305" name="keep going" tags="evan" position="1150,3650" size="100,100">you WALK a few blocks more. everything is very LUSH and (text-colour:#82c91e)[GREEN]. you ADMIRE the greenery. the sun is (text-colour:yellow)[SHINING]. you bask in the LIGHT. (if: $CAT is 1)[the cat FOLLOWS not far behind you.]
+(click-replace: &quot;suddenly, you STUMBLE into the centre of the lot&quot;)[(link-replace:&quot;you see a small clearing in front of you, at the far side is a short stone wall with a bubbling FOUNTAIN built into the side&quot;)[[[approach the FOUNTAIN-&gt;FOUNTAIN]]]]</tw-passagedata><tw-passagedata pid="304" name="keep going" tags="evan" position="1150,3650" size="100,100">you WALK a few blocks more. everything is very LUSH and (text-colour:#82c91e)[GREEN]. you ADMIRE the greenery. the sun is (text-colour:yellow)[SHINING]. you bask in the LIGHT. (if: $CAT is 1)[the cat FOLLOWS not far behind you.]
 
 you come to a five-way INTERSECTION. on the corner to your right you see a vacant LOT. it is overgrown with SHRUBS and TALL GRASSES. there are grasshoppers SINGING and there is a gentle BREEZE
 
@@ -2569,19 +2565,19 @@ on your left, in the shadow of a house you see a tattered MAGAZINE
 [[pick up the MAGAZINE]]
 [[never mind all that let&#39;s go to the BEACH-&gt;prebeachhat]]
 (if: $HATLESS is &gt; 0 and $IMMUNE is 0)[[[look around for something to use as a hat-&gt;gethat]]]
-(if: $HATLESS is &gt; 0 and $TARP is 1 and $IMMUNE is 0)[[[use your TARP to fashion a makeshift HAT-&gt;gethat]]]</tw-passagedata><tw-passagedata pid="306" name="leave him, just start WALKING" tags="evan" position="425,3100" size="100,100">you walk for a few MINUTES. you are free of that damned CAT. you are ENJOYING yourself, but it is getting SUNNIER. the heat is becoming OPPRESSIVE.
+(if: $HATLESS is &gt; 0 and $TARP is 1 and $IMMUNE is 0)[[[use your TARP to fashion a makeshift HAT-&gt;gethat]]]</tw-passagedata><tw-passagedata pid="305" name="leave him, just start WALKING" tags="evan" position="425,3100" size="100,100">you walk for a few MINUTES. you are free of that damned CAT. you are ENJOYING yourself, but it is getting SUNNIER. the heat is becoming OPPRESSIVE.
 
 (if:$HAT &gt;= 1)[[put on your HAT-&gt;put on your HAT]]
-(if:$HAT is 0)[[you are HATLESS. if only you&#39;d REMEMBERED your hat. without it you will OVERHEAT. LOOK around for something to use as a hat -&gt;gethat]]</tw-passagedata><tw-passagedata pid="307" name="let&#39;s get a look at that MAGAZINE" tags="evan" position="325,4975" size="100,100">you pick up the copy of VACANT LOT magazine. it is VERY STRANGE and BEAUTIFUL. there are photos of SHRUBS, GRASSES, and broken ASPHALT on every page. you are ENTHRALLED, you LOVE shrubs, grasses, and broken asphalt. you flip to the back. there is a POEM and a CLASSIFIEDS section.
+(if:$HAT is 0)[[you are HATLESS. if only you&#39;d REMEMBERED your hat. without it you will OVERHEAT. LOOK around for something to use as a hat -&gt;gethat]]</tw-passagedata><tw-passagedata pid="306" name="let&#39;s get a look at that MAGAZINE" tags="evan" position="325,4975" size="100,100">you pick up the copy of VACANT LOT magazine. it is VERY STRANGE and BEAUTIFUL. there are photos of SHRUBS, GRASSES, and broken ASPHALT on every page. you are ENTHRALLED, you LOVE shrubs, grasses, and broken asphalt. you flip to the back. there is a POEM and a CLASSIFIEDS section.
 
 [[read the POEM-&gt;poembeach]]
-[[who cares about poems show me the CLASSIFIEDS-&gt;classifiedsbeach]]</tw-passagedata><tw-passagedata pid="308" name="lie pendant" tags="evan" position="2050,4550" size="100,100">&quot;EEEEEEEK DON&#39;T LIE TO ME I KNOW YOU FOUND IT!!!! I CAN SMELL THE BEACH ON YOU FROM HERE&quot;
+[[who cares about poems show me the CLASSIFIEDS-&gt;classifiedsbeach]]</tw-passagedata><tw-passagedata pid="307" name="lie pendant" tags="evan" position="2050,4550" size="100,100">&quot;EEEEEEEK DON&#39;T LIE TO ME I KNOW YOU FOUND IT!!!! I CAN SMELL THE BEACH ON YOU FROM HERE&quot;
 
 you FAIL to trick her. &quot;Sorry Mippy, I just feel bad is all. I put your pendant in the offering bowl and the FOUNTAIN took it.&quot;
 
 [[&quot;that&#39;s the LAST straw!!! ur FIRED!!!!! get OUT OF MY SIGHT!!!&quot; she disappears behind a blade of grass-&gt;FOUNTAIN]]
 
-(set: $MIPPYDONE to 1)</tw-passagedata><tw-passagedata pid="309" name="make an OFFERING" tags="evan" position="1625,3875" size="100,100">(if: $FOUNTAINDRINK is 1)[you have a feeling that the wrong choice will have DIRE consequences]
+(set: $MIPPYDONE to 1)</tw-passagedata><tw-passagedata pid="308" name="make an OFFERING" tags="evan" position="1625,3875" size="100,100">(if: $FOUNTAINDRINK is 1)[you have a feeling that the wrong choice will have DIRE consequences]
 
 (if: $KEYS is 1)[[offer KEYS]]
 (if: $TARP is 1)[[offer TARP]]
@@ -2590,42 +2586,42 @@ you FAIL to trick her. &quot;Sorry Mippy, I just feel bad is all. I put your pen
 (if: $WORM &gt; 0)[[offer WORM]]
 (if: $TOBLERONE &gt; 0)[[offer TOBLERONE]]
 (if: $PENDANT is 1 and $MIPPYDONE is 0 and $OFFERPENDANT is 0)[[offer PENDANT]]
-(if: $FOUNTAINDRINK is 1)[[screw this i&#39;m walking home-&gt;walk home]]</tw-passagedata><tw-passagedata pid="310" name="mickey goes outside" tags="evan" position="175,2075" size="100,100">[[go for a WALK]]</tw-passagedata><tw-passagedata pid="311" name="never mind all that let&#39;s go to the BEACH" tags="evan" position="875,4150" size="100,100">(if:$PREBEACHHAT is 1)[that&#39;s better, your HAT protects you from the HEAT]
+(if: $FOUNTAINDRINK is 1)[[screw this i&#39;m walking home-&gt;walk home]]</tw-passagedata><tw-passagedata pid="309" name="mickey goes outside" tags="evan" position="175,2075" size="100,100">[[go for a WALK]]</tw-passagedata><tw-passagedata pid="310" name="never mind all that let&#39;s go to the BEACH" tags="evan" position="875,4150" size="100,100">(if:$PREBEACHHAT is 1)[that&#39;s better, your HAT protects you from the HEAT]
 
 [[you walk a few more BLOCKS. you are getting very close to the BEACH. there will be lots of SEA LIFE there. you love SEA LIFE. it is very SUNNY-&gt;BEACH]]
-(set: $HATLESS to 0)</tw-passagedata><tw-passagedata pid="312" name="no pendant" tags="evan" position="1800,4550" size="100,100">&quot;WHAAAT??? u don&#39;t HAVE it?? get ur BOOTIE down there adn LOOK FOR IT NOWWWWW&quot;
+(set: $HATLESS to 0)</tw-passagedata><tw-passagedata pid="311" name="no pendant" tags="evan" position="1800,4550" size="100,100">&quot;WHAAAT??? u don&#39;t HAVE it?? get ur BOOTIE down there adn LOOK FOR IT NOWWWWW&quot;
 
 [[you have no choice, you run straight to the BEACH-&gt;BEACH]]
 
-(set: $CAT to 0)</tw-passagedata><tw-passagedata pid="313" name="offer GATORADE" tags="evan" position="2050,3500" size="100,100">you POUR about 3 inches of gatorade into the bowl. once you stop pouring, it SHIMMERS for a moment before spouting directly upwards into the sky. the HUM that filled the air a moment ago suddenly stops. stunned, you GAZE at the fountain&#39;s fish head centerpiece for a moment before realizing that you too are rising up, up, up into the air. SOON, you are so high up that you can&#39;t even make out your house below. it&#39;s cold up here, the air is very THIN, and you are getting light headed. (click-replace: &quot;it&#39;s cold up here, the air is very THIN, and you are getting light headed.&quot;)[[[everything starts to go DIM-&gt;everything starts to go DIM]]]</tw-passagedata><tw-passagedata pid="314" name="offer KEYS" tags="evan" position="2050,3125" size="100,100">you place your KEYS into the bowl. they start to VIBRATE and SPIN around. you start to say &#39;hmmm, i&#39;m not sure this was...&#39;, but you&#39;re cut off mid-sentence. you can&#39;t move! the last thing you see is your feet and legs turning into metal. hope you struck a FLATTERING pose! (click-replace: &quot;hope you struck a FLATTERING pose!&quot;)[[[everything starts to go DIM-&gt;everything starts to go DIM]]]</tw-passagedata><tw-passagedata pid="315" name="offer PENDANT" tags="evan" position="2050,3825" size="100,100">you place the PENDANT into the marble bowl. the humming around you CEASES. the pendant VANISHES before your eyes. [[nothing happened.-&gt;FOUNTAIN]]
+(set: $CAT to 0)</tw-passagedata><tw-passagedata pid="312" name="offer GATORADE" tags="evan" position="2050,3500" size="100,100">you POUR about 3 inches of gatorade into the bowl. once you stop pouring, it SHIMMERS for a moment before spouting directly upwards into the sky. the HUM that filled the air a moment ago suddenly stops. stunned, you GAZE at the fountain&#39;s fish head centerpiece for a moment before realizing that you too are rising up, up, up into the air. SOON, you are so high up that you can&#39;t even make out your house below. it&#39;s cold up here, the air is very THIN, and you are getting light headed. (click-replace: &quot;it&#39;s cold up here, the air is very THIN, and you are getting light headed.&quot;)[[[everything starts to go DIM-&gt;everything starts to go DIM]]]</tw-passagedata><tw-passagedata pid="313" name="offer KEYS" tags="evan" position="2050,3125" size="100,100">you place your KEYS into the bowl. they start to VIBRATE and SPIN around. you start to say &#39;hmmm, i&#39;m not sure this was...&#39;, but you&#39;re cut off mid-sentence. you can&#39;t move! the last thing you see is your feet and legs turning into metal. hope you struck a FLATTERING pose! (click-replace: &quot;hope you struck a FLATTERING pose!&quot;)[[[everything starts to go DIM-&gt;everything starts to go DIM]]]</tw-passagedata><tw-passagedata pid="314" name="offer PENDANT" tags="evan" position="2050,3825" size="100,100">you place the PENDANT into the marble bowl. the humming around you CEASES. the pendant VANISHES before your eyes. [[nothing happened.-&gt;FOUNTAIN]]
 
-(set: $OFFERPENDANT to 1)</tw-passagedata><tw-passagedata pid="316" name="offer TARP" tags="evan" position="2050,3250" size="100,100">you FOLD up your tarp as small as it will go. it fits NEATLY over the top of the bowl without touching the ground. as you WAIT for something to happen, the WIND starts to pick up. the tarp stats to FLAP in the breeze. suddnely, a big GUST of wind picks up the tarp and blows it straight onto you. you FLAIL and STRUGGLE to escape the grasp of the tarp, but to no avail. the GRIP of the tarp is too strong to fight any longer. it&#39;s getting hard to BREATHE.(click-replace: &quot;it&#39;s getting hard to BREATHE.&quot;)[[[everything starts to go DIM-&gt;everything starts to go DIM]]]</tw-passagedata><tw-passagedata pid="317" name="offer TOBLERONE" tags="evan" position="2050,3700" size="100,100">you remember the TOBLERONE stashed in your back pocket. surely, this will be a satisfactory offering. you PLACE the toblerone into the bowl. it&#39;s too long to fit! &#39;uhh, i hope that&#39;s not a problem&#39;, you mumble as a strange FEELING starts to wash over you. your arms press hard into your sides and your heels snap together as you feel your body shrinking and HARDENING. what a CRUEL fate, to be turned into a chocolate bar. as the tinfoil envelops you, you see that cat grinning at you. (click-replace: &quot;as the tinfoil envelops you, you see that cat grinning at you.&quot;)[[[everything starts to go DIM-&gt;everything starts to go DIM]]]</tw-passagedata><tw-passagedata pid="318" name="offer WATER" tags="evan" position="2050,3375" size="100,100">you POUR some water into the bowl. instead of filling up the bottom, an EVEN LAYER forms over the whole inner surface. it SHIMMERS for a moment before being absorbed. the HUM that filled the air a moment ago stops suddenly. as you GAZE at the fountain&#39;s fish head centerpiece, a strange feeling comes over you, as if - like the water into the bowl - you yourself were being absorbed into the ground below you. (click-replace: &quot;as you GAZE at the fountain&#39;s fish head centerpiece, a strange feeling comes over you, as if - like the water into the bowl - you yourself were being absorbed into the ground below you.&quot;)[[[everything starts to go DIM-&gt;everything starts to go DIM]]]</tw-passagedata><tw-passagedata pid="319" name="offer WORM" tags="evan" position="2175,3600" size="100,100">you remember the giant GUMMY WORM you grabbed earlier. surely, this will be a SUITABLE offering. you PLACE the worm into the bowl and stand back. you hear a delicate CHIME as the worm stirs. eel-like, it slithers out of the bowl and into the fountain! it SWIMS in the water for a moment before diving right into the mouth of the fish head centerpiece. the fountain begins to GLOW. soon the light is so bright that you can&#39;t see anything else. (click-replace: &quot;soon the light is so bright that you can&#39;t see anything else.&quot;)[[[you&#39;re enveloped in the cleansing light of the WORM-&gt;you WIN]]]</tw-passagedata><tw-passagedata pid="320" name="pendant" tags="evan" position="1525,5000" size="100,100">the pendant GLINTS in the sun. there is a drawing of something VERY SMALL carved into it. it looks like a FIGURE but you can&#39;t quite make it out. the engraving underneath says (text-style:&quot;bold&quot;,&quot;shadow&quot;,&quot;expand&quot;,&quot;flat&quot;)[FOR J -&quot;M&quot;]
+(set: $OFFERPENDANT to 1)</tw-passagedata><tw-passagedata pid="315" name="offer TARP" tags="evan" position="2050,3250" size="100,100">you FOLD up your tarp as small as it will go. it fits NEATLY over the top of the bowl without touching the ground. as you WAIT for something to happen, the WIND starts to pick up. the tarp stats to FLAP in the breeze. suddnely, a big GUST of wind picks up the tarp and blows it straight onto you. you FLAIL and STRUGGLE to escape the grasp of the tarp, but to no avail. the GRIP of the tarp is too strong to fight any longer. it&#39;s getting hard to BREATHE.(click-replace: &quot;it&#39;s getting hard to BREATHE.&quot;)[[[everything starts to go DIM-&gt;everything starts to go DIM]]]</tw-passagedata><tw-passagedata pid="316" name="offer TOBLERONE" tags="evan" position="2050,3700" size="100,100">you remember the TOBLERONE stashed in your back pocket. surely, this will be a satisfactory offering. you PLACE the toblerone into the bowl. it&#39;s too long to fit! &#39;uhh, i hope that&#39;s not a problem&#39;, you mumble as a strange FEELING starts to wash over you. your arms press hard into your sides and your heels snap together as you feel your body shrinking and HARDENING. what a CRUEL fate, to be turned into a chocolate bar. as the tinfoil envelops you, you see that cat grinning at you. (click-replace: &quot;as the tinfoil envelops you, you see that cat grinning at you.&quot;)[[[everything starts to go DIM-&gt;everything starts to go DIM]]]</tw-passagedata><tw-passagedata pid="317" name="offer WATER" tags="evan" position="2050,3375" size="100,100">you POUR some water into the bowl. instead of filling up the bottom, an EVEN LAYER forms over the whole inner surface. it SHIMMERS for a moment before being absorbed. the HUM that filled the air a moment ago stops suddenly. as you GAZE at the fountain&#39;s fish head centerpiece, a strange feeling comes over you, as if - like the water into the bowl - you yourself were being absorbed into the ground below you. (click-replace: &quot;as you GAZE at the fountain&#39;s fish head centerpiece, a strange feeling comes over you, as if - like the water into the bowl - you yourself were being absorbed into the ground below you.&quot;)[[[everything starts to go DIM-&gt;everything starts to go DIM]]]</tw-passagedata><tw-passagedata pid="318" name="offer WORM" tags="evan" position="2175,3600" size="100,100">you remember the giant GUMMY WORM you grabbed earlier. surely, this will be a SUITABLE offering. you PLACE the worm into the bowl and stand back. you hear a delicate CHIME as the worm stirs. eel-like, it slithers out of the bowl and into the fountain! it SWIMS in the water for a moment before diving right into the mouth of the fish head centerpiece. the fountain begins to GLOW. soon the light is so bright that you can&#39;t see anything else. (click-replace: &quot;soon the light is so bright that you can&#39;t see anything else.&quot;)[[[you&#39;re enveloped in the cleansing light of the WORM-&gt;you WIN]]]</tw-passagedata><tw-passagedata pid="319" name="pendant" tags="evan" position="1525,5000" size="100,100">the pendant GLINTS in the sun. there is a drawing of something VERY SMALL carved into it. it looks like a FIGURE but you can&#39;t quite make it out. the engraving underneath says (text-style:&quot;bold&quot;,&quot;shadow&quot;,&quot;expand&quot;,&quot;flat&quot;)[FOR J -&quot;M&quot;]
 
 you POCKET the item
 
 [[go back to the SAND AREA-&gt;SAND]]
 
 (set: $PENDANT to 1)
-(if: $IMMUNE is 0)[(set: $THIRST to it +1)]</tw-passagedata><tw-passagedata pid="321" name="pick it up" tags="evan" position="175,3100" size="100,100">it was a clever TRAP
+(if: $IMMUNE is 0)[(set: $THIRST to it +1)]</tw-passagedata><tw-passagedata pid="320" name="pick it up" tags="evan" position="175,3100" size="100,100">it was a clever TRAP
 (click-replace: &quot;it was a clever TRAP&quot;)[a NET springs up around you]
 (click-replace: &quot;a NET springs up around you&quot;)[you have been caught in a SNARE]
 (click-replace: &quot;you have been caught in a SNARE&quot;)[that cat is GRINNING at you]
 (click-replace: &quot;that cat is GRINNING at you&quot;)[his gaze pierces your PSYCHE]
-(click-replace: &quot;his gaze pierces your PSYCHE&quot;)[[[everything starts to go DIM-&gt;everything starts to go DIM]]]</tw-passagedata><tw-passagedata pid="322" name="pick up the MAGAZINE" tags="evan" position="1125,4150" size="100,100">you pick up the copy of FOUNTAIN magazine. it is VERY STRANGE. there are photos of FOUNTAINS and STATUARY on every page. you DON&#39;T CARE, you HAVE NO STRONG FEELINGS ABOUT fountains and statuary. you flip to the back. there is a POEM and a CLASSIFIEDS section.
+(click-replace: &quot;his gaze pierces your PSYCHE&quot;)[[[everything starts to go DIM-&gt;everything starts to go DIM]]]</tw-passagedata><tw-passagedata pid="321" name="pick up the MAGAZINE" tags="evan" position="1125,4150" size="100,100">you pick up the copy of FOUNTAIN magazine. it is VERY STRANGE. there are photos of FOUNTAINS and STATUARY on every page. you DON&#39;T CARE, you HAVE NO STRONG FEELINGS ABOUT fountains and statuary. you flip to the back. there is a POEM and a CLASSIFIEDS section.
 
 [[read the POEM-&gt;poembeach]]
-[[who cares about poems show me the CLASSIFIEDS-&gt;classifiedslot]]</tw-passagedata><tw-passagedata pid="323" name="pick up the TARP" tags="evan" position="375,2725" size="100,100">you got the TARP. good thing too, there is a big hole under there. you can&#39;t see the bottom.
+[[who cares about poems show me the CLASSIFIEDS-&gt;classifiedslot]]</tw-passagedata><tw-passagedata pid="322" name="pick up the TARP" tags="evan" position="375,2725" size="100,100">you got the TARP. good thing too, there is a big hole under there. you can&#39;t see the bottom.
 
 you&#39;re very [[THIRSTY]]
 
 
 (set: $TARP to it +1)
-(set: $THIRST to it +1)</tw-passagedata><tw-passagedata pid="324" name="poembeach" tags="evan" position="125,5100" size="100,100">you begin to READ the poem. you are suddenly very TIRED. the poem is about the VACANT LOT nearby. the words are very SOOTHING.
+(set: $THIRST to it +1)</tw-passagedata><tw-passagedata pid="323" name="poembeach" tags="evan" position="125,5100" size="100,100">you begin to READ the poem. you are suddenly very TIRED. the poem is about the VACANT LOT nearby. the words are very SOOTHING.
 
 you are very very very TIRED
 (click-replace: &quot;you are very very very TIRED&quot;)[you are now too TIRED to walk]
 (click-replace: &quot;you are now too TIRED to walk&quot;)[you collapse to the GROUND]
-(click-replace: &quot;you collapse to the GROUND&quot;)[(if: $CAT is 1)[the cat is GRINNING at you. his gaze pierces your psyche. ][[everything starts to go DIM-&gt;everything starts to go DIM]]]</tw-passagedata><tw-passagedata pid="325" name="prebeachhat" tags="evan" position="1000,4150" size="100,100">you walk a few more blocks. you are ENJOYING yourself, but it is getting SUNNIER. the heat is becoming OPPRESSIVE.
+(click-replace: &quot;you collapse to the GROUND&quot;)[(if: $CAT is 1)[the cat is GRINNING at you. his gaze pierces your psyche. ][[everything starts to go DIM-&gt;everything starts to go DIM]]]</tw-passagedata><tw-passagedata pid="324" name="prebeachhat" tags="evan" position="1000,4150" size="100,100">you walk a few more blocks. you are ENJOYING yourself, but it is getting SUNNIER. the heat is becoming OPPRESSIVE.
 
 (if:$HAT &gt;= 1)[[put on your HAT-&gt;never mind all that let&#39;s go to the BEACH]]
 (if:$HAT is 0 and $IMMUNE is 0)[[you are HATLESS. if only you&#39;d REMEMBERED your hat. without it you will OVERHEAT. LOOK around for some thing to use as a hat-&gt;gethat]]
@@ -2633,7 +2629,7 @@ you are very very very TIRED
 (set: $HATLESS to 1)
 (if:$IMMUNE is 1)[[i&#39;ll be FINE, i ate that WEIRD popsicle-&gt;prebeachimmune]]
 
-(set:$PREBEACHHAT to 1)</tw-passagedata><tw-passagedata pid="326" name="prebeachimmune" tags="evan" position="1375,4050" size="100,100">you keep walking in the same direction, towards the OCEAN
+(set:$PREBEACHHAT to 1)</tw-passagedata><tw-passagedata pid="325" name="prebeachimmune" tags="evan" position="1375,4050" size="100,100">you keep walking in the same direction, towards the OCEAN
 
 on the corner to your right you see a vacant LOT. it is overgrown with SHRUBS and TALL GRASSES. there are grasshoppers SINGING and there is a gentle BREEZE
 
@@ -2641,7 +2637,7 @@ on your left, in the shadow of a house you see a tattered MAGAZINE
 
 [[check out the LOT]]
 [[pick up the MAGAZINE]]
-[[never mind all that let&#39;s go to the BEACH]]</tw-passagedata><tw-passagedata pid="327" name="put on your HAT" tags="evan" position="1025,3825" size="100,100">{(set: $HATW to 1)
+[[never mind all that let&#39;s go to the BEACH]]</tw-passagedata><tw-passagedata pid="326" name="put on your HAT" tags="evan" position="1025,3825" size="100,100">{(set: $HATW to 1)
 
 }you put on your HAT
 
@@ -2653,13 +2649,13 @@ on your left, in the shadow of a house you see a tattered MAGAZINE
 
 [[check out the LOT]]
 [[pick up the MAGAZINE]]
-[[never mind all that let&#39;s go to the BEACH]]</tw-passagedata><tw-passagedata pid="328" name="read the POEM" tags="evan" position="1375,2500" size="100,100">you begin to READ the poem. you are suddenly very TIRED. the poem is about the SEA LIFE. the words are very SOOTHING.
+[[never mind all that let&#39;s go to the BEACH]]</tw-passagedata><tw-passagedata pid="327" name="read the POEM" tags="evan" position="1375,2500" size="100,100">you begin to READ the poem. you are suddenly very TIRED. the poem is about the SEA LIFE. the words are very SOOTHING.
 
 you are very very very TIRED
 (click-replace: &quot;you are very very very TIRED&quot;)[you are now too TIRED to walk]
 (click-replace: &quot;you are now too TIRED to walk&quot;)[you collapse to the GROUND]
 (click-replace: &quot;you collapse to the GROUND&quot;)[that cat is GRINNING at you]
-(click-replace: &quot;that cat is GRINNING at you&quot;)[[[everything starts to go DIM-&gt;everything starts to go DIM]]]</tw-passagedata><tw-passagedata pid="329" name="retreat and look for a DRINK" tags="evan" position="500,4200" size="100,100">you exit the BEACH. there is an [[ICE CREAM STAND]] on the corner.</tw-passagedata><tw-passagedata pid="330" name="say nothing" tags="evan" position="1375,2675" size="100,100">the CAT looks at the shopkeep. the SHOPKEEP looks at the cat. the cat&#39;s eyes PIERCE her psyche. she puts down her magazine, stands up, and walks into the back room, closing the door behind her.
+(click-replace: &quot;that cat is GRINNING at you&quot;)[[[everything starts to go DIM-&gt;everything starts to go DIM]]]</tw-passagedata><tw-passagedata pid="328" name="retreat and look for a DRINK" tags="evan" position="500,4200" size="100,100">you exit the BEACH. there is an [[ICE CREAM STAND]] on the corner.</tw-passagedata><tw-passagedata pid="329" name="say nothing" tags="evan" position="1375,2675" size="100,100">the CAT looks at the shopkeep. the SHOPKEEP looks at the cat. the cat&#39;s eyes PIERCE her psyche. she puts down her magazine, stands up, and walks into the back room, closing the door behind her.
 
 with the shopkeep GONE, the store BELONGS to you. you can take a DRINK or a SNACK
 (if:$WATER is 0 and $GATORADE is 0 and $THIRST is 0)[[take me to the snacks-&gt;i&#39;m not thirsty]]
@@ -2669,53 +2665,53 @@ with the shopkeep GONE, the store BELONGS to you. you can take a DRINK or a SNAC
 (if:$WATER is 0 and $GATORADE is 1)[[i&#39;ve already got gatorade, but what i really want is a water-&gt;go to the cooler1]]
 (if:$WATER is 0 and $GATORADE is 0 and $THIRST is 1)[[i&#39;m very thirsty, take me to the drinks-&gt;go to the cooler1]]
 (if:$WATER is 0 and $GATORADE is 0 and $THIRST is 1)[[i can live without a free drink, i&#39;ll be fine, it&#39;s not a BIG DEAL-&gt;i&#39;ll be fine, it&#39;s not a big deal]]
-[[forget about all that i want to read OCEAN FLOOR magazine]]</tw-passagedata><tw-passagedata pid="331" name="say nothing (take the water ANYWAY)" tags="evan" position="1250,2925" size="100,100">{(set: $WATER to it +1)
+[[forget about all that i want to read OCEAN FLOOR magazine]]</tw-passagedata><tw-passagedata pid="330" name="say nothing (take the water ANYWAY)" tags="evan" position="1250,2925" size="100,100">{(set: $WATER to it +1)
 (set: $WATERS to it -1)
 (set: $THIRST to 0)
 
-}[[the shopkeep GLARES at you. you take a sip of water and STUMBLE out of the shop-&gt;keep going]](if: $CAT is 1)[ , the CAT follows behind you]</tw-passagedata><tw-passagedata pid="332" name="saynothing beach" tags="evan" position="650,4675" size="100,100">you LOOK at the attendant but say nothing. he looks back down at his WEIRD magazine. you are TOO thirsty to care about his bull shit. you [[go over to the cooler-&gt;go to the cooler]]</tw-passagedata><tw-passagedata pid="333" name="show pendant" tags="evan" position="1925,4550" size="100,100">you hand her the pendant
+}[[the shopkeep GLARES at you. you take a sip of water and STUMBLE out of the shop-&gt;keep going]](if: $CAT is 1)[ , the CAT follows behind you]</tw-passagedata><tw-passagedata pid="331" name="saynothing beach" tags="evan" position="650,4675" size="100,100">you LOOK at the attendant but say nothing. he looks back down at his WEIRD magazine. you are TOO thirsty to care about his bull shit. you [[go over to the cooler-&gt;go to the cooler]]</tw-passagedata><tw-passagedata pid="332" name="show pendant" tags="evan" position="1925,4550" size="100,100">you hand her the pendant
 
 &quot;OH MY GOWD THAT&#39;S IT!!!! BYEEEEEEeeee&quot;
 
 [[she snatches it and disappears behind a blade of grass-&gt;FOUNTAIN]]
 
-(set: $MIPPYDONE to 1)</tw-passagedata><tw-passagedata pid="334" name="squidescape" tags="evan" position="1725,4700" size="100,100">you get out of the WATER. you feel EXHAUSTED. you need a moment to rest. you lie FLAT on your back and watch the clouds DRIFT by as the surf licks your FEET. you stay like this for a few minutes. (click-replace: &quot;you stay like this for a few minutes&quot;)[(link-replace:&quot;phew, that&#39;s BETTER&quot;)[[[better head back in-&gt;better head back in]]]]</tw-passagedata><tw-passagedata pid="335" name="swim further out" tags="evan" position="1725,4825" size="100,100">you swim FURTHER out. you can no longer see the SEA FLOOR. whatever was moving earlier is coming TOWARDS you. you are filled with FEAR.
+(set: $MIPPYDONE to 1)</tw-passagedata><tw-passagedata pid="333" name="squidescape" tags="evan" position="1725,4700" size="100,100">you get out of the WATER. you feel EXHAUSTED. you need a moment to rest. you lie FLAT on your back and watch the clouds DRIFT by as the surf licks your FEET. you stay like this for a few minutes. (click-replace: &quot;you stay like this for a few minutes&quot;)[(link-replace:&quot;phew, that&#39;s BETTER&quot;)[[[better head back in-&gt;better head back in]]]]</tw-passagedata><tw-passagedata pid="334" name="swim further out" tags="evan" position="1725,4825" size="100,100">you swim FURTHER out. you can no longer see the SEA FLOOR. whatever was moving earlier is coming TOWARDS you. you are filled with FEAR.
 
 (if: $IMMUNE is 0)[(click-replace: &quot;you are filled with FEAR.&quot;)[you turn around and start PADDLING back towards the shore](click-replace: &quot;you turn around and start PADDLING back towards the shore&quot;)[but you aren&#39;t fast enough. the THING has caught up to you](click-replace: &quot;but you aren&#39;t fast enough. the THING has caught up to you&quot;)[a TENTACLE wraps around your body](click-replace: &quot;a TENTACLE wraps around your body&quot;)[(if: $CAT is 1)[just before ]the GIANT SQUID pulls you under(if: $CAT is 1)[, you see the CAT watching you calmly from the shore]](click-replace: &quot;just before the GIANT SQUID pulls you under, you see the CAT watching you calmly from the shore&quot;)[[[everything starts to go DIM-&gt;everything starts to go DIM]]](click-replace: &quot;the GIANT SQUID pulls you under&quot;)[[[everything starts to go DIM-&gt;everything starts to go DIM]]]]
 
 (if: $IMMUNE is 1)[(click-replace: &quot;you are filled with FEAR.&quot;)[you turn around and start PADDLING back towards the shore](click-replace: &quot;you turn around and start PADDLING back towards the shore&quot;)[you feel the POWER of the mystery pop. you are very FAST](click-replace: &quot;you feel the POWER of the mystery pop. you are very FAST&quot;)[a TENTACLE reaches out for you, but you just avoid it](click-replace: &quot;a TENTACLE reaches out for you, but you just avoid it&quot;)[you avoided the GIANT SQUID, how fortunate](click-replace: &quot;you avoided the GIANT SQUID, how fortunate&quot;)[[[you are nearly back at shore, better get out of the water-&gt;squidescape]]]]
-(if: $IMMUNE is 1)[(set: $SQUID to 1)]</tw-passagedata><tw-passagedata pid="336" name="take a gatorade" tags="evan" position="1250,2800" size="100,100">you TAKE a gatorade. the shopkeep gestures towards the door. you SLINK out the door(if: $CAT is 1)[ with the cat close behind]. you take a sip of gatorade.
+(if: $IMMUNE is 1)[(set: $SQUID to 1)]</tw-passagedata><tw-passagedata pid="335" name="take a gatorade" tags="evan" position="1250,2800" size="100,100">you TAKE a gatorade. the shopkeep gestures towards the door. you SLINK out the door(if: $CAT is 1)[ with the cat close behind]. you take a sip of gatorade.
 (set: $GATORADE to it +1)
 (set: $GATORADES to it -1)
 (set: $THIRST to it -1)
-[[keep going]]</tw-passagedata><tw-passagedata pid="337" name="take a water" tags="evan" position="1375,2800" size="100,100">&quot;that was my last water&quot; says the shopkeep.
+[[keep going]]</tw-passagedata><tw-passagedata pid="336" name="take a water" tags="evan" position="1375,2800" size="100,100">&quot;that was my last water&quot; says the shopkeep.
 
 [[&quot;too bad, you should have thought of that before buying so much gatorade&quot; (take the water anyway)]]
 [[take a gatorade instead-&gt;take a gatorade]]
-[[say nothing (take the water ANYWAY)]]</tw-passagedata><tw-passagedata pid="338" name="take the gummy worm" tags="evan" position="1600,2950" size="100,100">you take your GUMMY WORM and [[[exit the shop-&gt;keep going]]](if: $CAT is 1)[, the CAT follows behind you]
+[[say nothing (take the water ANYWAY)]]</tw-passagedata><tw-passagedata pid="337" name="take the gummy worm" tags="evan" position="1600,2950" size="100,100">you take your GUMMY WORM and [[[exit the shop-&gt;keep going]]](if: $CAT is 1)[, the CAT follows behind you]
 
-(set: $WORM to it +1)</tw-passagedata><tw-passagedata pid="339" name="take the toblerone" tags="evan" position="1725,2950" size="100,100">you take the TOBLERONE and [[[exit the shop-&gt;keep going]]](if: $CAT is 1)[, the CAT follows behind you]
-(set: $TOBLERONE to it +1)</tw-passagedata><tw-passagedata pid="340" name="takegator2" tags="evan" position="1800,2675" size="100,100">[[you take a sip of gatorade and STUMBLE towards the exit. wait a second, with the shopkeep gone. you can also get a SNACK-&gt;i&#39;m not thirsty]]
+(set: $WORM to it +1)</tw-passagedata><tw-passagedata pid="338" name="take the toblerone" tags="evan" position="1725,2950" size="100,100">you take the TOBLERONE and [[[exit the shop-&gt;keep going]]](if: $CAT is 1)[, the CAT follows behind you]
+(set: $TOBLERONE to it +1)</tw-passagedata><tw-passagedata pid="339" name="takegator2" tags="evan" position="1800,2675" size="100,100">[[you take a sip of gatorade and STUMBLE towards the exit. wait a second, with the shopkeep gone. you can also get a SNACK-&gt;i&#39;m not thirsty]]
 (set: $GATORADE to it +1)
 (set: $GATORADES to it -1)
-(set: $THIRST to 0)</tw-passagedata><tw-passagedata pid="341" name="takewater2" tags="evan" position="1800,2800" size="100,100">[[you take a sip of water and STUMBLE towards the exit. wait a second, with the shopkeep gone. you can also get a SNACK-&gt;i&#39;m not thirsty]]
+(set: $THIRST to 0)</tw-passagedata><tw-passagedata pid="340" name="takewater2" tags="evan" position="1800,2800" size="100,100">[[you take a sip of water and STUMBLE towards the exit. wait a second, with the shopkeep gone. you can also get a SNACK-&gt;i&#39;m not thirsty]]
 (set: $WATER to it +1)
 (set: $WATERS to it -1)
-(set: $THIRST to 0)</tw-passagedata><tw-passagedata pid="342" name="tell her you&#39;re very thirsty" tags="evan" position="1250,2675" size="100,100">the shopkeep says &quot;get your drink and get out&quot;
+(set: $THIRST to 0)</tw-passagedata><tw-passagedata pid="341" name="tell her you&#39;re very thirsty" tags="evan" position="1250,2675" size="100,100">the shopkeep says &quot;get your drink and get out&quot;
 
 you move to the cooler. there are $GATORADES GATORADES and $WATERS WATER in the cooler
 
 [[take a gatorade]]
-(if: $WATERS &gt; 0)[[take a water]]</tw-passagedata><tw-passagedata pid="343" name="tell him you&#39;re very thirsty" tags="evan" position="525,4675" size="100,100">&quot;i&#39;m just here to get a drink, mister&quot; you SAY.
+(if: $WATERS &gt; 0)[[take a water]]</tw-passagedata><tw-passagedata pid="342" name="tell him you&#39;re very thirsty" tags="evan" position="525,4675" size="100,100">&quot;i&#39;m just here to get a drink, mister&quot; you SAY.
 
 he says &quot;i don&#39;t like your whole vibe, just get your drink and get out&quot;
 
 [[go to the cooler]]
 [[&quot;MISTER i&#39;m gonna kick your ass if you don&#39;t get out of my sight right now&quot;
-(THREATEN the attendant)-&gt;THREATEN the attendant]]</tw-passagedata><tw-passagedata pid="344" name="that&#39;s nonsense keep looking" tags="evan" position="125,4100" size="100,100">past the ICE CREAM STAND there is a [[GAS STATION]]</tw-passagedata><tw-passagedata pid="345" name="thirsty beach" tags="evan" position="275,3925" size="100,100">the effects of the SUN and SAND are too much. your HAT no longer protects you. you are very very thirsty. you need a DRINK asap
+(THREATEN the attendant)-&gt;THREATEN the attendant]]</tw-passagedata><tw-passagedata pid="343" name="that&#39;s nonsense keep looking" tags="evan" position="125,4100" size="100,100">past the ICE CREAM STAND there is a [[GAS STATION]]</tw-passagedata><tw-passagedata pid="344" name="thirsty beach" tags="evan" position="275,3925" size="100,100">the effects of the SUN and SAND are too much. your HAT no longer protects you. you are very very thirsty. you need a DRINK asap
 
 [[i&#39;ll be fine, it&#39;s not a big deal-&gt;fine beach]]
-[[retreat and look for a DRINK]]</tw-passagedata><tw-passagedata pid="346" name="time to LEAVE" tags="evan" position="1100,4400" size="100,100">you EXIT the beach(if: $CAT is 1)[ along with the CAT.]
+[[retreat and look for a DRINK]]</tw-passagedata><tw-passagedata pid="345" name="time to LEAVE" tags="evan" position="1100,4400" size="100,100">you EXIT the beach(if: $CAT is 1)[ along with the CAT.]
 
 (if: $SWIM is 1)[[go back to the INTERSECTION]]
 
@@ -2735,26 +2731,26 @@ he says &quot;i don&#39;t like your whole vibe, just get your drink and get out&
 
 (if: $PENDANT is 1 and $SWIM is 1)[(click-replace: &quot;you are no longer thirsty&quot;)[(link-replace:&quot;you think about LEAVING. a little voice tells you there is NOTHING left to do at the beach&quot;)[[[go back to the INTERSECTION-&gt;go back to the INTERSECTION]]]]]
 
-(if: $THIRST &gt; 0 and $WATER &gt; 0 or $GATORADE &gt; 0)[(set: $THIRST to -2)]</tw-passagedata><tw-passagedata pid="347" name="toblerbeach" tags="evan" position="1125,5125" size="100,100">you take your TOBLERONE and [[[get out-&gt;exit near beach]]](if: $CAT is 1)[, the cat FOLLOWS you]
-(set: $TOBLERONE to it +1)</tw-passagedata><tw-passagedata pid="348" name="wake at home" tags="evan" position="2300,2725" size="100,100">You WAKE with a start. You&#39;re lying on your couch. Did you really SLEEP the whole day? You feel very GROGGY and you can&#39;t recall laying down. The last thing you remember is thinking about going for a WALK
-(click-replace:&quot;You WAKE with a start. You&#39;re lying on your couch. Did you really SLEEP the whole day? You feel very GROGGY and you can&#39;t recall laying down. The last thing you remember is thinking about going for a WALK&quot;)[a strange feeling washes over you. don&#39;t know quite how to describe it. after a few moments, you finally begin to feel like your old SELF again](click-replace:&quot;a strange feeling washes over you. don&#39;t know quite how to describe it. after a few moments, you finally begin to feel like your old SELF again&quot;)[you blurt out &#39;Wow, I sure do love it here! I think I&#39;ll stay in PROVIDENCE forever!&#39;](click-replace: &quot;you blurt out &#39;Wow, I sure do love it here! I think I&#39;ll stay in PROVIDENCE forever!&quot;)[(link-replace:&quot;&#39;huh, that was WEIRD&#39;, you mumble&quot;)[[[THE END-&gt;THE END]]]]</tw-passagedata><tw-passagedata pid="349" name="walk home" tags="evan" position="2050,3000" size="100,100">&#39;no way is this gonna work out in my favour&#39;, you say as you STUMBLE back out of the vacant lot. &#39;what a WEIRD place, i&#39;m outta here!&#39;
+(if: $THIRST &gt; 0 and $WATER &gt; 0 or $GATORADE &gt; 0)[(set: $THIRST to -2)]</tw-passagedata><tw-passagedata pid="346" name="toblerbeach" tags="evan" position="1125,5125" size="100,100">you take your TOBLERONE and [[[get out-&gt;exit near beach]]](if: $CAT is 1)[, the cat FOLLOWS you]
+(set: $TOBLERONE to it +1)</tw-passagedata><tw-passagedata pid="347" name="wake at home" tags="evan" position="2300,2725" size="100,100">You WAKE with a start. You&#39;re lying on your couch. Did you really SLEEP the whole day? You feel very GROGGY and you can&#39;t recall laying down. The last thing you remember is thinking about going for a WALK
+(click-replace:&quot;You WAKE with a start. You&#39;re lying on your couch. Did you really SLEEP the whole day? You feel very GROGGY and you can&#39;t recall laying down. The last thing you remember is thinking about going for a WALK&quot;)[a strange feeling washes over you. don&#39;t know quite how to describe it. after a few moments, you finally begin to feel like your old SELF again](click-replace:&quot;a strange feeling washes over you. don&#39;t know quite how to describe it. after a few moments, you finally begin to feel like your old SELF again&quot;)[you blurt out &#39;Wow, I sure do love it here! I think I&#39;ll stay in PROVIDENCE forever!&#39;](click-replace: &quot;you blurt out &#39;Wow, I sure do love it here! I think I&#39;ll stay in PROVIDENCE forever!&quot;)[(link-replace:&quot;&#39;huh, that was WEIRD&#39;, you mumble&quot;)[[[THE END-&gt;THE END]]]]</tw-passagedata><tw-passagedata pid="348" name="walk home" tags="evan" position="2050,3000" size="100,100">&#39;no way is this gonna work out in my favour&#39;, you say as you STUMBLE back out of the vacant lot. &#39;what a WEIRD place, i&#39;m outta here!&#39;
 
 you CONTINUE back the way you came until you reach your home. (if: $keys is 0)[you REACH into your pocket but your keys aren&#39;t there. &#39;did i leave them at home??&#39; you mutter. no matter, your DOOR is wide open.] you go inside. everything SEEMS normal. you settle in and turn on the TV.
 (set: $MICKEYSFAVOURIEANIME to &quot;MICKEYSFAVOURITEANIME&quot;)
-instead of the usual $$MICKEYSFAVOURIEANIME you see that damned orange CAT staring back at you! his gaze pierces your psyche. [[[everything starts to go DIM-&gt;everything starts to go DIM]]]</tw-passagedata><tw-passagedata pid="350" name="walk over it" tags="evan" position="650,2900" size="100,100">you step over the TARP
+instead of the usual $$MICKEYSFAVOURIEANIME you see that damned orange CAT staring back at you! his gaze pierces your psyche. [[[everything starts to go DIM-&gt;everything starts to go DIM]]]</tw-passagedata><tw-passagedata pid="349" name="walk over it" tags="evan" position="650,2900" size="100,100">you step over the TARP
 (click-replace: &quot;you step over the TARP&quot;)[it was a clever TRAP]
 (click-replace: &quot;it was a clever TRAP&quot;)[the ground gives way below you]
 (click-replace: &quot;the ground gives way below you&quot;)[you fall and fall and fall]
 (click-replace: &quot;you fall and fall and fall&quot;)[you&#39;ve fallen into a bottomless pit]
-(click-replace: &quot;you&#39;ve fallen into a bottomless pit&quot;)[[[everything starts to go DIM-&gt;everything starts to go DIM]]]</tw-passagedata><tw-passagedata pid="351" name="waterbeach" tags="evan" position="750,4925" size="100,100">(set: $WATER to it +1)
+(click-replace: &quot;you&#39;ve fallen into a bottomless pit&quot;)[[[everything starts to go DIM-&gt;everything starts to go DIM]]]</tw-passagedata><tw-passagedata pid="350" name="waterbeach" tags="evan" position="750,4925" size="100,100">(set: $WATER to it +1)
 (set: $WATERS to it -1)
 (set: $THIRST to it -1)
 
 (if: $ATTENDANT is 0)[[you grab a water and take a SIP. why not grab a SNACK, as long as the attendant isn&#39;t here-&gt;go to the snacks]]
-(if: $ATTENDANT is 1)[[you grab a water and take a SIP. you are no longer THIRSTY. time to leave this HORRIBLE store. you SLINK out-&gt;exit near beach]](if: $CAT is 1 and $ATTENDANT is 1)[, the cat FOLLOWS you.]</tw-passagedata><tw-passagedata pid="352" name="who cares" tags="evan" position="300,2975" size="100,100">you glance back at the cat. he WINKS, then he gets up. he looks READY to follow you
+(if: $ATTENDANT is 1)[[you grab a water and take a SIP. you are no longer THIRSTY. time to leave this HORRIBLE store. you SLINK out-&gt;exit near beach]](if: $CAT is 1 and $ATTENDANT is 1)[, the cat FOLLOWS you.]</tw-passagedata><tw-passagedata pid="351" name="who cares" tags="evan" position="300,2975" size="100,100">you glance back at the cat. he WINKS, then he gets up. he looks READY to follow you
 
 [[ask the cat WHERE he wants to go]]
-[[leave him, just start WALKING]]</tw-passagedata><tw-passagedata pid="353" name="who cares about poems show me the CLASSIFIEDS" tags="evan" position="1625,2400" size="100,100">you flip to the CLASSIFIEDS section. the first ad jumps out at you
+[[leave him, just start WALKING]]</tw-passagedata><tw-passagedata pid="352" name="who cares about poems show me the CLASSIFIEDS" tags="evan" position="1625,2400" size="100,100">you flip to the CLASSIFIEDS section. the first ad jumps out at you
 
 &quot;MMEET ME AT THE CURSED FOUNTIN AT NOON. ~UR SECREWT LOVER~&quot;
 
@@ -2763,39 +2759,39 @@ woah, wonder who that&#39;s for. . . . .
 (if: $THIRST &gt; 0)[[[okay this is great but you&#39;re still thirsty-&gt;go to the cooler1]]]
 (if: $THRST is 0)[[[okay this is great it&#39;s time to check out the snacks-&gt;i&#39;m not thirsty]]]
 
-(set: $MEMORY to 1)</tw-passagedata><tw-passagedata pid="354" name="wormbeach" tags="evan" position="1000,5050" size="100,100">you take your GUMMY WORM and [[[get out-&gt;exit near beach]]](if: $CAT is 1)[, the cat FOLLOWS you]
-(set: $WORM to it +1)</tw-passagedata><tw-passagedata pid="355" name="you WIN" tags="evan" position="2175,2900" size="100,100">after a time the light FADES. you find yourself back at HOME, on your couch. you feel RELAXED and CONTENT. [[[everything is right with your life.-&gt;THE END]]]</tw-passagedata><tw-passagedata pid="356" name="pual" tags="pual" position="2725,2575" size="100,100">{(set:$centipede to false)
+(set: $MEMORY to 1)</tw-passagedata><tw-passagedata pid="353" name="wormbeach" tags="evan" position="1000,5050" size="100,100">you take your GUMMY WORM and [[[get out-&gt;exit near beach]]](if: $CAT is 1)[, the cat FOLLOWS you]
+(set: $WORM to it +1)</tw-passagedata><tw-passagedata pid="354" name="you WIN" tags="evan" position="2175,2900" size="100,100">after a time the light FADES. you find yourself back at HOME, on your couch. you feel RELAXED and CONTENT. [[[everything is right with your life.-&gt;THE END]]]</tw-passagedata><tw-passagedata pid="355" name="pual" tags="pual" position="2725,2575" size="100,100">{(set:$centipede to false)
 (set:$pterodactyl to false)
 (set:$brush to false)
 
-}the yard is peaceful and quiet. a [[cat]] sits licking its paw, and a nearby [[raccoon]] is rolling in some dead leaves in the well known popular style of elden ring. the sky is a hazy pink and you can see a pterodactyl flying peacefully beneath the clouds, distant, but possibly just close enough to shoot with a [[suitable long-range weapon]].</tw-passagedata><tw-passagedata pid="357" name="cat" tags="pual" position="2975,2750" size="100,100">you try to think what this cat might be called.
+}the yard is peaceful and quiet. a [[cat]] sits licking its paw, and a nearby [[raccoon]] is rolling in some dead leaves in the well known popular style of elden ring. the sky is a hazy pink and you can see a pterodactyl flying peacefully beneath the clouds, distant, but possibly just close enough to shoot with a [[suitable long-range weapon]].</tw-passagedata><tw-passagedata pid="356" name="cat" tags="pual" position="2975,2750" size="100,100">you try to think what this cat might be called.
 
 from its face it looks like it could be (link-replace:&quot;called...&quot;)[called (link-reveal:&quot;my shitty princess,&quot;)[ or (link-reveal:&quot;captain colin,&quot;)[ or (link-reveal:&quot;thuggy dongle,&quot;)[ or even (link-reveal:&quot;pickle willy.&quot;)[
 
 there is no way to really know. in a way, that&#39;s a relief.
 
-is it a new [[stray]], or has it escaped from the [[surplus cat management area]]?]]]]]</tw-passagedata><tw-passagedata pid="358" name="raccoon" tags="pual" position="2975,2575" size="100,100">{(set:$centipede to true)
+is it a new [[stray]], or has it escaped from the [[surplus cat management area]]?]]]]]</tw-passagedata><tw-passagedata pid="357" name="raccoon" tags="pual" position="2975,2575" size="100,100">{(set:$centipede to true)
 
 }you defeat the raccoon easily, although it does briefly explode, causing a minor HP reduction. It drops the Cracked Romanticist (link-reveal:&quot;Opera Duellist armor set&quot;)[, which you look fucking great in], (link-reveal:&quot;a jelly centipede&quot;)[, delicious], and (link-reveal:&quot;Bone Broth (5)&quot;)[, which you can use to upgrade your spirit mice].
 
 The cat is startled by the rough and tumble of battle, bolting off down the street, yelling &quot;eeeeehh!!&quot;
 
-You wonder if you should check the [[surplus cat management area]] for missing inventory, or quickly [[shoot this stupid pterodactyl-&gt;suitable long-range weapon]].</tw-passagedata><tw-passagedata pid="359" name="suitable long-range weapon" tags="pual" position="2725,2825" size="100,100">You pull out your Kraber .50-Cal Sniper rifle and train its sights on the (link-reveal:&quot;pterodactyl&quot;)[, but it dips behind a (link-reveal:&quot;cloud.&quot;)[ An ominous high-pitched squeal comes from its mouth(click:&quot;squeal&quot;)[ (link-reveal:&quot;\&quot;eeeeehh!!\&quot;&quot;)[
+You wonder if you should check the [[surplus cat management area]] for missing inventory, or quickly [[shoot this stupid pterodactyl-&gt;suitable long-range weapon]].</tw-passagedata><tw-passagedata pid="358" name="suitable long-range weapon" tags="pual" position="2725,2825" size="100,100">You pull out your Kraber .50-Cal Sniper rifle and train its sights on the (link-reveal:&quot;pterodactyl&quot;)[, but it dips behind a (link-reveal:&quot;cloud.&quot;)[ An ominous high-pitched squeal comes from its mouth(click:&quot;squeal&quot;)[ (link-reveal:&quot;\&quot;eeeeehh!!\&quot;&quot;)[
 
 You zipline to the roof of your neighbor&#39;s house, trying to get a better vantage point on the abominable sky lizard. The foul devil reptile is beginning to (link-reveal:&quot;circle back&quot;)[ when you hear a pitiful leathery mewing coming from the (link-reveal:&quot;other side of the roof.&quot;)[ You leap in that direction, landing in a defensive battle crouch behind an open (link-reveal:&quot;Care Package container&quot;)[
 
-Inside the Care Package container there&#39;s a [[baby pterodactyl]]]]]]]]]</tw-passagedata><tw-passagedata pid="360" name="stray" tags="pual" position="2975,2875" size="100,100">you approach the passive-seeming cat, which continues to ignore you. you wonder if it would like to be [[petted]], or if you should just check the [[surplus cat management area]] instead.</tw-passagedata><tw-passagedata pid="361" name="surplus cat management area" tags="pual" position="3150,2650" size="100,100">You lazily swing open the door of (link-replace:&quot;the cat warehouse.&quot;)[the cat warehouse,(link-reveal:&quot; the stench and noise of hundreds of feral cats assaulting all of your senses at once.&quot;)[ (link-reveal:&quot;you sometimes wonder if you&#39;ve been pulled in too deep into this black market cat farm,&quot;)[ (link-reveal:&quot;but sales have been satisfyingly strong recently.&quot;)[
+Inside the Care Package container there&#39;s a [[baby pterodactyl]]]]]]]]]</tw-passagedata><tw-passagedata pid="359" name="stray" tags="pual" position="2975,2875" size="100,100">you approach the passive-seeming cat, which continues to ignore you. you wonder if it would like to be [[petted]], or if you should just check the [[surplus cat management area]] instead.</tw-passagedata><tw-passagedata pid="360" name="surplus cat management area" tags="pual" position="3150,2650" size="100,100">You lazily swing open the door of (link-replace:&quot;the cat warehouse.&quot;)[the cat warehouse,(link-reveal:&quot; the stench and noise of hundreds of feral cats assaulting all of your senses at once.&quot;)[ (link-reveal:&quot;you sometimes wonder if you&#39;ve been pulled in too deep into this black market cat farm,&quot;)[ (link-reveal:&quot;but sales have been satisfyingly strong recently.&quot;)[
 
-You wonder if it would be best to [[check the cages for signs of an unauthorised cat exit transgression first]], or [[look at what is in the admin &quot;out&quot; box]].]]]]</tw-passagedata><tw-passagedata pid="362" name="petted" tags="pual" position="2975,3000" size="100,100">as you lean in to pet the cat, it partially bares its teeth in a seemingly mocking grimace. you notice that it&#39;s not a stray, but has a tarnished silver name tag visible, lying flat againt the matted fur on the back of its neck. The tag bears the legend &quot;Cory Maims&quot;. As the beast leaps at you, pain and confusion swim together in your startled mind, much as the pink of the sky and the blood running from your lacerated eyeballs also merge into one hideous watercolour wash of horror.
+You wonder if it would be best to [[check the cages for signs of an unauthorised cat exit transgression first]], or [[look at what is in the admin &quot;out&quot; box]].]]]]</tw-passagedata><tw-passagedata pid="361" name="petted" tags="pual" position="2975,3000" size="100,100">as you lean in to pet the cat, it partially bares its teeth in a seemingly mocking grimace. you notice that it&#39;s not a stray, but has a tarnished silver name tag visible, lying flat againt the matted fur on the back of its neck. The tag bears the legend &quot;Cory Maims&quot;. As the beast leaps at you, pain and confusion swim together in your startled mind, much as the pink of the sky and the blood running from your lacerated eyeballs also merge into one hideous watercolour wash of horror.
 
-[[THE END-&gt;start]]</tw-passagedata><tw-passagedata pid="363" name="check the cages for signs of an unauthorised cat exit transgression first" tags="pual" position="3325,2850" size="100,100">The building extends for what looks like miles ahead of you, like those shots of an infinite warehouse in Indiana Jones, except with high walls of cats in cages instead of crates full of plundered ancient artifacts. You start walking down the nearest aisle, looking to see if any of the cages have been broken open. The smell of cat urine is slightly overpowering. Very quickly you&#39;re totally lost. Do you turn [[left]] or [[right]]?</tw-passagedata><tw-passagedata pid="364" name="look at what is in the admin &quot;out&quot; box" tags="pual" position="3325,2725" size="100,100">You pick up a handful of files from the out box; these are the ones which should be due for transfer or release. Every cat here has its own information pack, and you look at these files with a sense of quiet pride; you know you&#39;ve done a good job of drawing each and every fucking cat and making their file look appealing to potential blackmarket buyers. You&#39;ve fucking nailed the graphic design, and the sheets of little stickers came out looking pretty dope too. None of these ones look like the cat you saw outside though.
+[[THE END-&gt;start]]</tw-passagedata><tw-passagedata pid="362" name="check the cages for signs of an unauthorised cat exit transgression first" tags="pual" position="3325,2850" size="100,100">The building extends for what looks like miles ahead of you, like those shots of an infinite warehouse in Indiana Jones, except with high walls of cats in cages instead of crates full of plundered ancient artifacts. You start walking down the nearest aisle, looking to see if any of the cages have been broken open. The smell of cat urine is slightly overpowering. Very quickly you&#39;re totally lost. Do you turn [[left]] or [[right]]?</tw-passagedata><tw-passagedata pid="363" name="look at what is in the admin &quot;out&quot; box" tags="pual" position="3325,2725" size="100,100">You pick up a handful of files from the out box; these are the ones which should be due for transfer or release. Every cat here has its own information pack, and you look at these files with a sense of quiet pride; you know you&#39;ve done a good job of drawing each and every fucking cat and making their file look appealing to potential blackmarket buyers. You&#39;ve fucking nailed the graphic design, and the sheets of little stickers came out looking pretty dope too. None of these ones look like the cat you saw outside though.
 
-Suddenly the phone rings. You wonder if you should [[answer it]], or [[ignore it and check the cages for signs of an unauthorised escape-&gt;check the cages for signs of an unauthorised cat exit transgression first]].</tw-passagedata><tw-passagedata pid="365" name="baby pterodactyl" tags="pual" position="2725,3200" size="100,100">(if:$centipede is true)[(set:$pterodactyl to true)You offer it the remains of the (link-reveal:&quot;delicious jelly centipede.&quot;)[ It caws appreciatively as it swallows the tubular gummy treat, then casts you an (link-reveal:&quot;adoring look.&quot;)[ It now not unreasonably believes you are its (link-reveal:&quot;parent.&quot;)[ You stroke its outstretched (link-reveal:&quot;head.&quot;)[ The adult pterodactyl is now no longer to be seen, so you [[zip-line back to the yard]].]]]]](else:)[It&#39;s a cutie! You (link-reveal:&quot;reach out to pat it.&quot;)[
+Suddenly the phone rings. You wonder if you should [[answer it]], or [[ignore it and check the cages for signs of an unauthorised escape-&gt;check the cages for signs of an unauthorised cat exit transgression first]].</tw-passagedata><tw-passagedata pid="364" name="baby pterodactyl" tags="pual" position="2725,3200" size="100,100">(if:$centipede is true)[(set:$pterodactyl to true)You offer it the remains of the (link-reveal:&quot;delicious jelly centipede.&quot;)[ It caws appreciatively as it swallows the tubular gummy treat, then casts you an (link-reveal:&quot;adoring look.&quot;)[ It now not unreasonably believes you are its (link-reveal:&quot;parent.&quot;)[ You stroke its outstretched (link-reveal:&quot;head.&quot;)[ The adult pterodactyl is now no longer to be seen, so you [[zip-line back to the yard]].]]]]](else:)[It&#39;s a cutie! You (link-reveal:&quot;reach out to pat it.&quot;)[
 
 The ungodly Mesozoic menace is so fast to react that before you can catch a breath, its deadly beak has whiplashed across your field of vision, taking most of your throat with it. You fall backwards and slide slowly from your neighbour&#39;s roof, smearing a trail of fresh blood as you go, that last breath already a lost memory. If you are at all conscious, the last thing you hear is a piercing shriek from the Jurassic juvenile&#39;s grotesque blood-flecked maw, an unnatural cry in no known language, but which sounds strangely like a garbled shriek of &quot;I&#39;m the baby!&quot;
 
 [[THE END-&gt;start]]
-]]</tw-passagedata><tw-passagedata pid="366" name="left" tags="pual" position="3625,3125" size="100,100">You turn a couple of corners, suddenly seeing one of the centipod interns ahead of you. 
+]]</tw-passagedata><tw-passagedata pid="365" name="left" tags="pual" position="3625,3125" size="100,100">You turn a couple of corners, suddenly seeing one of the centipod interns ahead of you. 
 
 (click:&quot;centipod interns&quot;)[Centipods are house centipedes which have been forcibly evolved to stand upright and be able to handle basic practical or administrative tasks within the cat farming business.{
 
@@ -2809,13 +2805,13 @@ The ungodly Mesozoic menace is so fast to react that before you can catch a brea
 
 (click:&quot;Hey, how&#39;s it going?&quot;)[They gasp again and turn and run up the metal steps of the nearest gantry (used to access the forty stories of stacked-up cat cages), their chitinous boobs bouncing in panic.
 
-They seem distressed, you wonder if you should [[follow them]], or [[leave them to their work]] and carry on checking cages.]]]]]</tw-passagedata><tw-passagedata pid="367" name="right" tags="pual" position="3425,3125" size="100,100">You head right, but suddenly your feet hit something heavy and you trip. What the hell was that?? It was Bready, taking a nap in the warehouse! &quot;Dammit Bread, get out of here boy!&quot; you shout. As Bread runs off deeper into the maze-like warehouse, you notice that he has a Magic The Gathering card that you don&#39;t recognise stuck to one of his back legs. It looked like it was an entirely new land type. You&#39;re tempted to give in to your curiosity and [[chase Bread to get a better look at the card]], but perhaps you should [[continue on with checking for empty cages-&gt;left]].</tw-passagedata><tw-passagedata pid="368" name="answer it" tags="pual" position="3525,2725" size="100,100">You answer the phone.
+They seem distressed, you wonder if you should [[follow them]], or [[leave them to their work]] and carry on checking cages.]]]]]</tw-passagedata><tw-passagedata pid="366" name="right" tags="pual" position="3425,3125" size="100,100">You head right, but suddenly your feet hit something heavy and you trip. What the hell was that?? It was Bready, taking a nap in the warehouse! &quot;Dammit Bread, get out of here boy!&quot; you shout. As Bread runs off deeper into the maze-like warehouse, you notice that he has a Magic The Gathering card that you don&#39;t recognise stuck to one of his back legs. It looked like it was an entirely new land type. You&#39;re tempted to give in to your curiosity and [[chase Bread to get a better look at the card]], but perhaps you should [[continue on with checking for empty cages-&gt;left]].</tw-passagedata><tw-passagedata pid="367" name="answer it" tags="pual" position="3525,2725" size="100,100">You answer the phone.
 
 It&#39;s Brishanna in the sales dept. She&#39;s explaining that the client at the national ski flume centre is happy with the huge patch of Chicken Finger you&#39;ve designed them, but now they&#39;re saying they&#39;ll need it bigger. There&#39;s a new type of ski flume jacket coming onto the market next year which everyone will be wearing, and it will be twice the size of a normal jacket, so the 60x40 design you&#39;ve provided will need to be at least 60% larger, and with five more colors.
 
 You tell Brishanna that you&#39;ll deal with it, then (link-reveal:&quot;hang up.&quot;)[
 
-What to do next? You ponder if you should [[redesign the patch from scratch]] or head to the ski flume centre and [[aggressively explain to the client in person how to simply increase the image size by 60%]].]</tw-passagedata><tw-passagedata pid="369" name="redesign the patch from scratch" tags="pual" position="3650,2600" size="100,100">You grab some paper and head out of the warehouse to look for Chicken Finger, as well as some general inspiration for the new patch.
+What to do next? You ponder if you should [[redesign the patch from scratch]] or head to the ski flume centre and [[aggressively explain to the client in person how to simply increase the image size by 60%]].]</tw-passagedata><tw-passagedata pid="368" name="redesign the patch from scratch" tags="pual" position="3650,2600" size="100,100">You grab some paper and head out of the warehouse to look for Chicken Finger, as well as some general inspiration for the new patch.
 
 (click:&quot;new patch&quot;)[You don&#39;t know much about ski-flume culture. It&#39;s kind of a weird, confusing mix of winter sports and a water park. You think that a drawing of Chicken Finger chilling in a pool could work.
 
@@ -2829,7 +2825,7 @@ What to do next? You ponder if you should [[redesign the patch from scratch]] or
 
 You suddenly remember that Bread doesn&#39;t have a license and shouldn&#39;t technically be driving (although, technically-speaking, his driving is actually perfect).
 
-Should you try to [[talk your way out of this]], or [[just tell Bready to hit the gas?]]]]]]]</tw-passagedata><tw-passagedata pid="370" name="talk your way out of this" tags="pual" position="3775,2600" size="100,100">{(set:$brush to true)
+Should you try to [[talk your way out of this]], or [[just tell Bready to hit the gas?]]]]]]]</tw-passagedata><tw-passagedata pid="369" name="talk your way out of this" tags="pual" position="3775,2600" size="100,100">{(set:$brush to true)
 
 }&quot;Hey Mister!&quot; shouts the cop. &quot;This fell from the roof of your vehicle&quot; he says, and reaches through the window to pass a brush to Bread.
 
@@ -2837,7 +2833,7 @@ Should you try to [[talk your way out of this]], or [[just tell Bready to hit th
 
 }(click:&quot;psychic deterioration it naturally has caused them&quot;)[ You make a mental note to Brush bread at least 2 or 3 times when you get home.
 
-&quot;Thank you officer!&quot; you shout, and you continue on your way to [[the pool]].]</tw-passagedata><tw-passagedata pid="371" name="just tell Bready to hit the gas?" tags="pual" position="3775,2475" size="100,100">Bread slams his paw down and you screech off back onto the highway. In the rear-view mirror you see the cop on his knees, sobbing and holding his clenched hands to the sky. Bread looks very cool. Honestly, you kind of do too. Shortly, you pull off onto a supply road and see [[the pool building-&gt;the pool]] in the distance.</tw-passagedata><tw-passagedata pid="372" name="zip-line back to the yard" tags="pual" position="3150,3200" size="100,100">You land and put away your rifle. The cat is there again, seemingly unperturbed. is it a new [[stray]], or has it escaped from the [[surplus cat management area]]?</tw-passagedata><tw-passagedata pid="373" name="risk it" tags="pual" position="4300,3125" size="100,100">You take a deep breath, then when you reach the next small upward hump in the flume, you shift your body weight and somehow find the momentum to leap over next to Bread on the parallel track. Honestly, you&#39;re not really sure how exactly you do it, but not thinking about it too much definitely helps.
+&quot;Thank you officer!&quot; you shout, and you continue on your way to [[the pool]].]</tw-passagedata><tw-passagedata pid="370" name="just tell Bready to hit the gas?" tags="pual" position="3775,2475" size="100,100">Bread slams his paw down and you screech off back onto the highway. In the rear-view mirror you see the cop on his knees, sobbing and holding his clenched hands to the sky. Bread looks very cool. Honestly, you kind of do too. Shortly, you pull off onto a supply road and see [[the pool building-&gt;the pool]] in the distance.</tw-passagedata><tw-passagedata pid="371" name="zip-line back to the yard" tags="pual" position="3150,3200" size="100,100">You land and put away your rifle. The cat is there again, seemingly unperturbed. is it a new [[stray]], or has it escaped from the [[surplus cat management area]]?</tw-passagedata><tw-passagedata pid="372" name="risk it" tags="pual" position="4300,3125" size="100,100">You take a deep breath, then when you reach the next small upward hump in the flume, you shift your body weight and somehow find the momentum to leap over next to Bread on the parallel track. Honestly, you&#39;re not really sure how exactly you do it, but not thinking about it too much definitely helps.
 
 (click:&quot;not thinking about it too much definitely helps&quot;)[You grab onto Bread&#39;s butt and you both shoot into a dark pipe just in time, with the frustrated monsters snapping at your rapidly disappearing asses. The ice on the floor of the pipe starts to accumulate more into snow and you find yourselves gradually slowing to a halt.
 
@@ -2851,13 +2847,13 @@ Should you try to [[talk your way out of this]], or [[just tell Bready to hit th
 
 (click:&quot;It&#39;s perfect&quot;)[You pet Bread gratefully. You see the Flume-Centre design staff walking towards you with an oversized cheque and flutes of champagne. You&#39;re exhausted. And you really need the loo. But this all seems to have worked out pretty well this time!
 
-[[THE END-&gt;start]]]]]]]]</tw-passagedata><tw-passagedata pid="374" name="stay your course?" tags="pual" position="4300,3000" size="100,100">You decide it&#39;s best to keep to your lane. How the hell would you make it over to Bread&#39;s flume? You can&#39;t do cool tricks like he does. Daft dog.
+[[THE END-&gt;start]]]]]]]]</tw-passagedata><tw-passagedata pid="373" name="stay your course?" tags="pual" position="4300,3000" size="100,100">You decide it&#39;s best to keep to your lane. How the hell would you make it over to Bread&#39;s flume? You can&#39;t do cool tricks like he does. Daft dog.
 
 You feel like you&#39;ve been descending forever, but you finally reach the bottom, where the flume immediately begins another sharp ascent. You really have some momentum happening now, and even seem to have finally shaken off the pesky pterodactyls, purely with your speed. You think idly of how much your route through the park so far has reminded you of a Marbles On Stream map, and so aren&#39;t hugely surprised when you find yourself reaching the flume&#39;s peak and being rudely catapulted off the end into an empty void.
 
 This really isn&#39;t how this should end, you think to yourself. The void gives no reply.
 
-[[THE END-&gt;start]]</tw-passagedata><tw-passagedata pid="375" name="follow them" tags="pual" position="3700,3250" size="100,100">You slowly begin to climb after them. The steps go up in alternating diagonals giving access to the service platforms to reach the cages, and they&#39;re already a couple of levels above you, their rich, husky panting getting ever fainter. You continue upwards.
+[[THE END-&gt;start]]</tw-passagedata><tw-passagedata pid="374" name="follow them" tags="pual" position="3700,3250" size="100,100">You slowly begin to climb after them. The steps go up in alternating diagonals giving access to the service platforms to reach the cages, and they&#39;re already a couple of levels above you, their rich, husky panting getting ever fainter. You continue upwards.
 
 (click:&quot;upwards&quot;)[When you finally reach the top level, some 20 metres up, you&#39;re also starting to feel a little out of breath. The first thing you see, however...{
 
@@ -2881,11 +2877,11 @@ Opening your eyes, you see that you&#39;ve actually been caught by a huge pterod
 
 [[THE END-&gt;start]]](else:)[Time still moves slowly, and the 20 metre drop seems to last nearly a lifetime. You have one last seemingly-unending thought of the undulating pillowy centipod boobs before your mind snaps to a whip-sharp black nothingness as your body hits the floor with a deadly thud.
 
-[[THE END-&gt;start]]]]]]]]]]]</tw-passagedata><tw-passagedata pid="376" name="leave them to their work" tags="pual" position="3575,3250" size="100,100">&quot;Oh well&quot;, you think. Sometimes it&#39;s best not to make the mistake of projecting too many human emotions or motivations onto the centipods, even if they do have surprisingly stacked racks for a sexy upright insect. Stupid sexy insects.
+[[THE END-&gt;start]]]]]]]]]]]</tw-passagedata><tw-passagedata pid="375" name="leave them to their work" tags="pual" position="3575,3250" size="100,100">&quot;Oh well&quot;, you think. Sometimes it&#39;s best not to make the mistake of projecting too many human emotions or motivations onto the centipods, even if they do have surprisingly stacked racks for a sexy upright insect. Stupid sexy insects.
 
 You walk down another couple of long aisles of cages, then are surprised to find that you&#39;re back at the warehouse entrance. Poking your head outside into the yard, it&#39;s obvious that the cat is long gone anyway. Oh well. This has all been a lot of hard work and you really need the loo, and you suddenly fancy some orange gatorade too (weird), so you head back into the house for a well-earned rest.
 
-[[THE END-&gt;start]]</tw-passagedata><tw-passagedata pid="377" name="chase Bread to get a better look at the card" tags="pual" position="3425,3250" size="100,100">You run off after Bread, who is heading down a side aisle, setting off all of the nearby cats to yowling and mewing. He&#39;s heading towards an old grain chute that leads to an opening high in a side wall of the warehouse.
+[[THE END-&gt;start]]</tw-passagedata><tw-passagedata pid="376" name="chase Bread to get a better look at the card" tags="pual" position="3425,3250" size="100,100">You run off after Bread, who is heading down a side aisle, setting off all of the nearby cats to yowling and mewing. He&#39;s heading towards an old grain chute that leads to an opening high in a side wall of the warehouse.
 
 (click:&quot;opening&quot;)[Seeing his furry butt wiggle through swiftly the hole, you figure you&#39;d better follow him up. You don&#39;t actually even know what&#39;s on the other side of the wall.{
 
@@ -2906,7 +2902,7 @@ As you scramble to grasp handfuls of them, you feel yourself sinking deeper into
 
 
 
-</tw-passagedata><tw-passagedata pid="378" name="the pool" tags="pual" position="4025,2525" size="100,100">You park by the pool and head past the reception and up the stairs to the pool area. It all looks absolutely perfect, with the 80s hair metal playing and the many multi-coloured lights reflecting on the water while the sun beats through the open roof.
+</tw-passagedata><tw-passagedata pid="377" name="the pool" tags="pual" position="4025,2525" size="100,100">You park by the pool and head past the reception and up the stairs to the pool area. It all looks absolutely perfect, with the 80s hair metal playing and the many multi-coloured lights reflecting on the water while the sun beats through the open roof.
 
 Now you just need one more thing.
 
@@ -2926,21 +2922,21 @@ You explain the job and the pose you need to Chicken Finger{
 
 (click:&quot;near the water&quot;)[You wonder how you can convince them.
 
-(click:&quot;how you can convince them&quot;)[(if:$brush is true)[(display:&quot;brush&quot;)](else:)[(display:&quot;nobrush&quot;)]]]]]]]]]</tw-passagedata><tw-passagedata pid="379" name="nobrush" tags="" position="4275,2650" size="100,100">Unfortunately, it seems like Chicken Finger&#39;s being a bit of a little bitch about the whole thing. They love it at the pool, but aren&#39;t so keen on the water. Eventually however you convince them to go into the water on Bread&#39;s back. Bread jumps in with a loud splosh. 
+(click:&quot;how you can convince them&quot;)[(if:$brush is true)[(display:&quot;brush&quot;)](else:)[(display:&quot;nobrush&quot;)]]]]]]]]]</tw-passagedata><tw-passagedata pid="378" name="nobrush" tags="" position="4275,2650" size="100,100">Unfortunately, it seems like Chicken Finger&#39;s being a bit of a little bitch about the whole thing. They love it at the pool, but aren&#39;t so keen on the water. Eventually however you convince them to go into the water on Bread&#39;s back. Bread jumps in with a loud splosh. 
 
 (click:&quot;loud splosh&quot;)[You and Chicken Finger both climb on board, and Bread begins to zoom you both around the pool.
 
 (click:&quot;zoom you both around the pool&quot;)[(The speed that you&#39;re travelling is a little disorientating, but you pull out your spirit loom and set to work on the new patch design.)
 
-(if:$centipede is true)[(display:&quot;nobrush broth&quot;)](else:)[(display:&quot;nobrush nobroth&quot;)]</tw-passagedata><tw-passagedata pid="380" name="brush" tags="" position="4025,2650" size="100,100">Oh, great idea, you remember that you have Bread&#39;s brush and that Chicken Finger likes to be groomed too.
+(if:$centipede is true)[(display:&quot;nobrush broth&quot;)](else:)[(display:&quot;nobrush nobroth&quot;)]]]</tw-passagedata><tw-passagedata pid="379" name="brush" tags="" position="4025,2650" size="100,100">Oh, great idea, you remember that you have Bread&#39;s brush and that Chicken Finger likes to be groomed too.
 
 (click:&quot;groomed&quot;)[You scratch them all over with the brush, which they greately enjoy. They start to drool a little but also their fur is starting to sparkle with a definite &quot;cool guy&quot; vibe. They hop into the inflatable ring and float out into the centre of the pool. You pull out your spirit loom.
 
-(click:&quot;spirit loom&quot;)[(if:$centipede is true)[(display:&quot;brush broth&quot;)](else:)[(display:&quot;brush nobroth&quot;)]]]</tw-passagedata><tw-passagedata pid="381" name="nobrush nobroth" tags="" position="4400,2775" size="100,100">You shake your magical bone broth snowglobe. The subsequently summoned spirit mice appear on Bread&#39;s back and rapidly take their positions at the loom and begin embroidering the patch. Unfortunately they&#39;re only at level 4 and Bread starts to struggle a little under the extra weight. You need to get this patch done quickly! fortunately they&#39;re fast workers, but you still watch a little nervously as the patch starts to take shape.
+(click:&quot;spirit loom&quot;)[(if:$centipede is true)[(display:&quot;brush broth&quot;)](else:)[(display:&quot;brush nobroth&quot;)]]]</tw-passagedata><tw-passagedata pid="380" name="nobrush nobroth" tags="" position="4400,2775" size="100,100">You shake your magical bone broth snowglobe. The subsequently summoned spirit mice appear on Bread&#39;s back and rapidly take their positions at the loom and begin embroidering the patch. Unfortunately they&#39;re only at level 4 and Bread starts to struggle a little under the extra weight. You need to get this patch done quickly! fortunately they&#39;re fast workers, but you still watch a little nervously as the patch starts to take shape.
 
 (click:&quot;take shape&quot;)[It&#39;s big, at least 80x50, not quite as big as you wanted, but it&#39;ll probably do. It&#39;s looking decent, at least.
 
-(click:&quot;looking decent&quot;)[The image appearing shows Chicken Finger and Bread frollicking semi-submerged in the water, not looking particularly cool but at least they&#39;re having fun. Well, you hope that the ski-flume execs are gonna like it. Hey, [[who fucking knows]].]]</tw-passagedata><tw-passagedata pid="382" name="brush broth" tags="" position="4150,2650" size="100,100">You shake your magical bone broth snowglobe, which you were able to upgrade to +5 after defeating the Cracked Romanticist raccoon. The subsequently summoned spirit mice rapidly take their positions at the loom and begin embroidering the patch, drawing generously on the strong &quot;cool vibes&quot; in the vicinity. Such good workers! You watch as the massive patch starts to take shape.
+(click:&quot;looking decent&quot;)[The image appearing shows Chicken Finger and Bread frollicking semi-submerged in the water, not looking particularly cool but at least they&#39;re having fun. Well, you hope that the ski-flume execs are gonna like it. Hey, [[who fucking knows]].]]</tw-passagedata><tw-passagedata pid="381" name="brush broth" tags="" position="4150,2650" size="100,100">You shake your magical bone broth snowglobe, which you were able to upgrade to +5 after defeating the Cracked Romanticist raccoon. The subsequently summoned spirit mice rapidly take their positions at the loom and begin embroidering the patch, drawing generously on the strong &quot;cool vibes&quot; in the vicinity. Such good workers! You watch as the massive patch starts to take shape.
 
 (click:&quot;take shape&quot;)[It&#39;s huge, at least 100x60, and looks sick as hell. You&#39;re very pleased with it.
 
@@ -2948,7 +2944,7 @@ You explain the job and the pose you need to Chicken Finger{
 
 Now there&#39;s little else to do but head to the cocktail lounge for a refreshing Mountain Dew. You wander off in that direction. Bread has jumped into the pool and you chuckle at the sight of him swimming towards Chicken Finger, children screaming and splashing as he passes them. All in all, it&#39;s been a pretty good day!
 
-[[THE END-&gt;start]]]]</tw-passagedata><tw-passagedata pid="383" name="brush nobroth" tags="" position="4150,2775" size="100,100">You shake your magical bone broth snowglobe. It&#39;s only at level 4 but it pretty much gets the job done. The subsequently summoned spirit mice rapidly take their positions at the loom and begin embroidering the patch, drawing generously on the strong &quot;cool vibes&quot; in the vicinity. Such good workers! You watch as the massive patch starts to take shape.
+[[THE END-&gt;start]]]]</tw-passagedata><tw-passagedata pid="382" name="brush nobroth" tags="" position="4150,2775" size="100,100">You shake your magical bone broth snowglobe. It&#39;s only at level 4 but it pretty much gets the job done. The subsequently summoned spirit mice rapidly take their positions at the loom and begin embroidering the patch, drawing generously on the strong &quot;cool vibes&quot; in the vicinity. Such good workers! You watch as the massive patch starts to take shape.
 
 (click:&quot;take shape&quot;)[It&#39;s big, at least 80x50, not quite as big as you wanted, but it&#39;ll do. You&#39;re pretty pleased with it.
 
@@ -2956,11 +2952,11 @@ Now there&#39;s little else to do but head to the cocktail lounge for a refreshi
 
 You help Chicken Finger out of the pool and start to dry them off with your t-shirt. with hindsight, you hadn&#39;t really thought this through. Ah well, maybe you&#39;ll take Bready and Chicken Finger home and treat all of you to a Gatorade powder. It feels like things worked out pretty okay in the end!
 
-[[THE END-&gt;start]]]]</tw-passagedata><tw-passagedata pid="384" name="nobrush broth" tags="" position="4400,2650" size="100,100">You shake your magical bone broth snowglobe. The subsequently summoned spirit mice appear on Bread&#39;s back and rapidly take their positions at the loom and begin embroidering the patch. thankfully you were able to upgrade them to +5 after defeating the Cracked Romanticist raccoon, meaning that Bread barely notices the extra weight. They&#39;re good workers, and you watch with satisfaction as the large patch starts to take shape.
+[[THE END-&gt;start]]]]</tw-passagedata><tw-passagedata pid="383" name="nobrush broth" tags="" position="4400,2650" size="100,100">You shake your magical bone broth snowglobe. The subsequently summoned spirit mice appear on Bread&#39;s back and rapidly take their positions at the loom and begin embroidering the patch. thankfully you were able to upgrade them to +5 after defeating the Cracked Romanticist raccoon, meaning that Bread barely notices the extra weight. They&#39;re good workers, and you watch with satisfaction as the large patch starts to take shape.
 
 (click:&quot;take shape&quot;)[It&#39;s huge, at least 100x60, and looks pretty dope.
 
-(click:&quot;pretty dope&quot;)[The final image shows Chicken Finger and Bread wearing shades and shooting across the pool together, with scattered semi-legible text reading &quot;zoomin life&quot;. The image is slightly blurred from all the movement, and including Bread wasn&#39;t in the brief, but you think the ski-flume execs are still probably gonna like it. [[Phew, good job!!]]]]</tw-passagedata><tw-passagedata pid="385" name="casting" tags="" position="1075,1875" size="100,100">(if:$onionbait is true)[
+(click:&quot;pretty dope&quot;)[The final image shows Chicken Finger and Bread wearing shades and shooting across the pool together, with scattered semi-legible text reading &quot;zoomin life&quot;. The image is slightly blurred from all the movement, and including Bread wasn&#39;t in the brief, but you think the ski-flume execs are still probably gonna like it. [[Phew, good job!!]]]]</tw-passagedata><tw-passagedata pid="384" name="casting" tags="" position="1075,1875" size="100,100">(if:$onionbait is true)[
 
 	(if:$toblerbait is true)[
 
@@ -2978,7 +2974,7 @@ You help Chicken Finger out of the pool and start to dry them off with your t-sh
 
 (go-to:&quot;Cast!&quot;)
 
-]</tw-passagedata><tw-passagedata pid="386" name="aggressively explain to the client in person how to simply increase the image size by 60%" tags="pual" position="3950,2900" size="100,100">You grab Bread and jump in the rav and drive to the ski flume centre. The sport has really blown up in the past year, so you&#39;re kind of interested to see what all the fuss is about. It&#39;s a bit of a drive, but you listen to some It&#39;s a bit of a drive, but you listen to some Carly Rae Jepsen, so the time flies by{
+]</tw-passagedata><tw-passagedata pid="385" name="aggressively explain to the client in person how to simply increase the image size by 60%" tags="pual" position="3950,2900" size="100,100">You grab Bread and jump in the rav and drive to the ski flume centre. The sport has really blown up in the past year, so you&#39;re kind of interested to see what all the fuss is about. It&#39;s a bit of a drive, but you listen to some It&#39;s a bit of a drive, but you listen to some Carly Rae Jepsen, so the time flies by{
 
 }(click:&quot;flies by&quot;)[ and you soon arrive at the National Ski-Flume Centre. You and Bread head straight through the foyer, following the signage pointing to the Branding Dept, which leads you to to an elevator.
 
@@ -2991,11 +2987,11 @@ and up forever, until finally you exit onto a metal platform high up near the cl
 
 An assistant asks where you&#39;re going and you tell them you&#39;re looking for the Branding Dept.
 
-(click:&quot;Branding Dept.&quot;)[They provide you and Bread both with long skis, as well as a grapple system that reminds you of the zip line functionality from Apex, used to attach at a distance to mobile drones that will help you up some of the steeper inclines. The assistant briefly explains the route, then you step into the shallow running water at the top of the first slide and [[you&#39;re off!]]]]]]]]]</tw-passagedata><tw-passagedata pid="387" name="you&#39;re off!" tags="pual" position="3950,3025" size="100,100">Bread is a natural and shoots ahead of you. You take it a little slower to start with but soon start to get the hang of it and catch him up a little, even managing a small loop while only briefly getting stuck. As a drone is pulling you up one of the steeper flumes,  there&#39;s suddenly an announcement that the arena is closing, and startled, you see that the edge of the sphere is indeed closing in.
+(click:&quot;Branding Dept.&quot;)[They provide you and Bread both with long skis, as well as a grapple system that reminds you of the zip line functionality from Apex, used to attach at a distance to mobile drones that will help you up some of the steeper inclines. The assistant briefly explains the route, then you step into the shallow running water at the top of the first slide and [[you&#39;re off!]]]]]]]]]</tw-passagedata><tw-passagedata pid="386" name="you&#39;re off!" tags="pual" position="3950,3025" size="100,100">Bread is a natural and shoots ahead of you. You take it a little slower to start with but soon start to get the hang of it and catch him up a little, even managing a small loop while only briefly getting stuck. As a drone is pulling you up one of the steeper flumes,  there&#39;s suddenly an announcement that the arena is closing, and startled, you see that the edge of the sphere is indeed closing in.
 
 (click:&quot;indeed closing in&quot;)[(link-reveal:&quot;Fuck!&quot;)[
 
-It&#39;s bad timing, you really need to get to the branding office! On a parallel track, you also think you see a ghostly vision of Helltran passing you by, before realising it must just be a record of her winning time on this course. This is [[so weird!]]]]</tw-passagedata><tw-passagedata pid="388" name="so weird!" tags="pual" position="3950,3150" size="100,100">You go down a fast slope into a corkscrew then slowly ascend towards another very high flume peak, again pulled by the drone. Where the hell is the branding office? As you draw nearer the top of this particularly high flume, you look to the low clouds that touch its peak and see some bird-like shapes.
+It&#39;s bad timing, you really need to get to the branding office! On a parallel track, you also think you see a ghostly vision of Helltran passing you by, before realising it must just be a record of her winning time on this course. This is [[so weird!]]]]</tw-passagedata><tw-passagedata pid="387" name="so weird!" tags="pual" position="3950,3150" size="100,100">You go down a fast slope into a corkscrew then slowly ascend towards another very high flume peak, again pulled by the drone. Where the hell is the branding office? As you draw nearer the top of this particularly high flume, you look to the low clouds that touch its peak and see some bird-like shapes.
 
 (click:&quot;bird-like shapes&quot;)[On reaching the top you realise that they&#39;re actually pterodactyls, and they look angry! So it&#39;s a relief to see that the other side of the peak is a similarly high and steep drop back downwards and away from the Triassic terrors.
 
@@ -3004,7 +3000,7 @@ You&#39;re also entering a snow zone, with the ice lining the flume adding sligh
 (if:$pterodactyl is true)[(go-to:&quot;pterodactyl&quot;)]
 (else:)[(go-to:&quot;nopterodactyl&quot;)]
 
-]]</tw-passagedata><tw-passagedata pid="389" name="pterodactyl" tags="pual" position="4075,3150" size="100,100">Suddenly a smaller pterodactyl flies before you
+]]</tw-passagedata><tw-passagedata pid="388" name="pterodactyl" tags="pual" position="4075,3150" size="100,100">Suddenly a smaller pterodactyl flies before you
 
 (click:&quot;flies before you&quot;)[ - it&#39;s the baby from the roof of your neighbour&#39;s house! It&#39;s been reunited with its family! The aerial abberations aren&#39;t angry, they&#39;re cawing at you appreciatively.
 
@@ -3026,11 +3022,11 @@ You&#39;re also entering a snow zone, with the ice lining the flume adding sligh
 
 (click:&quot;time to leave&quot;)[Oh brother!
 
-[[THE END-&gt;start]]]]]]]]]]]]</tw-passagedata><tw-passagedata pid="390" name="nopterodactyl" tags="pual" position="4075,3275" size="100,100">The group of lairy lizards is getting closer with each pass, snapping at you with their razor-sharp beaks, circling you and the flume in ever tighter circles. What the hell do you do?
+[[THE END-&gt;start]]]]]]]]]]]]</tw-passagedata><tw-passagedata pid="389" name="nopterodactyl" tags="pual" position="4075,3275" size="100,100">The group of lairy lizards is getting closer with each pass, snapping at you with their razor-sharp beaks, circling you and the flume in ever tighter circles. What the hell do you do?
 
 (click:&quot;What the hell do you do?&quot;)[Suddenly, from your left, there&#39;s a loud woof.
 
-(click:&quot;loud woof&quot;)[It&#39;s Bready, on a parallel track! He looks super-cool, shooting along so naturally on his skis. He barks again. It sounds like he says &quot;jump!&quot; Should you [[risk it]], or [[stay your course?]]]]</tw-passagedata><tw-passagedata pid="391" name="Phew, good job!!" tags="pual" position="4525,2650" size="100,100">Suddenly you hear a shout from the side of the pool. It&#39;s the cop! He&#39;s looking pretty angry, and is pointing to a &quot;strictly no dogs in the pool&quot; sign.{
+(click:&quot;loud woof&quot;)[It&#39;s Bready, on a parallel track! He looks super-cool, shooting along so naturally on his skis. He barks again. It sounds like he says &quot;jump!&quot; Should you [[risk it]], or [[stay your course?]]]]</tw-passagedata><tw-passagedata pid="390" name="Phew, good job!!" tags="pual" position="4525,2650" size="100,100">Suddenly you hear a shout from the side of the pool. It&#39;s the cop! He&#39;s looking pretty angry, and is pointing to a &quot;strictly no dogs in the pool&quot; sign.{
 
 }(click:&quot;strictly no dogs in the pool&quot;)[ you tell bread to get out, and he leaps in an elegant gazelle-like arc, landing on the side with you and chicken finger still clinging to his back. He shakes himself vigorously{
 
@@ -3042,7 +3038,7 @@ Stashing the finished patch up your shirt, you direct the spirit mice to turn th
 
 it&#39;s been a wild kind of day! but you got your job done, and now it&#39;s time to drive you all home, perhaps you&#39;ll cook up a hearty pumpkin and two onions bone broth to warm you all up, and you can all have a good laugh about your fun day.
 
-[[THE END-&gt;start]]]]]</tw-passagedata><tw-passagedata pid="392" name="who fucking knows" tags="pual" position="4525,2775" size="100,100">Suddenly you hear a shout from the side of the pool. It&#39;s the cop! He&#39;s looking pretty angry, and is pointing to a &quot;strictly no dogs in the pool&quot; sign.{
+[[THE END-&gt;start]]]]]</tw-passagedata><tw-passagedata pid="391" name="who fucking knows" tags="pual" position="4525,2775" size="100,100">Suddenly you hear a shout from the side of the pool. It&#39;s the cop! He&#39;s looking pretty angry, and is pointing to a &quot;strictly no dogs in the pool&quot; sign.{
 
 }(click:&quot;strictly no dogs in the pool&quot;)[ you tell bread to get out, and he struggles to the side with you all still on his back, eventually slowly climbing out. You wonder if you can just run past this police dweeb. You notice that the mice have just finished the patch. But oh no! What the fuck is this??
 
@@ -3056,7 +3052,7 @@ This is not good.{
 
 You decide to give the mice one last instruction, and feel a sense of relief from life&#39;s pressures as they rapidly begin the task, knitting you and Bready and Chicken Finger into a nearby towel. Existence as a two-dimensional embroidered figure will be limited, but at least it will allow you to chill out for a bit, and it&#39;s somewhere where the cops and ski-flume execs will never find you.
 
-[[THE END-&gt;start]]]]]]</tw-passagedata><tw-passagedata pid="393" name="jared" tags="jared1" position="3100,900" size="100,100">{(set:$ducks to (a:&quot;(text-rotate-z:2)[Mathy- a cool (link-reveal:&#39;duck&#39;)[(append:?ducks)[(print:$ducks&#39;s $duckcount)(set:$duckcount to it + 1)]];]&quot;,&quot;
+[[THE END-&gt;start]]]]]]</tw-passagedata><tw-passagedata pid="392" name="jared" tags="jared1" position="3100,900" size="100,100">{(set:$ducks to (a:&quot;(text-rotate-z:2)[Mathy- a cool (link-reveal:&#39;duck&#39;)[(append:?ducks)[(print:$ducks&#39;s $duckcount)(set:$duckcount to it + 1)]];]&quot;,&quot;
 
 (text-rotate-z:-1)[Donut- a (link-reveal:&#39;duck&#39;)[(append:?ducks)[(print:$ducks&#39;s $duckcount)(set:$duckcount to it + 1)]] from out of town,]&quot;,&quot;
 
@@ -3073,7 +3069,7 @@ There is also a [[pond]].&quot;))
 
 []&lt;ducks|
 
-(click:&quot;They are&quot;)[(append:?ducks)[(print:$ducks&#39;s $duckcount)(set:$duckcount to it + 1)]]</tw-passagedata><tw-passagedata pid="394" name="pond" tags="jared" position="3225,900" size="100,100">{(set:$duckcount to 1)
+(click:&quot;They are&quot;)[(append:?ducks)[(print:$ducks&#39;s $duckcount)(set:$duckcount to it + 1)]]</tw-passagedata><tw-passagedata pid="393" name="pond" tags="jared" position="3225,900" size="100,100">{(set:$duckcount to 1)
 
 }(font:&quot;DotGothic16&quot;)[GRAVEYARD DUCKS
 
@@ -3106,7 +3102,7 @@ $link
 (set:$link to &#39;&lt;img src=&quot;jared/graveyardducks-&#39; + (text:$duckcount) + &#39;.jpg&quot; style=&quot;max-width:80% !important&quot;&gt;&#39;)
 $link
 
-}]](else:)[(go-to:&quot;afterword&quot;)]]}</tw-passagedata><tw-passagedata pid="395" name="afterword" tags="jared2" position="3350,900" size="100,100">(after:1s)[mothers news !!!!!!!!!!!!!!!!! (after:time+1s)[no!!!!!!!!!!!!!! (after:time+1s)[my fav newspaper!!!!!!!! (after:time+1s)[a great run to say the least! mothers news is my fav newspaper that ran a great run, and contained my fav writing and my fav comics…………….. 
+}]](else:)[(go-to:&quot;afterword&quot;)]]}</tw-passagedata><tw-passagedata pid="394" name="afterword" tags="jared2" position="3350,900" size="100,100">(after:1s)[mothers news !!!!!!!!!!!!!!!!! (after:time+1s)[no!!!!!!!!!!!!!! (after:time+1s)[my fav newspaper!!!!!!!! (after:time+1s)[a great run to say the least! mothers news is my fav newspaper that ran a great run, and contained my fav writing and my fav comics…………….. 
 
 (click:&quot;comics&quot;)[including my own comic graveyard ducks, certainly the best comic strip i’ve ever stripped, hopefully to someday be continued!!!!!!! (after:time+1s)[maybe in an alternate reality version of (link-reveal:&quot;mothers news&quot;)[
 
@@ -3119,7 +3115,7 @@ altho mothers news is gone and i am sad, you can still support mothers news’ e
 (after:time+.5s)[.
 (after:time+1s)[ps. Send a self addressed, stamped envelope to: COOL DOG, PO BOX 3481, PROVIDENCE, RI 02909 USA for free stickers. please share this info!
 
-(after:time+1s)[[[THE END-&gt;start]]]]]]]]]]]]]]]]]]]</tw-passagedata><tw-passagedata pid="396" name="exe" tags="exe" position="2275,4575" size="100,100">{(set:$headphones to false)
+(after:time+1s)[[[THE END-&gt;start]]]]]]]]]]]]]]]]]]]</tw-passagedata><tw-passagedata pid="395" name="exe" tags="exe" position="2275,4575" size="100,100">{(set:$headphones to false)
 
 }Your bed lies partially made in the corner, inviting you to partake in slumber&#39;s sweet embrace, if only for a moment.
 
@@ -3129,7 +3125,7 @@ You sail through the sky on your bed, flying over countryside, water and mountai
 
 [[Shout to see if anyone is around]]
 
-[[Explore quietly]]]</tw-passagedata><tw-passagedata pid="397" name="Shout to see if anyone is around" tags="exe" position="2275,4700" size="100,100">&quot;Hey, is anyone around?!&quot; you call out. Your voice carries through the wood and you hear no response. You call out again, &quot;Hey is anyone here!?&quot;
+[[Explore quietly]]]</tw-passagedata><tw-passagedata pid="396" name="Shout to see if anyone is around" tags="exe" position="2275,4700" size="100,100">&quot;Hey, is anyone around?!&quot; you call out. Your voice carries through the wood and you hear no response. You call out again, &quot;Hey is anyone here!?&quot;
 
 You hear an angry response from up in a tree, 
 &quot;Shut up! You&#39;re disturbing my nap!&quot;
@@ -3138,23 +3134,23 @@ You hear an angry response from up in a tree,
 
 [[Ask who the cat is]]
 
-[[Ask about the headphones]]</tw-passagedata><tw-passagedata pid="398" name="Explore quietly" tags="exe" position="2375,4425" size="100,100">You creep silently through the forest. You eventually come across a tree with a thin striped orange cat sleeping in it. The orange cat has a runner&#39;s buildand is wearing a pair of wooden blocks on its ears, like a pair of headphones. The cat is bald.
+[[Ask about the headphones]]</tw-passagedata><tw-passagedata pid="397" name="Explore quietly" tags="exe" position="2375,4425" size="100,100">You creep silently through the forest. You eventually come across a tree with a thin striped orange cat sleeping in it. The orange cat has a runner&#39;s buildand is wearing a pair of wooden blocks on its ears, like a pair of headphones. The cat is bald.
 
 [[Push the cat off the tree and into the nearby stream]]
 
 [[Steal the cat&#39;s headphones]]
 
-[[Wake the cat up]]</tw-passagedata><tw-passagedata pid="399" name="Steal the cat&#39;s headphones" tags="exe" position="2575,4575" size="100,100">You stealthily ascend the lower branches of the tree just below the cat. Holding your breath, you deftly snatch the blocks from the cat&#39;s head. You dash off in to the forest before the cat can wake up. Once you are on your own, you see inside the blocks several birds tweeting a song. The song is &quot;Talk that Talk&quot; by Twice. After a few moments of you staring, the birds fly away, and the blocks are silent.
+[[Wake the cat up]]</tw-passagedata><tw-passagedata pid="398" name="Steal the cat&#39;s headphones" tags="exe" position="2575,4575" size="100,100">You stealthily ascend the lower branches of the tree just below the cat. Holding your breath, you deftly snatch the blocks from the cat&#39;s head. You dash off in to the forest before the cat can wake up. Once you are on your own, you see inside the blocks several birds tweeting a song. The song is &quot;Talk that Talk&quot; by Twice. After a few moments of you staring, the birds fly away, and the blocks are silent.
  
-[[village]]</tw-passagedata><tw-passagedata pid="400" name="Wake the cat up" tags="exe" position="2575,4700" size="100,100">&quot;Shut up! You&#39;re disturbing my nap!&quot; The cat grumbles and glances in your direction sleepily.
+[[village]]</tw-passagedata><tw-passagedata pid="399" name="Wake the cat up" tags="exe" position="2575,4700" size="100,100">&quot;Shut up! You&#39;re disturbing my nap!&quot; The cat grumbles and glances in your direction sleepily.
 
 [[Ask who the cat is]]
 
-[[Ask about the headphones]]</tw-passagedata><tw-passagedata pid="401" name="Push the cat off the tree and into the nearby stream" tags="exe" position="2575,4450" size="100,100">You stealthily ascend the lower branches of the tree just below the cat. Holding your breath you give the cat a sharp shove and it goes flying out above the grass and splashing into the river with a shriek.
+[[Ask about the headphones]]</tw-passagedata><tw-passagedata pid="400" name="Push the cat off the tree and into the nearby stream" tags="exe" position="2575,4450" size="100,100">You stealthily ascend the lower branches of the tree just below the cat. Holding your breath you give the cat a sharp shove and it goes flying out above the grass and splashing into the river with a shriek.
 
 &quot;Aaaah!!! Aaah!! NOOOO!!&quot; The cat screams as it bobs under the water, coming back up only one more time to mournfully cry &quot;Glub, my one weakness, drowning!&quot; You are horrified by what you have done. You slowly wander through the forest in a daze.
  
-[[village]]</tw-passagedata><tw-passagedata pid="402" name="Ask who the cat is" tags="exe" position="2350,4850" size="100,100">&quot;So, who are you?&quot; you ask.
+[[village]]</tw-passagedata><tw-passagedata pid="401" name="Ask who the cat is" tags="exe" position="2350,4850" size="100,100">&quot;So, who are you?&quot; you ask.
 
 &quot;You want to know who I am? What a joke! Don&#39;t you recognize my stripes? I&#39;m the boss of this forest, Michael Magnificat!&quot; He raises his arms to stretch from his nap, but loses balance and topples out of the tree, falling on his head. He snaps up, grasping his head, &quot;Owie ow ow!&quot;
 
@@ -3164,11 +3160,11 @@ You hear an angry response from up in a tree,
 
 (if: (history:) contains &quot;Ask about the headphones&quot;)[{
 }[[Ask about a way out of the forest]]](else:)[{
-}[[Ask about the headphones]]]</tw-passagedata><tw-passagedata pid="403" name="Ask about the headphones" tags="exe" position="2500,4850" size="100,100">&quot;Oh, these?&quot; A smug grin spreads across his face as he pulls them off, exposing the inside of the blocks. Inside you see several small birds tweeting raucously a certain tune that after a few moments you recognize as &quot;Talk that Talk&quot; by Twice. &quot;I bet you are jealous!&quot;
+}[[Ask about the headphones]]]</tw-passagedata><tw-passagedata pid="402" name="Ask about the headphones" tags="exe" position="2500,4850" size="100,100">&quot;Oh, these?&quot; A smug grin spreads across his face as he pulls them off, exposing the inside of the blocks. Inside you see several small birds tweeting raucously a certain tune that after a few moments you recognize as &quot;Talk that Talk&quot; by Twice. &quot;I bet you are jealous!&quot;
 
 (if: (history:) contains &quot;Ask who the cat is&quot;)[{
 }[[Ask about a way out of the forest]]](else:)[{
-}[[Ask who the cat is]]]</tw-passagedata><tw-passagedata pid="404" name="Ask about a way out of the forest" tags="exe" position="2425,4975" size="100,100">&quot;A way out of the forest huh?&quot; He looks you up and down. &quot;I&#39;ve never seen the likes of you before, you&#39;re a suspicious character!&quot;
+}[[Ask who the cat is]]]</tw-passagedata><tw-passagedata pid="403" name="Ask about a way out of the forest" tags="exe" position="2425,4975" size="100,100">&quot;A way out of the forest huh?&quot; He looks you up and down. &quot;I&#39;ve never seen the likes of you before, you&#39;re a suspicious character!&quot;
 
 Something suddenly occurs to him as he looks you over and a look of fear falls across his face.
 
@@ -3194,13 +3190,13 @@ The cat leads you to the edge of the forest.
 
 &quot;Here, take this as a souvenir. It might come in handy.&quot; He removes his wooden block headphones. The birds look like they are about to fly away, but he suddenly snaps an until now unseen cover over the holes, trapping the birds within. &quot;Don&#39;t let them escape!&quot;(set:$headphones to true)
 
-(display:&quot;village&quot;)</tw-passagedata><tw-passagedata pid="405" name="village" tags="exe" position="2725,4450" size="100,100">You stumble out of the forest into a picturesque scene of a village along the coast. You walk down the slope, and you realize that it has been almost 30 minutes since you drank any water. You fall to your knees.
+(display:&quot;village&quot;)</tw-passagedata><tw-passagedata pid="404" name="village" tags="exe" position="2725,4450" size="100,100">You stumble out of the forest into a picturesque scene of a village along the coast. You walk down the slope, and you realize that it has been almost 30 minutes since you drank any water. You fall to your knees.
 
 One of the villager children runs up to you with a bottle of 9.5 PH water. &quot;Are you okay?? Have a sip!!&quot; He offers the water to you.
 
 [[Sip]]
 
-[[Don&#39;t sip]]</tw-passagedata><tw-passagedata pid="406" name="Sip" tags="exe" position="2875,4450" size="100,100">
+[[Don&#39;t sip]]</tw-passagedata><tw-passagedata pid="405" name="Sip" tags="exe" position="2875,4450" size="100,100">
 You take a long sip of the bottle and are fully refreshed. Just in time too, as you suddenly hear the cries of other villagers and then spy the sinister silhouette of the bug themed witch&#39;s apprentice zooming around on his log.
 
 &quot;Quick, lets hide in here!&quot; The villager guides you to a cluster of barrels and you both jump in one.
@@ -3221,7 +3217,7 @@ However, the other villagers are not so lucky. After the twitch cop zooms off, y
 
 [[Wait until dark]]](else:)[Unable to resist the allure of the flute playing a tune that sounds suspiciously like Hips Don&#39;t Lie by Shakira, you stand up out of your barrel, as does Jarody. The barrels topple over and begin rolling down the hill, with you in them, eventually crashing into a well at the center of town. The two of you slowly get up, entranced by the music. You turn toward the twitch cop and start walking. He turns and shoots you both with a beam, transforming you into rubber band balls.
 
-[[you wake up in your bed, more tired than you were before-&gt;start]]]</tw-passagedata><tw-passagedata pid="407" name="Don&#39;t sip" tags="exe" position="2775,4300" size="100,100">30 minutes? That isn&#39;t that long. Come on. You think these things to yourself as you push the bottle away.
+[[you wake up in your bed, more tired than you were before-&gt;start]]]</tw-passagedata><tw-passagedata pid="406" name="Don&#39;t sip" tags="exe" position="2775,4300" size="100,100">30 minutes? That isn&#39;t that long. Come on. You think these things to yourself as you push the bottle away.
 
 &quot;I&#39;m fine.&quot; you hear yourself say. A worried expression sets upon the villager&#39;s face.
 
@@ -3231,17 +3227,17 @@ You suddenly hear the cries of other villagers and then spy the sinister silhoue
 
 &quot;Quick, lets hide in here!&quot; The villager guides you to a cluster of barrels. He jumps in one and directs you to follow. Dizzy with thirst, you trip, smashing face first into the side of the barrel. The twitch cop glances in your direction and fires off a beam of blue light, which strikes you in the rear, transforming you into a rubber band ball in the shape of one who has just faceplanted.
 
-[[you wake up in your bed, more tired than you were before-&gt;start]]</tw-passagedata><tw-passagedata pid="408" name="Wait until dark" tags="exe" position="3100,4375" size="100,100">You prudently wait until dark. You casually walk through the empty town until you reach the harbor. There are two ships at the harbor, but it is too dark to see which ship is the one the rubber band balls went into. It is also too dark to see the signs labeling the ships. You would get closer but... There is a man standing between the ships with his back turned to you. Call out to the man?
+[[you wake up in your bed, more tired than you were before-&gt;start]]</tw-passagedata><tw-passagedata pid="407" name="Wait until dark" tags="exe" position="3100,4375" size="100,100">You prudently wait until dark. You casually walk through the empty town until you reach the harbor. There are two ships at the harbor, but it is too dark to see which ship is the one the rubber band balls went into. It is also too dark to see the signs labeling the ships. You would get closer but... There is a man standing between the ships with his back turned to you. Call out to the man?
 
 [[Hey Mister!]]
 
 [[Sneak into the left ship-&gt;Board the ship for terror island]]
 
-[[Sneak into the right ship-&gt;Board the ship for the ends of the earth]]</tw-passagedata><tw-passagedata pid="409" name="Sneak into the harbor now" tags="exe" position="3100,4525" size="100,100">You make your way to the harbor by dashing from rolling band ball to band ball, many times just barely dodging out of view of the flying twitch cop. There are two ships at the harbor. You see a sign by the docks indicating that that the ship on the left is bound for terror island, and the ship on the right is bound for &quot;The Ends of the Earth&quot;. You see that the rubber band balls are bouncing into the ship bound for terror island.
+[[Sneak into the right ship-&gt;Board the ship for the ends of the earth]]</tw-passagedata><tw-passagedata pid="408" name="Sneak into the harbor now" tags="exe" position="3100,4525" size="100,100">You make your way to the harbor by dashing from rolling band ball to band ball, many times just barely dodging out of view of the flying twitch cop. There are two ships at the harbor. You see a sign by the docks indicating that that the ship on the left is bound for terror island, and the ship on the right is bound for &quot;The Ends of the Earth&quot;. You see that the rubber band balls are bouncing into the ship bound for terror island.
 
 [[Board the ship for terror island]]
 
-[[Board the ship for the ends of the earth]]</tw-passagedata><tw-passagedata pid="410" name="Board the ship for terror island" tags="exe" position="3350,4525" size="100,100">You board the ship (if:(history:) contains &quot;Wait until dark&quot;)[on the left](else:)[to terror island], making your way past piles of rubber bands everywhere. You didn&#39;t notice it at first, but its almost as if the entire ship is made of rubber bands. You and Jarody settle in for the voyage, napping behind a crate that oddly reminds you of a certain athletic yet glabrous (that means bald) cat you encountered previously. You can&#39;t help but be struck by the injustice of the situation.
+[[Board the ship for the ends of the earth]]</tw-passagedata><tw-passagedata pid="409" name="Board the ship for terror island" tags="exe" position="3350,4525" size="100,100">You board the ship (if:(history:) contains &quot;Wait until dark&quot;)[on the left](else:)[to terror island], making your way past piles of rubber bands everywhere. You didn&#39;t notice it at first, but its almost as if the entire ship is made of rubber bands. You and Jarody settle in for the voyage, napping behind a crate that oddly reminds you of a certain athletic yet glabrous (that means bald) cat you encountered previously. You can&#39;t help but be struck by the injustice of the situation.
 
 As you disembark from the ship, you and Jarody dash through the castle, dodging a dragon shaped robot that periodically bursts through walls and shoots fireballs at you. The two of you narrowly escape each time and finally end up in what one might consider a &quot;boss room&quot; (wide circular arena). With a sense of deep foreboding and a touch of nostalgia you can&#39;t quite comprehend, a sinister skeletal figure floats into view.
 
@@ -3253,7 +3249,7 @@ As you disembark from the ship, you and Jarody dash through the castle, dodging 
 
 [[Skelly from Hades-&gt;exewrong]]
 
-(if: (history:) contains &quot;Board the ship for the ends of the earth&quot;)[[Revenant from Apex]]</tw-passagedata><tw-passagedata pid="411" name="Board the ship for the ends of the earth" tags="exe" position="3350,4350" size="100,100">You board the right ship. As you make your way around you realize there are no sign of any rubber band balls anywhere. Are they hidden? But you soon realize.. You picked the wrong ship.
+(if: (history:) contains &quot;Board the ship for the ends of the earth&quot;)[[Revenant from Apex]]</tw-passagedata><tw-passagedata pid="410" name="Board the ship for the ends of the earth" tags="exe" position="3350,4350" size="100,100">You board the right ship. As you make your way around you realize there are no sign of any rubber band balls anywhere. Are they hidden? But you soon realize.. You picked the wrong ship.
 
 &quot;Oh ho ho! Why, we&#39;re heading for the ends of the earth!&quot; Bellows an oddly Captain Nemo-esque ships master.
 
@@ -3265,15 +3261,15 @@ You are not sure what this sphinx is talking about but  you chit chat for a whil
 
 [[Stay at the ends of the earth]]
 
-[[Go to terror island-&gt;Board the ship for terror island]]</tw-passagedata><tw-passagedata pid="412" name="Hey Mister!" tags="exe" position="2975,4175" size="100,100">You call out to the figure with your classic catch phrase &quot;Hey Mister!&quot;
+[[Go to terror island-&gt;Board the ship for terror island]]</tw-passagedata><tw-passagedata pid="411" name="Hey Mister!" tags="exe" position="2975,4175" size="100,100">You call out to the figure with your classic catch phrase &quot;Hey Mister!&quot;
 
 As the figure turns around, the man&#39;s face is revealed to be hideous mass of rubber bands. He sticks out his fingers and rubber bands shoot out and wrap around you, slowly crushing the life out of you.
 
 Nevertheless, you think to yourself, &quot;it was worth it&quot;.
 
-[[you wake up in your bed, more tired than you were before-&gt;start]]</tw-passagedata><tw-passagedata pid="413" name="Stay at the ends of the earth" tags="exe" position="3525,4250" size="100,100">You and Jarody accept the futility of battling such an otherworldy force, and mourn the demise of his family by living the easy vacation life a tourist town provides. You two end up working for Emily the knowledgeable sphinx as scuba instructors and parasailing guides.
+[[you wake up in your bed, more tired than you were before-&gt;start]]</tw-passagedata><tw-passagedata pid="412" name="Stay at the ends of the earth" tags="exe" position="3525,4250" size="100,100">You and Jarody accept the futility of battling such an otherworldy force, and mourn the demise of his family by living the easy vacation life a tourist town provides. You two end up working for Emily the knowledgeable sphinx as scuba instructors and parasailing guides.
 
-[[you wake up in your bed, more tired than you were before-&gt;start]]</tw-passagedata><tw-passagedata pid="414" name="Revenant from Apex" tags="exe" position="3825,4600" size="100,100">&quot;Aaaaugh!!&quot; A light flashes around the terror witch and they fall to the ground.
+[[you wake up in your bed, more tired than you were before-&gt;start]]</tw-passagedata><tw-passagedata pid="413" name="Revenant from Apex" tags="exe" position="3825,4600" size="100,100">&quot;Aaaaugh!!&quot; A light flashes around the terror witch and they fall to the ground.
 
 You rush forward, realizing this is your old friend Revenant.
 
@@ -3287,11 +3283,11 @@ The knowledgeable sphinx walks up, licking a lollipop.
 
 &quot;Now you must move on to the next story. Farewell!&quot;
 
-[[A white wind begins swirling around you, and before you know it you are back in your bed, back in your room, fully rested.-&gt;start]]</tw-passagedata><tw-passagedata pid="415" name="exewrong" tags="exe" position="3700,4450" size="100,100">WRONG!
+[[A white wind begins swirling around you, and before you know it you are back in your bed, back in your room, fully rested.-&gt;start]]</tw-passagedata><tw-passagedata pid="414" name="exewrong" tags="exe" position="3700,4450" size="100,100">WRONG!
 
 The creature shrieks and you instantly transform into a rubber band ball, with a pop.
 
-[[you wake up in your bed, more tired than you were before-&gt;start]]</tw-passagedata><tw-passagedata pid="416" name="fonts" tags="" position="375,75" size="100,100">(font:&quot;Aleo&quot;)[The quick brown fox jumps over the lazy dog]
+[[you wake up in your bed, more tired than you were before-&gt;start]]</tw-passagedata><tw-passagedata pid="415" name="fonts" tags="" position="375,75" size="100,100">(font:&quot;Aleo&quot;)[The quick brown fox jumps over the lazy dog]
 
 (font:&quot;Bitter&quot;)[Waltz, bad nymph, for quick jigs vex.]
 
@@ -3317,7 +3313,7 @@ The creature shrieks and you instantly transform into a rubber band ball, with a
 
 (font:&quot;Roboto Slab&quot;)[Sphinx of black quartz, judge my vow.]
 
-(font:&quot;Zilla Slab&quot;)[How vexingly quick daft zebras jump!]</tw-passagedata><tw-passagedata pid="417" name="booby" tags="" position="3000,3400" size="100,100"></tw-passagedata></tw-storydata>
+(font:&quot;Zilla Slab&quot;)[How vexingly quick daft zebras jump!]</tw-passagedata><tw-passagedata pid="416" name="booby" tags="" position="3000,3400" size="100,100"></tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
