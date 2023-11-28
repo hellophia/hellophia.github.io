@@ -3106,10 +3106,10 @@ $link
 }]]]
 (click-rerun:?right)[(if:$duckcount &lt; 14)[(replace:?ads)[{
 
-(if:(random: 1, 5) is 1)[(replace:?ads)[&lt;img src=&quot;jared/misc-01.jpg&quot; style=&quot;width:25%&quot;&gt;]]
-(else-if:)(random: 1, 5) is 2)[(replace:?ads)[&lt;img src=&quot;jared/misc-02.jpg&quot; style=&quot;width:25%&quot;&gt;]]
-(else-if:)(random: 1, 5) is 3)[(replace:?ads)[&lt;img src=&quot;jared/misc-03.jpg&quot; style=&quot;width:25%&quot;&gt;]]
-(else-if:)(random: 1, 5) is 4)[(replace:?ads)[&lt;img src=&quot;jared/misc-04.jpg&quot; style=&quot;width:25%&quot;&gt;]]
+(if:$duckcount &lt; 3)[(replace:?ads)[&lt;img src=&quot;jared/misc-01.jpg&quot; style=&quot;width:25%&quot;&gt;]]
+(else-if:$duckcount &lt; 6)[(replace:?ads)[&lt;img src=&quot;jared/misc-02.jpg&quot; style=&quot;width:25%&quot;&gt;]]
+(else-if:$duckcount &lt; 9)[(replace:?ads)[&lt;img src=&quot;jared/misc-03.jpg&quot; style=&quot;width:25%&quot;&gt;]]
+(else-if:$duckcount &lt; 12)[(replace:?ads)[&lt;img src=&quot;jared/misc-04.jpg&quot; style=&quot;width:25%&quot;&gt;]]
 (else:)[(replace:?ads)[&lt;img src=&quot;jared/misc-05.jpg&quot; style=&quot;width:25%&quot;&gt;]]
 
 }](replace:?graveyard)[{
