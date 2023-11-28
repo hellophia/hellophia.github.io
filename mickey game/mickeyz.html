@@ -3387,38 +3387,38 @@ The creature shrieks and you instantly transform into a rubber band ball, with a
 
 (font:&quot;Roboto Slab&quot;)[Sphinx of black quartz, judge my vow.]
 
-(font:&quot;Zilla Slab&quot;)[How vexingly quick daft zebras jump!]</tw-passagedata><tw-passagedata pid="416" name="booby" tags="booby" position="3000,3400" size="100,100">{(set:$goodtimes to (a:&quot;When you first got him.&quot;,
-&quot; When you put a silly object on his head.&quot;,
-&quot; When he caught something in the air in a cool way.&quot;,
-&quot; When he barked at a scarecrow for 2 hours.&quot;,
-&quot; When he did an ollie at your wedding.&quot;,
-&quot; When he nuzzled you when you were sad(after:time+1s)[ (from eating too many cannolis)
+(font:&quot;Zilla Slab&quot;)[How vexingly quick daft zebras jump!]</tw-passagedata><tw-passagedata pid="416" name="booby" tags="booby" position="3000,3400" size="100,100">{(set:$goodtimes to (a:&quot;(t8n:\&quot;fade\&quot;)[When you first got him.]&quot;,
+&quot;(t8n:\&quot;fade\&quot;)[ When you put a silly object on his head.]&quot;,
+&quot;(t8n:\&quot;fade\&quot;)[ When he caught something in the air in a cool way.]&quot;,
+&quot;(t8n:\&quot;fade\&quot;)[ When he barked at a scarecrow for 2 hours.]&quot;,
+&quot;(t8n:\&quot;fade\&quot;)[ When he did an ollie at your wedding.]&quot;,
+&quot;(t8n:\&quot;fade\&quot;)[ When he nuzzled you when you were (link-reveal:\&quot;sad\&quot;)[ (from eating too many cannolis)
 
-(after:time+1s)[You keep petting, and he gently wakes up. He doesn’t move, he just opens his eye, looks at you, wags his tail a bit, and smiles.
+(after:time+2s)[(t8n:\&quot;fade\&quot;)[You keep petting, and he gently wakes up. He doesn’t move, he just opens his eye, looks at you, wags his tail a bit, and smiles.
 
-(after:time+1s)[You two enjoy a nice, quiet minute together.
+(after:time+1s)[(t8n:\&quot;fade\&quot;)[You two enjoy a nice, quiet minute together.
 
 (after:time+1s)[.(after:time+1s)[.(after:time+1s)[.
 
-(after:time+1s)[Thanks for playing my twine game, mickey. Hbd! ([[Happy bread dog-&gt;start]])]]]]]]]&quot;))
+(after:time+1s)[(t8n:\&quot;fade\&quot;)[Thanks for playing my twine game, mickey. Hbd! ([[Happy bread dog-&gt;start]])]]]]]]]]]]]&quot;))
 
 (set:$times to 1)
 
-}(after:1s)[You walk over to Bread.
+}(after:1s)[(t8n:&quot;fade&quot;)[You walk over to Bread.
 
-(after:time+1s)[He’s lying peacefully in a sunny spot, snoozing the day away. 
+(after:time+1s)[(t8n:&quot;fade&quot;)[He’s lying peacefully in a sunny spot, snoozing the day away. 
 
-(after:time+1s)[You sit next to him and give him gentle pets, so you don’t wake him.
+(after:time+1s)[(t8n:&quot;fade&quot;)[You sit next to him and give him gentle pets, so you don’t wake him.
 
-(after:time+1s)[His fur looks golden in the sunlight. It reminds you of (link-reveal:&quot;toast&quot;)[… toasted bread.
+(after:time+1s)[(t8n:&quot;fade&quot;)[His fur looks golden in the sunlight. It reminds you of (link-reveal:&quot;toast&quot;)[… toasted bread.
 
-(after:time+1s)[You remember some [(link-rerun:&quot;good times&quot;)[{
+(after:time+1s)[(t8n:&quot;fade&quot;)[You remember some [(link-rerun:&quot;good times&quot;)[{
 
 }(if:$times is $goodtimes&#39;s length)[(replace:?goodtimes)[good times](append:?times)[(print:$goodtimes&#39;s $times)]](else:)[(append:?times)[(print:$goodtimes&#39;s $times)](set:$times to it+1)]]{
 
 }]&lt;goodtimes| with him.
 
-[]&lt;times|]]]]]]</tw-passagedata><tw-passagedata pid="417" name="gotheadphones" tags="exe" position="2925,4575" size="100,100">{(set:$dialogue to (a:
+[]&lt;times|]]]]]]]]]]]</tw-passagedata><tw-passagedata pid="417" name="gotheadphones" tags="exe" position="2925,4575" size="100,100">{(set:$dialogue to (a:
 &quot;However, the other villagers are not so lucky. After the twitch cop zooms off, you look out to see piles of rubber band balls everywhere. All of the sudden, to the tune of the flute, the balls begin bouncing and rolling toward the docks. You see down there a sinister looking ship. As you look over to Jarody, you see tears streaming from his eyes.&quot;,
 &quot;\&quot;My whole family was banded...\&quot; He wipes the tears from his eyes. \&quot;They are going to the ship in the harbor. I don&#39;t know where it goes. Won&#39;t you help us?!\&quot;
 
