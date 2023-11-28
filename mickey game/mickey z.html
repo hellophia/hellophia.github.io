@@ -503,11 +503,11 @@ tw-story[tags~="exe"] {
   color:#0f0001;
 }
 
-tw-story[tags~="exe"] tw-link{
+tw-story[tags~="exe"] tw-link,tw-story[tags~="exe"] .enchantment-link{
  color:#093f2a;
 }
 
-tw-story[tags~="exe"] tw-link:hover{
+tw-story[tags~="exe"] tw-link:hover,tw-story[tags~="exe"] .enchantment-link:hover{
   color:#f96b7a;
 }
 
@@ -3125,24 +3125,34 @@ You sail through the sky on your bed, flying over countryside, water and mountai
 
 [[Shout to see if anyone is around]]
 
-[[Explore quietly]]]</tw-passagedata><tw-passagedata pid="396" name="Shout to see if anyone is around" tags="exe" position="2275,4700" size="100,100">&quot;Hey, is anyone around?!&quot; you call out. Your voice carries through the wood and you hear no response. You call out again, &quot;Hey is anyone here!?&quot;
+[[Explore quietly]]]</tw-passagedata><tw-passagedata pid="396" name="Shout to see if anyone is around" tags="exe" position="2275,4700" size="100,100">{(set:$dialogue to (a:
+&quot;You hear an angry response from up in a tree, 
 
-You hear an angry response from up in a tree, 
-&quot;Shut up! You&#39;re disturbing my nap!&quot;
-
-&quot;Yay! Somebody&#39;s here!&quot; you cry out. You run from tree to tree til you come across a thin striped orange cat with a runner&#39;s build lounging in a tree. The cat is wearing a pair of wooden blocks  on its ears, like a pair of headphones. The cat is bald.
+\&quot;Shut up! You&#39;re disturbing my nap!\&quot;&quot;,
+&quot;\&quot;Yay! Somebody&#39;s here!\&quot; you cry out. You run from tree to tree til you come across a thin striped orange cat with a runner&#39;s build lounging in a tree. The cat is wearing a pair of wooden blocks  on its ears, like a pair of headphones. The cat is bald.
 
 [[Ask who the cat is]]
 
-[[Ask about the headphones]]</tw-passagedata><tw-passagedata pid="397" name="Explore quietly" tags="exe" position="2375,4425" size="100,100">You creep silently through the forest. You eventually come across a tree with a thin striped orange cat sleeping in it. The orange cat has a runner&#39;s buildand is wearing a pair of wooden blocks on its ears, like a pair of headphones. The cat is bald.
+[[Ask about the headphones]]&quot;
+))
+
+(set:$step to 1)
+
+}&quot;Hey, is anyone around?!&quot; you call out. Your voice carries through the wood and you hear no response. You call out again, &quot;Hey is anyone here!?&quot;[]&lt;next|
+==&gt;
+(text-style:&quot;buoy&quot;)[▼]&lt;continue|{
+
+}(click-rerun:?continue)[(append:?next)[
+
+(print:$dialogue&#39;s $step)(set: $step to it + 1)(if:$step &gt; $dialogue&#39;s length)[(replace:?continue)[]]]]</tw-passagedata><tw-passagedata pid="397" name="Explore quietly" tags="exe" position="2375,4425" size="100,100">You creep silently through the forest. You eventually come across a tree with a thin striped orange cat sleeping in it. The orange cat has a runner&#39;s buildand is wearing a pair of wooden blocks on its ears, like a pair of headphones. The cat is bald.
 
 [[Push the cat off the tree and into the nearby stream]]
 
 [[Steal the cat&#39;s headphones]]
 
 [[Wake the cat up]]</tw-passagedata><tw-passagedata pid="398" name="Steal the cat&#39;s headphones" tags="exe" position="2575,4575" size="100,100">You stealthily ascend the lower branches of the tree just below the cat. Holding your breath, you deftly snatch the blocks from the cat&#39;s head. You dash off in to the forest before the cat can wake up. Once you are on your own, you see inside the blocks several birds tweeting a song. The song is &quot;Talk that Talk&quot; by Twice. After a few moments of you staring, the birds fly away, and the blocks are silent.
- 
-[[village]]</tw-passagedata><tw-passagedata pid="399" name="Wake the cat up" tags="exe" position="2575,4700" size="100,100">&quot;Shut up! You&#39;re disturbing my nap!&quot; The cat grumbles and glances in your direction sleepily.
+
+[[Continue on-&gt;village]]</tw-passagedata><tw-passagedata pid="399" name="Wake the cat up" tags="exe" position="2575,4700" size="100,100">&quot;Shut up! You&#39;re disturbing my nap!&quot; The cat grumbles and glances in your direction sleepily.
 
 [[Ask who the cat is]]
 
@@ -3150,74 +3160,82 @@ You hear an angry response from up in a tree,
 
 &quot;Aaaah!!! Aaah!! NOOOO!!&quot; The cat screams as it bobs under the water, coming back up only one more time to mournfully cry &quot;Glub, my one weakness, drowning!&quot; You are horrified by what you have done. You slowly wander through the forest in a daze.
  
-[[village]]</tw-passagedata><tw-passagedata pid="401" name="Ask who the cat is" tags="exe" position="2350,4850" size="100,100">&quot;So, who are you?&quot; you ask.
+[[village]]</tw-passagedata><tw-passagedata pid="401" name="Ask who the cat is" tags="exe" position="2550,4925" size="100,100">{(set:$dialogue to (a:
+&quot;\&quot;You want to know who I am? What a joke! Don&#39;t you recognize my stripes? I&#39;m the boss of this forest, Michael Magnificat!\&quot; He raises his arms to stretch from his nap, but loses balance and topples out of the tree, falling on his head. He snaps up, grasping his head, \&quot;Owie ow ow!\&quot;&quot;,
+&quot;\&quot;Are you okay?!\&quot; you ask.
 
-&quot;You want to know who I am? What a joke! Don&#39;t you recognize my stripes? I&#39;m the boss of this forest, Michael Magnificat!&quot; He raises his arms to stretch from his nap, but loses balance and topples out of the tree, falling on his head. He snaps up, grasping his head, &quot;Owie ow ow!&quot;
+\&quot;Shut up!\&quot; He straightens up, dusting himself off and trying to play it off like his fall was on purpose.
 
-&quot;Are you okay?!&quot; you ask.
-
-&quot;Shut up!&quot; He straightens up, dusting himself off and trying to play it off like his fall was on purpose.
-
-(if: (history:) contains &quot;Ask about the headphones&quot;)[{
+(if: (history:) contains \&quot;Ask about the headphones\&quot;)[{
 }[[Ask about a way out of the forest]]](else:)[{
-}[[Ask about the headphones]]]</tw-passagedata><tw-passagedata pid="402" name="Ask about the headphones" tags="exe" position="2500,4850" size="100,100">&quot;Oh, these?&quot; A smug grin spreads across his face as he pulls them off, exposing the inside of the blocks. Inside you see several small birds tweeting raucously a certain tune that after a few moments you recognize as &quot;Talk that Talk&quot; by Twice. &quot;I bet you are jealous!&quot;
+}[[Ask about the headphones]]]&quot;
+))
+
+(set:$step to 1)
+
+}&quot;So, who are you?&quot; you ask.[]&lt;next|
+==&gt;
+(text-style:&quot;buoy&quot;)[▼]&lt;continue|{
+
+}(click-rerun:?continue)[(append:?next)[
+
+(print:$dialogue&#39;s $step)(set: $step to it + 1)(if:$step &gt; $dialogue&#39;s length)[(replace:?continue)[]]]]</tw-passagedata><tw-passagedata pid="402" name="Ask about the headphones" tags="exe" position="2675,4825" size="100,100">&quot;Oh, these?&quot; A smug grin spreads across his face as he pulls them off, exposing the inside of the blocks. Inside you see several small birds tweeting raucously a certain tune that after a few moments you recognize as &quot;Talk that Talk&quot; by Twice. &quot;I bet you are jealous!&quot;
 
 (if: (history:) contains &quot;Ask who the cat is&quot;)[{
 }[[Ask about a way out of the forest]]](else:)[{
-}[[Ask who the cat is]]]</tw-passagedata><tw-passagedata pid="403" name="Ask about a way out of the forest" tags="exe" position="2425,4975" size="100,100">&quot;A way out of the forest huh?&quot; He looks you up and down. &quot;I&#39;ve never seen the likes of you before, you&#39;re a suspicious character!&quot;
+}[[Ask who the cat is]]]</tw-passagedata><tw-passagedata pid="403" name="Ask about a way out of the forest" tags="exe" position="2725,4975" size="100,100">{(set:$dialogue to (a:
+&quot;Something suddenly occurs to him as he looks you over and a look of fear falls across his face.&quot;,
+&quot;\&quot;You&#39;re dangerous! Keep back!\&quot; He runs up the nearest embankment with only partial success.&quot;,
+&quot;\&quot;I&#39;m not dangerous!\&quot; you say.&quot;,
+&quot;\&quot;Then what is that black belt for?!\&quot; he cries with increasing panic.&quot;,
+&quot;Before he can get further into his convulsion, you both hear a high pitched tune that you soon realize is a flute. A look of genuine fear replaces itself on his face.&quot;,
+&quot;\&quot;That&#39;s the Terror Witch&#39;s cop! Or, as we like to call it, the T-Witch cop! We have to get out of here!\&quot; He drags you into nearby shrubbery and as you both hide there, you see a tall man dressed as a bug float by, riding on a flying log.&quot;,
+&quot;\&quot;Look!\&quot; He points and you see another cat near the river, lounging unawares. Suddenly, the bug man points his wand at the cat, and with a pulse of light, the cat is transformed into one of those rubber band balls, but with a mysteriously humanoid shape.&quot;,
+&quot;\&quot;He&#39;s been banded! We have to get out of here!\&quot; he whispers furiously to you.&quot;,
+&quot;\&quot;Ever since that guy has shown up, he has been turning all the creatures of the forest into rubber band balls! He&#39;s a real jerk. They say he works for the terror witch, but who knows why they want everyone to be rubber band balls.\&quot;&quot;,
+&quot;The cat leads you to the edge of the forest.
 
-Something suddenly occurs to him as he looks you over and a look of fear falls across his face.
+\&quot;Get going! You should be thankful the boss of the forest took an interest in you!\&quot; He looks like he is about to go then looks at you thoughtfully. &quot;,
+&quot;\&quot;Here, take this as a souvenir. It might come in handy.\&quot; He removes his wooden block headphones. The birds look like they are about to fly away, but he suddenly snaps an until now unseen cover over the holes, trapping the birds within. \&quot;Don&#39;t let them escape!\&quot;(set:$headphones to true)
 
-&quot;You&#39;re dangerous! Keep back!&quot; He runs up the nearest embankment with only partial success.
+[[Continue on-&gt;village]]&quot;
+))
 
-&quot;I&#39;m not dangerous!&quot; you say.
+(set:$step to 1)
 
-&quot;Then what is that black belt for?!&quot; he cries with increasing panic.
+}&quot;A way out of the forest huh?&quot; He looks you up and down. &quot;I&#39;ve never seen the likes of you before, you&#39;re a suspicious character!&quot;[]&lt;next|
+==&gt;
+(text-style:&quot;buoy&quot;)[▼]&lt;continue|{
 
-Before he can get further into his convulsion, you both hear a high pitched tune that you soon realize is a flute. A look of genuine fear replaces itself on his face.
+}(click-rerun:?continue)[(append:?next)[
 
-&quot;That&#39;s the Terror Witch&#39;s cop! Or, as we like to call it, the T-Witch cop! We have to get out of here!&quot; He drags you into nearby shrubbery and as you both hide there, you see a tall man dressed as a bug float by, riding on a flying log.
-
-&quot;Look!&quot; He points and you see another cat near the river, lounging unawares. Suddenly, the bug man points his wand at the cat, and with a pulse of light, the cat is transformed into one of those rubber band balls, but with a mysteriously humanoid shape.
-
-&quot;He&#39;s been banded! We have to get out of here!&quot; he whispers furiously to you.
-
-&quot;Ever since that guy has shown up, he has been turning all the creatures of the forest into rubber band balls! He&#39;s a real jerk. They say he works for the terror witch, but who knows why they want everyone to be rubber band balls.&quot;
-
-The cat leads you to the edge of the forest.
-
-&quot;Get going! You should be thankful the boss of the forest took an interest in you!&quot; He looks like he is about to go then looks at you thoughtfully. 
-
-&quot;Here, take this as a souvenir. It might come in handy.&quot; He removes his wooden block headphones. The birds look like they are about to fly away, but he suddenly snaps an until now unseen cover over the holes, trapping the birds within. &quot;Don&#39;t let them escape!&quot;(set:$headphones to true)
-
-(display:&quot;village&quot;)</tw-passagedata><tw-passagedata pid="404" name="village" tags="exe" position="2725,4450" size="100,100">You stumble out of the forest into a picturesque scene of a village along the coast. You walk down the slope, and you realize that it has been almost 30 minutes since you drank any water. You fall to your knees.
+(print:$dialogue&#39;s $step)(set: $step to it + 1)(if:$step &gt; $dialogue&#39;s length)[(replace:?continue)[]]]]</tw-passagedata><tw-passagedata pid="404" name="village" tags="exe" position="2725,4450" size="100,100">You stumble out of the forest into a picturesque scene of a village along the coast. You walk down the slope, and you realize that it has been almost 30 minutes since you drank any water. You fall to your knees.
 
 One of the villager children runs up to you with a bottle of 9.5 PH water. &quot;Are you okay?? Have a sip!!&quot; He offers the water to you.
 
 [[Sip]]
 
-[[Don&#39;t sip]]</tw-passagedata><tw-passagedata pid="405" name="Sip" tags="exe" position="2875,4450" size="100,100">
-You take a long sip of the bottle and are fully refreshed. Just in time too, as you suddenly hear the cries of other villagers and then spy the sinister silhouette of the bug themed witch&#39;s apprentice zooming around on his log.
+[[Don&#39;t sip]]</tw-passagedata><tw-passagedata pid="405" name="Sip" tags="exe" position="2875,4450" size="100,100">{(set:$dialogue to (a:
+&quot;\&quot;Quick, lets hide in here!\&quot; The villager guides you to a cluster of barrels and you both jump in one.&quot;,
+&quot;\&quot;I&#39;m Jarody. I am sorry to say, but that sinister guy out there is my brother. He left the village a long time ago, but then came back working for the terror witch. I have no idea why!\&quot;&quot;,
+&quot;You hear the hear the familiar whistle of the flute, but this time it has a odd quality to it that makes you feel dizzy.&quot;,
+&quot;\&quot;Oh no! His flute will hypnotize us! What can we do?!\&quot;
 
-&quot;Quick, lets hide in here!&quot; The villager guides you to a cluster of barrels and you both jump in one.
+(if:$headphones)[{
+}[[Think of something!-&gt;gotheadphones]]](else:)[Unable to resist the allure of the flute playing a tune that sounds suspiciously like Hips Don&#39;t Lie by Shakira, you stand up out of your barrel, as does Jarody. The barrels topple over and begin rolling down the hill, with you in them, eventually crashing into a well at the center of town. The two of you slowly get up, entranced by the music. You turn toward the twitch cop and start walking. He turns and shoots you both with a beam, transforming you into rubber band balls.
 
-&quot;I&#39;m Jarody. I am sorry to say, but that sinister guy out there is my brother. He left the village a long time ago, but then came back working for the terror witch. I have no idea why!
+[[you wake up in your bed, more tired than you were before-&gt;start]]]&quot;
+))
 
-You hear the hear the familiar whistle of the flute, but this time it has a odd quality to it that makes you feel dizzy.
+(set:$step to 1)
 
-&quot;Oh no! His flute will hypnotize us! What can we do?!&quot;
+}You take a long sip of the bottle and are fully refreshed. Just in time too, as you suddenly hear the cries of other villagers and then spy the sinister silhouette of the bug themed witch&#39;s apprentice zooming around on his log.[]&lt;next|
+==&gt;
+(text-style:&quot;buoy&quot;)[▼]&lt;continue|{
 
-(if:$headphones)[Thinking quickly, you pull out the wooden block headphones given to you by Michael. You jump into the same barrel as Jarody and push your heads together, snapping a block on each of your ears. The bird chirping drowns out the flute playing (and brings you closer to Jarody) and the two of you are able to manage to resist the urge to walk out into the square.
+}(click-rerun:?continue)[(append:?next)[
 
-However, the other villagers are not so lucky. After the twitch cop zooms off, you look out to see piles of rubber band balls everywhere. All of the sudden, to the tune of the flute, the balls begin bouncing and rolling toward the docks. You see down there a sinister looking ship. As you look over to Jarody, you see tears streaming from his eyes.
-
-&quot;My whole family was banded...&quot; He wipes the tears from his eyes. &quot;They are going to the ship in the harbor. I don&#39;t know where it goes. Won&#39;t you help us?!&quot;
-
-[[Sneak into the harbor now]]
-
-[[Wait until dark]]](else:)[Unable to resist the allure of the flute playing a tune that sounds suspiciously like Hips Don&#39;t Lie by Shakira, you stand up out of your barrel, as does Jarody. The barrels topple over and begin rolling down the hill, with you in them, eventually crashing into a well at the center of town. The two of you slowly get up, entranced by the music. You turn toward the twitch cop and start walking. He turns and shoots you both with a beam, transforming you into rubber band balls.
-
-[[you wake up in your bed, more tired than you were before-&gt;start]]]</tw-passagedata><tw-passagedata pid="406" name="Don&#39;t sip" tags="exe" position="2775,4300" size="100,100">30 minutes? That isn&#39;t that long. Come on. You think these things to yourself as you push the bottle away.
+(print:$dialogue&#39;s $step)(set: $step to it + 1)(if:$step &gt; $dialogue&#39;s length)[(replace:?continue)[]]]]</tw-passagedata><tw-passagedata pid="406" name="Don&#39;t sip" tags="exe" position="2775,4300" size="100,100">30 minutes? That isn&#39;t that long. Come on. You think these things to yourself as you push the bottle away.
 
 &quot;I&#39;m fine.&quot; you hear yourself say. A worried expression sets upon the villager&#39;s face.
 
@@ -3237,11 +3255,9 @@ You suddenly hear the cries of other villagers and then spy the sinister silhoue
 
 [[Board the ship for terror island]]
 
-[[Board the ship for the ends of the earth]]</tw-passagedata><tw-passagedata pid="409" name="Board the ship for terror island" tags="exe" position="3350,4525" size="100,100">You board the ship (if:(history:) contains &quot;Wait until dark&quot;)[on the left](else:)[to terror island], making your way past piles of rubber bands everywhere. You didn&#39;t notice it at first, but its almost as if the entire ship is made of rubber bands. You and Jarody settle in for the voyage, napping behind a crate that oddly reminds you of a certain athletic yet glabrous (that means bald) cat you encountered previously. You can&#39;t help but be struck by the injustice of the situation.
-
-As you disembark from the ship, you and Jarody dash through the castle, dodging a dragon shaped robot that periodically bursts through walls and shoots fireballs at you. The two of you narrowly escape each time and finally end up in what one might consider a &quot;boss room&quot; (wide circular arena). With a sense of deep foreboding and a touch of nostalgia you can&#39;t quite comprehend, a sinister skeletal figure floats into view.
-
-&quot;Eee Hee Hee, I am the terror witch! If you can guess my real name I&#39;ll spare your life!&quot; 
+[[Board the ship for the ends of the earth]]</tw-passagedata><tw-passagedata pid="409" name="Board the ship for terror island" tags="exe" position="3350,4525" size="100,100">{(set:$dialogue to (a:
+&quot;As you disembark from the ship, you and Jarody dash through the castle, dodging a dragon shaped robot that periodically bursts through walls and shoots fireballs at you. The two of you narrowly escape each time and finally end up in what one might consider a \&quot;boss room\&quot; (wide circular arena). With a sense of deep foreboding and a touch of nostalgia you can&#39;t quite comprehend, a sinister skeletal figure floats into view.&quot;,
+&quot;\&quot;Eee Hee Hee, I am the terror witch! If you can guess my real name I&#39;ll spare your life!\&quot; 
 
 [[High Lord Wolnir-&gt;exewrong]]
 
@@ -3249,41 +3265,73 @@ As you disembark from the ship, you and Jarody dash through the castle, dodging 
 
 [[Skelly from Hades-&gt;exewrong]]
 
-(if: (history:) contains &quot;Board the ship for the ends of the earth&quot;)[[Revenant from Apex]]</tw-passagedata><tw-passagedata pid="410" name="Board the ship for the ends of the earth" tags="exe" position="3350,4350" size="100,100">You board the right ship. As you make your way around you realize there are no sign of any rubber band balls anywhere. Are they hidden? But you soon realize.. You picked the wrong ship.
+(if: (history:) contains \&quot;Board the ship for the ends of the earth\&quot;)[[Revenant from Apex]]&quot;
+))
 
-&quot;Oh ho ho! Why, we&#39;re heading for the ends of the earth!&quot; Bellows an oddly Captain Nemo-esque ships master.
+(set:$step to 1)
 
-The cruise is pleasant, and you disembark in a cool desert lined coastal town. As you walk down shore you come upon a small green haired lion lounging in a pool chair with a tropical drink.
+}You board the ship (if:(history:) contains &quot;Wait until dark&quot;)[on the left](else:)[to terror island], making your way past piles of rubber bands everywhere. You didn&#39;t notice it at first, but its almost as if the entire ship is made of rubber bands. You and Jarody settle in for the voyage, napping behind a crate that oddly reminds you of a certain athletic yet glabrous (that means bald) cat you encountered previously. You can&#39;t help but be struck by the injustice of the situation.[]&lt;next|
+==&gt;
+(text-style:&quot;buoy&quot;)[▼]&lt;continue|{
 
-&quot;Oh, hey, I thought you might be coming this way. I am Emily the knowledgeable Sphinx. Remember when we all played apex together? That was fun right?&quot;
+}(click-rerun:?continue)[(append:?next)[
 
-You are not sure what this sphinx is talking about but  you chit chat for a while and then eventually make your way back to the harbor. You see that there is now a ship bound for terror island. 
+(print:$dialogue&#39;s $step)(set: $step to it + 1)(if:$step &gt; $dialogue&#39;s length)[(replace:?continue)[]]]]</tw-passagedata><tw-passagedata pid="410" name="Board the ship for the ends of the earth" tags="exe" position="3350,4350" size="100,100">{(set:$dialogue to (a:
+&quot;\&quot;Oh ho ho! Why, we&#39;re heading for the ends of the earth!\&quot; Bellows an oddly Captain Nemo-esque ships master.&quot;,
+&quot;The cruise is pleasant, and you disembark in a cool desert lined coastal town. As you walk down shore you come upon a small green haired lion lounging in a pool chair with a tropical drink.&quot;,
+&quot;\&quot;Oh, hey, I thought you might be coming this way. I am Emily the knowledgeable Sphinx. Remember when we all played apex together? That was fun right?\&quot;&quot;,
+&quot;You are not sure what this sphinx is talking about but  you chit chat for a while and then eventually make your way back to the harbor. You see that there is now a ship bound for terror island. 
 
 [[Stay at the ends of the earth]]
 
-[[Go to terror island-&gt;Board the ship for terror island]]</tw-passagedata><tw-passagedata pid="411" name="Hey Mister!" tags="exe" position="2975,4175" size="100,100">You call out to the figure with your classic catch phrase &quot;Hey Mister!&quot;
+[[Go to terror island-&gt;Board the ship for terror island]]&quot;
+))
 
-As the figure turns around, the man&#39;s face is revealed to be hideous mass of rubber bands. He sticks out his fingers and rubber bands shoot out and wrap around you, slowly crushing the life out of you.
+(set:$step to 1)
 
-Nevertheless, you think to yourself, &quot;it was worth it&quot;.
+}You board the right ship. As you make your way around you realize there are no sign of any rubber band balls anywhere. Are they hidden? But you soon realize.. You picked the wrong ship.[]&lt;next|
+==&gt;
+(text-style:&quot;buoy&quot;)[▼]&lt;continue|{
 
-[[you wake up in your bed, more tired than you were before-&gt;start]]</tw-passagedata><tw-passagedata pid="412" name="Stay at the ends of the earth" tags="exe" position="3525,4250" size="100,100">You and Jarody accept the futility of battling such an otherworldy force, and mourn the demise of his family by living the easy vacation life a tourist town provides. You two end up working for Emily the knowledgeable sphinx as scuba instructors and parasailing guides.
+}(click-rerun:?continue)[(append:?next)[
 
-[[you wake up in your bed, more tired than you were before-&gt;start]]</tw-passagedata><tw-passagedata pid="413" name="Revenant from Apex" tags="exe" position="3825,4600" size="100,100">&quot;Aaaaugh!!&quot; A light flashes around the terror witch and they fall to the ground.
+(print:$dialogue&#39;s $step)(set: $step to it + 1)(if:$step &gt; $dialogue&#39;s length)[(replace:?continue)[]]]]</tw-passagedata><tw-passagedata pid="411" name="Hey Mister!" tags="exe" position="2975,4175" size="100,100">{(set:$dialogue to (a:
+&quot;As the figure turns around, the man&#39;s face is revealed to be hideous mass of rubber bands. He sticks out his fingers and rubber bands shoot out and wrap around you, slowly crushing the life out of you.&quot;,
+&quot;Nevertheless, you think to yourself, \&quot;it was worth it\&quot;.
 
-You rush forward, realizing this is your old friend Revenant.
+[[you wake up in your bed, more tired than you were before-&gt;start]]&quot;
+))
 
-&quot;I&#39;m sorry... Its just that... Its been so long... There was no other way to get your attention... I hope you will forgive me!&quot;
+(set:$step to 1)
 
-Revenant explodes into ash, deleted from the game. All the rubber band balls around you suddenly begin shining with a white light. As the light diminishes, you see all the villagers and animals in their place, unharmed. Jarody is overjoyed.
+}You call out to the figure with your classic catch phrase &quot;Hey Mister!&quot;[]&lt;next|
+==&gt;
+(text-style:&quot;buoy&quot;)[▼]&lt;continue|{
 
-The knowledgeable sphinx walks up, licking a lollipop.
+}(click-rerun:?continue)[(append:?next)[
 
-&quot;He was sustained only by his hatred for you for abandoning him. Once he saw that you had remembered him, he had nothing left to keep him going.&quot; Emily places a paw on your shoulder.
+(print:$dialogue&#39;s $step)(set: $step to it + 1)(if:$step &gt; $dialogue&#39;s length)[(replace:?continue)[]]]]</tw-passagedata><tw-passagedata pid="412" name="Stay at the ends of the earth" tags="exe" position="3525,4250" size="100,100">You and Jarody accept the futility of battling such an otherworldy force, and mourn the demise of his family by living the easy vacation life a tourist town provides. You two end up working for Emily the knowledgeable sphinx as scuba instructors and parasailing guides.
 
-&quot;Now you must move on to the next story. Farewell!&quot;
+[[you wake up in your bed, more tired than you were before-&gt;start]]</tw-passagedata><tw-passagedata pid="413" name="Revenant from Apex" tags="exe" position="3825,4600" size="100,100">{(set:$dialogue to (a:
+&quot;You rush forward, realizing this is your old friend Revenant.&quot;,
+&quot;\&quot;I&#39;m sorry... Its just that... Its been so long... There was no other way to get your attention... I hope you will forgive me!\&quot;&quot;,
+&quot;Revenant explodes into ash, deleted from the game. All the rubber band balls around you suddenly begin shining with a white light. As the light diminishes, you see all the villagers and animals in their place, unharmed. Jarody is overjoyed.&quot;,
+&quot;The knowledgeable sphinx walks up, licking a lollipop.&quot;,
+&quot;\&quot;He was sustained only by his hatred for you for abandoning him. Once he saw that you had remembered him, he had nothing left to keep him going.\&quot; Emily places a paw on your shoulder.&quot;,
+&quot;\&quot;Now you must move on to the next story. Farewell!\&quot;
 
-[[A white wind begins swirling around you, and before you know it you are back in your bed, back in your room, fully rested.-&gt;start]]</tw-passagedata><tw-passagedata pid="414" name="exewrong" tags="exe" position="3700,4450" size="100,100">WRONG!
+[[A white wind begins swirling around you, and before you know it you are back in your bed, back in your room, fully rested.-&gt;start]]&quot;
+))
+
+(set:$step to 1)
+
+}&quot;Aaaaugh!!&quot; A light flashes around the terror witch and they fall to the ground.[]&lt;next|
+==&gt;
+(text-style:&quot;buoy&quot;)[▼]&lt;continue|{
+
+}(click-rerun:?continue)[(append:?next)[
+
+(print:$dialogue&#39;s $step)(set: $step to it + 1)(if:$step &gt; $dialogue&#39;s length)[(replace:?continue)[]]]]</tw-passagedata><tw-passagedata pid="414" name="exewrong" tags="exe" position="3700,4450" size="100,100">WRONG!
 
 The creature shrieks and you instantly transform into a rubber band ball, with a pop.
 
@@ -3313,7 +3361,24 @@ The creature shrieks and you instantly transform into a rubber band ball, with a
 
 (font:&quot;Roboto Slab&quot;)[Sphinx of black quartz, judge my vow.]
 
-(font:&quot;Zilla Slab&quot;)[How vexingly quick daft zebras jump!]</tw-passagedata><tw-passagedata pid="416" name="booby" tags="" position="3000,3400" size="100,100"></tw-passagedata></tw-storydata>
+(font:&quot;Zilla Slab&quot;)[How vexingly quick daft zebras jump!]</tw-passagedata><tw-passagedata pid="416" name="booby" tags="" position="3000,3400" size="100,100"></tw-passagedata><tw-passagedata pid="417" name="gotheadphones" tags="exe" position="2925,4575" size="100,100">{(set:$dialogue to (a:
+&quot;However, the other villagers are not so lucky. After the twitch cop zooms off, you look out to see piles of rubber band balls everywhere. All of the sudden, to the tune of the flute, the balls begin bouncing and rolling toward the docks. You see down there a sinister looking ship. As you look over to Jarody, you see tears streaming from his eyes.&quot;,
+&quot;\&quot;My whole family was banded...\&quot; He wipes the tears from his eyes. \&quot;They are going to the ship in the harbor. I don&#39;t know where it goes. Won&#39;t you help us?!\&quot;
+
+[[Sneak into the harbor now]]
+
+[[Wait until dark]]&quot;
+))
+
+(set:$step to 1)
+
+}Thinking quickly, you pull out the wooden block headphones given to you by Michael. You jump into the same barrel as Jarody and push your heads together, snapping a block on each of your ears. The bird chirping drowns out the flute playing (and brings you closer to Jarody) and the two of you are able to manage to resist the urge to walk out into the square.[]&lt;next|
+==&gt;
+(text-style:&quot;buoy&quot;)[▼]&lt;continue|{
+
+}(click-rerun:?continue)[(append:?next)[
+
+(print:$dialogue&#39;s $step)(set: $step to it + 1)(if:$step &gt; $dialogue&#39;s length)[(replace:?continue)[]]]]</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
