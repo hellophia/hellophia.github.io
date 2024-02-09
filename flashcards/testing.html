@@ -38,14 +38,14 @@
 	justify-content: center;
   }
   
-  .left-column{
+  .ui-column{
   	display: flex;
 	align-items: center;
 	flex-direction:column;
 	width:40%;
   }
   
-  .middle-column {
+  .card-column {
 	  width:60%;
   }
   
@@ -129,7 +129,7 @@
   
     @media only screen and (max-width: 800px) {
 		.buttonholder{
-			flex-direction:column-reverse;
+			flex-direction:column;
 		}
 	    .card {
 	  	margin: 0px 10%;
@@ -173,21 +173,18 @@
 <body>
 	
 	<div class="flashcard-container">
+		
+  	  <div class="column card-column" id="flashcards-container">
+	  	
+  	  </div>
 	
-	  <div class="column left-column" id="left-column">
+	  <div class="column ui-column">
 		 
 		  <div style="display:flex;flex-direction:column;justify-content:center;">
 			  
 			  <p style="font-style:italic;color:#595941">once you've selected your desired categories below, you must click "shuffle" to make a deck with those cards.</p>
 			  
 			  <div class="buttonholder">
-				  
-				  <div style="display:flex;align-items: center;">
-					  <div style="display:flex;flex-direction:column;">
-						  <button class="smallbutt" id="checkbutt">check all</button><button class="smallbutt" id="uncheckbutt">uncheck all</button>
-					  </div>
-					  <button class="bigbutt" id="shufflebutt">shuffle</button>
-				  </div>
 				  
 				  <div style="display: flex;justify-content:center;align-items:center;">
 					  <div style="display: flex;flex-direction:column;">
@@ -196,16 +193,19 @@
 					  <button class="bigbutt" id="flipbutt">flip</button>
 				  </div>
 				  
+				  <div style="display:flex;align-items: center;">
+					  <div style="display:flex;flex-direction:column;">
+						  <button class="smallbutt" id="checkbutt">check all</button><button class="smallbutt" id="uncheckbutt">uncheck all</button>
+					  </div>
+					  <button class="bigbutt" id="shufflebutt">shuffle</button>
+				  </div>
+				  
 			  </div>
 			  
 		  </div>
 		  
 		  <div id="checklist-container" style="padding:10px;"></div>
 		
-	  </div>
-  
-	  <div class="column middle-column" id="flashcards-container">
-	  	
 	  </div>
   
   </div>
