@@ -40,13 +40,13 @@
   
   .left-column{
   	display: flex;
-	flex: 1;
 	align-items: center;
 	flex-direction:column;
+	width:40%;
   }
   
   .middle-column {
-	  width:50%;
+	  width:60%;
   }
   
   .card {
@@ -124,11 +124,21 @@
   .buttonholder{
   	display:flex;
 	justify-content: space-around;
+	align-items:center;
   }
+  
+    @media only screen and (max-width: 800px) {
+		.buttonholder{
+			flex-direction:column-reverse;
+		}
+	    .card {
+	  	margin: 0px 10%;
+	    }
+	}
   
   @media only screen and (max-width: 700px) {
   	body {
-		font-size: 60%;
+		font-size: 2vw;
 	}
 	
 	button{
@@ -136,34 +146,26 @@
 	}
 	
     .smallbutt {
-  	  font-size: 60%;
+  	  font-size: 2vw;
     }
   
     .bigbutt {
-  	  font-size: 60%;
+  	  font-size: 3vw;
     }
 	
     ul {
 		display: block;
     }
 	
-    .middle-column {
-  	  width:90%;
-    }
-	
     input[type="checkbox"] {
       width: 10px;
       height: 10px;
-  	margin-right:4px;
+	  margin-right:4px;
     }
 	
-	.buttonholder{
-		flex-direction:column-reverse;
-	}
-  }
-  
-  div{
-	  border: 1px red solid;
+    .card {
+  	margin: 0px 5%;
+    }
   }
   
 </style>
