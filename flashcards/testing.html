@@ -38,9 +38,21 @@
 	justify-content: center;
   }
   
+  .left-column{
+  	display: flex;
+	flex: 1;
+	align-items: center;
+	flex-direction:column;
+  }
+  
+  .middle-column {
+	  width:50%;
+  }
+  
   .card {
     position: relative;
 	max-width:100%;
+	margin: 0px 20%;
   }
   
   .back{
@@ -109,43 +121,89 @@
     margin: 0;
   }
   
+  .buttonholder{
+  	display:flex;
+	justify-content: space-around;
+  }
+  
+  @media only screen and (max-width: 700px) {
+  	body {
+		font-size: 60%;
+	}
+	
+	button{
+		margin:3px;
+	}
+	
+    .smallbutt {
+  	  font-size: 60%;
+    }
+  
+    .bigbutt {
+  	  font-size: 60%;
+    }
+	
+    ul {
+		display: block;
+    }
+	
+    .middle-column {
+  	  width:90%;
+    }
+	
+    input[type="checkbox"] {
+      width: 10px;
+      height: 10px;
+  	margin-right:4px;
+    }
+	
+	.buttonholder{
+		flex-direction:column-reverse;
+	}
+  }
+  
+  div{
+	  border: 1px red solid;
+  }
+  
 </style>
 </head>
 <body>
 	
 	<div class="flashcard-container">
 	
-	  <div class="column" style="display: flex;flex: 1;align-items: center;flex-direction:column;" id="left-column">
+	  <div class="column left-column" id="left-column">
 		 
-		  <div style="display:flex;flex-direction:column;align-items: center;">
+		  <div style="display:flex;flex-direction:column;justify-content:center;">
 			  
-			  <div><p style="font-style:italic;color:#595941">once you've selected your desired categories below, you must click "shuffle" to make a deck with those cards.</p></div>
+			  <p style="font-style:italic;color:#595941">once you've selected your desired categories below, you must click "shuffle" to make a deck with those cards.</p>
 			  
-			  <div style="display:flex;flex-direction:row;align-items: center;">
+			  <div class="buttonholder">
 				  
-				  <div style="display:flex;flex-direction:column;"><button class="smallbutt" id="checkbutt">check all</button><button class="smallbutt" id="uncheckbutt">uncheck all</button></div>
+				  <div style="display:flex;align-items: center;">
+					  <div style="display:flex;flex-direction:column;">
+						  <button class="smallbutt" id="checkbutt">check all</button><button class="smallbutt" id="uncheckbutt">uncheck all</button>
+					  </div>
+					  <button class="bigbutt" id="shufflebutt">shuffle</button>
+				  </div>
 				  
-				  <button class="bigbutt" id="shufflebutt">shuffle</button>
+				  <div style="display: flex;justify-content:center;align-items:center;">
+					  <div style="display: flex;flex-direction:column;">
+						  <button class="smallbutt" id="prevbutt">previous</button><button class="smallbutt" id="nextbutt">next</button>
+					  </div>
+					  <button class="bigbutt" id="flipbutt">flip</button>
+				  </div>
 				  
 			  </div>
 			  
 		  </div>
 		  
-		  <div id="checklist-container" style=""></div>
+		  <div id="checklist-container" style="padding:10px;"></div>
 		
 	  </div>
   
-	  <div class="column" style="width:33.33%;" id="flashcards-container">
+	  <div class="column middle-column" id="flashcards-container">
 	  	
-	  </div>
-	  
-	  <div class="column" style="display: flex;flex: 1;align-items: center;flex-direction:row;" id="right-column">
-		  
-		  <div style="display: flex;flex-direction:column;">
-			  <button class="smallbutt" id="prevbutt">previous</button><button class="smallbutt" id="nextbutt">next</button>
-		  </div>
-		  <button class="bigbutt" id="flipbutt">flip</button>
-	  
 	  </div>
   
   </div>
