@@ -60,21 +60,29 @@
       display: none !important;
   }
   
-  button {
-	  font-size: 16px;
+  button{
 	  font-family: "Noto Serif";
 	  background-color: #d3c8c3;
 	  color: #303028;
-	  border-radius: 24px;
-	  padding: 12px;
-	  margin:6px;
 	  border:none;
-	  min-width: max-content;
+	  margin:6px;
   }
   
   button:hover {
     background-color: #d3b690;
     color: #212121;
+  }
+  
+  .smallbutt {
+	  font-size: 14px;
+	  border-radius: 14px;
+	  padding: 6px 10px;
+  }
+  
+  .bigbutt {
+	  font-size: 18px;
+	  border-radius: 24px;
+	  padding: 12px;
   }
   
   input[type="checkbox"] {
@@ -84,13 +92,17 @@
   }
   
   ul {
-    list-style-type: none;
+	display: flex;
+	flex-wrap: wrap;
+	list-style: none;
+	padding: 0;
   }
 
   li {
     display: flex;
     align-items: center;
-    //margin-bottom: 4px;
+	flex: 0 0 50%;
+	box-sizing: border-box;
   }
 
   label {
@@ -105,12 +117,21 @@
 	
 	  <div class="column" style="display: flex;flex: 1;align-items: center;flex-direction:column;" id="left-column">
 		 
-		  <div style="display:flex;flex-direction:column;">
-			  <button id="checkbutt">check all</button><button id="uncheckbutt">uncheck all</button>
-			  <button id="shufflebutt">shuffle</button>
+		  <div style="display:flex;flex-direction:column;align-items: center;">
+			  
+			  <div><p style="font-style:italic;color:#595941">once you've selected your desired categories below, you must click "shuffle" to make a deck with those cards.</p></div>
+			  
+			  <div style="display:flex;flex-direction:row;align-items: center;">
+				  
+				  <div style="display:flex;flex-direction:column;"><button class="smallbutt" id="checkbutt">check all</button><button class="smallbutt" id="uncheckbutt">uncheck all</button></div>
+				  
+				  <button class="bigbutt" id="shufflebutt">shuffle</button>
+				  
+			  </div>
+			  
 		  </div>
 		  
-		  <div id="checklist-container"></div>
+		  <div id="checklist-container" style=""></div>
 		
 	  </div>
   
@@ -118,11 +139,12 @@
 	  	
 	  </div>
 	  
-	  <div class="column" style="display: flex;flex: 1;align-items: center;flex-direction:column;" id="right-column">
+	  <div class="column" style="display: flex;flex: 1;align-items: center;flex-direction:row;" id="right-column">
 		  
-		  <button id="prevbutt">previous</button>
-		  <button id="flipbutt">flip</button>
-		  <button id="nextbutt">next</button>
+		  <div style="display: flex;flex-direction:column;">
+			  <button class="smallbutt" id="prevbutt">previous</button><button class="smallbutt" id="nextbutt">next</button>
+		  </div>
+		  <button class="bigbutt" id="flipbutt">flip</button>
 	  
 	  </div>
   
@@ -1153,6 +1175,7 @@
 		}
 	];
 
+	//containers
 	const flashcardsContainer = document.getElementById('flashcards-container');
 	const checklistContainer = document.getElementById('checklist-container');
 	
@@ -1166,10 +1189,9 @@
 
 	// how to make html for each tool in toolsdata
 	function generateToolHTML(tool) {
-		const tagsHTML = tool.tags.map(tag => `<span class="tags">${tag}</span>`).join('');
 		const imgHTML = tool.img.map(img => `<div class="images">${img}</div>`).join('');
+		const tagsHTML = tool.tags.map(tag => `<span class="tags">${tag}</span>`).join('');
 	  return `
-	    <div class="card">
 	      <div class="front">
 	          ${imgHTML}
 	      </div>
@@ -1178,18 +1200,24 @@
 	        <p>${tool.notes}</p>
 	        <p style="font-size:90%;">category: ${tagsHTML}</p>
 	      </div>
-	    </div>
 	  `;
 	}
-
-	// generate cards from json
+	
+	// generate the cards
 	function generateFlashcards() {
 	  toolsData.forEach(tool => {
+		  
 	    const toolHTML = generateToolHTML(tool);
-	    flashcardsContainer.insertAdjacentHTML('beforeend', toolHTML);
+    
+	    const cardDiv = document.createElement('div');
+	    cardDiv.classList.add('card', 'hidden');
+	    cardDiv.innerHTML = toolHTML;
+		cardDiv.querySelector('.back').classList.add('hidden');
+    
+	    flashcardsContainer.appendChild(cardDiv);
 	  });
-  	
-	  console.log('generated flashcards');
+	  
+	  document.querySelectorAll('.card')[0].classList.remove('hidden'); 
 	}
 
 	// call the generate cards function
@@ -1237,22 +1265,7 @@
 		
     });
 	
-	//hide all the cards except number one
-	function hidecards(){
-  	  cards.forEach((card, index) => {
-  	      card.classList.add('hidden');
-  		  card.querySelector('.front').classList.add('hidden');
-  		  card.querySelector('.back').classList.add('hidden');
-  	  });
-  	  cards[0].classList.remove('hidden');
-  	  cards[0].querySelector('.front').classList.remove('hidden');
-	  console.log('hid all cards except number one');
-	};
-	
-	//hide cards on page load
-	window.addEventListener('load', hidecards);
-	
-	//make the checklist
+	// generate the checklist
 	function generateChecklist() {
 		const allTags = []; // array to store all tags
 		
@@ -1264,6 +1277,8 @@
 				}
 			});
 		});
+		
+		allTags.sort();
 		
 		// generate HTML for the checklist
 		const checklistHTML = `
@@ -1282,10 +1297,10 @@
 	    });
 	}
 	
-	// call the function to generate the checklist when the page loads
+	// call the generate checklist when the page loads
 	window.addEventListener('load', generateChecklist);
 	
-	// shuffle card array
+	// shuffle cards based on checked tags
 	function shuffleTools() {
 		
 		// add checked checkbox id to selectedTags array
@@ -1306,24 +1321,28 @@
 		    return false;
 		  });
 		
-		// shuffle the toolsData array
+		// shuffle the tools
 		filteredTools.sort(() => Math.random() - 0.5);
 		
 		// remove existing card divs from the DOM
 		flashcardsContainer.innerHTML = '';
 		
-		// re-add the shuffled card divs to the DOM
+		// make cards from filtered array
 		filteredTools.forEach(tool => {
 			const toolHTML = generateToolHTML(tool);
-			flashcardsContainer.insertAdjacentHTML('beforeend', toolHTML);
+			
+			const cardDiv = document.createElement('div');
+			cardDiv.classList.add('card', 'hidden');
+			cardDiv.innerHTML = toolHTML;
+			cardDiv.querySelector('.back').classList.add('hidden');
+			
+			flashcardsContainer.appendChild(cardDiv);
 		});
 		
-	  	cards = document.querySelectorAll('.card');
+		cards = document.querySelectorAll('.card');
+		cards[0].classList.remove('hidden');
+		
 	  	currentCardIndex = 0;
-		
-		hidecards();
-		
-		console.log('shuffled tools');
 	}
 	
 	shufflebutton.addEventListener('click', shuffleTools);
@@ -1334,7 +1353,6 @@
   	    checkbox.checked = false;
   	  });
 	});
-	
 	checkbutton.addEventListener('click', function(){
 	    	const checkboxes = document.querySelectorAll('#checklist-container input[type="checkbox"]');
 		checkboxes.forEach(checkbox => {
