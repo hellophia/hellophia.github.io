@@ -7,33 +7,30 @@
 <style>
 	
 	@import url('https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap');
-
-	  body {
+	
+	body {
 	  	font-size: 16px;
 	  	font-family: "Noto Serif";
 	  	color: #e3e3e3;
 	  	background-color: #212121;
-	  }
-
-	  p{
+	}
+	
+	p{
 	  	margin:20px;
-	  }
-
-	  .tags {
+	}
+	
+	.tags {
 	      background-color: #dbd8d3;
-	      border: none;
 	      color: #212121;
-	      padding: 8px;
+	      padding: 6px;
 	      text-align: center;
 	      text-decoration: none;
 	      display: inline-block;
 	      margin: 4px;
-	      border-radius: 16px;
 	  }
 	
   .flashcard-container {
     display: flex;
-    justify-content: center;
     height: 100vh;
   }
   
@@ -55,10 +52,6 @@
 	  align-items:center;
   }
   
-  .images{
-	  
-  }
-  
   .front img {
 	  width:100%;
   }
@@ -67,23 +60,69 @@
       display: none !important;
   }
   
+  button {
+	  font-size: 16px;
+	  font-family: "Noto Serif";
+	  background-color: #d3c8c3;
+	  color: #303028;
+	  border-radius: 24px;
+	  padding: 12px;
+	  margin:6px;
+	  border:none;
+	  min-width: max-content;
+  }
+  
+  button:hover {
+    background-color: #d3b690;
+    color: #212121;
+  }
+  
+  input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+	margin-right:10px;
+  }
+  
+  ul {
+    list-style-type: none;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    //margin-bottom: 4px;
+  }
+
+  label {
+    margin: 0;
+  }
+  
 </style>
 </head>
 <body>
 	
 	<div class="flashcard-container">
 	
-	  <div class="column" style="display: flex;flex: 1;align-items: center;" id="checklist-container">
-	  	
-		<button id="shufflebutt">shuffle</button>
+	  <div class="column" style="display: flex;flex: 1;align-items: center;flex-direction:column;" id="left-column">
+		 
+		  <div style="display:flex;flex-direction:column;">
+			  <button id="checkbutt">check all</button><button id="uncheckbutt">uncheck all</button>
+			  <button id="shufflebutt">shuffle</button>
+		  </div>
+		  
+		  <div id="checklist-container"></div>
 		
 	  </div>
   
-	  <div class="column" style="width: 33.33%;" id="flashcards-container"></div>
+	  <div class="column" style="width:33.33%;" id="flashcards-container">
+	  	
+	  </div>
 	  
-	  <div class="column" style="display: flex;flex: 1;align-items: center;">
+	  <div class="column" style="display: flex;flex: 1;align-items: center;flex-direction:column;" id="right-column">
 		  
-		  <button id="prevbutt">previous</button> <button id="flipbutt">flip</button> <button id="nextbutt">next</button>
+		  <button id="prevbutt">previous</button>
+		  <button id="flipbutt">flip</button>
+		  <button id="nextbutt">next</button>
 	  
 	  </div>
   
@@ -1112,16 +1151,18 @@
 		"notes": "used to flatten one edge of wood",
 		"tags": ["power tools"]
 		}
-];
+	];
 
-	// shuffle deck
-	function shuffleArray(array) {
-		for (let i = array.length - 1; i > 0; i--) {
-			const j = Math.floor(Math.random() * (i + 1));
-			[array[i], array[j]] = [array[j], array[i]]; // Swap elements
-		}
-		return array;
-	}
+	const flashcardsContainer = document.getElementById('flashcards-container');
+	const checklistContainer = document.getElementById('checklist-container');
+	
+	//buttons
+	const flipbutton = document.getElementById('flipbutt');
+	const previousbutton = document.getElementById('prevbutt');
+	const nextbutton = document.getElementById('nextbutt');
+    const shufflebutton = document.getElementById('shufflebutt');
+	const uncheckbutton = document.getElementById('uncheckbutt');
+	const checkbutton = document.getElementById('checkbutt');
 
 	// how to make html for each tool in toolsdata
 	function generateToolHTML(tool) {
@@ -1143,31 +1184,25 @@
 
 	// generate cards from json
 	function generateFlashcards() {
-	  const flashcardsContainer = document.getElementById('flashcards-container');
 	  toolsData.forEach(tool => {
 	    const toolHTML = generateToolHTML(tool);
 	    flashcardsContainer.insertAdjacentHTML('beforeend', toolHTML);
 	  });
+  	
+	  console.log('generated flashcards');
 	}
 
 	// call the generate cards function
 	generateFlashcards();
 	
-	// set up test button
-	const testbutton = document.getElementById('flipbutt');
-	const previousbutton = document.getElementById('prevbutt');
-	const nextbutton = document.getElementById('nextbutt');
-	const shufflebutton = document.getElementById('shufflebutt');
-	const cards = document.querySelectorAll('.card');
-	const cardo = document.querySelector('.card');
-	let currentCardIndex = 0;
+  	let cards = document.querySelectorAll('.card');
+  	let currentCardIndex = 0;
 	
-    testbutton.addEventListener('click', function() {
+    flipbutton.addEventListener('click', function() {
 		
 		cards[currentCardIndex].querySelector('.back').classList.toggle('hidden');
 		
     });
-	
     nextbutton.addEventListener('click', function() {
 		
 	  cards[currentCardIndex].querySelector('.front').classList.add('hidden');
@@ -1184,8 +1219,6 @@
 	  cards[currentCardIndex].querySelector('.front').classList.remove('hidden');
 		
     });
-	
-	
     previousbutton.addEventListener('click', function() {
 		
   	  cards[currentCardIndex].querySelector('.front').classList.add('hidden');
@@ -1204,46 +1237,111 @@
 		
     });
 	
-	shufflebutton.addEventListener('click', shuffleArray(toolsData));
+	//hide all the cards except number one
+	function hidecards(){
+  	  cards.forEach((card, index) => {
+  	      card.classList.add('hidden');
+  		  card.querySelector('.front').classList.add('hidden');
+  		  card.querySelector('.back').classList.add('hidden');
+  	  });
+  	  cards[0].classList.remove('hidden');
+  	  cards[0].querySelector('.front').classList.remove('hidden');
+	  console.log('hid all cards except number one');
+	};
 	
-  //hide all the cards except number one
-  window.addEventListener('load', function() {
-	  cards.forEach((card, index) => {
-	      card.classList.add('hidden');
-		  card.querySelector('.front').classList.add('hidden');
-		  card.querySelector('.back').classList.add('hidden');
-	  });
-	  cards[0].classList.remove('hidden');
-	  cards[0].querySelector('.front').classList.remove('hidden');
-  });
-  
-  function generateChecklist() {
-    const allTags = []; // array to store all tags
-
-    // collect tags
-    toolsData.forEach(tool => {
-      tool.tags.forEach(tag => {
-        if (!allTags.includes(tag)) {
-          allTags.push(tag); // Add unique tags to the array
-        }
-      });
-    });
-
-    // generate HTML for the checklist
-    const checklistHTML = `
+	//hide cards on page load
+	window.addEventListener('load', hidecards);
+	
+	//make the checklist
+	function generateChecklist() {
+		const allTags = []; // array to store all tags
+		
+		// collect tags
+		toolsData.forEach(tool => {
+			tool.tags.forEach(tag => {
+				if (!allTags.includes(tag)) {
+					allTags.push(tag); // add unique tags to the array
+				}
+			});
+		});
+		
+		// generate HTML for the checklist
+		const checklistHTML = `
 		<ul>
         ${allTags.map(tag => `<li><input type="checkbox" id="${tag}" name="${tag}"><label for="${tag}">${tag}</label></li>`).join('')}
 		</ul>
-    `;
-
-    // append the checklist to a container in the DOM
-    const checklistContainer = document.getElementById('checklist-container');
-    checklistContainer.innerHTML += checklistHTML;
-  }
-
-  // call the function to generate the checklist when the page loads
-  window.addEventListener('load', generateChecklist);
-  
+		`;
+		
+		// append the checklist to a container in the DOM
+		checklistContainer.innerHTML += checklistHTML;
+		
+		// check the boxes
+	    const checkboxes = document.querySelectorAll('#checklist-container input[type="checkbox"]');
+	    checkboxes.forEach(checkbox => {
+	      checkbox.checked = true;
+	    });
+	}
+	
+	// call the function to generate the checklist when the page loads
+	window.addEventListener('load', generateChecklist);
+	
+	// shuffle card array
+	function shuffleTools() {
+		
+		// add checked checkbox id to selectedTags array
+	    const selectedTags = [];
+		const checkboxes = document.querySelectorAll('#checklist-container input[type="checkbox"]');
+	    checkboxes.forEach(checkbox => {
+	      if (checkbox.checked) {
+	        selectedTags.push(checkbox.id);
+	      }
+	    });
+		
+		const filteredTools = toolsData.filter(tool => {
+		    for (const tag of selectedTags) {
+		      if (tool.tags.includes(tag)) {
+		        return true;
+		      }
+		    }
+		    return false;
+		  });
+		
+		// shuffle the toolsData array
+		filteredTools.sort(() => Math.random() - 0.5);
+		
+		// remove existing card divs from the DOM
+		flashcardsContainer.innerHTML = '';
+		
+		// re-add the shuffled card divs to the DOM
+		filteredTools.forEach(tool => {
+			const toolHTML = generateToolHTML(tool);
+			flashcardsContainer.insertAdjacentHTML('beforeend', toolHTML);
+		});
+		
+	  	cards = document.querySelectorAll('.card');
+	  	currentCardIndex = 0;
+		
+		hidecards();
+		
+		console.log('shuffled tools');
+	}
+	
+	shufflebutton.addEventListener('click', shuffleTools);
+	
+	uncheckbutton.addEventListener('click', function(){  
+  	  	const checkboxes = document.querySelectorAll('#checklist-container input[type="checkbox"]');
+	  checkboxes.forEach(checkbox => {
+  	    checkbox.checked = false;
+  	  });
+	});
+	
+	checkbutton.addEventListener('click', function(){
+	    	const checkboxes = document.querySelectorAll('#checklist-container input[type="checkbox"]');
+		checkboxes.forEach(checkbox => {
+	      checkbox.checked = true;
+	    });
+	});
+	
 </script>
 
 </body>
