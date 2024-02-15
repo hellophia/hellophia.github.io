@@ -11,11 +11,7 @@
 </head>
 <body>
     <div id="map"></div>
-    <div id="tags">
-        <label><input type="checkbox" value="drywall"> Drywall</label>
-        <label><input type="checkbox" value="acoustical"> Acoustical</label>
-        <label><input type="checkbox" value="woodframing"> Wood Framing</label>
-    </div>
+    <div id="tags"></div>
 
     <script>
 		
@@ -119,6 +115,38 @@
 					}
 				});
 			});
+		}
+		
+		function generateCheckboxes() {
+		    // Get all unique types of work from the JSON data
+		    var allTypes = [];
+		    mapData.forEach(function(entry) {
+		        entry.type.forEach(function(workType) {
+		            if (!allTypes.includes(workType)) {
+		                allTypes.push(workType);
+		            }
+		        });
+		    });
+
+		    // Generate checkboxes for each type of work
+		    var checkboxesContainer = document.getElementById('tags');
+		    allTypes.forEach(function(workType) {
+		        var checkbox = document.createElement('input');
+		        checkbox.type = 'checkbox';
+		        checkbox.value = workType;
+		        checkbox.id = 'checkbox_' + workType.replace(/\s/g, '_'); // Replace spaces with underscores for IDs
+		        var label = document.createElement('label');
+		        label.appendChild(checkbox);
+		        label.appendChild(document.createTextNode(workType));
+		        checkboxesContainer.appendChild(label);
+		    });
+
+		    // Add event listener to checkboxes to toggle markers
+		    checkboxesContainer.querySelectorAll('input[type="checkbox"]').forEach(function(checkbox) {
+		        checkbox.addEventListener('change', function() {
+		            toggleMarkers(this.value);
+		        });
+		    });
 		}
 		
 		// Function to toggle markers based on selected tags
