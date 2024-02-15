@@ -46,6 +46,7 @@
 
 		function parseAndPlotMarkers() {
 			mapdata.forEach(function(entry) {
+				
 			        // Parse address to latitude and longitude using Geocoding API
 			        var geocoder = new google.maps.Geocoder();
 			        geocoder.geocode({'address': entry.address}, function(results, status) {
@@ -56,16 +57,27 @@
 			                    map: map,
 			                    title: entry.contractor
 			                });
-
-			                // Attach click listener to the marker to show details when clicked
+							
+							// Attach click listener to the marker to show details when clicked
 			                marker.addListener('click', function() {
-			                    // You can customize what information to show here
-			                    var contentString = '<div><strong>' + entry.contractor + '</strong><br>' + entry.address + '</div>';
-			                    var infowindow = new google.maps.InfoWindow({
-			                        content: contentString
-			                    });
-			                    infowindow.open(map, marker);
-			                });
+
+								var contentString = '<div><strong>' + entry.contractor + '</strong><br>' + entry.address + '<br><ul>';
+								entry.type.forEach(function(workType) {
+									contentString += '<li>' + workType + '</li>';
+								});
+								contentString += '</ul></div>';
+								
+								var infowindow = new google.maps.InfoWindow({
+									content: contentString
+								});
+								marker.addListener('click', function() {
+									// Close all currently open popups before opening a new one
+									markers.forEach(function(existingMarker) {
+										existingMarker.infowindow.close();
+									});
+									// Open the popup for the clicked marker
+									infowindow.open(map, marker);
+								});
 
 			                // Store marker reference for toggling later
 			                markers.push(marker);
@@ -93,5 +105,6 @@
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDsRfnkiV2jKntdBPNp8eNIelohLCLUXw4&callback=initMap">
     </script>
+		
 </body>
 </html>
