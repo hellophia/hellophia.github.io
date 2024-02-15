@@ -452,9 +452,13 @@
 		        // If a previously visible marker is no longer visible
 		        if (!visibleMarkers.has(marker)) {
 		            // Check if any other checked checkboxes still match the marker's types
-		            var hasMatchingCheckbox = checkedCheckboxes.some(function(checkbox) {
-		                return marker.type.includes(checkbox.value);
-		            });
+					// Convert NodeList to array
+					var checkedCheckboxesArray = Array.from(checkedCheckboxes);
+
+					// Check if any other checked checkboxes still match the marker's types
+					var hasMatchingCheckbox = checkedCheckboxesArray.some(function(checkbox) {
+					    return marker.type.includes(checkbox.value);
+					});
 
 		            // If no other checked checkboxes match the marker's types, hide the marker
 		            if (!hasMatchingCheckbox) {
