@@ -31,12 +31,34 @@
 			display: inline-block;
 			white-space: nowrap;
 		}
+	    button{
+	  	  font-family: "Noto Serif";
+	  	  background-color: #d3c8c3;
+	  	  color: #303028;
+	  	  border:none;
+	  	  margin:6px;
+		  font-size: 14px;
+		  border-radius: 16px;
+		  padding: 8px;
+	    }
+  
+	    button:hover {
+	      background-color: #d3b690;
+	      color: #212121;
+	    }
     </style>
 </head>
 <body>
     <div id="map"></div>
     <div id="tags"></div>
-	<div><button onclick="checkAll()">check all</button><button onclick="uncheckAll()">uncheck all</button></div>
+	<div style="text-align:center;"><button onclick="checkAll()">check all</button><button onclick="uncheckAll()">uncheck all</button></div>
+	<div style="margin:auto;"><img src="peon.gif" id="play">
+	
+	<audio id="audioPlayer">
+		<source src="ready-to-work.mp3" type="audio/mpeg">
+		Your browser does not support the audio element.
+	</audio>
+	</div>
 
     <script>
 		
@@ -400,7 +422,6 @@
 			    // Generate checkboxes for each type of work
 			    var checkboxesContainer = document.getElementById('tags');
 			    allTypes.forEach(function(workType) {
-					console.log(workType);
 			        var checkbox = document.createElement('input');
 			        checkbox.type = 'checkbox';
 			        checkbox.value = workType;
@@ -486,6 +507,14 @@
 		        toggleMarkers(checkbox.value);
 		    });
 		}
+		
+        var playButton = document.getElementById('play');
+		
+        var audioPlayer = document.getElementById('audioPlayer');
+		
+        playButton.addEventListener('click', function() {
+            audioPlayer.play();
+        });
         
     </script>
 
