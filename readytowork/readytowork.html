@@ -422,25 +422,48 @@
 		    var checkedTypes = Array.from(checkedCheckboxes).map(function(checkbox) {
 		        return checkbox.value;
 		    });
-    
+
+		    // Track which markers are currently visible
+		    var visibleMarkers = new Set();
+
 		    // Loop through all markers
 		    markers.forEach(function(markerData) {
 		        var marker = markerData.marker;
 		        var infowindow = markerData.infowindow;
 		        var isVisible = false;
-        
+
 		        // Check if the marker's types intersect with the checked types
 		        if (marker.type.some(type => checkedTypes.includes(type))) {
 		            isVisible = true;
+		            visibleMarkers.add(marker); // Add marker to visible markers set
 		        }
-        
+
 		        // Show or hide the marker based on visibility
 		        marker.setVisible(isVisible);
-        
+
 		        // Close the infowindow associated with the marker
 		        infowindow.close();
 		    });
+
+		    // Check if any previously visible markers are no longer visible
+		    markers.forEach(function(markerData) {
+		        var marker = markerData.marker;
+
+		        // If a previously visible marker is no longer visible
+		        if (!visibleMarkers.has(marker)) {
+		            // Check if any other checked checkboxes still match the marker's types
+		            var hasMatchingCheckbox = checkedCheckboxes.some(function(checkbox) {
+		                return marker.type.includes(checkbox.value);
+		            });
+
+		            // If no other checked checkboxes match the marker's types, hide the marker
+		            if (!hasMatchingCheckbox) {
+		                marker.setVisible(false);
+		            }
+		        }
+		    });
 		}
+		
 		
 		function checkAll() {
 		    document.querySelectorAll('#tags input[type="checkbox"]').forEach(function(checkbox) {
