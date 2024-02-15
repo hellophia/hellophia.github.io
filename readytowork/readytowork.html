@@ -9,7 +9,6 @@
 		body {
 		  	font-size: 14px;
 		  	font-family: "Noto Serif";
-		  	color: #e3e3e3;
 		  	background-color: #212121;
 		}
         #map {
@@ -28,6 +27,7 @@
 	    }
 		label{
 			margin-left:16px;
+			color: #e3e3e3;
 		}
     </style>
 </head>
@@ -174,8 +174,24 @@
 		window.addEventListener('load', generateCheckboxes);
 		
 		// Function to toggle markers based on selected tags
-		function toggleMarkers(tag) {
-		    // Toggle visibility of markers based on selected tag
+		function toggleMarkers(workType) {
+		    // Loop through all markers
+		    markers.forEach(function(markerData) {
+		        var marker = markerData.marker;
+		        var infowindow = markerData.infowindow;
+		        var isVisible = false;
+        
+		        // Check if the marker matches the selected work type
+		        if (marker.workType.includes(workType)) {
+		            isVisible = true;
+		        }
+        
+		        // Show or hide the marker based on visibility
+		        marker.setVisible(isVisible);
+        
+		        // Close the infowindow associated with the marker
+		        infowindow.close();
+		    });
 		}
         
     </script>
