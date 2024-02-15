@@ -349,7 +349,8 @@
 						var marker = new google.maps.Marker({
 							position: location,
 							map: map,
-							title: entry.contractor
+							title: entry.contractor,
+							type: entry.type
 						});
 
 						// Construct content for the popup including contractor, address, and types of work
