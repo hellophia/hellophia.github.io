@@ -36,6 +36,7 @@
 <body>
     <div id="map"></div>
     <div id="tags"></div>
+	<div><button onclick="checkAll()">check all</button><button onclick="uncheckAll()">uncheck all</button></div>
 
     <script>
 		
@@ -344,8 +345,6 @@
 					if (status === 'OK') {
 						var location = results[0].geometry.location;
 						
-						console.log(entry.type);
-						
 						var marker = new google.maps.Marker({
 							position: location,
 							map: map,
@@ -402,18 +401,16 @@
 		        var checkbox = document.createElement('input');
 		        checkbox.type = 'checkbox';
 		        checkbox.value = workType;
+				checkbox.checked = true;
 		        checkbox.id = 'checkbox_' + workType.replace(/\s/g, '_'); // Replace spaces with underscores for IDs
 		        var label = document.createElement('label');
 		        label.appendChild(checkbox);
 		        label.appendChild(document.createTextNode(workType));
 		        checkboxesContainer.appendChild(label);
-		    });
-
-		    // Add event listener to checkboxes to toggle markers
-		    checkboxesContainer.querySelectorAll('input[type="checkbox"]').forEach(function(checkbox) {
-		        checkbox.addEventListener('change', function() {
-		            toggleMarkers(this.value);
-		        });
+				
+				checkbox.addEventListener('change', function() {
+					toggleMarkers(this.value);
+				});
 		    });
 		}
 		
@@ -439,6 +436,20 @@
         
 		        // Close the infowindow associated with the marker
 		        infowindow.close();
+		    });
+		}
+		
+		function checkAll() {
+		    document.querySelectorAll('#tags input[type="checkbox"]').forEach(function(checkbox) {
+		        checkbox.checked = true;
+		        toggleMarkers(checkbox.value);
+		    });
+		}
+
+		function uncheckAll() {
+		    document.querySelectorAll('#tags input[type="checkbox"]').forEach(function(checkbox) {
+		        checkbox.checked = false;
+		        toggleMarkers(checkbox.value);
 		    });
 		}
         
