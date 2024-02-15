@@ -127,6 +127,8 @@
 		            }
 		        });
 		    });
+			
+			console.log(allTypes);
 
 		    // Generate checkboxes for each type of work
 		    var checkboxesContainer = document.getElementById('tags');
@@ -153,13 +155,6 @@
 		function toggleMarkers(tag) {
 		    // Toggle visibility of markers based on selected tag
 		}
-
-		// Event listener to toggle markers when checkboxes are clicked
-		document.querySelectorAll('#tags input[type="checkbox"]').forEach(function(checkbox) {
-		    checkbox.addEventListener('change', function() {
-		        toggleMarkers(this.value);
-		    });
-		});
         
     </script>
 
