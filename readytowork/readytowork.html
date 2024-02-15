@@ -417,16 +417,14 @@
 		
 		// Function to toggle markers based on selected tags
 		function toggleMarkers(workType) {
-		    // Loop through all markers
+			// Loop through all markers
 		    markers.forEach(function(markerData) {
 		        var marker = markerData.marker;
 		        var infowindow = markerData.infowindow;
 		        var isVisible = false;
-				
-				console.log(workType);
         
-		        // Check if the marker matches the selected work type
-		        if (marker.workType.includes(workType)) {
+		        // Check if the marker's type array contains the selected work type
+		        if (marker.type && marker.type.includes(workType)) {
 		            isVisible = true;
 		        }
         
