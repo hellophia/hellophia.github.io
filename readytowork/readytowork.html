@@ -28,6 +28,8 @@
 		label{
 			margin-left:16px;
 			color: #e3e3e3;
+			display: inline-block;
+			white-space: nowrap;
 		}
     </style>
 </head>
@@ -421,7 +423,7 @@
 		        var infowindow = markerData.infowindow;
 		        var isVisible = false;
 				
-				console.log(marker);
+				console.log(workType);
         
 		        // Check if the marker matches the selected work type
 		        if (marker.workType.includes(workType)) {
