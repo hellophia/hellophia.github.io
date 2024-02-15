@@ -416,18 +416,21 @@
 		
 		window.addEventListener('load', generateCheckboxes);
 		
-		// Function to toggle markers based on selected tags
-		function toggleMarkers(workType) {
-			// Loop through all markers
+		function toggleMarkers() {
+		    // Get all checked checkboxes
+		    var checkedCheckboxes = document.querySelectorAll('#tags input[type="checkbox"]:checked');
+		    var checkedTypes = Array.from(checkedCheckboxes).map(function(checkbox) {
+		        return checkbox.value;
+		    });
+    
+		    // Loop through all markers
 		    markers.forEach(function(markerData) {
 		        var marker = markerData.marker;
 		        var infowindow = markerData.infowindow;
 		        var isVisible = false;
-				
-				console.log(marker.type);
         
-		        // Check if the marker's type array contains the selected work type
-		        if (marker.type.includes(workType)) {
+		        // Check if the marker's types intersect with the checked types
+		        if (marker.type.some(type => checkedTypes.includes(type))) {
 		            isVisible = true;
 		        }
         
