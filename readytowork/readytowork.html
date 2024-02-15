@@ -347,6 +347,7 @@
 							position: location,
 							map: map,
 							title: entry.contractor
+							type: entry.type // Store types array for the marker
 						});
 
 						// Construct content for the popup including contractor, address, and types of work
@@ -424,7 +425,7 @@
 		        var isVisible = false;
         
 		        // Check if the marker's type array contains the selected work type
-		        if (marker.type && marker.type.includes(workType)) {
+		        if (marker.type.includes(workType)) {
 		            isVisible = true;
 		        }
         
