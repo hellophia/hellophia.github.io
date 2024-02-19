@@ -7,6 +7,7 @@
 		body{
 			background-color: #3b8998;
 			font-family: "Noto Sans";
+			margin:0px;
 		}
 		
 		.wrapper{
@@ -18,11 +19,10 @@
 			background-color:#ffff21;
 			border-radius:20px;
 			padding: 2px 10px;
-			margin:10px 0px;
+			margin: 0px 5px;
 			font-size:36px;
 			font-weight:900;
 			font-family:"Archivo";
-			margin-right:8px;
 		}
 		
 		.header{
@@ -79,35 +79,54 @@
 			transform: translate(-50%, -50%);
 		}
 		
-		.radiowrapper{
-			font-weight:900;
-			font-style:italic;
-  		  display:block;
-		  margin: 10px;
-		  padding:4px;
-		  padding-left:40px;
-  		  background: linear-gradient(to right, #01103f, #388399);
-  		  color: #61d05b;
-		  border-width:3px;
-		  border-style:solid;
-		  border-color:#204e61;
-		  border-top-color: #51a1be;
-		  border-top-left-radius: 10px;
-		  font-size:24px;
-		  -webkit-text-stroke: 1px black;
-		  text-stroke: 1px black;
-		  cursor: pointer;
+		.radiocontainer{
+			display:flex;
+			flex-direction:column;
+			flex-grow: 1;
+			height:414px;
+			overflow:scroll;
+		}
+		
+		.radiocontainer::-webkit-scrollbar {
+		    -webkit-appearance: none;
+		    width: 14px;
+		}
+
+		.radiocontainer::-webkit-scrollbar-thumb {
+		    border-radius: 4px;
+		    background-color: #58c5e0;
+		}
+		
+		.radiocontainer::-webkit-scrollbar-track:vertical {
+		  background-color: #000952;
+		  border-radius: 4px;
+		}
+		
+		.radiocontainer::-webkit-scrollbar-corner{
+		}
+		
+		.radiowrapper {
+			font-weight: 900;
+			font-style: italic;
+			display: block;
+			margin: 8px;
+			padding: 4px;
+			padding-left: 40px;
+			background: linear-gradient(to right, #01103f, #388399);
+			color: #61d05b;
+			border-width: 3px;
+			border-style: solid;
+			border-color: #204e61;
+			border-top-color: #51a1be;
+			border-top-left-radius: 20px;
+			font-size: 24px;
+			-webkit-text-stroke: 1px black;
+			text-stroke: 1px black;
+			cursor: pointer;
 		}
 		
 		.radiowrapper .artistdiv{
 			font-size:80%;
-		}
-		
-		.radiocontainer{
-			display:flex;
-			flex-direction:column;
-			margin:10px;
-			flex-grow: 1;
 		}
 		
 		input[type="radio"] {
@@ -131,12 +150,21 @@
 		    0% { background-color: #6670ae; }
 		    100% { background-color: #0e1adc; }
 		  }
+		  
+	      @media only screen and (max-width: 800px) {
+	  		.wrapper{
+	  			flex-direction:column;
+	  		}
+			.container{
+				margin:auto;
+			}
+	  	}
 		
 	</style>
 </head>
 <body>
 	
-	<div class="wrapper">
+	<div style="display:flex;flex-direction:row;margin:14px 0px;">
 		<div class="select"></div>
 		<div class="select"></div>
 		<div class="select" style="flex-grow:1;padding-left:100px;">
@@ -196,6 +224,8 @@
 
 	</div>
 	
+	<div class="select" style="height:65px;border-radius:0px;margin:0px;"></div>
+	
 	<script>
 		
 		const scoredata = [
@@ -235,6 +265,78 @@
 				"air": "80",
 				"voltage": "100",
 			},
+			{
+				"song": "Night of Fire",
+				"artist": "Niko",
+				"stream": "100",
+				"chaos": "80",
+				"freeze": "100",
+				"air": "60",
+				"voltage": "100",
+			},
+			{
+				"song": "Famalay",
+				"artist": "Skinny Fabulous, Machel Montano, Bunji Garlin",
+				"stream": "90",
+				"chaos": "60",
+				"freeze": "70",
+				"air": "80",
+				"voltage": "45",
+			},
+			{
+				"song": "Dodonpa",
+				"artist": "Kyary Pamyu Pamyu",
+				"stream": "40",
+				"chaos": "50",
+				"freeze": "100",
+				"air": "80",
+				"voltage": "70",
+			},
+			{
+				"song": "Dance My Pain Away",
+				"artist": "Rod Lee",
+				"stream": "30",
+				"chaos": "50",
+				"freeze": "70",
+				"air": "80",
+				"voltage": "100",
+			},
+			{
+				"song": "Night of Fire",
+				"artist": "Niko",
+				"stream": "100",
+				"chaos": "80",
+				"freeze": "100",
+				"air": "60",
+				"voltage": "100",
+			},
+			{
+				"song": "Famalay",
+				"artist": "Skinny Fabulous, Machel Montano, Bunji Garlin",
+				"stream": "90",
+				"chaos": "60",
+				"freeze": "70",
+				"air": "80",
+				"voltage": "45",
+			},
+			{
+				"song": "Dodonpa",
+				"artist": "Kyary Pamyu Pamyu",
+				"stream": "40",
+				"chaos": "50",
+				"freeze": "100",
+				"air": "80",
+				"voltage": "70",
+			},
+			{
+				"song": "Dance My Pain Away",
+				"artist": "Rod Lee",
+				"stream": "30",
+				"chaos": "50",
+				"freeze": "70",
+				"air": "80",
+				"voltage": "100",
+			}
 		]
 		
 		const pentagon = document.getElementById('polygon');
@@ -380,6 +482,29 @@
 		borderanimation.addEventListener("endEvent", function() {
 		  polygonborder.setAttribute('points', newborderpoints.join(" "));
 		});
+		
+		/*
+		document.addEventListener('keydown', function(event) {
+		    const currentRadioButton = document.querySelector('input[type="radio"]:checked');
+		    const allRadioButtons = document.querySelectorAll('input[type="radio"]');
+		    let nextIndex;
+
+		    if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
+		      event.preventDefault(); // Prevent scrolling when arrow keys are pressed
+
+		      if (currentRadioButton) {
+		        const currentIndex = Array.from(allRadioButtons).indexOf(currentRadioButton);
+		        nextIndex = event.key === 'ArrowUp' ? currentIndex - 1 : currentIndex + 1;
+		        nextIndex = (nextIndex + allRadioButtons.length) % allRadioButtons.length; // Wrap around if at the end or beginning
+		      } else {
+		        // If no radio button is selected, start from the first one
+		        nextIndex = 0;
+		      }
+
+		      allRadioButtons[nextIndex].checked = true; // Select the next radio button
+		    }
+		  });
+		*/
 		
 	</script>
 	
