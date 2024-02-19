@@ -58,14 +58,16 @@
 		  padding:4px;
   		  background: linear-gradient(to right, #020d11, #08697a);
   		  color: #0066cb;
-		  border-top: 3px solid #299097;
+		  border-width:3px;
+		  border-style:solid;
+		  border-top-color: #299097;
 		  border-top-left-radius: 10px;
+		  border-bottom-color: #063c46;
+		  border-left-color: #063c46;
+		  border-right-color: #063c46;
 		  font-size:24px;
-		  text-shadow:
-		  -2px -2px 0 black,
-		  2px -2px 0 black,
-		  -2px  2px 0 black,
-		  2px  2px 0 black;
+		  -webkit-text-stroke: 1px black;
+		  text-stroke: 1px black;
 		  cursor: pointer;
 		}
 		
@@ -107,15 +109,17 @@
 		
 		.header{
 			color:#2a847a;
-    		  text-shadow:
-    		  -1px -1px 0 black,
-    		  1px -1px 0 black,
-    		  -1px  1px 0 black,
-    		  1px  1px 0 black;
+    		  -webkit-text-stroke: 1px black;
+    		  text-stroke: 1px black;
 		}
 		
-		input[type="radio"]:checked + .radiowrapper {
-  		  
+		.checked {
+			border: 6px #f8fef2 solid;
+			background-image: none;
+			background: linear-gradient(to right, #6670ae, #668dd2);
+			color: #678dee;
+  		  -webkit-text-stroke: 1px #5f6db4;
+  		  text-stroke: 1px #5f6db4;
 		}
 		
 	</style>
@@ -303,10 +307,13 @@
 				radioContainer.appendChild(wrapperDiv);
 				
 				wrapperDiv.addEventListener("click", function() {
-					console.log(radioButton);
 				  const isChecked = radioButton.checked;
 				  if (!isChecked) {
-				    radioButton.checked = true;
+					  document.querySelectorAll(".checked").forEach(div => {
+						  div.classList.remove("checked");
+					  });
+					  radioButton.parentNode.classList.add("checked");
+					radioButton.checked = true;
 					songchange(radioButton.value);
 				  }
 				});
@@ -315,14 +322,10 @@
 
 			radioContainer.querySelector('input[type="radio"]').checked = true;
 			songchange(radioContainer.querySelector('input[type="radio"]').value);
+			radioContainer.querySelector('input[type="radio"]').parentNode.classList.add("checked");
 		}
 		
 		addsongs();
-
-		radioContainer.addEventListener("change", function(event) {
-		  const selectedOption = event.target.value;
-		  songchange(selectedOption);
-		});
 		
 		function songchange(selectedOption){
 			var songEntry = findSongEntry(selectedOption);

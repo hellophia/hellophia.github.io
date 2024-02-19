@@ -1,0 +1,36 @@
+<html>
+<head>
+<style>
+	
+	/* Style for the radio buttons (hide them) */
+	input[type="radio"] {
+	  //display: none;
+	}
+
+	/* Style for the button wrappers */
+	.button-wrapper {
+	  padding: 10px;
+	  cursor: pointer;
+	}
+
+	/* Style for the button wrappers when the associated radio button is checked */
+	input[type="radio"]:checked ~ label {
+	  border:1px red solid;
+	}
+	
+	
+	</style>
+</head>
+<body>
+	<div class="button-wrapper">
+	  <input type="radio" id="button1" name="buttons">
+	  <label for="button1">Button 1</label>
+	</div>
+
+	<div class="button-wrapper">
+	  <input type="radio" id="button2" name="buttons">
+	  <label for="button2">Button 2</label>
+	</div>
+	
+</body>
+</html>
