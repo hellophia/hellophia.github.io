@@ -2,12 +2,65 @@
 <head>
 	<style>
 		
-		@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Noto+Sans:ital,wdth,wght@0,62.5..100,100..900;1,62.5..100,100..900&family=Orbitron:wght@400..900&display=swap');
+		@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Noto+Sans:ital,wdth,wght@0,62.5..100,100..900;1,62.5..100,100..900&family=Orbitron:wght@400..900&family=Archivo:ital,wght@0,900;1,900&display=swap');
 		
 		body{
-			background-color: #014366;
+			background-color: #3b8998;
 			font-family: "Noto Sans";
 		}
+		
+		.wrapper{
+			display:flex;
+			flex-direction:row;
+		}
+		
+		.select{
+			background-color:#ffff21;
+			border-radius:20px;
+			padding: 2px 10px;
+			margin:10px 0px;
+			font-size:36px;
+			font-weight:900;
+			font-family:"Archivo";
+			margin-right:8px;
+		}
+		
+		.header{
+			color:#2a847a;
+			-webkit-text-stroke: 1px black;
+			text-stroke: 1px black;
+		}
+		
+		.score{
+			font-family: "Orbitron";
+			font-size:10px;
+			color:#e1ffff;
+			display:inline-block;
+			position:absolute;
+			text-align:center;
+		}
+		
+		.jpscore{
+			font-size:160%;
+			color:#dfe3d6;
+			text-shadow: #b6b99e 0px 0px 2px,rgba(13, 42, 45, 10) 0px 0px 5px;
+		}
+		
+		.engscore{
+			font-size:80%;
+			color:#e1ffff;
+			background-color:#1b4252;
+			border-radius:10px;
+		}
+		
+		.container{
+			position: relative;
+			display:flex;
+			width: 400px;
+			height: 400px;
+			background-color:#2a6675;
+		}
+		
 		.polygon {
 			position: relative;
 			width: 200px;
@@ -19,35 +72,11 @@
 			transition: clip-path .3s linear;
 		}
 		
-		.radiocontainer{
-			display:flex;
-			flex-direction:column;
-			margin:10px;
-			flex-grow: 1;
-		}
-		
 		.svg{
 			position: absolute;
 			top: 50%;
 			left: 50%;
 			transform: translate(-50%, -50%);
-		}
-		
-		.container{
-			position: relative;
-			display:flex;
-			width: 400px;
-			height: 400px;
-			background-color:#081639;
-		}
-		
-		.wrapper{
-			display:flex;
-			flex-direction:row;
-		}
-		
-		input[type="radio"] {
-		  display: none;
 		}
 		
 		.radiowrapper{
@@ -56,15 +85,14 @@
   		  display:block;
 		  margin: 10px;
 		  padding:4px;
-  		  background: linear-gradient(to right, #020d11, #08697a);
-  		  color: #0066cb;
+		  padding-left:40px;
+  		  background: linear-gradient(to right, #01103f, #388399);
+  		  color: #61d05b;
 		  border-width:3px;
 		  border-style:solid;
-		  border-top-color: #299097;
+		  border-color:#204e61;
+		  border-top-color: #51a1be;
 		  border-top-left-radius: 10px;
-		  border-bottom-color: #063c46;
-		  border-left-color: #063c46;
-		  border-right-color: #063c46;
 		  font-size:24px;
 		  -webkit-text-stroke: 1px black;
 		  text-stroke: 1px black;
@@ -75,61 +103,51 @@
 			font-size:80%;
 		}
 		
+		.radiocontainer{
+			display:flex;
+			flex-direction:column;
+			margin:10px;
+			flex-grow: 1;
+		}
+		
+		input[type="radio"] {
+		  display: none;
+		}
+		
 		label{
 			cursor:pointer;
 		}
 		
-		.score{
-			font-family: "Orbitron";
-			font-size:10px;
-			color:#e1ffff;
-			display:inline-block;
-			position:absolute;
-		}
-		
-		.jpscore{
-			font-size:18px;
-			color:#fbfff3;
-		}
-		
-		.engscore{
-			font-size:10px;
-			color:#e1ffff;
-		}
-		
-		.select{
-			background-color:#ffff21;
-			border-radius:10px;
-			padding:10px;
-			margin:10px 0px;
-			font-size:36px;
-			font-weight:900;
-			font-family:"Krona One";
-		}
-		
-		.header{
-			color:#2a847a;
-    		  -webkit-text-stroke: 1px black;
-    		  text-stroke: 1px black;
-		}
-		
 		.checked {
-			border: 6px #f8fef2 solid;
+			border: 6px #ace4a0 solid;
 			background-image: none;
-			background: linear-gradient(to right, #6670ae, #668dd2);
-			color: #678dee;
+			color: #5ed2e5;
   		  -webkit-text-stroke: 1px #5f6db4;
   		  text-stroke: 1px #5f6db4;
+		  animation: strobe .6s infinite alternate linear;
 		}
+		
+		@keyframes strobe {
+		    0% { background-color: #6670ae; }
+		    100% { background-color: #0e1adc; }
+		  }
 		
 	</style>
 </head>
 <body>
 	
-	<div class="select">
-	<div class="header">Select Music</div>
-	<div style="color:#338d33;font-size:50%;">Don't waver between tunes!</div>
-</div>
+	<div class="wrapper">
+		<div class="select"></div>
+		<div class="select"></div>
+		<div class="select" style="flex-grow:1;padding-left:100px;">
+			<div class="header">Select Music</div>
+			<div style="color:#328a34;font-size:50%;">Don't waver between tunes!</div>
+		</div>
+		<div class="select"></div>
+		<div class="select"></div>
+		<div class="select"><div style="color:#0ee0af;-webkit-text-stroke: 1px #2d6608;text-stroke: 1px #2d6608;text-shadow: #022c04 2px 2px 0px;font-size:150%;">99</div></div>
+	</div>
+
 	
 	<div class="wrapper">
 	
@@ -164,13 +182,13 @@
 		
 		<div class="score" style="top:14%;left:40%;"><div class="jpscore">全体密度</div><div class="engscore" style="letter-spacing: 4px;text-indent: 4px;">STREAM</div></div>
 	
-		<div class="score" style="top:35%;left:80%;"><div class="jpscore">変則度</div><div class="engscore" style="letter-spacing: 4px;text-indent: 4px;">CHAOS</div></div>
+		<div class="score" style="top:35%;left:78%;"><div class="jpscore">変則度</div><div class="engscore" style="letter-spacing: 4px;text-indent: 4px;">CHAOS</div></div>
 	
 		<div class="score" style="top:75%;left:70%;"><div class="jpscore">踏みっぱ度</div><div class="engscore" style="letter-spacing: 8px;text-indent: 8px;">FREEZE</div></div>
 	
 		<div class="score" style="top:75%;left:7%;"><div class="jpscore">ジャンプ度</div><div class="engscore" style="letter-spacing: 18px;text-indent: 18px;">AIR</div></div>
 	
-		<div class="score" style="top:35%;left:3%;"><div class="jpscore">最大密度</div><div class="engscore" style="letter-spacing: 2px;text-indent: 2px;">VOLTAGE</div></div>
+		<div class="score" style="top:35%;left:5%;"><div class="jpscore">最大密度</div><div class="engscore" style="letter-spacing: 2px;text-indent: 2px;">VOLTAGE</div></div>
 		
 	</div>
 	
@@ -295,7 +313,7 @@
 
 				const label = document.createElement("label");
 				label.htmlFor = option.song;
-				label.textContent = "🔰 "+option.song;
+				label.textContent = option.song;
 				
 				const artistdiv = document.createElement("div");
 				artistdiv.classList.add("artistdiv");
