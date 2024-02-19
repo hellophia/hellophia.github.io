@@ -1,0 +1,366 @@
+<html>
+<head>
+	<style>
+		
+		@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Noto+Sans:ital,wdth,wght@0,62.5..100,100..900;1,62.5..100,100..900&family=Orbitron:wght@400..900&display=swap');
+		
+		body{
+			background-color: #014366;
+			font-family: "Noto Sans";
+		}
+		.polygon {
+			position: relative;
+			width: 200px;
+			height: 200px;
+			margin:auto;
+			background-color: #6afbd4;
+			clip-path: polygon(50% 4.89%, 100% 41.22%, 80.9% 100%, 19.1% 100%, 0% 41.22%);
+			opacity: 0.5;
+			transition: clip-path .3s linear;
+		}
+		
+		.radiocontainer{
+			display:flex;
+			flex-direction:column;
+			margin:10px;
+			flex-grow: 1;
+		}
+		
+		.svg{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+		
+		.container{
+			position: relative;
+			display:flex;
+			width: 400px;
+			height: 400px;
+			background-color:#081639;
+		}
+		
+		.wrapper{
+			display:flex;
+			flex-direction:row;
+		}
+		
+		input[type="radio"] {
+		  display: none;
+		}
+		
+		.radiowrapper{
+			font-weight:900;
+			font-style:italic;
+  		  display:block;
+		  margin: 10px;
+		  padding:4px;
+  		  background: linear-gradient(to right, #020d11, #08697a);
+  		  color: #0066cb;
+		  border-top: 3px solid #299097;
+		  border-top-left-radius: 10px;
+		  font-size:24px;
+		  text-shadow:
+		  -2px -2px 0 black,
+		  2px -2px 0 black,
+		  -2px  2px 0 black,
+		  2px  2px 0 black;
+		  cursor: pointer;
+		}
+		
+		.radiowrapper .artistdiv{
+			font-size:80%;
+		}
+		
+		label{
+			cursor:pointer;
+		}
+		
+		.score{
+			font-family: "Orbitron";
+			font-size:10px;
+			color:#e1ffff;
+			display:inline-block;
+			position:absolute;
+		}
+		
+		.jpscore{
+			font-size:18px;
+			color:#fbfff3;
+		}
+		
+		.engscore{
+			font-size:10px;
+			color:#e1ffff;
+		}
+		
+		.select{
+			background-color:#ffff21;
+			border-radius:10px;
+			padding:10px;
+			margin:10px 0px;
+			font-size:36px;
+			font-weight:900;
+			font-family:"Krona One";
+		}
+		
+		.header{
+			color:#2a847a;
+    		  text-shadow:
+    		  -1px -1px 0 black,
+    		  1px -1px 0 black,
+    		  -1px  1px 0 black,
+    		  1px  1px 0 black;
+		}
+		
+		input[type="radio"]:checked + .radiowrapper {
+  		  
+		}
+		
+	</style>
+</head>
+<body>
+	
+	<div class="select">
+	<div class="header">Select Music</div>
+	<div style="color:#338d33;font-size:50%;">Don't waver between tunes!</div>
+</div>
+	
+	<div class="wrapper">
+	
+	<div class="container">
+		
+		<svg class="svg" width="300" height="300">
+		  <circle id="bigcircle" cx="50%" cy="55%" r="111" fill="#004a49" stroke="#7ab340" stroke-width="8" />
+		  <circle id="circle1" cx="50%" cy="55%" r="75" fill="#007473" />
+		  <circle id="circle2" cx="50%" cy="55%" r="50" fill="#013239" />
+		  <circle id="circle3" cx="50%" cy="55%" r="25" fill="#007473" />
+		</svg>
+		
+		<svg class="svg" width="300" height="300">
+		  <line id="line1" stroke="#088388" stroke-width="3" />
+		  <line id="line2" stroke="#088388" stroke-width="3" />
+		  <line id="line3" stroke="#088388" stroke-width="3" />
+		  <line id="line4" stroke="#088388" stroke-width="3" />
+		  <line id="line5" stroke="#088388" stroke-width="3" />
+		</svg>
+		
+		<svg class="svg" width="300" height="300">
+			<polygon id="pentagonbg" fill="none" stroke="#088388" stroke-width="3" />
+		</svg>
+		
+		<svg class= "svg" id="border" width="300" height="300">
+			<polygon id="polygonborder" fill="none" stroke="#6cfad2" stroke-width="2">
+				<animate id="borderanimation" attributeName="points" dur=".3s" fill="freeze" begin="indefinite" />
+			</polygon>
+		</svg>
+		
+		<div class="polygon" id="polygon"></div>
+		
+		<div class="score" style="top:14%;left:40%;"><div class="jpscore">全体密度</div><div class="engscore" style="letter-spacing: 4px;text-indent: 4px;">STREAM</div></div>
+	
+		<div class="score" style="top:35%;left:80%;"><div class="jpscore">変則度</div><div class="engscore" style="letter-spacing: 4px;text-indent: 4px;">CHAOS</div></div>
+	
+		<div class="score" style="top:75%;left:70%;"><div class="jpscore">踏みっぱ度</div><div class="engscore" style="letter-spacing: 8px;text-indent: 8px;">FREEZE</div></div>
+	
+		<div class="score" style="top:75%;left:7%;"><div class="jpscore">ジャンプ度</div><div class="engscore" style="letter-spacing: 18px;text-indent: 18px;">AIR</div></div>
+	
+		<div class="score" style="top:35%;left:3%;"><div class="jpscore">最大密度</div><div class="engscore" style="letter-spacing: 2px;text-indent: 2px;">VOLTAGE</div></div>
+		
+	</div>
+	
+	<div class="radiocontainer" id="radiocontainer"></div>
+
+	</div>
+	
+	<script>
+		
+		const scoredata = [
+			{
+				"song": "Night of Fire",
+				"artist": "Niko",
+				"stream": "100",
+				"chaos": "80",
+				"freeze": "100",
+				"air": "60",
+				"voltage": "100",
+			},
+			{
+				"song": "Famalay",
+				"artist": "Skinny Fabulous, Machel Montano, Bunji Garlin",
+				"stream": "90",
+				"chaos": "60",
+				"freeze": "70",
+				"air": "80",
+				"voltage": "45",
+			},
+			{
+				"song": "Dodonpa",
+				"artist": "Kyary Pamyu Pamyu",
+				"stream": "40",
+				"chaos": "50",
+				"freeze": "100",
+				"air": "80",
+				"voltage": "70",
+			},
+			{
+				"song": "Dance My Pain Away",
+				"artist": "Rod Lee",
+				"stream": "30",
+				"chaos": "50",
+				"freeze": "70",
+				"air": "80",
+				"voltage": "100",
+			},
+		]
+		
+		const pentagon = document.getElementById('polygon');
+		
+		var svg = document.getElementById('border');
+		var polygonborder = document.getElementById("polygonborder");
+		var borderanimation = document.getElementById("borderanimation");
+		var pentagonbg = document.getElementById("pentagonbg")
+		var svgoffset = 50;
+		var bigcircle = document.getElementById("bigcircle");
+		var linesarray = [document.getElementById("line1"),document.getElementById("line2"),document.getElementById("line3"),document.getElementById("line4"),document.getElementById("line5")];
+		
+		var newpoints = [];
+		var newborderpoints = [];
+		
+		const width = parseFloat(window.getComputedStyle(pentagon).getPropertyValue('width'));
+		const height = parseFloat(window.getComputedStyle(pentagon).getPropertyValue('height'));
+		
+		const clipPath = window.getComputedStyle(pentagon).getPropertyValue('clip-path');
+		
+		const clipPathCoordinates = clipPath
+			.replace(/^polygon\(|\)$/g, '')
+	    	.split(', ')
+			.map(pair => {
+				
+				const [x, y] = pair.split(' ');
+				
+				var xValue = x.endsWith('%') ? parseFloat(x) / 100 * width : parseFloat(x);
+				var yValue = y.endsWith('%') ? parseFloat(y) / 100 * height : parseFloat(y);
+				
+				return [xValue, yValue];
+			});
+			
+		const svgcoordinates = clipPath
+			.replace(/^polygon\(|\)$/g, '')
+	    	.split(', ')
+			.map(pair => {
+				
+				const [x, y] = pair.split(' ');
+				
+				var xValue = x.endsWith('%') ? parseFloat(x) / 100 * width : parseFloat(x);
+				var yValue = y.endsWith('%') ? parseFloat(y) / 100 * height : parseFloat(y);
+				
+				xValue += svgoffset;
+				yValue += svgoffset;
+				
+				return [xValue, yValue];
+			});
+			
+		polygonborder.setAttribute('points', svgcoordinates.join(" "));
+		pentagonbg.setAttribute('points', svgcoordinates.join(" "));
+			
+		const centerX = clipPathCoordinates.reduce((sum, [x]) => sum + x, 0) / clipPathCoordinates.length;
+		const centerY = clipPathCoordinates.reduce((sum, [, y]) => sum + y, 0) / clipPathCoordinates.length;
+		
+		for (let i = 0; i < linesarray.length; i++) {
+			linesarray[i].setAttribute("x1", clipPathCoordinates[i][0]+svgoffset);
+			linesarray[i].setAttribute("y1", clipPathCoordinates[i][1]+svgoffset);
+			linesarray[i].setAttribute("x2", centerX+svgoffset);
+			linesarray[i].setAttribute("y2", centerY+svgoffset);
+		}
+		
+		const radioContainer = document.getElementById("radiocontainer");
+		
+		function addsongs(){
+			scoredata.forEach(function(option) {
+
+				const wrapperDiv = document.createElement("div");
+				wrapperDiv.classList.add("radiowrapper");
+
+				const radioButton = document.createElement("input");
+				radioButton.type = "radio";
+				radioButton.name = "song";
+				radioButton.value = option.song;
+				radioButton.id = option.song;
+
+				const label = document.createElement("label");
+				label.htmlFor = option.song;
+				label.textContent = "🔰 "+option.song;
+				
+				const artistdiv = document.createElement("div");
+				artistdiv.classList.add("artistdiv");
+				artistdiv.textContent = option.artist;
+
+				wrapperDiv.appendChild(radioButton);
+				wrapperDiv.appendChild(label);
+				wrapperDiv.appendChild(artistdiv);
+				radioContainer.appendChild(wrapperDiv);
+				
+				wrapperDiv.addEventListener("click", function() {
+					console.log(radioButton);
+				  const isChecked = radioButton.checked;
+				  if (!isChecked) {
+				    radioButton.checked = true;
+					songchange(radioButton.value);
+				  }
+				});
+				
+			})
+
+			radioContainer.querySelector('input[type="radio"]').checked = true;
+			songchange(radioContainer.querySelector('input[type="radio"]').value);
+		}
+		
+		addsongs();
+
+		radioContainer.addEventListener("change", function(event) {
+		  const selectedOption = event.target.value;
+		  songchange(selectedOption);
+		});
+		
+		function songchange(selectedOption){
+			var songEntry = findSongEntry(selectedOption);
+			var newscore = [songEntry.stream, songEntry.chaos, songEntry.freeze, songEntry.air, songEntry.voltage];
+
+			newpoints = [];
+			newborderpoints = [];
+			
+			for (let i = 0; i < newscore.length; i++) {
+		  		var newx = centerX + (clipPathCoordinates[i][0] - centerX) * (newscore[i] / 100);
+		  		var newy = centerY + (clipPathCoordinates[i][1] - centerY) * (newscore[i] / 100);
+				newpoints.push(newx+"px "+newy+"px");
+				newx += svgoffset
+				newy += svgoffset
+				newborderpoints.push(newx+","+newy)
+			}
+			
+			pentagon.style.clipPath = "polygon("+newpoints.join(", ")+")"
+			
+			borderanimation.setAttribute("to", newborderpoints.join(" "));
+			
+			borderanimation.beginElement();
+		}
+		
+		function findSongEntry(selectedValue) {
+		  for (var i = 0; i < scoredata.length; i++) {
+		    if (scoredata[i].song === selectedValue) {
+		      return scoredata[i];
+		    }
+		  }
+		  return null;
+		}
+		
+		borderanimation.addEventListener("endEvent", function() {
+		  polygonborder.setAttribute('points', newborderpoints.join(" "));
+		});
+		
+	</script>
+	
+</body>
+</html>
