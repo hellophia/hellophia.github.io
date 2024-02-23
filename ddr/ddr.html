@@ -5,9 +5,10 @@
 		@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Noto+Sans:ital,wdth,wght@0,62.5..100,100..900;1,62.5..100,100..900&family=Orbitron:wght@400..900&family=Archivo:ital,wght@0,900;1,900&display=swap');
 		
 		body{
-			background-color: #3b8998;
+			background-color: #3b8a98;
 			font-family: "Noto Sans";
 			margin:0px;
+			padding: 0px 10%;
 		}
 		
 		.wrapper{
@@ -58,7 +59,7 @@
 			display:flex;
 			width: 500px;
 			height: 400px;
-			background-color:#2a6675;
+			//background-color:#2a6675;
 		}
 		
 		.polygon {
@@ -110,19 +111,21 @@
 			font-style: italic;
 			display: block;
 			margin: 8px;
-			padding: 4px;
-			padding-left: 40px;
-			background: linear-gradient(to right, #01103f, #388399);
+			padding: 0px;
+			padding-left: 80px;
+			background: linear-gradient(to right, #01103f 0%, #01103f 50%, #388399 100%);
 			color: #61d05b;
 			border-width: 3px;
 			border-style: solid;
 			border-color: #204e61;
 			border-top-color: #51a1be;
 			border-top-left-radius: 20px;
-			font-size: 24px;
+			font-size: 28px;
 			-webkit-text-stroke: 1px black;
 			text-stroke: 1px black;
 			cursor: pointer;
+			position:relative;
+			line-height: .9;
 		}
 		
 		.radiowrapper .artistdiv{
@@ -138,7 +141,7 @@
 		}
 		
 		.checked {
-			border: 6px #ace4a0 solid;
+			border: 10px #60bbbc solid;
 			background-image: none;
 			color: #5ed2e5;
   		  -webkit-text-stroke: 1px #5f6db4;
@@ -146,12 +149,24 @@
 		  animation: strobe .6s infinite alternate linear;
 		}
 		
+		.checked::after {
+		  content: "";
+		  position: absolute;
+		  top: 0;
+		  left: 0;
+		  right: 0;
+		  bottom: 0;
+		  border: 4px solid #d6ec66;
+		  border-top-left-radius: 16px;
+		  margin:-7px;
+		}
+		
 		@keyframes strobe {
 		    0% { background-color: #6670ae; }
 		    100% { background-color: #0e1adc; }
 		  }
 		  
-	      @media only screen and (max-width: 800px) {
+	      @media only screen and (max-width: 1000px) {
 	  		.wrapper{
 	  			flex-direction:column;
 	  		}
@@ -169,14 +184,12 @@
 		}
 		
 		th{
-			font-size:80%;
-			background-color:#194350;
 			color:#ffff21;
 			letter-spacing: 2px;
 			text-indent: 2px;
 			text-align:left;
-			padding: 0px 15px;
-			margin:0px;
+			padding: 2px 15px;
+			margin: 0px;
 			width:50%;
 		}
 		
@@ -199,6 +212,13 @@
 			display:none;
 		}
 		
+		.stagespeedbanners {
+			padding-bottom:15px;
+			background: linear-gradient(to right, #48a6bf 0%, #48a6bf 50%, #02123c 100%);
+			border-top: 3px solid #204e61;
+			border-right: 3px solid #2a5164;
+		}
+		
 	</style>
 </head>
 <body>
@@ -219,9 +239,9 @@
 	
 	<div style="width:500px">
 		
-		<div style="padding-bottom:15px;background: linear-gradient(to right, #4298af, #02123c);">
+		<div class="stagespeedbanners">
 			<table>
-			  <tr>
+			  <tr style="background:linear-gradient(to right, #194453 0%, #194453 50%, #01091b 100%);">
 			    <th>STAGE</th>
 			    <th>SPEED</th>
 			  </tr>
@@ -667,7 +687,7 @@
 				
 				const artistdiv = document.createElement("div");
 				artistdiv.classList.add("artistdiv");
-				artistdiv.textContent = option.artist;
+				artistdiv.textContent = "/"+option.artist;
 
 				wrapperDiv.appendChild(radioButton);
 				wrapperDiv.appendChild(label);
