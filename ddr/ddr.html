@@ -167,13 +167,22 @@
 		  }
 		  
 	      @media only screen and (max-width: 1000px) {
-	  		.wrapper{
-	  			flex-direction:column;
-	  		}
-			.container{
-				margin:auto;
+			body{
+				padding: 0px;
 			}
 	  	}
+		
+      @media only screen and (max-width: 800px) {
+  		.wrapper{
+  			flex-direction:column;
+  		}
+		.container{
+			margin:auto;
+		}
+		.stagespeedbanners{
+			margin:auto;
+		}
+  	}
 		
 		table{
 			font-family: "Orbitron";
@@ -237,7 +246,7 @@
 	
 	<div class="wrapper">
 	
-	<div style="width:500px">
+	<div style="width:500px;margin:auto;">
 		
 		<div class="stagespeedbanners">
 			<table>
@@ -299,7 +308,13 @@
 
 	</div>
 	
-	<div class="select" style="height:65px;border-radius:0px;margin:0px;"></div>
+	<div class="select" style="height:65px;border-radius:0px;margin:0px;">
+		
+		<audio autoplay id="audioplayer">
+		  <source src="mp3/eboyfriend.mp3" type="audio/mpeg" data-song="song" id="audiosource">
+		</audio>
+		
+	</div>
 	
 	<script>
 		
@@ -313,7 +328,8 @@
   	"air": "80",
   	"voltage": "30",
 				"bpm":"167",
-				"img":"img/eboyfriend.png"
+				"img":"img/eboyfriend.png",
+				"mp3":"mp3/eboyfriend.mp3"
 			},
 			{
 "song": "(This Is) The Dream of Evan And Chan - Remastered",
@@ -324,7 +340,8 @@
   	"air": "10",
   	"voltage": "50",
 				"bpm":"138",
-				"img":"img/1743.png"
+				"img":"img/1743.png",
+				"mp3":"mp3/evanandchan.mp3"
 			},
 			{
 "song": "Joyful Prize",
@@ -335,7 +352,8 @@
   	"air": "40",
   	"voltage": "20",
 				"bpm":"150",
-				"img":"img/1767.png"
+				"img":"img/1767.png",
+				"mp3":"mp3/joyfulprize.mp3"
 			},
 			{
 "song": "Boom Boom",
@@ -346,7 +364,8 @@
   	"air": "80",
   	"voltage": "10",
 				"bpm":"133",
-				"img":"img/1157.png"
+				"img":"img/1157.png",
+				"mp3":"mp3/boomboom.mp3"
 			},
 			{
 "song": "Night of Fire - Extended mix",
@@ -357,7 +376,8 @@
   	"air": "50",
   	"voltage": "80",
 				"bpm":"155",
-				"img":"img/1743.png"
+				"img":"img/1743.png",
+				"mp3":"mp3/nightoffire.mp3"
 			},
 			{
 "song": "Hold Tight",
@@ -368,7 +388,8 @@
   	"air": "40",
   	"voltage": "50",
 				"bpm":"123",
-				"img":"img/holdtight.png"
+				"img":"img/holdtight.png",
+				"mp3":"mp3/holdtight.mp3"
 			},
 			{
 "song": "Судно (Борис Рыжий)",
@@ -379,7 +400,8 @@
   	"air": "20",
   	"voltage": "90",
 				"bpm":"160",
-				"img":"img/1157.png"
+				"img":"img/1157.png",
+				"mp3":"mp3/cудно.mp3"
 			},
 			{
 "song": "WAV WAV",
@@ -390,7 +412,8 @@
   	"air": "40",
   	"voltage": "70",
 				"bpm":"100",
-				"img":"img/1743.png"
+				"img":"img/1743.png",
+				"mp3":"mp3/wavwav.mp3"
 			},
 			{
 "song": "Dodonpa",
@@ -401,7 +424,8 @@
   	"air": "60",
   	"voltage": "80",
 				"bpm":"140",
-				"img":"img/1767.png"
+				"img":"img/1767.png",
+				"mp3":"mp3/dodonpa.mp3"
 			},
 			{
 "song": "Silence (DJ Tiësto's In Search Of Sunrise Edit)",
@@ -412,7 +436,8 @@
   	"air": "10",
   	"voltage": "40",
 				"bpm":"138",
-				"img":"img/1157.png"
+				"img":"img/1157.png",
+				"mp3":"mp3/silence.mp3"
 			},
 			{
 "song": "Dance My Pain Away",
@@ -423,7 +448,8 @@
   	"air": "40",
   	"voltage": "30",
 				"bpm":"128",
-				"img":"img/1743.png"
+				"img":"img/1743.png",
+				"mp3":"mp3/dancemypainaway.mp3"
 			},
 			{
 "song": "Swamp Thing",
@@ -434,7 +460,8 @@
   	"air": "30",
   	"voltage": "60",
 				"bpm":"135",
-				"img":"img/1157.png"
+				"img":"img/1157.png",
+				"mp3":"mp3/swampthing.mp3"
 			},
 			{
 "song": "Famalay",
@@ -445,7 +472,8 @@
   	"air": "40",
   	"voltage": "20",
 				"bpm":"150",
-				"img":"img/famalay.png"
+				"img":"img/famalay.png",
+				"mp3":"mp3/famalay.mp3"
 			},
 			{
 "song": "69",
@@ -456,7 +484,8 @@
   	"air": "0",
   	"voltage": "90",
 				"bpm":"160",
-				"img":"img/69.jpg"
+				"img":"img/69.jpg",
+				"mp3":"mp3/69.mp3"
 			},
 			{
 "song": "Another Night",
@@ -467,7 +496,8 @@
   	"air": "40",
   	"voltage": "10",
 				"bpm":"126",
-				"img":"img/anothernight.jpg"
+				"img":"img/anothernight.jpg",
+				"mp3":"mp3/anothernight.mp3"
 			},
 			{
 "song": "光のロック",
@@ -478,7 +508,8 @@
   	"air": "40",
   	"voltage": "10",
 				"bpm":"94",
-				"img":"img/1157.png"
+				"img":"img/1157.png",
+				"mp3":"mp3/yabai.mp3"
 			},
 			{
 "song": "King Kong",
@@ -489,7 +520,8 @@
   	"air": "10",
   	"voltage": "70",
 				"bpm":"131",
-				"img":"img/kingkong.png"
+				"img":"img/kingkong.png",
+				"mp3":"mp3/kingkong.mp3"
 			},
 			{
 "song": "Very Online Guy",
@@ -500,7 +532,8 @@
   	"air": "20",
   	"voltage": "10",
 				"bpm":"143",
-				"img":"img/1157.png"
+				"img":"img/1157.png",
+				"mp3":"mp3/veryonlineguy.mp3"
 			},
 			{
 "song": "Para Para Sakura - 電影主題曲",
@@ -511,7 +544,8 @@
   	"air": "50",
   	"voltage": "10",
 				"bpm":"151",
-				"img":"img/paraparasakura.png"
+				"img":"img/paraparasakura.png",
+				"mp3":"mp3/paraparasakura.mp3"
 			},
 			{
 "song": "flustered - Sped Up Version",
@@ -522,7 +556,8 @@
   	"air": "20",
   	"voltage": "20",
 				"bpm":"166",
-				"img":"img/flustered.png"
+				"img":"img/flustered.png",
+				"mp3":"mp3/flustered.mp3"
 			},
 			{
 "song": "JACK DA FUNK",
@@ -533,7 +568,8 @@
   	"air": "60",
   	"voltage": "40",
 				"bpm":"112",
-				"img":"img/1157.png"
+				"img":"img/1157.png",
+				"mp3":"mp3/jackdafunk.mp3"
 			},
 			{
 "song": "Bongo Dance",
@@ -544,7 +580,8 @@
   	"air": "20",
   	"voltage": "10",
 				"bpm":"138",
-				"img":"img/bongodance.png"
+				"img":"img/bongodance.png",
+				"mp3":"mp3/bongodance.mp3"
 			},
 			{
 "song": "Horse Power",
@@ -555,7 +592,8 @@
   	"air": "60",
   	"voltage": "90",
 				"bpm":"123",
-				"img":"img/horsepower.png"
+				"img":"img/horsepower.png",
+				"mp3":"mp3/horsepower.mp3"
 			},
 			{
 "song": "Help Youngblood Get to the Freaky Party",
@@ -566,7 +604,8 @@
   	"air": "20",
   	"voltage": "10",
 				"bpm":"100",
-				"img":"img/1157.png"
+				"img":"img/1157.png",
+				"mp3":"mp3/youngblood.mp3"
 			},
 			{
 "song": "HYPER★DRIVE",
@@ -577,7 +616,8 @@
   	"air": "50",
   	"voltage": "10",
 				"bpm":"174",
-				"img":"img/1157.png"
+				"img":"img/hyperdrive.png",
+				"mp3":"mp3/hyperdrive.mp3"
 			},
 			{
 "song": "Hippies on a Corner",
@@ -588,7 +628,8 @@
   	"air": "0",
   	"voltage": "80",
 				"bpm":"127",
-				"img":"img/1157.png"
+				"img":"img/1157.png",
+				"mp3":"mp3/hippies.mp3"
 			},
 			{
 "song": "For One Last Time",
@@ -599,7 +640,8 @@
   	"air": "10",
   	"voltage": "20",
 				"bpm":"140",
-				"img":"img/foronelasttime.png"
+				"img":"img/foronelasttime.png",
+				"mp3":"mp3/foronelasttime.mp3"
 			}
 		]
 		
@@ -613,6 +655,9 @@
 		var bigcircle = document.getElementById("bigcircle");
 		var linesarray = [document.getElementById("line1"),document.getElementById("line2"),document.getElementById("line3"),document.getElementById("line4"),document.getElementById("line5")];
 		var bpm = document.getElementById('bpm');
+		
+		const audioPlayer = document.getElementById('audioplayer');
+		const audioSource = document.getElementById('audiosource');
 		
 		var banner = document.getElementById('banner');
 		var banners = []
@@ -725,6 +770,9 @@
 		addsongs();
 		
 		function songchange(selectedOption){
+			
+			console.log("changing song to "+selectedOption);
+			
 			var songEntry = findSongEntry(selectedOption);
 			var newscore = [songEntry.stream, songEntry.chaos, songEntry.freeze, songEntry.air, songEntry.voltage];
 
@@ -752,10 +800,19 @@
 			
 			bpm.textContent = songEntry.bpm+" bpm";
 			
-			console.log(findIndex(songEntry))
-			console.log(banners[findIndex(songEntry)])
 			const oldbanner = banners[findIndex(songEntry)]
 			oldbanner.classList.remove('hidden');
+			
+			audioPlayer.pause();
+			audioPlayer.currentTime = 0;
+			
+			const songName = songEntry.song;
+			const songSrc = songEntry.mp3;
+			audioSource.src = songSrc;
+			audioSource.dataset.song = songName;
+			
+			audioPlayer.load();
+			audioPlayer.play();
 		}
 		
 		function findIndex(entry) {
