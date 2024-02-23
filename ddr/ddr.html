@@ -177,6 +177,7 @@
 			text-align:left;
 			padding: 0px 15px;
 			margin:0px;
+			width:50%;
 		}
 		
 		td{
@@ -226,7 +227,7 @@
 			  </tr>
 			  <tr>
 			    <td style="color:#64def9;-webkit-text-stroke: 1px #2560a4;text-stroke: 1px #2560a4;letter-spacing: 10px;">1st</td>
-			    <td style="color:#ffff21;-webkit-text-stroke: 1px #938c64;text-stroke: 1px #938c64;">169 bpm</td>
+			    <td style="color:#ffff21;-webkit-text-stroke: 1px #938c64;text-stroke: 1px #938c64;" id="bpm">169 bpm</td>
 			  </tr>
 			</table>
 			<div class="banner" id="banner"></div>
@@ -284,136 +285,301 @@
 		
 		const scoredata = [
 			{
-				"song": "Night of Fire",
-				"artist": "Niko",
-				"stream": "100",
-				"chaos": "80",
-				"freeze": "100",
-				"air": "60",
-				"voltage": "100",
-				"bpm":"169",
-				"img":"img/1157.png"
+"song": "E-Boyfriend",  
+  	"artist": "Fireball Kid, Ura Star",
+  	"stream": "60",
+  	"chaos": "30",
+  	"freeze": "30",
+  	"air": "80",
+  	"voltage": "30",
+				"bpm":"167",
+				"img":"img/eboyfriend.png"
 			},
 			{
-				"song": "Famalay",
-				"artist": "Skinny Fabulous, Machel Montano, Bunji Garlin",
-				"stream": "90",
-				"chaos": "60",
-				"freeze": "70",
-				"air": "80",
-				"voltage": "45",
-				"bpm":"134",
+"song": "(This Is) The Dream of Evan And Chan - Remastered",
+  	"artist": "Dntel",
+  	"stream": "50",
+  	"chaos": "80",
+  	"freeze": "70",
+  	"air": "10",
+  	"voltage": "50",
+				"bpm":"138",
 				"img":"img/1743.png"
 			},
 			{
-				"song": "Dodonpa",
-				"artist": "Kyary Pamyu Pamyu",
-				"stream": "40",
-				"chaos": "50",
-				"freeze": "100",
-				"air": "80",
-				"voltage": "70",
-				"bpm":"200",
+"song": "Joyful Prize",
+  	"artist": "t+pazolite",
+  	"stream": "70",
+  	"chaos": "70",
+  	"freeze": "40",
+  	"air": "40",
+  	"voltage": "20",
+				"bpm":"150",
 				"img":"img/1767.png"
 			},
 			{
-				"song": "Dance My Pain Away",
-				"artist": "Rod Lee",
-				"stream": "30",
-				"chaos": "50",
-				"freeze": "70",
-				"air": "80",
-				"voltage": "100",
-				"bpm":"330",
+"song": "Boom Boom",
+  	"artist": "Rye Rye",
+  	"stream": "30",
+  	"chaos": "30",
+  	"freeze": "20",
+  	"air": "80",
+  	"voltage": "10",
+				"bpm":"133",
 				"img":"img/1157.png"
 			},
 			{
-				"song": "Night of Fire",
-				"artist": "Niko",
-				"stream": "100",
-				"chaos": "80",
-				"freeze": "100",
-				"air": "60",
-				"voltage": "100",
-				"bpm":"92",
+"song": "Night of Fire - Extended mix",
+  	"artist": "Niko",
+  	"stream": "80" ,
+  	"chaos": "50",
+  	"freeze": "10",
+  	"air": "50",
+  	"voltage": "80",
+				"bpm":"155",
 				"img":"img/1743.png"
 			},
 			{
-				"song": "Famalay",
-				"artist": "Skinny Fabulous, Machel Montano, Bunji Garlin",
-				"stream": "90",
-				"chaos": "60",
-				"freeze": "70",
-				"air": "80",
-				"voltage": "45",
-				"bpm":"146",
+"song": "Hold Tight",
+  	"artist": "Vicki Sue Robinson",
+  	"stream": "60",
+  	"chaos": "10",
+  	"freeze": "10",
+  	"air": "40",
+  	"voltage": "50",
+				"bpm":"123",
+				"img":"img/holdtight.png"
+			},
+			{
+"song": "Судно (Борис Рыжий)",
+  	"artist": "Molchat Doma",
+  	"stream": "100",
+  	"chaos": "20",
+  	"freeze": "20",
+  	"air": "20",
+  	"voltage": "90",
+				"bpm":"160",
+				"img":"img/1157.png"
+			},
+			{
+"song": "WAV WAV",
+  	"artist": "OKOTA YUNI",
+  	"stream": "60",
+  	"chaos": "60",
+  	"freeze": "10",
+  	"air": "40",
+  	"voltage": "70",
+				"bpm":"100",
+				"img":"img/1743.png"
+			},
+			{
+"song": "Dodonpa",
+  	"artist": "Kyary Pamyu Pamyu",
+  	"stream": "80",
+  	"chaos": "80",
+  	"freeze": "10",
+  	"air": "60",
+  	"voltage": "80",
+				"bpm":"140",
 				"img":"img/1767.png"
 			},
 			{
-				"song": "Dodonpa",
-				"artist": "Kyary Pamyu Pamyu",
-				"stream": "40",
-				"chaos": "50",
-				"freeze": "100",
-				"air": "80",
-				"voltage": "70",
-				"bpm":"178",
+"song": "Silence (DJ Tiësto's In Search Of Sunrise Edit)",
+  	"artist": "Delerium, Tiësto, Sarah McLachlan",
+  	"stream": "70",
+  	"chaos": "40",
+  	"freeze": "60",
+  	"air": "10",
+  	"voltage": "40",
+				"bpm":"138",
 				"img":"img/1157.png"
 			},
 			{
-				"song": "Dance My Pain Away",
-				"artist": "Rod Lee",
-				"stream": "30",
-				"chaos": "50",
-				"freeze": "70",
-				"air": "80",
-				"voltage": "100",
-				"bpm":"198",
+"song": "Dance My Pain Away",
+  	"artist": "Rod Lee",
+  	"stream": "50",
+  	"chaos": "10",
+  	"freeze": "10",
+  	"air": "40",
+  	"voltage": "30",
+				"bpm":"128",
 				"img":"img/1743.png"
 			},
 			{
-				"song": "Night of Fire",
-				"artist": "Niko",
-				"stream": "100",
-				"chaos": "80",
-				"freeze": "100",
-				"air": "60",
-				"voltage": "100",
-				"bpm":"223",
-				"img":"img/1767.png"
-			},
-			{
-				"song": "Famalay",
-				"artist": "Skinny Fabulous, Machel Montano, Bunji Garlin",
-				"stream": "90",
-				"chaos": "60",
-				"freeze": "70",
-				"air": "80",
-				"voltage": "45",
-				"bpm":"90",
+"song": "Swamp Thing",
+  	"artist": "The Grid",
+  	"stream": "70",
+  	"chaos": "40",
+  	"freeze": "0",
+  	"air": "30",
+  	"voltage": "60",
+				"bpm":"135",
 				"img":"img/1157.png"
 			},
 			{
-				"song": "Dodonpa",
-				"artist": "Kyary Pamyu Pamyu",
-				"stream": "40",
-				"chaos": "50",
-				"freeze": "100",
-				"air": "80",
-				"voltage": "70",
-				"bpm":"99",
-				"img":"img/1743.png"
+"song": "Famalay",
+  	"artist": "Skinny Fabulous, Machel Montano, Bunji Garlin",
+  	"stream": "70",
+  	"chaos": "20",
+  	"freeze": "40",
+  	"air": "40",
+  	"voltage": "20",
+				"bpm":"150",
+				"img":"img/famalay.png"
 			},
 			{
-				"song": "Dance My Pain Away",
-				"artist": "Rod Lee",
-				"stream": "30",
-				"chaos": "50",
-				"freeze": "70",
-				"air": "80",
-				"voltage": "100",
-				"bpm":"175",
+"song": "69",
+  	"artist": "galen tipton, digifae, diana starshine",
+  	"stream": "80",
+  	"chaos": "90",
+  	"freeze": "20",
+  	"air": "0",
+  	"voltage": "90",
+				"bpm":"160",
+				"img":"img/69.jpg"
+			},
+			{
+"song": "Another Night",
+  	"artist": "Real McCoy",
+  	"stream": "60",
+  	"chaos": "20",
+  	"freeze": "40",
+  	"air": "40",
+  	"voltage": "10",
+				"bpm":"126",
+				"img":"img/anothernight.jpg"
+			},
+			{
+"song": "光のロック",
+  	"artist": "Yabai T-Shirts Yasan",
+  	"stream": "60",
+  	"chaos": "40",
+  	"freeze": "30",
+  	"air": "40",
+  	"voltage": "10",
+				"bpm":"94",
 				"img":"img/1157.png"
+			},
+			{
+"song": "King Kong",
+  	"artist": "Jean-Lucy Ponty",
+  	"stream": "80",
+  	"chaos": "80",
+  	"freeze": "60",
+  	"air": "10",
+  	"voltage": "70",
+				"bpm":"131",
+				"img":"img/kingkong.png"
+			},
+			{
+"song": "Very Online Guy",
+  	"artist": "Alvvays",
+  	"stream": "50",
+  	"chaos": "20",
+  	"freeze": "70",
+  	"air": "20",
+  	"voltage": "10",
+				"bpm":"143",
+				"img":"img/1157.png"
+			},
+			{
+"song": "Para Para Sakura - 電影主題曲",
+  	"artist": "Aaron Kwok, Simon Li",  
+  	"stream": "50",
+  	"chaos": "10",
+  	"freeze": "50",
+  	"air": "50",
+  	"voltage": "10",
+				"bpm":"151",
+				"img":"img/paraparasakura.png"
+			},
+			{
+"song": "flustered - Sped Up Version",
+  	"artist": "little winters",  
+"stream": "70",
+  	"chaos": "50",
+  	"freeze": "20",
+  	"air": "20",
+  	"voltage": "20",
+				"bpm":"166",
+				"img":"img/flustered.png"
+			},
+			{
+"song": "JACK DA FUNK",
+  	"artist": "Hideki Naganuma",  
+  	"stream": "60",
+  	"chaos": "50",
+  	"freeze": "10",
+  	"air": "60",
+  	"voltage": "40",
+				"bpm":"112",
+				"img":"img/1157.png"
+			},
+			{
+"song": "Bongo Dance",
+  	"artist": "Auto Syndicate",  
+  	"stream": "50",
+  	"chaos": "10",
+  	"freeze": "40",
+  	"air": "20",
+  	"voltage": "10",
+				"bpm":"138",
+				"img":"img/bongodance.png"
+			},
+			{
+"song": "Horse Power",
+  	"artist": "The Chemical Brothers",   
+  	"stream": "90",
+  	"chaos": "80",
+  	"freeze": "10",
+  	"air": "60",
+  	"voltage": "90",
+				"bpm":"123",
+				"img":"img/horsepower.png"
+			},
+			{
+"song": "Help Youngblood Get to the Freaky Party",
+  	"artist": "Teena Marie",  
+  	"stream": "60",
+  	"chaos": "50",
+  	"freeze": "40",
+  	"air": "20",
+  	"voltage": "10",
+				"bpm":"100",
+				"img":"img/1157.png"
+			},
+			{
+"song": "HYPER★DRIVE",
+  	"artist": "nanobii",   
+  	"stream": "60",
+  	"chaos": "40",
+  	"freeze": "10",
+  	"air": "50",
+  	"voltage": "10",
+				"bpm":"174",
+				"img":"img/1157.png"
+			},
+			{
+"song": "Hippies on a Corner",
+  	"artist": "Joe Sample",  
+  	"stream": "80",
+  	"chaos": "100",
+  	"freeze": "10",
+  	"air": "0",
+  	"voltage": "80",
+				"bpm":"127",
+				"img":"img/1157.png"
+			},
+			{
+"song": "For One Last Time",
+  	"artist": "Chenayder",
+  	"stream": "60",
+  	"chaos": "50",
+  	"freeze": "20",
+  	"air": "10",
+  	"voltage": "20",
+				"bpm":"140",
+				"img":"img/foronelasttime.png"
 			}
 		]
 		
@@ -426,8 +592,10 @@
 		var svgoffset = 50;
 		var bigcircle = document.getElementById("bigcircle");
 		var linesarray = [document.getElementById("line1"),document.getElementById("line2"),document.getElementById("line3"),document.getElementById("line4"),document.getElementById("line5")];
+		var bpm = document.getElementById('bpm');
 		
 		var banner = document.getElementById('banner');
+		var banners = []
 		
 		var newpoints = [];
 		var newborderpoints = [];
@@ -506,6 +674,15 @@
 				wrapperDiv.appendChild(artistdiv);
 				radioContainer.appendChild(wrapperDiv);
 				
+				scoredata.forEach(song => {
+					const img = document.createElement('img');
+					img.src = song.img;
+					img.id = song.song;
+					banner.appendChild(img);
+					img.classList.add('hidden');
+					banners.push(img);
+				});
+				
 				wrapperDiv.addEventListener("click", function() {
 				  const isChecked = radioButton.checked;
 				  if (!isChecked) {
@@ -549,8 +726,25 @@
 			
 			borderanimation.beginElement();
 			
+			banners.forEach(bannerimg => {
+				bannerimg.classList.add("hidden");
+			});
 			
-
+			bpm.textContent = songEntry.bpm+" bpm";
+			
+			console.log(findIndex(songEntry))
+			console.log(banners[findIndex(songEntry)])
+			const oldbanner = banners[findIndex(songEntry)]
+			oldbanner.classList.remove('hidden');
+		}
+		
+		function findIndex(entry) {
+		  for (let i = 0; i < scoredata.length; i++) {
+		    if (scoredata[i] === entry) {
+		      return i;
+		    }
+		  }
+		  return -1;
 		}
 		
 		function findSongEntry(selectedValue) {
@@ -564,14 +758,6 @@
 		
 		borderanimation.addEventListener("endEvent", function() {
 		  polygonborder.setAttribute('points', newborderpoints.join(" "));
-		});
-		
-		scoredata.forEach(song => {
-			const img = document.createElement('img');
-			img.src = song.img;
-			img.id = song.song;
-			banner.appendChild(img);
-			img.classList.add('hidden');
 		});
 		
 		/*
