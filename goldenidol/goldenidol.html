@@ -4,16 +4,237 @@
 		
 		@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 		
-		body{
-			
-			font-family:"VT323";
-			
+		body {
+			font-family: "VT323";
+			font-size: 24px;
+			background-color:#d4dff9;
 		}
+		
+		.textholder {
+			margin: 20%;
+			color: #433047;
+		}
+		
+		.field{
+			display: inline-block;
+			position:relative;
+			width:100px;
+			font-size: .8em;
+			color:#fffffb;
+			border-radius:8px;
+			margin: 0px 4px;
+			text-align:center;
+		}
+		
+		.empty {
+			height: .8em;
+			border:1px solid black;
+		}
+		
+		.filled-border{
+			display:inline-block;
+			background-color: #c1b784;
+			border:2px solid #c1b784;
+			margin: 0px 10px;
+			box-shadow: 0px 1px 1px #999c85;
+		}
+		
+		.filled {
+			border-radius:8px;
+			background-color: #68443b;
+			margin:0;
+		}
+		
+		.word{
+			cursor: grab;
+		}
+		
+		.name{
+			background-color: #68443b;
+		}
+		
+		.noun{
+			background-color: #8f7b42;
+		}
+		
+		.dragging {
+			opacity:0;
+		}
+		
+		.ghost{
+			position:absolute;
+			top:-1000px;
+		}
+		
+		.darken {
+			background-image: linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3))
+		}
+		
+		.bottomholder{
+			display:flex;
+			position:relative;
+			background-color:#0c1408;
+			padding:8px;
+			border-width: 2px;
+			border-style: solid;
+			border-color: #7b7355 #918e73 #918e73 #7b7355;
+		}
+		
+		.bottomholder::after{
+  		  content: "";
+  		  position: absolute;
+  		  top: 0;
+  		  left: 0;
+		  right:0;
+		  bottom:0;
+		  margin:-4px;
+		  border-width: 2px;
+		  border-style: solid;
+		  border-color: #918e73 #7b7355 #7b7355 #918e73;
+		  z-index: -1;
+		}
+		
+		.gotwordsholder{
+			color:#858692;
+		}
+		
 	</style>
 </head>
 <body>
 	
-	Albert Cloudsley pushed Oberon Geller from a cliff in the Horn of Thumb on Monkey Paw Island.
+	<div class="textholder">
+		
+		<span class="field empty name" id="Albert"></span><span class="field empty name" id="Cloudsley"></span> pushed <span class="field empty name" id="Oberon"></span><span class="field empty name" id="Geller"></span> from a cliff in the <span class="field empty noun" id="Horn"></span> of <span class="field empty noun" id="Thumb"></span> on Monkey Paw Island.
+		
+	</div>
+	
+	<div class="bottomholder">
+		<div id="wordholder" style="flex-grow: 1;"></div>
+		<div class="gotwordsholder" id="gotwordsholder" style="flex-basis:10%;text-align:right;"><span id="gotwordsnum"></span>/<span id="maxgotwords"></span></div>
+	</div>
+	
+	<script>
+		
+		const worddata = [
+			{
+				"word": "Albert",
+				"type": "name",
+				"found": false
+			},
+			{
+				"word": "Cloudsley",
+				"type": "name",
+				"found": false
+			},
+			{
+				"word": "Oberon",
+				"type": "name",
+				"found": true
+			},
+			{
+				"word": "Geller",
+				"type": "name",
+				"found": false
+			},
+			{
+				"word": "Horn",
+				"type": "noun",
+				"found": true
+			},
+			{
+				"word": "Thumb",
+				"type": "noun",
+				"found": true
+			}
+		]
+
+		const holes = document.querySelectorAll('.empty');
+		var wordholder = document.getElementById('wordholder');
+		var gotwordsholder = document.getElementById('gotwordsholder');
+		var gotwordsnumholder = document.getElementById('gotwordsnum');
+		var maxgotwordsholder = document.getElementById('maxgotwords');
+		var gotwordsnum = 0;
+		var maxgotwords = worddata.length;
+		var dragged = null;
+		
+		worddata.forEach((word) => {
+			if(word.found === true){
+				var newword = document.createElement("span");
+				newword.classList.add("field","word");
+				newword.classList.add(word.type);
+				newword.textContent = word.word;
+				newword.draggable = true;
+				wordholder.appendChild(newword);
+		        newword.addEventListener('dragstart', dragStart);
+		        newword.addEventListener('dragend', dragEnd);
+				gotwordsnum++;
+			}
+		});
+		
+	    holes.forEach(hole => {
+	        hole.addEventListener('dragover', dragOver);
+	        hole.addEventListener('drop', drop);
+	    });
+		
+		maxgotwordsholder.textContent = maxgotwords.toString();
+		gotwordsnumholder.textContent = gotwordsnum.toString();
+
+	    function dragStart(event) {
+			const nameghost = document.createElement("span");
+			nameghost.classList.add("field","word","darken");
+			if (event.target.classList.contains("name")){
+				nameghost.classList.add("name");
+			}
+			else if (event.target.classList.contains("noun")){
+				nameghost.classList.add("noun");
+			}
+			nameghost.id = "ghost";
+			nameghost.classList.add("ghost");
+			nameghost.textContent = event.target.textContent;
+			document.body.appendChild(nameghost);
+			event.dataTransfer.setDragImage(nameghost, 0, 0);
+			event.target.classList.add('dragging');
+			dragged = event.target;
+	    }
+
+	    function dragEnd(event) {
+			event.target.classList.remove('dragging');
+			var ghost = document.getElementById("ghost");
+			if (ghost.parentNode) {
+				ghost.parentNode.removeChild(ghost);
+			}
+	    }
+
+	    function dragOver(event) {
+	        event.preventDefault();
+	    }
+		
+	    function drop(event) {
+	        event.preventDefault();
+			
+			console.log(dragged);
+			
+			if (event.target.id === dragged.textContent){
+				event.target.className = '';
+				event.target.classList.add("filled-border");
+				const filled = document.createElement("span");
+				filled.classList.add("field","filled");
+				if (dragged.classList.contains("name")){
+					filled.classList.add("name");
+				}
+				else if (dragged.classList.contains("noun")){
+					filled.classList.add("noun");
+				}
+				filled.textContent = dragged.textContent;
+				event.target.appendChild(filled);
+			    event.target.removeEventListener('dragover', dragOver);
+			    event.target.removeEventListener('drop', drop);
+			
+				dragged.remove();
+			}
+	    }
+		
+	</script>
 	
 </body>
 </html>

@@ -1,36 +1,111 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Drag and Drop Game</title>
 <style>
-	
-	/* Style for the radio buttons (hide them) */
-	input[type="radio"] {
-	  //display: none;
-	}
+    /* CSS styling for the nounhole target area */
+    .nounhole {
+        width: 200px;
+        height: 100px;
+        background-color: lightblue;
+        border: 2px solid #333;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        position: relative; /* Added for positioning the dragged noun */
+    }
 
-	/* Style for the button wrappers */
-	.button-wrapper {
-	  padding: 10px;
-	  cursor: pointer;
-	}
+    /* CSS styling for the bank of available nouns */
+    .noun-bank {
+        display: flex;
+        gap: 10px;
+    }
 
-	/* Style for the button wrappers when the associated radio button is checked */
-	input[type="radio"]:checked ~ label {
-	  border:1px red solid;
-	}
-	
-	
-	</style>
+    /* CSS styling for individual noun elements */
+    .noun {
+        width: 50px;
+        height: 50px;
+        background-color: lightgreen;
+        border: 2px solid #333;
+        border-radius: 10px;
+        cursor: pointer;
+        position: relative; /* Added for positioning the dragged noun */
+    }
+
+    /* CSS styling for the dragged noun */
+    .dragging {
+        z-index: 1000; /* Ensure the dragged element appears on top */
+        opacity: 0; /* Semi-transparent when dragging */
+        cursor: grab; /* Change cursor during dragging */
+    }
+</style>
 </head>
 <body>
-	<div class="button-wrapper">
-	  <input type="radio" id="button1" name="buttons">
-	  <label for="button1">Button 1</label>
-	</div>
-
-	<div class="button-wrapper">
-	  <input type="radio" id="button2" name="buttons">
-	  <label for="button2">Button 2</label>
-	</div>
+    <!-- Target area for dropping nouns -->
+    <div class="nounhole"></div>
+    
+    <!-- Bank of available nouns -->
+    <div class="noun-bank">
+        <span class="noun" draggable="true"></span>
+        <span class="noun" draggable="true"></span>
+        <span class="noun" draggable="true"></span>
+    </div>
 	
+	<div style="background-color:red;" draggable="true">testing</div>
+
+<script>
+    // Selecting all noun elements
+    const nouns = document.querySelectorAll('.noun');
+
+    // Adding event listeners to each noun for drag and drop functionality
+    nouns.forEach(noun => {
+        noun.addEventListener('dragstart', dragStart);
+        noun.addEventListener('dragend', dragEnd);
+    });
+
+    // Function to handle drag start
+    function dragStart(event) {
+        // Add dragging class to the dragged element
+        event.target.classList.add('dragging');
+
+        // Store initial position of the dragged element
+        event.dataTransfer.setData('text/plain', event.target.id);
+    }
+
+    // Function to handle drag end
+    function dragEnd(event) {
+        // Remove dragging class from the dragged element
+        event.target.classList.remove('dragging');
+
+        // Reset the position of the dragged element
+        event.target.style.left = '';
+        event.target.style.top = '';
+    }
+
+    // Selecting the nounhole target area
+    const nounhole = document.querySelector('.nounhole');
+
+    // Adding event listeners to the nounhole for drop functionality
+    nounhole.addEventListener('dragover', dragOver);
+    nounhole.addEventListener('drop', drop);
+
+    // Function to handle drag over the nounhole
+    function dragOver(event) {
+        event.preventDefault(); // Allowing drop
+    }
+
+    // Function to handle drop on the nounhole
+    function drop(event) {
+        event.preventDefault();
+
+        // Get the dragged noun element
+        const nounId = event.dataTransfer.getData('text/plain');
+        const draggedNoun = document.getElementById(nounId);
+
+        // Append the dragged noun to the nounhole
+        event.target.appendChild(draggedNoun);
+    }
+</script>
 </body>
 </html>
