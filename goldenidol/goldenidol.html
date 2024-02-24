@@ -6,29 +6,36 @@
 		
 		body {
 			font-family: "VT323";
-			font-size: 24px;
-			background-color:#d4dff9;
+			font-size: 34px;
+			background-color:black;
+			padding:3% 5%;
+			transform-style: preserve-3d;
 		}
 		
 		.textholder {
-			margin: 20%;
 			color: #433047;
+			background-color:#d4dff9;
+			font-size:1em;
+			padding:3% 5%;
+			height:300px;
 		}
 		
 		.field{
 			display: inline-block;
-			position:relative;
 			width:100px;
 			font-size: .8em;
 			color:#fffffb;
 			border-radius:8px;
 			margin: 0px 4px;
 			text-align:center;
+			transform:translateZ(1px);
 		}
 		
 		.empty {
 			height: .8em;
 			border:1px solid black;
+			transform: translateY(4px);
+			transform:translateZ(1px);
 		}
 		
 		.filled-border{
@@ -72,15 +79,26 @@
 		
 		.bottomholder{
 			display:flex;
-			position:relative;
 			background-color:#0c1408;
 			padding:8px;
+			box-sizing: content-box;
+			height:100px;
+		}
+		
+		.gotwordsholder{
+			color:#858692;
+			flex-basis:10%;
+			text-align:right;
+		}
+		
+		.border{
+			position:relative;
 			border-width: 2px;
 			border-style: solid;
 			border-color: #7b7355 #918e73 #918e73 #7b7355;
 		}
 		
-		.bottomholder::after{
+		.border::after{
   		  content: "";
   		  position: absolute;
   		  top: 0;
@@ -91,27 +109,52 @@
 		  border-width: 2px;
 		  border-style: solid;
 		  border-color: #918e73 #7b7355 #7b7355 #918e73;
-		  z-index: -1;
 		}
 		
-		.gotwordsholder{
-			color:#858692;
+		.scrollnotes{
+			background-color:#25243a;
+			text-align:center;
+			color:#fffeff;
+			font-size:.8em;
+		}
+		
+		.exploringthinking{
+			position:absolute;
+			top:0;
+			left:0;
+			color:#b8bb7a;
+			background-color:#25243a;
+			font-size:.8em;
+			display:inline;
+		}
+		
+		.exploringthinking:hover{
+			color:#e6eaa0;
 		}
 		
 	</style>
 </head>
 <body>
 	
-	<div class="textholder">
-		
-		<span class="field empty name" id="Albert"></span><span class="field empty name" id="Cloudsley"></span> pushed <span class="field empty name" id="Oberon"></span><span class="field empty name" id="Geller"></span> from a cliff in the <span class="field empty noun" id="Horn"></span> of <span class="field empty noun" id="Thumb"></span> on Monkey Paw Island.
-		
+	<div style="display:flex;">
+		<div style="display:flex;flex-direction:column;flex-grow:1;flex-basis:0;">
+			<div class="scrollnotes border">The scroll is not filled in.</div>
+			<div class="textholder border">
+				<span class="field empty name" id="Albert"></span><span class="field empty name" id="Cloudsley"></span> pushed <span class="field empty name" id="Oberon"></span><span class="field empty name" id="Geller"></span> from a cliff in the <span class="field empty noun" id="Horn"></span> of <span class="field empty noun" id="Thumb"></span> on Monkey Paw Island.
+			</div>
+		</div>
+		<div class="border" style="flex-grow:1;flex-basis:0;">
+			testing...
+		</div>
+	</div>
+
+	
+	<div class="bottomholder border" id="bottomholder">
+		<div id="wordholder" style="flex-grow: 1;"></div>
+		<div class="gotwordsholder" id="gotwordsholder"><span id="gotwordsnum"></span>/<span id="maxgotwords"></span></div>
 	</div>
 	
-	<div class="bottomholder">
-		<div id="wordholder" style="flex-grow: 1;"></div>
-		<div class="gotwordsholder" id="gotwordsholder" style="flex-basis:10%;text-align:right;"><span id="gotwordsnum"></span>/<span id="maxgotwords"></span></div>
-	</div>
+	<div class="exploringthinking border" id="exploringthinking">Exploring <span id="arrow">⟻</span> Thinking</div>
 	
 	<script>
 		
@@ -124,7 +167,7 @@
 			{
 				"word": "Cloudsley",
 				"type": "name",
-				"found": false
+				"found": true
 			},
 			{
 				"word": "Oberon",
@@ -144,11 +187,13 @@
 			{
 				"word": "Thumb",
 				"type": "noun",
-				"found": true
+				"found": false
 			}
 		]
 
 		const holes = document.querySelectorAll('.empty');
+		var bottomholder = document.getElementById('bottomholder');
+		var expthink = document.getElementById('exploringthinking');
 		var wordholder = document.getElementById('wordholder');
 		var gotwordsholder = document.getElementById('gotwordsholder');
 		var gotwordsnumholder = document.getElementById('gotwordsnum');
@@ -156,6 +201,15 @@
 		var gotwordsnum = 0;
 		var maxgotwords = worddata.length;
 		var dragged = null;
+		
+		var bottomrect = bottomholder.getBoundingClientRect();
+		var bottomwidth = Math.round(bottomrect.width);
+		var bottomheight = Math.round(bottomrect.height);
+		var expthinkrect = expthink.getBoundingClientRect();
+		var expthinkwidth = Math.round(expthinkrect.width);
+		var expthinkheight = Math.round(expthinkrect.height);
+		expthink.style.top = (Math.round((bottomrect.top) - (expthinkheight))-13).toString() + "px"
+		expthink.style.left = (Math.round((bottomrect.left) + (.5 * bottomwidth) - (.5 * expthinkwidth))-8).toString() + "px"
 		
 		worddata.forEach((word) => {
 			if(word.found === true){
@@ -233,6 +287,26 @@
 				dragged.remove();
 			}
 	    }
+		
+		/*
+		
+		todo
+		
+		rotate arrow for exploring thinking
+		
+		make exploring thinking change opacity on thinking container
+		
+		create exploring container with underlined words
+		
+		mark words as found when found
+		
+		work on being able to continue to move words around
+		
+		check accuracy when filled out
+		
+		lock in when correctly filled out
+		
+		*/
 		
 	</script>
 	
