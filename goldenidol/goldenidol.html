@@ -8,16 +8,13 @@
 			font-family: "VT323";
 			font-size: 34px;
 			background-color:black;
-			padding:3% 5%;
 			transform-style: preserve-3d;
+			margin:0;
+			padding:3% 5%;
 		}
 		
-		.textholder {
-			color: #433047;
-			background-color:#d4dff9;
-			font-size:1em;
-			padding:3% 5%;
-			height:300px;
+		.holder{
+			position:relative;
 		}
 		
 		.field{
@@ -77,12 +74,8 @@
 			background-image: linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3))
 		}
 		
-		.bottomholder{
-			display:flex;
-			background-color:#0c1408;
-			padding:8px;
-			box-sizing: content-box;
-			height:100px;
+		.hiding{
+			opacity:0;
 		}
 		
 		.gotwordsholder{
@@ -111,11 +104,33 @@
 		  border-color: #918e73 #7b7355 #7b7355 #918e73;
 		}
 		
+		#exploring{
+			width:100%;
+			height:400px;
+			position:absolute;
+			background-image: url('img/bg.gif');
+			background-repeat: repeat;
+		}
+		
+		#thinking{
+			width:100%;
+			height:400px;
+			display:flex;
+		}
+		
 		.scrollnotes{
 			background-color:#25243a;
 			text-align:center;
 			color:#fffeff;
 			font-size:.8em;
+		}
+		
+		.textholder {
+			color: #433047;
+			background-color:#d4dff9;
+			font-size:1em;
+			padding:3% 5%;
+			flex-grow:1;
 		}
 		
 		.exploringthinking{
@@ -126,35 +141,104 @@
 			background-color:#25243a;
 			font-size:.8em;
 			display:inline;
+			padding: 0px 10px;
 		}
 		
 		.exploringthinking:hover{
 			color:#e6eaa0;
+			cursor:pointer;
+		}
+		
+		#arrow{
+			display: inline-block;
+			font-size:1.2em;
+			  transform-origin: center;
+			  transition: transform 0.5s ease;
+			}
+		
+		.rotate {
+		  transform: rotateZ(180deg);
+		}
+		
+		.bottomholder{
+			display:flex;
+			background-color:#0c1408;
+			padding:8px;
+			box-sizing: content-box;
+			height:100px;
+		}
+		
+		.sparkle{
+			display:inline-block;
+			cursor:pointer;
+			transform:translateZ(1px);
+		}
+		
+		.sparkle:hover;{
+			cursor:zoom-in;
+		}
+		
+		.explorewindow{
+			display:inline-block;
+			background-color:#26233c;
+			color:#abb1c1;
+			padding:8px 20px;
+			font-size:1em;
+		}
+		
+		.wordtoget{
+		    display:inline-block;
+			text-decoration: underline red;
+			cursor:pointer;
+			transform:translateZ(1px);
+		}
+		
+		.wordtoget:hover;{
+		    cursor:grab;
+		}
+		
+		.wordwasgot{
+			text-decoration: dotted underline red;
 		}
 		
 	</style>
 </head>
 <body>
 	
-	<div style="display:flex;">
+	<div class="holder">
+	
+	<div id="exploring">
+		
+		<div class="sparkle" style="position:relative;display:inline-block;left:20%;top:50%;">✧</div>
+		
+		<div class="explorewindow border">hey <span class="wordtoget" id="Albert">Albert</span> blah blah blah <span class="wordtoget" id="Thumb">Thumb</span></div>
+		
+	</div>
+	
+	<div id="thinking" class="hiding">
+		
 		<div style="display:flex;flex-direction:column;flex-grow:1;flex-basis:0;">
 			<div class="scrollnotes border">The scroll is not filled in.</div>
 			<div class="textholder border">
 				<span class="field empty name" id="Albert"></span><span class="field empty name" id="Cloudsley"></span> pushed <span class="field empty name" id="Oberon"></span><span class="field empty name" id="Geller"></span> from a cliff in the <span class="field empty noun" id="Horn"></span> of <span class="field empty noun" id="Thumb"></span> on Monkey Paw Island.
 			</div>
 		</div>
-		<div class="border" style="flex-grow:1;flex-basis:0;">
-			testing...
+		<div style="display:flex;flex-direction:column;flex-grow:1;flex-basis:0;">
+			<div class="scrollnotes border">The scroll is not filled in.</div>
+			<div class="textholder border">testing...</div>
 		</div>
-	</div>
 
+	</div>
+</div>
 	
 	<div class="bottomholder border" id="bottomholder">
 		<div id="wordholder" style="flex-grow: 1;"></div>
 		<div class="gotwordsholder" id="gotwordsholder"><span id="gotwordsnum"></span>/<span id="maxgotwords"></span></div>
 	</div>
 	
-	<div class="exploringthinking border" id="exploringthinking">Exploring <span id="arrow">⟻</span> Thinking</div>
+	<div class="exploringthinking border" id="exploringthinking">Exploring <span id="arrow">⟻&emsp;</span> Thinking</div>
+	
+
 	
 	<script>
 		
@@ -192,14 +276,20 @@
 		]
 
 		const holes = document.querySelectorAll('.empty');
-		var bottomholder = document.getElementById('bottomholder');
+
+		const exploring = document.getElementById('exploring');
+		const thinking = document.getElementById('thinking');
+		const arrow = document.getElementById('arrow');
 		var expthink = document.getElementById('exploringthinking');
+		var bottomholder = document.getElementById('bottomholder');
 		var wordholder = document.getElementById('wordholder');
+		
 		var gotwordsholder = document.getElementById('gotwordsholder');
 		var gotwordsnumholder = document.getElementById('gotwordsnum');
 		var maxgotwordsholder = document.getElementById('maxgotwords');
 		var gotwordsnum = 0;
 		var maxgotwords = worddata.length;
+		
 		var dragged = null;
 		
 		var bottomrect = bottomholder.getBoundingClientRect();
@@ -208,30 +298,57 @@
 		var expthinkrect = expthink.getBoundingClientRect();
 		var expthinkwidth = Math.round(expthinkrect.width);
 		var expthinkheight = Math.round(expthinkrect.height);
-		expthink.style.top = (Math.round((bottomrect.top) - (expthinkheight))-13).toString() + "px"
-		expthink.style.left = (Math.round((bottomrect.left) + (.5 * bottomwidth) - (.5 * expthinkwidth))-8).toString() + "px"
+		expthink.style.top = (Math.round((bottomrect.top) - (expthinkheight))).toString() + "px"
+		expthink.style.left = (Math.round((bottomrect.left) + (.5 * bottomwidth) - (.5 * expthinkwidth))).toString() + "px"
+		
+		const wordstoget = document.querySelectorAll('.wordtoget');
 		
 		worddata.forEach((word) => {
 			if(word.found === true){
-				var newword = document.createElement("span");
-				newword.classList.add("field","word");
-				newword.classList.add(word.type);
-				newword.textContent = word.word;
-				newword.draggable = true;
-				wordholder.appendChild(newword);
-		        newword.addEventListener('dragstart', dragStart);
-		        newword.addEventListener('dragend', dragEnd);
-				gotwordsnum++;
+				addword(word);
 			}
 		});
+		
+		function addword(word){
+			var newword = document.createElement("span");
+			newword.classList.add("field","word");
+			newword.classList.add(word.type);
+			newword.textContent = word.word;
+			newword.draggable = true;
+			wordholder.appendChild(newword);
+	        newword.addEventListener('dragstart', dragStart);
+	        newword.addEventListener('dragend', dragEnd);
+			gotwordsnum++;
+			maxgotwordsholder.textContent = maxgotwords.toString();
+			gotwordsnumholder.textContent = gotwordsnum.toString();
+		}
 		
 	    holes.forEach(hole => {
 	        hole.addEventListener('dragover', dragOver);
 	        hole.addEventListener('drop', drop);
 	    });
 		
-		maxgotwordsholder.textContent = maxgotwords.toString();
-		gotwordsnumholder.textContent = gotwordsnum.toString();
+	    wordstoget.forEach(word => {
+	        word.addEventListener('click', getword)
+	    });
+		
+		function getword(event){
+			console.log(event.target);
+			event.target.classList.remove('wordtoget');
+			event.target.classList.add('wordwasgot');
+			event.target.removeEventListener('click',getword)
+			findentry(event.target.id).found = true;
+			addword(findentry(event.target.id));
+		}
+		
+		function findentry(thisword) {
+		  for (var i = 0; i < worddata.length; i++) {
+		    if (worddata[i].word === thisword) {
+		      return worddata[i];
+		    }
+		  }
+		  return null;
+		}
 
 	    function dragStart(event) {
 			const nameghost = document.createElement("span");
@@ -288,17 +405,17 @@
 			}
 	    }
 		
+		expthink.addEventListener('click', function() {
+		  arrow.classList.toggle('rotate');
+		  exploring.classList.toggle('hiding');
+		  thinking.classList.toggle('hiding');
+		});
+		
 		/*
 		
-		todo
+		todo:
 		
-		rotate arrow for exploring thinking
-		
-		make exploring thinking change opacity on thinking container
-		
-		create exploring container with underlined words
-		
-		mark words as found when found
+		open and close underline container
 		
 		work on being able to continue to move words around
 		
