@@ -310,7 +310,7 @@
 	
 	<div class="select" style="height:65px;border-radius:0px;margin:0px;">
 		
-		<audio autoplay volume=".5" id="audioplayer">
+		<audio autoplay volume="1" id="audioplayer">
 		  <source src="mp3/eboyfriend.mp3" type="audio/mpeg" data-song="song" id="audiosource">
 		</audio>
 		
@@ -352,7 +352,7 @@
   	"air": "40",
   	"voltage": "20",
 				"bpm":"150",
-				"img":"img/1767.png",
+				"img":"img/joyfulprize.jpg",
 				"mp3":"mp3/joyfulprize.mp3"
 			},
 			{
@@ -424,7 +424,7 @@
   	"air": "60",
   	"voltage": "80",
 				"bpm":"140",
-				"img":"img/1767.png",
+				"img":"img/dodonpa.png",
 				"mp3":"mp3/dodonpa.mp3"
 			},
 			{
@@ -813,6 +813,8 @@
 			
 			audioPlayer.load();
 			audioPlayer.play();
+			
+			audioPlayer.volume = 0.05;
 		}
 		
 		function findIndex(entry) {
