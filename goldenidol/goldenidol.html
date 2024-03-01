@@ -8,13 +8,13 @@
 			font-family: "VT323";
 			font-size: 34px;
 			background-color:black;
-			transform-style: preserve-3d;
 			margin:0;
 			padding:3% 5%;
 		}
 		
 		.holder{
 			position:relative;
+			height:500px;
 		}
 		
 		.field{
@@ -25,14 +25,12 @@
 			border-radius:8px;
 			margin: 0px 4px;
 			text-align:center;
-			transform:translateZ(1px);
 		}
 		
 		.empty {
 			height: .8em;
 			border:1px solid black;
 			transform: translateY(4px);
-			transform:translateZ(1px);
 		}
 		
 		.filled-border{
@@ -74,14 +72,12 @@
 			background-image: linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3))
 		}
 		
-		.hiding{
-			opacity:0;
+		.hidden{
+			display:none !important;
 		}
 		
-		.gotwordsholder{
-			color:#858692;
-			flex-basis:10%;
-			text-align:right;
+		.overlay{
+			
 		}
 		
 		.border{
@@ -102,20 +98,21 @@
 		  border-width: 2px;
 		  border-style: solid;
 		  border-color: #918e73 #7b7355 #7b7355 #918e73;
+		  pointer-events: none;
 		}
 		
 		#exploring{
 			width:100%;
-			height:400px;
+			height:100%;
 			position:absolute;
 			background-image: url('img/bg.gif');
 			background-repeat: repeat;
 		}
 		
 		#thinking{
-			width:100%;
-			height:400px;
 			display:flex;
+			width:100%;
+			height:100%;
 		}
 		
 		.scrollnotes{
@@ -168,54 +165,69 @@
 			height:100px;
 		}
 		
+		.gotwordsholder{
+			color:#858692;
+			flex-basis:10%;
+			text-align:right;
+		}
+		
 		.sparkle{
 			display:inline-block;
-			cursor:pointer;
-			transform:translateZ(1px);
+			cursor: pointer;
+			position:relative;
 		}
 		
 		.sparkle:hover;{
-			cursor:zoom-in;
+		}
+		
+		.red{
+			
 		}
 		
 		.explorewindow{
 			display:inline-block;
+			position:absolute;
+			top:50%;
+			left:50%;
 			background-color:#26233c;
 			color:#abb1c1;
 			padding:8px 20px;
 			font-size:1em;
+			max-width:50%;
 		}
 		
 		.wordtoget{
 		    display:inline-block;
 			text-decoration: underline red;
-			cursor:pointer;
-			transform:translateZ(1px);
+			cursor:grab;
 		}
 		
 		.wordtoget:hover;{
-		    cursor:grab;
 		}
 		
 		.wordwasgot{
 			text-decoration: dotted underline red;
 		}
 		
+		*{
+			outline: 1px solid red;
+		}
+		
 	</style>
 </head>
 <body>
-	
+
 	<div class="holder">
 	
 	<div id="exploring">
 		
-		<div class="sparkle" style="position:relative;display:inline-block;left:20%;top:50%;">✧</div>
+		<div class="sparkle" style="left:20%;top:50%;" data-target="window1">✧</div>
 		
-		<div class="explorewindow border">hey <span class="wordtoget" id="Albert">Albert</span> blah blah blah <span class="wordtoget" id="Thumb">Thumb</span></div>
+		<div class="explorewindow border hidden" id="window1">hey <span class="wordtoget" id="Albert">Albert</span> blah blah blah <span class="wordtoget" id="Thumb">Thumb</span></div>
 		
 	</div>
 	
-	<div id="thinking" class="hiding">
+	<div id="thinking" class="hidden">
 		
 		<div style="display:flex;flex-direction:column;flex-grow:1;flex-basis:0;">
 			<div class="scrollnotes border">The scroll is not filled in.</div>
@@ -299,10 +311,26 @@
 		expthink.style.top = (Math.round((bottomrect.top) - (expthinkheight))).toString() + "px"
 		expthink.style.left = (Math.round((bottomrect.left) + (.5 * bottomwidth) - (.5 * expthinkwidth))).toString() + "px"
 		
+		const sparkles = document.querySelectorAll(".sparkle");
+
+		sparkles.forEach(sparkle => {
+			console.log("sparkling")
+		  sparkle.addEventListener('click', function() {
+			  console.log("clicking")
+		    const targetWindowId = sparkle.dataset.target;
+		    const targetWindow = document.getElementById(targetWindowId);
+		    if (targetWindow) {
+		      targetWindow.classList.toggle('hidden');
+			  console.log(targetWindow)
+		    }
+		  });
+		});
+		
 		const wordstoget = document.querySelectorAll('.wordtoget');
 		
 		worddata.forEach((word) => {
 			if(word.found === true){
+				console.log("adding "+word)
 				addword(word);
 			}
 		});
@@ -405,15 +433,17 @@
 		
 		expthink.addEventListener('click', function() {
 		  arrow.classList.toggle('rotate');
-		  exploring.classList.toggle('hiding');
-		  thinking.classList.toggle('hiding');
+		  exploring.classList.toggle('hidden');
+		  thinking.classList.toggle('hidden');
 		});
 		
 		/*
 		
 		todo:
 		
-		open and close underline container
+		change underline container to absolute
+		
+		open and close underline container with overlay
 		
 		work on being able to continue to move words around
 		
