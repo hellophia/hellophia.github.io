@@ -2,7 +2,7 @@
 <head>
 	<style>
 		
-		@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+		@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=VT323&display=swap');
 		
 		body {
 			font-family: "VT323";
@@ -17,68 +17,51 @@
 			height:500px;
 		}
 		
-		.field{
+		.hole{
 			display: inline-block;
-			width:100px;
-			font-size: .8em;
-			color:#fffffb;
-			border-radius:8px;
-			margin: 0px 4px;
-			text-align:center;
+			margin: 0px 5px;
 		}
-		
 		.empty {
+			border-radius:8px;
+			width:120px;
+			font-size: .8em;
 			height: .8em;
 			border:1px solid black;
 			transform: translateY(4px);
 		}
-		
-		.filled-border{
+		.filled{
 			display:inline-block;
 			background-color: #c1b784;
 			border:2px solid #c1b784;
-			margin: 0px 10px;
+			margin: 0px 4px;
 			box-shadow: 0px 1px 1px #999c85;
 		}
 		
-		.filled {
-			border-radius:8px;
-			background-color: #68443b;
-			margin:0;
-		}
-		
 		.word{
-			cursor: grab;
+			display: inline-block;
+			width:120px;
+			font-size: .8em;
+			color:#fffffb;
+			border-radius:8px;
+			text-align:center;
+			margin: 0px 5px;
 		}
+		.filled-word {margin:0;}
+		.grabbable{cursor: grab;}
+		.grabbable:hover{background-image: linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3));}
+		.name{background-color: #68443b;}
+		.noun{background-color: #8f7b42;}
+		.verb{background-color: #4292af;}
 		
-		.name{
-			background-color: #68443b;
-		}
-		
-		.noun{
-			background-color: #8f7b42;
-		}
-		
-		.dragging {
-			opacity:0;
-		}
-		
+		.dragging {opacity:0;}
 		.ghost{
 			position:absolute;
 			top:-1000px;
 		}
 		
-		.darken {
-			background-image: linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3))
-		}
+		.darken {background-image: linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3));}
 		
-		.hidden{
-			display:none !important;
-		}
-		
-		.overlay{
-			
-		}
+		.hidden{display:none !important;}
 		
 		.border{
 			position:relative;
@@ -86,7 +69,6 @@
 			border-style: solid;
 			border-color: #7b7355 #918e73 #918e73 #7b7355;
 		}
-		
 		.border::after{
   		  content: "";
   		  position: absolute;
@@ -115,12 +97,14 @@
 			height:100%;
 		}
 		
-		.scrollnotes{
-			background-color:#25243a;
-			text-align:center;
-			color:#fffeff;
-			font-size:.8em;
-		}
+		.scrollnotes{text-align:center;
+			font-size:.8em;}
+		.notfilled{background-color:#25243a;
+			color:#fffeff;}
+		.incorrect{background-color:#2c0f1d;
+			color:#9e4249;}
+		.twoorless{background-color:#262301;
+			color:#f3ff1f;}
 		
 		.textholder {
 			color: #433047;
@@ -149,8 +133,8 @@
 		#arrow{
 			display: inline-block;
 			font-size:1.2em;
-			  transform-origin: center;
-			  transition: transform 0.5s ease;
+			transform-origin: center;
+			transition: transform 0.5s ease;
 			}
 		
 		.rotate {
@@ -170,23 +154,11 @@
 			flex-basis:10%;
 			text-align:right;
 		}
-		
-		.sparkle{
-			display:inline-block;
-			cursor: pointer;
-			position:relative;
-			color:#ffec51;
-			text-align:center;
-			height:50px;
-			width:50px;
-			line-height:50px;
+		.green-bg{
+			background-color:#0a1a08;
 		}
-		
-		.sparkle:hover;{
-		}
-		
-		.red{
-			
+		.green-text{
+			color:#8ac254;}
 		}
 		
 		.explorewindow{
@@ -194,6 +166,7 @@
 			position:absolute;
 			top:50%;
 			left:50%;
+			transform: translate(-50%, -50%);
 			background-color:#26233c;
 			color:#abb1c1;
 			padding:8px 20px;
@@ -207,13 +180,7 @@
 			text-decoration: underline red;
 			cursor:grab;
 		}
-		
-		.wordtoget:hover;{
-		}
-		
-		.wordwasgot{
-			text-decoration: dotted underline red;
-		}
+		.wordwasgot{text-decoration: dotted underline red;}
 		
 		.overlay {
 		  position: absolute;
@@ -221,15 +188,28 @@
 		  left: 0;
 		  width: 100%;
 		  height: 100%;
-		  background-color: rgba(0, 0, 100, 0.5);
+		  //background-color: rgba(0, 0, 100, 0.5);
 		}
 		
 		.invisible {
 			visibility:hidden;
 		}
 		
+		.sparkle{
+			display:inline-block;
+			cursor: pointer;
+			position:relative;
+			color:#ffec51;
+			text-align:center;
+			height:50px;
+			width:50px;
+			line-height:50px;
+			font-family:"Noto Sans";
+		}
+		.red{color:#fe1e3f;}
+		
 		*{
-			outline: 1px solid red;
+			//outline: 1px solid red;
 		}
 		
 	</style>
@@ -238,37 +218,38 @@
 
 	<div class="holder">
 	
-	<div id="exploring">
+		<div id="exploring">
 		
-		<div class="sparkle" style="left:20%;top:50%;" id="sparkle" data-target="window1">✧</div>
+			<div style="left:20%;top:50%;" class="sparkle" id="sparkle" data-target="window1">·</div>
 		
-		<div id="overlay" class="overlay invisible">
+			<div id="overlay" class="overlay invisible">
 			
-		<div class="explorewindow border hidden" id="window1">hey <span class="wordtoget" id="Albert">Albert</span> blah blah blah <span class="wordtoget" id="Thumb">Thumb</span></div>
-		
-		</div>
-		
-	</div>
+			<div class="explorewindow border hidden" id="window1">hey <span class="wordtoget" id="Albert">Albert</span> blah blah blah <span class="wordtoget" id="Thumb">Thumb</span> and also <span class="wordtoget" id="Geller">Geller</span> </div>
 	
-	<div id="thinking" class="hidden">
+		</div>
 		
-		<div style="display:flex;flex-direction:column;flex-grow:1;flex-basis:0;">
-			<div class="scrollnotes border">The scroll is not filled in.</div>
-			<div class="textholder border">
-				<span class="field empty name" id="Albert"></span><span class="field empty name" id="Cloudsley"></span> pushed <span class="field empty name" id="Oberon"></span><span class="field empty name" id="Geller"></span> from a cliff in the <span class="field empty noun" id="Horn"></span> of <span class="field empty noun" id="Thumb"></span> on Monkey Paw Island.
+		</div>
+	
+		<div id="thinking" class="hidden">
+		
+			<div style="display:flex;flex-direction:column;flex-grow:1;flex-basis:0;">
+				<div class="scrollnotes notfilled border">The scroll is not filled in.</div>
+				<div class="textholder border">
+					<span class="hole empty name" id="Albert"></span><span class="hole empty name" id="Cloudsley"></span> pushed <span class="hole empty name" id="Oberon"></span><span class="hole empty name" id="Geller"></span> from a cliff in the <span class="hole empty noun" id="Horn"></span> of <span class="hole empty noun" id="Thumb"></span> on Monkey Paw Island.
+				</div>
 			</div>
-		</div>
-		<div style="display:flex;flex-direction:column;flex-grow:1;flex-basis:0;">
-			<div class="scrollnotes border">The scroll is not filled in.</div>
-			<div class="textholder border">testing...</div>
-		</div>
+			<div style="display:flex;flex-direction:column;flex-grow:1;flex-basis:0;">
+				<div class="scrollnotes notfilled border">The scroll is not filled in.</div>
+				<div class="textholder border">testing...</div>
+			</div>
 
+		</div>
+		
 	</div>
-</div>
 	
 	<div class="bottomholder border" id="bottomholder">
 		<div id="wordholder" style="flex-grow: 1;"></div>
-		<div class="gotwordsholder" id="gotwordsholder"><span id="gotwordsnum"></span>/<span id="maxgotwords"></span></div>
+		<div class="gotwordsholder" id="gotwordsholder"></div>
 	</div>
 	
 	<div class="exploringthinking border" id="exploringthinking">Exploring <span id="arrow">⟻&emsp;</span> Thinking</div>
@@ -309,26 +290,23 @@
 			}
 		]
 
-		// holes in thinking where words need to go
+		// holes in thinking, where words need to go, so we can make them drop targets
 		const holes = document.querySelectorAll('.empty');
 
 		// various divs
 		const exploring = document.getElementById('exploring');
-		const thinking = document.getElementById('thinking');
-		const arrow = document.getElementById('arrow');
-		var expthink = document.getElementById('exploringthinking');
+		var windows = document.querySelectorAll('.explorewindow');
 		const overlay = document.getElementById('overlay');
 		
-		var windows = document.querySelectorAll('.explorewindow');
+		const thinking = document.getElementById('thinking');
 		
-		// divs in the bottom of the screen
+		var expthink = document.getElementById('exploringthinking');
+		const arrow = document.getElementById('arrow');
+		
 		var bottomholder = document.getElementById('bottomholder');
 		var wordholder = document.getElementById('wordholder');
-		
-		// changeable numbers
+
 		var gotwordsholder = document.getElementById('gotwordsholder');
-		var gotwordsnumholder = document.getElementById('gotwordsnum');
-		var maxgotwordsholder = document.getElementById('maxgotwords');
 		var gotwordsnum = 0;
 		var maxgotwords = worddata.length;
 		
@@ -344,6 +322,9 @@
 		expthink.style.top = (Math.round((bottomrect.top) - (expthinkheight))).toString() + "px"
 		expthink.style.left = (Math.round((bottomrect.left) + (.5 * bottomwidth) - (.5 * expthinkwidth))).toString() + "px"
 		
+		// words that need to be grabbed
+		const wordstoget = document.querySelectorAll('.wordtoget');
+		
 		// sparkles which open explore windows
 		const sparkles = document.querySelectorAll(".sparkle");
 		const sparkle = document.getElementById('sparkle');
@@ -353,11 +334,11 @@
 		    const targetWindowId = sparkle.dataset.target;
 		    const targetWindow = document.getElementById(targetWindowId);
 			targetWindow.classList.toggle('hidden');
-			console.log(targetWindow);
 			overlay.classList.toggle('invisible');
 		  });
 		});
 		
+		// exploring windows don't take click events for the overlay
 		windows.forEach(window => {
 			window.addEventListener('click', function(event) {
 			  event.stopPropagation();
@@ -371,14 +352,10 @@
 			});
 			overlay.classList.toggle('invisible');
 		});
-
-		// words that need to be grabbed
-		const wordstoget = document.querySelectorAll('.wordtoget');
 		
 		// add words if they are already marked as found
 		worddata.forEach((word) => {
 			if(word.found === true){
-				console.log("adding "+word)
 				addword(word);
 			}
 		});
@@ -386,23 +363,25 @@
 		// how to add words to the gotwordsholder
 		function addword(word){
 			var newword = document.createElement("span");
-			newword.classList.add("field","word");
+			newword.classList.add("word","grabbable");
 			newword.classList.add(word.type);
 			newword.textContent = word.word;
 			newword.draggable = true;
 			wordholder.appendChild(newword);
 	        newword.addEventListener('dragstart', dragStart);
 	        newword.addEventListener('dragend', dragEnd);
-			gotwordsnum++;
-			maxgotwordsholder.textContent = maxgotwords.toString();
-			gotwordsnumholder.textContent = gotwordsnum.toString();
+			gotallwordschecker();			
 		}
 		
-		// make holes able to recieve words
+		// make it so holes can recieve words
 	    holes.forEach(hole => {
 	        hole.addEventListener('dragover', dragOver);
 	        hole.addEventListener('drop', drop);
 	    });
+		
+		// wordholder can also recieve words
+		wordholder.addEventListener('dragover', dragOver);
+		wordholder.addEventListener('drop', wordholderdrop);
 		
 		// make words able to be got
 	    wordstoget.forEach(word => {
@@ -411,12 +390,21 @@
 		
 		// how to get a word
 		function getword(event){
-			console.log(event.target);
 			event.target.classList.remove('wordtoget');
 			event.target.classList.add('wordwasgot');
 			event.target.removeEventListener('click',getword)
-			findentry(event.target.id).found = true;
+			findentry(event.target.textContent).found = true;
 			addword(findentry(event.target.id));
+		}
+		
+		// check to see if all words were got
+		function gotallwordschecker(){
+			gotwordsnum++;
+			gotwordsholder.textContent = (gotwordsnum.toString()+" / "+maxgotwords.toString());
+			if (gotwordsnum === maxgotwords){
+				gotwordsholder.classList.add("green-text");
+				wordholder.classList.add("green-bg");
+			}
 		}
 		
 		// how to look up words in the js object
@@ -432,29 +420,30 @@
 		// click and drag behavior
 
 	    function dragStart(event) {
+			
+			dragged = event.target;
+			
 			const nameghost = document.createElement("span");
-			nameghost.classList.add("field","word","darken");
-			if (event.target.classList.contains("name")){
+			nameghost.classList.add("word","darken");
+			if (dragged.classList.contains("name")){
 				nameghost.classList.add("name");
 			}
-			else if (event.target.classList.contains("noun")){
+			else if (dragged.classList.contains("noun")){
 				nameghost.classList.add("noun");
 			}
 			nameghost.id = "ghost";
 			nameghost.classList.add("ghost");
-			nameghost.textContent = event.target.textContent;
+			nameghost.textContent = dragged.textContent;
 			document.body.appendChild(nameghost);
 			event.dataTransfer.setDragImage(nameghost, 0, 0);
-			event.target.classList.add('dragging');
-			dragged = event.target;
+			dragged.classList.add('dragging');
+			
 	    }
 
 	    function dragEnd(event) {
 			event.target.classList.remove('dragging');
 			var ghost = document.getElementById("ghost");
-			if (ghost.parentNode) {
-				ghost.parentNode.removeChild(ghost);
-			}
+			ghost.parentNode.removeChild(ghost);
 	    }
 
 	    function dragOver(event) {
@@ -464,27 +453,97 @@
 	    function drop(event) {
 	        event.preventDefault();
 			
-			console.log(dragged);
+			// if the type of the target empty field matches the type of the dragged word
+			if (
+				(event.target.classList.contains("noun") && dragged.classList.contains("noun"))
+				||
+				(event.target.classList.contains("name") && dragged.classList.contains("name")))
+				{
+					
+					restoreemptyfield();
+					
+					dragged.classList.add("filled-word");
+					
+					event.target.className = '';
+					event.target.classList.add("hole","filled");
+					
+					event.target.appendChild(dragged.parentNode.removeChild(dragged));
+					
+					event.target.removeEventListener('dragover', dragOver);
+					event.target.removeEventListener('drop', drop);
+			}
 			
-			if (event.target.id === dragged.textContent){
-				event.target.className = '';
-				event.target.classList.add("filled-border");
-				const filled = document.createElement("span");
-				filled.classList.add("field","filled");
+			successchecker(event);
+			
+	    }
+		
+		function wordholderdrop(event){
+			
+			restoreemptyfield();
+			
+			dragged.classList.remove("filled-word");
+			
+			event.target.appendChild(dragged.parentNode.removeChild(dragged));
+		}
+		
+		// return an empty field to its original state
+		function restoreemptyfield(){
+			if (dragged.parentNode.classList.contains('filled')){
+				dragged.parentNode.className = '';
+				dragged.parentNode.classList.add("hole","empty");
 				if (dragged.classList.contains("name")){
-					filled.classList.add("name");
+					dragged.parentNode.classList.add("name");
 				}
 				else if (dragged.classList.contains("noun")){
-					filled.classList.add("noun");
+					dragged.parentNode.classList.add("noun");
 				}
-				filled.textContent = dragged.textContent;
-				event.target.appendChild(filled);
-			    event.target.removeEventListener('dragover', dragOver);
-			    event.target.removeEventListener('drop', drop);
-			
-				dragged.remove();
+				dragged.parentNode.addEventListener('dragover', dragOver);
+				dragged.parentNode.addEventListener('drop', drop);
 			}
-	    }
+		}
+		
+		// check if the filled words are correct
+		function successchecker(event){
+			var holestocheck = event.target.parentNode.querySelectorAll('.hole');
+			var scrollnote = event.target.parentNode.parentNode.querySelector('.scrollnotes')
+			var filled = 0;
+			var correct = 0;
+			
+			holestocheck.forEach(hole =>{
+				if (hole.textContent.trim() !== ''){
+					filled++
+				}
+				if (hole.id === hole.textContent){
+					correct++
+				}
+			});
+			
+			if (filled === holestocheck.length){
+				if (correct === holestocheck.length){
+					console.log("all correct");
+					holestocheck.forEach(hole =>{
+						var holeword = hole.childNodes[0];
+						holeword.classList.remove('grabbable')
+				        holeword.addEventListener('dragstart', dragStart);
+				        holeword.addEventListener('dragend', dragEnd);
+						holeword.draggable = false;
+						scrollnote.textContent = "The scroll is filled in correctly.";
+						scrollnote.classList.remove("unfilled");
+						scrollnote.classList.add("green-bg","green-text");
+					});
+				}
+				else if (correct + 2 >= holestocheck.length){
+					scrollnote.textContent = "Two or less slots are incorrect.";
+					scrollnote.classList.remove("unfilled");
+					scrollnote.classList.add("twoorless");
+				}
+				else {
+					scrollnote.textContent = "The scroll is not filled in correctly.";
+					scrollnote.classList.remove("unfilled");
+					scrollnote.classList.add("incorrect");
+				}
+			}
+		}
 		
 		// toggle between exploring and thinking
 		expthink.addEventListener('click', function() {
@@ -493,18 +552,19 @@
 		  thinking.classList.toggle('hidden');
 		});
 		
-		const characters = ['·', '⊹', '+', '✦', '✧', '○', '◌', ''];
-
-		const fontSizes = ['60%', '50%', '80%', '100%', '150%', '60%', '40%','100%'];
-
+		// sparkling
+		const characters = ['·','˖','✜','×','+','╳','┼','✛','⊹',''];
+		const fontsize = ['100%','100%','50%','80%','120%','100%','100%','120%','100%','100%'];
+		const lineheight = ['50px','35px','50px','50px','50px','50px','50px','50px','45px','50px'];
 		let frameIndex = 0;
 
 		function animateSparkle() {
 			setInterval(() => {
 				sparkle.textContent = characters[frameIndex];
-				sparkle.style.fontSize = fontSizes[frameIndex];
+				sparkle.style.fontSize = fontsize[frameIndex];
+				sparkle.style.lineHeight = lineheight[frameIndex];
 				frameIndex = (frameIndex + 1) % characters.length;
-			}, 250);
+			}, 200);
 		}
 
 		animateSparkle();
@@ -513,13 +573,9 @@
 		
 		todo:
 		
-		make sparkle red
+		make wordholder green when got all words
 		
-		work on being able to continue to move words around
-		
-		check accuracy when filled out
-		
-		lock in when correctly filled out
+		make sparkle red when words got
 		
 		*/
 		
