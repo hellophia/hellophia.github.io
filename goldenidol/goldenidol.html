@@ -6,7 +6,7 @@
 		
 		body {
 			font-family: "VT323";
-			font-size: 34px;
+			font-size: 28px;
 			background-color:black;
 			margin:0;
 			padding:3% 5%;
@@ -17,36 +17,36 @@
 			height:500px;
 		}
 		
-		.hole{
+		.field{
 			display: inline-block;
-			margin: 0px 5px;
-		}
-		.empty {
-			border-radius:8px;
-			width:120px;
+			width:180px;
 			font-size: .8em;
-			height: .8em;
-			border:1px solid black;
+			border-radius:8px;
+			height:20px;
+			line-height:20px;
+		}
+		
+		.hole{
 			transform: translateY(4px);
 		}
+		.empty {
+			border:1px solid black;
+			margin: 0px 1px;
+		}
 		.filled{
-			display:inline-block;
 			background-color: #c1b784;
 			border:2px solid #c1b784;
-			margin: 0px 4px;
 			box-shadow: 0px 1px 1px #999c85;
+			border-radius:0px;
+			transform: translateY(-2px);
 		}
 		
 		.word{
-			display: inline-block;
-			width:120px;
-			font-size: .8em;
 			color:#fffffb;
-			border-radius:8px;
 			text-align:center;
-			margin: 0px 5px;
+			margin: 2px;
 		}
-		.filled-word {margin:0;}
+		.filled-word {margin: 0;}
 		.grabbable{cursor: grab;}
 		.grabbable:active {cursor: grabbing;}
 		.grabbable:hover{background-image: linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3));}
@@ -110,9 +110,21 @@
 		.textholder {
 			color: #433047;
 			background-color:#d4dff9;
-			font-size:1em;
 			padding:3% 5%;
 			flex-grow:1;
+		}
+		.identityholder {
+			background-color:#0c1408;
+			padding:3% 5%;
+			flex-grow:1;
+		}
+		.faceholder{
+			border:2px #9a9d69 solid;
+			width:100px;
+			height:100px;
+			border-radius:50px;
+			display:inline-block;
+			margin:0 40px;
 		}
 		
 		.exploringthinking{
@@ -121,7 +133,6 @@
 			left:0;
 			color:#b8bb7a;
 			background-color:#25243a;
-			font-size:.8em;
 			display:inline;
 			padding: 0px 10px;
 		}
@@ -145,7 +156,7 @@
 		.bottomholder{
 			display:flex;
 			background-color:#0c1408;
-			padding:8px;
+			padding:6px;
 			box-sizing: content-box;
 			height:100px;
 		}
@@ -167,7 +178,6 @@
 			background-color:#26233c;
 			color:#abb1c1;
 			padding:8px 20px;
-			font-size:1em;
 			max-width:50%;
 			visibility:visible;
 		}
@@ -205,6 +215,14 @@
 		}
 		.red{color:#fe1e3f;}
 		
+		table {
+		    border-collapse: collapse;
+			display:block;
+		}
+		td{
+			padding:2px;
+		}
+		
 		*{
 			//outline: 1px solid red;
 		}
@@ -232,12 +250,21 @@
 			<div style="display:flex;flex-direction:column;flex-grow:1;flex-basis:0;">
 				<div class="scrollnotes notfilled border">The scroll is not filled in.</div>
 				<div class="textholder border">
-					<span class="hole empty name" id="Albert"></span><span class="hole empty name" id="Cloudsley"></span> pushed <span class="hole empty name" id="Oberon"></span><span class="hole empty name" id="Geller"></span> from a cliff in the <span class="hole empty noun" id="Horn"></span> of <span class="hole empty noun" id="Thumb"></span> on Monkey Paw Island.
+					<span class="field hole empty name" id="sfd"></span> went over to <span class="field hole empty name" id="boob"></span>'s place to <span class="field hole empty verb" id="eat"></span> <span class="field hole empty noun" id="mac and cheese"></span>. But first, <span class="field hole empty name" id="sfd"></span> wanted to <span class="field hole empty verb" id="suck"></span> <span class="field hole empty name" id="boob"></span>'s <span class="field hole empty noun" id="tool"></span>. <span class="field hole empty name" id="boob"></span> put a <span class="field hole empty noun" id="plug"></span> in <span class="field hole empty name" id="sfd"></span>'s <span class="field hole empty noun" id="hole"></span> and used the <span class="field hole empty noun" id="idol"></span> to make <span class="field hole empty name" id="sfd"></span> <span class="field hole empty verb" id="come"></span>.
 				</div>
 			</div>
 			<div style="display:flex;flex-direction:column;flex-grow:1;flex-basis:0;">
-				<div class="scrollnotes notfilled border">The scroll is not filled in.</div>
-				<div class="textholder border">testing...</div>
+				<div class="scrollnotes notfilled border">The identities are not filled in.</div>
+				<div class="identityholder border" style="">
+					
+					<div>
+					<div class="faceholder"></div>
+					<div class="faceholder"></div>
+					</div>
+					<span class="field hole empty name" id="boob"></span>
+					<span class="field hole empty name" id="sfd"></span>
+					
+				</div>
 			</div>
 
 		</div>
@@ -256,36 +283,65 @@
 		// all gettable words and their type
 		const worddata = [
 			{
-				"word": "Albert",
-				"type": "name",
-				"found": false
-			},
-			{
-				"word": "Cloudsley",
+				"word": "sfd",
 				"type": "name",
 				"found": true
 			},
 			{
-				"word": "Oberon",
+				"word": "boob",
 				"type": "name",
 				"found": true
 			},
 			{
-				"word": "Geller",
-				"type": "name",
-				"found": false
-			},
-			{
-				"word": "Horn",
+				"word": "mac and cheese",
 				"type": "noun",
 				"found": true
 			},
 			{
-				"word": "Thumb",
+				"word": "tool",
 				"type": "noun",
-				"found": false
+				"found": true
+			},
+			{
+				"word": "hole",
+				"type": "noun",
+				"found": true
+			},
+			{
+				"word": "plug",
+				"type": "noun",
+				"found": true
+			},
+			{
+				"word": "idol",
+				"type": "noun",
+				"found": true
+			},
+			{
+				"word": "come",
+				"type": "verb",
+				"found": true
+			},
+			{
+				"word": "eat",
+				"type": "verb",
+				"found": true
+			},
+			{
+				"word": "stop",
+				"type": "verb",
+				"found": true
+			},
+			{
+				"word": "suck",
+				"type": "verb",
+				"found": true
 			}
 		]
+		
+		// have identities been found, filled in correctly?
+		identitiesfound = false;
+		identitiesfilled = false;
 
 		// holes in thinking, where words need to go, so we can make them drop targets
 		const holes = document.querySelectorAll('.empty');
@@ -360,7 +416,7 @@
 		// how to add words to the gotwordsholder
 		function addword(word){
 			var newword = document.createElement("span");
-			newword.classList.add("word","grabbable");
+			newword.classList.add("field","word","grabbable");
 			newword.classList.add(word.type);
 			newword.textContent = word.word;
 			newword.draggable = true;
@@ -422,12 +478,15 @@
 			dragged = event.target;
 			
 			const nameghost = document.createElement("span");
-			nameghost.classList.add("word","darken");
+			nameghost.classList.add("field","word","darken");
 			if (dragged.classList.contains("name")){
 				nameghost.classList.add("name");
 			}
 			else if (dragged.classList.contains("noun")){
 				nameghost.classList.add("noun");
+			}
+			else if (dragged.classList.contains("verb")){
+				nameghost.classList.add("verb");
 			}
 			nameghost.id = "ghost";
 			nameghost.classList.add("ghost");
@@ -455,20 +514,43 @@
 			if (
 				(event.target.classList.contains("noun") && dragged.classList.contains("noun"))
 				||
-				(event.target.classList.contains("name") && dragged.classList.contains("name")))
-				{
+				(event.target.classList.contains("name") && dragged.classList.contains("name"))
+				||
+				(event.target.classList.contains("verb") && dragged.classList.contains("verb"))
+				){
+					if (!(dragged.classList.contains("name")
+						&& identitiesfilled
+						&& dragged.parentNode.parentNode.classList.contains("identityholder"))){
+							restoreemptyfield();
 					
-					restoreemptyfield();
+							dragged.classList.add("filled-word");
 					
-					dragged.classList.add("filled-word");
+							event.target.className = '';
+							event.target.classList.add("field","hole","filled");
 					
-					event.target.className = '';
-					event.target.classList.add("hole","filled");
+							event.target.appendChild(dragged.parentNode.removeChild(dragged));
 					
-					event.target.appendChild(dragged.parentNode.removeChild(dragged));
-					
-					event.target.removeEventListener('dragover', dragOver);
-					event.target.removeEventListener('drop', drop);
+							event.target.removeEventListener('dragover', dragOver);
+							event.target.removeEventListener('drop', drop);
+					}
+					else{
+						event.target.className = '';
+						event.target.classList.add("field","hole","filled");
+						
+						var newname = document.createElement("span");
+						newname.classList.add("field","word","name","grabbable","filled-word");
+						newname.id = dragged.id;
+						newname.textContent = dragged.textContent;
+						event.target.appendChild(newname);
+						
+						newname.draggable = true;
+				        newname.addEventListener('dragstart', dragStart);
+				        newname.addEventListener('dragend', dragEnd);
+						newname.addEventListener('drop', worddrop);
+						
+						event.target.removeEventListener('dragover', dragOver);
+						event.target.removeEventListener('drop', drop);
+					}
 			}
 			
 			successchecker(event);
@@ -476,12 +558,13 @@
 	    }
 		
 		function wordholderdrop(event){
+			if (!(dragged.classList.contains("name") && identitiesfilled)){
+				restoreemptyfield();
 			
-			restoreemptyfield();
+				dragged.classList.remove("filled-word");
 			
-			dragged.classList.remove("filled-word");
-			
-			event.target.appendChild(dragged.parentNode.removeChild(dragged));
+				event.target.appendChild(dragged.parentNode.removeChild(dragged));
+			}
 		}
 		
 		// don't drop a word within a word
@@ -493,12 +576,15 @@
 		function restoreemptyfield(){
 			if (dragged.parentNode.classList.contains('filled')){
 				dragged.parentNode.className = '';
-				dragged.parentNode.classList.add("hole","empty");
+				dragged.parentNode.classList.add("field","hole","empty");
 				if (dragged.classList.contains("name")){
 					dragged.parentNode.classList.add("name");
 				}
 				else if (dragged.classList.contains("noun")){
 					dragged.parentNode.classList.add("noun");
+				}
+				else if (dragged.classList.contains("verb")){
+					dragged.parentNode.classList.add("verb");
 				}
 				dragged.parentNode.addEventListener('dragover', dragOver);
 				dragged.parentNode.addEventListener('drop', drop);
@@ -507,6 +593,7 @@
 		
 		// check if the filled words are correct
 		function successchecker(event){
+			
 			var holestocheck = event.target.parentNode.querySelectorAll('.hole');
 			var scrollnote = event.target.parentNode.parentNode.querySelector('.scrollnotes')
 			var filled = 0;
@@ -523,17 +610,22 @@
 			
 			if (filled === holestocheck.length){
 				if (correct === holestocheck.length){
-					console.log("all correct");
-					holestocheck.forEach(hole =>{
-						var holeword = hole.childNodes[0];
-						holeword.classList.remove('grabbable')
-				        holeword.addEventListener('dragstart', dragStart);
-				        holeword.addEventListener('dragend', dragEnd);
-						holeword.draggable = false;
-						scrollnote.textContent = "The scroll is filled in correctly.";
-						scrollnote.classList.remove("unfilled");
-						scrollnote.classList.add("green-bg","green-text");
-					});
+					scrollnote.textContent = "The scroll is filled in correctly.";
+					scrollnote.classList.remove("unfilled");
+					scrollnote.classList.add("green-bg","green-text");
+					if (!event.target.parentNode.classList.contains("identityholder")){
+						holestocheck.forEach(hole =>{
+							var holeword = hole.childNodes[0];
+							holeword.classList.remove('grabbable')
+							holeword.classList.remove('dragging')
+					        holeword.removeEventListener('dragstart', dragStart);
+					        holeword.removeEventListener('dragend', dragEnd);
+							holeword.draggable = false;
+						});
+					}
+					else {
+						identitiesfilled = true;
+					}
 				}
 				else if (correct + 2 >= holestocheck.length){
 					scrollnote.textContent = "Two or less slots are incorrect.";
@@ -576,7 +668,11 @@
 		
 		todo:
 		
+		get rid of names post-identityfilling when drag away from holder
+		
 		make sparkle red when words got
+		
+		"There are identities to be discovered."
 		
 		*/
 		
