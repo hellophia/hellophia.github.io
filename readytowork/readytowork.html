@@ -593,39 +593,40 @@
 		function addlocals(){
 			console.log("adding locals...")
 		    locals.forEach(function(entry) {
+				console.log("attempting"+ entry.local);
 				var geocoder = new google.maps.Geocoder();
-			        geocoder.geocode({'address': entry.address}, function(results, status) {
-			            if (status === 'OK') {
-			                var location = results[0].geometry.location;
-            
-			                var marker = new google.maps.Marker({
-								position: location,
-								map: map,
-								icon: {
-								        path: google.maps.SymbolPath.BACKWARD_OPEN_ARROW,
-								        fillColor: 'blue',
-								        fillOpacity: 1,
-								        strokeColor: 'blue',
-								        strokeWeight: 1,
-								        scale: 8
-								    },
-									title: entry.local
-			                });
-							
-							var infowindow = new google.maps.InfoWindow({
-								content: entry.local
-							});
-							
-							marker.addListener('click', function() {
-								infowindow.open(map, marker);
-							});
-							
-							console.log(entry.local);
-							
-			            } else {
-			                console.error('Geocode was not successful for the following reason: ' + status);
-			            }
-			        });
+		        geocoder.geocode({'address': entry.address}, function(results, status) {
+		            if (status === 'OK') {
+		                var location = results[0].geometry.location;
+        
+		                var marker = new google.maps.Marker({
+							position: location,
+							map: map,
+							icon: {
+							        path: google.maps.SymbolPath.BACKWARD_OPEN_ARROW,
+							        fillColor: 'blue',
+							        fillOpacity: 1,
+							        strokeColor: 'blue',
+							        strokeWeight: 1,
+							        scale: 8
+							    },
+								title: entry.local
+		                });
+						
+						var infowindow = new google.maps.InfoWindow({
+							content: entry.local
+						});
+						
+						marker.addListener('click', function() {
+							infowindow.open(map, marker);
+						});
+						
+						console.log("success");
+						
+		            } else {
+		                console.error('Geocode was not successful for the following reason: ' + status);
+		            }
+		        });
 		    });
 		}
 		
