@@ -591,6 +591,7 @@
 		
 		// add locals
 		function addlocals(){
+			console.log("adding locals...")
 		    locals.forEach(function(location) {
 				var geocoder = new google.maps.Geocoder();
 			        geocoder.geocode({'address': address}, function(results, status) {
@@ -618,6 +619,8 @@
 							marker.addListener('click', function() {
 								infowindow.open(map, marker);
 							});
+							
+							console.log(data['local'])
 							
 			            } else {
 			                console.error('Geocode was not successful for the following reason: ' + status);
