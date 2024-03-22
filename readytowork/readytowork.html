@@ -83,7 +83,7 @@
 		<div style="margin-left:20px">
 			<h2>LA Team Ready to Work Map</h2>
 			
-			<p>The data in this map is pulled from the Ready to Work list available on <a href="https://www.flowcode.com/page/carpenterslocal213">Local 213's flowcode</a>. It is current as of <strong>3/1/24</strong>. If you encounter errors or have design feedback, contact me at <a href="mailto:sophiafosterdimino@gmail.com">sophiafosterdimino@gmail.com</a>.</p>
+			<p>The data in this map is pulled from the Ready to Work list available on <a href="https://www.flowcode.com/page/carpenterslocal213">Local 213's flowcode</a>. It is current as of <strong>3/22/24</strong>. If you encounter errors or have design feedback, contact me at <a href="mailto:sophiafosterdimino@gmail.com">sophiafosterdimino@gmail.com</a>.</p>
 			
 		</div>
 	</div>
@@ -108,286 +108,433 @@
 		
 		const mapdata = [
 			{
-			"contractor": "A & S CEMENT CONTRACTORS INC",
-			"address": "530 South Olive Street, Los Angeles, ,",
-			"type": ["Commercial - Concrete"],
-			},
-			{
-			"contractor": "ABDELLATIF ENTERPRISES, INC.",
-			"address": "316 North Juanita Avenue, Los Angeles, ,",
-			"type": ["Framing Residential", "Wood Framing"],
-			},
-			{
-			"contractor": "ANNING - JOHNSON COMPANY",
-			"address": "3625 South Grand Avenue, Los Angeles, CA, 90007",
-			"type": ["Dry Fin Com", "Drywall", "Drywall Com", "Metal Stud/Framing"],
-			},
-			{
-			"contractor": "ANNING - JOHNSON COMPANY",
-			"address": "4701 South Santa Fe Avenue, Vernon, ,",
-			"type": ["Drywall", "Drywall Com"],
-			},
-			{
-			"contractor": "BAYLEY CONSTRUCTION",
-			"address": "8500 Beverly Boulevard, Los Angeles, CA, 90048",
-			"type": ["Commercial - Concrete"],
-			},
-			{
-			"contractor": "CHURCH & LARSEN INC",
-			"address": "16103 Avenida Padilla, Irwindale, CA, 91702",
-			"type": ["Commercial - Concrete", "Commercial - Lathe", "Drywall", "Drywall Com", "Lath/Plaster/EIFS"],
-			},
-			{
-			"contractor": "GONSALVES & SANTUCCI INC dba CONCO",
-			"address": "590 South Fair Oaks Avenue, Pasadena, CA, 91105",
-			"type": ["Commercial - Concrete"],
-			},
-			{
-			"contractor": "GONSALVES & SANTUCCI INC dba CONCO",
-			"address": "510 West 6th Street, Los Angeles, CA, 90014",
-			"type": ["Commercial - Concrete", "Concrete - Horizontal Decks", "Concrete - VerticalConcrete", "General Contractor"],
-			},
-			{
-			"contractor": "JHN INC dba COUSTIC- GLO",
-			"address": "4811 Elizabeth Street, Cudahy, CA, 90201",
-			"type": ["Acoustical", "Commercial - Acoustical"],
-			},
-			{
-			"contractor": "GRANI INSTALLATION INC",
-			"address": "350 South Grand Avenue, Los Angeles, CA, 90071",
-			"type": ["Acoustical"],
-			},
-			{
-			"contractor": "HERZOG CONTRACTING CORP",
-			"address": "553 North San Fernando Road, Los Angeles, CA, 90065",
-			"type": ["Commercial - Concrete", "General Contractor", "Heavy-Highway-Bridge", "Other"],
-			},
-			{
-			"contractor": "KEENAN HOPKINS SUDER & STOWELL",
-			"address": "3800 South Vermont Avenue, Los Angeles, CA, 90037",
-			"type": ["Drywall", "Drywall Com", "Precast Concrete"],
-			},
-			{
-			"contractor": "KEENAN HOPKINS SUDER & STOWELL CONTRACTORS INC DBA (KHS&S)",
-			"address": "555 Crocker Street, Los Angeles, CA, 90013",
-			"type": ["Commercial - Concrete", "Drywall", "Drywall Com", "Other"],
-			},
-			{
-			"contractor": "W S KLEM CONTRACTOR INCORPORATED",
-			"address": "317 North Avenue 62, Los Angeles, ,",
-			"type": ["Wood Framing"],
-			},
-			{
-			"contractor": "LARGO CONCRETE INC",
-			"address": "1950 Avenue of the Stars, Los Angeles, CA, 90067",
-			"type": ["Commercial - Concrete"],
-			},
-			{
-			"contractor": "LARGO CONCRETE INC",
-			"address": "5905 Wilshire Blvd, Los Angeles, CA, 90036",
-			"type": ["Commercial - Concrete"],
-			},
-			{
-			"contractor": "LARGO CONCRETE INC",
-			"address": "5420 Sunset Boulevard, Los Angeles, CA, 90027",
-			"type": ["Commercial - Concrete"],
-			},
-			{
-			"contractor": "CHARLES PANKOW BUILDERS LTD",
-			"address": "600 San Pedro Street, Los Angeles, ,",
-			"type": ["Commercial - Concrete", "General Contractor"],
-			},
-			{
-			"contractor": "PAUL C MILLER CONSTRUCTION CO INC dba MILLER CONSTRUCTION",
-			"address": "4921 Cedar Avenue, El Monte, CA, 91732",
-			"type": ["General Contractor"],
-			},
-			{
-			"contractor": "EXCEL CONTRACTORS INC DBA PROGRESSION DRYWALL CORP",
-			"address": "11730 Ramona Boulevard, El Monte, CA, 91732",
-			"type": ["Drywall", "Residential - Drywall"],
-			},
-			{
-			"contractor": "EXCEL CONTRACTORS INC DBA PROGRESSION DRYWALL CORP",
-			"address": "11301 Wilshire Boulevard, Los Angeles, ,",
-			"type": ["Drywall Com"],
-			},
-			{
-			"contractor": "QUALITY PRODUCTION SERVICES INC DBA QPS",
-			"address": "316 North Juanita Avenue, Los Angeles, ,",
-			"type": ["Drywall", "Metal Stud/Framing"],
-			},
-			{
-			"contractor": "QUALITY PRODUCTION SERVICES INC DBA QPS",
-			"address": "1900 Avenue of the Stars, Los Angeles, CA, 90067",
-			"type": ["Commercial - Framing", "Drywall Com"],
-			},
-			{
-			"contractor": "QUALITY PRODUCTION SERVICES INC DBA QPS",
-			"address": "210 West Temple Street, Los Angeles, ,",
-			"type": ["Drywall"],
-			},
-			{
-			"contractor": "RUDOLPH & SLETTEN INC",
-			"address": "1500 East Duarte Road, Duarte, ,",
-			"type": ["Commercial - Concrete"],
-			},
-			{
-			"contractor": "San-Mar Construction Co Inc",
-			"address": "355 South Ogden Dr., Los Angeles, CA, 90036",
-			"type": ["Commercial - Concrete", "General Contractor"],
-			},
-			{
-			"contractor": "SHARPE INTERIOR SYSTEMS INC",
-			"address": "400 South Hope Street, Los Angeles, ,",
-			"type": ["Drywall"],
-			},
-			{
-			"contractor": "SPRING VALLEY INSULATION CONTRACTORS",
-			"address": "3223 Thatcher Avenue, Los Angeles, ,",
-			"type": ["Insulation"],
-			},
-			{
-			"contractor": "Standard Drywall Inc",
-			"address": "601 Pico Boulevard, Santa Monica, CA, 90405",
-			"type": ["Drywall", "Drywall Com"],
-			},
-			{
-			"contractor": "Standard Drywall Inc",
-			"address": "8101 Rosemead Blvd, Pico Rivera, CA, 90660",
-			"type": ["Drywall"],
-			},
-			{
-			"contractor": "Swinerton Builders",
-			"address": "9908 South Santa Monica Boulevard, Beverly Hills, ,",
-			"type": ["Commercial - Cabinets", "Commercial - Concrete", "Drywall", "Drywall Com", "General Contractor", "Metal Framing", "Residential - Drywall"],
-			},
-			{
-			"contractor": "TARLTON AND SON INC",
-			"address": "316 North Juanita Avenue, Los Angeles, ,",
-			"type": ["Drywall"],
-			},
-			{
-			"contractor": "WEST COAST FIRESTOPPING, INC.",
-			"address": "1500 East Duarte Road, Duarte, ,",
-			"type": ["Insulation"],
-			},
-			{
-			"contractor": "J T WIMSATT CONTRACTING CO INC",
-			"address": "3401 South La Cienega Boulevard, Los Angeles, CA, 90016",
-			"type": ["Commercial - Concrete"],
-			},
-			{
-			"contractor": "INLINE DRYWALL (CALIFORNIA) INC",
-			"address": "1002 South Hill Street, Los Angeles, ,",
-			"type": ["Drywall", "Drywall Com"],
-			},
-			{
-			"contractor": "INLINE DRYWALL (CALIFORNIA) INC",
-			"address": "1031 South Broadway, Los Angeles, CA, 90015",
-			"type": ["Drywall"],
-			},
-			{
-			"contractor": "AMERICAN NATIONAL INSULATION DBA COAST BUILDING PRODUCTS",
-			"address": "5905 Wilshire Boulevard, Los Angeles, ,",
-			"type": ["Insulation"],
-			},
-			{
-			"contractor": "Performance Contracting Inc",
-			"address": "711 South La Brea Avenue, Los Angeles, CA, 90036",
-			"type": ["Commercial - Concrete"],
-			},
-			{
-			"contractor": "NOVA DRYWALL SYSTEMS INC DBA NOVA SYSTEMS",
-			"address": "525 South Santa Fe Ave., Los Angeles, CA, 90013",
-			"type": ["Commercial - Concrete", "Drywall", "Drywall Com", "Residential - Drywall"],
-			},
-			{
-			"contractor": "CML RW SECURITY DBA ROTONDO WEIRICH ENTERPRISES INC",
-			"address": "201 Centre Plaza Drive, Monterey Park, CA, 91754",
-			"type": ["Drywall"],
-			},
-			{
-			"contractor": "ERNIE & SONS SCAFFOLDING dba UNIQUE SCAFFOLD",
-			"address": "111 Mercury Circle, Pomona, CA, 91768",
-			"type": ["Scaffold"],
-			},
-			{
-			"contractor": "SKANSKA - TRAYLOR - SHEA A JOINT VENTURE",
-			"address": "711 South La Brea Avenue, Los Angeles, CA, 90036",
-			"type": ["Commercial - Concrete", "Concrete - Horizontal Decks", "Concrete - Residential"],
-			},
-			{
-			"contractor": "ELLIOTT / DRINKWARD CONSTRUCTION INC DBA ELLIOTT DRINKWARD CONSTRUCTION INC",
-			"address": "9800 Grape Street, Los Angeles, CA, 90002",
-			"type": ["Wood Framing"],
-			},
-			{
-			"contractor": "ELLIOTT / DRINKWARD CONSTRUCTION INC DBA ELLIOTT DRINKWARD CONSTRUCTION INC",
-			"address": "4020 Compton Avenue, Los Angeles, CA, 90011",
-			"type": ["Commercial - Concrete", "Concrete - Residential", "Wood Framing"],
-			},
-			{
-			"contractor": "ELLIOTT / DRINKWARD CONSTRUCTION INC DBA ELLIOTT DRINKWARD CONSTRUCTION INC",
-			"address": "5501 South Main Street, Los Angeles, CA, 90011",
-			"type": ["Commercial - Concrete"],
-			},
-			{
-			"contractor": "ELLIOTT / DRINKWARD CONSTRUCTION INC DBA ELLIOTT DRINKWARD CONSTRUCTION INC",
-			"address": "6668 Franklin Avenue, Los Angeles, CA, 90028",
-			"type": ["Wood Framing"],
-			},
-			{
-			"contractor": "ELLIOTT / DRINKWARD CONSTRUCTION INC DBA ELLIOTT DRINKWARD CONSTRUCTION INC",
-			"address": "707 North Alvarado Street, Los Angeles, CA, 90026",
-			"type": ["Framing Residential", "Wood Framing"],
-			},
-			{
-			"contractor": "ELLIOTT / DRINKWARD CONSTRUCTION INC DBA ELLIOTT",
-			"address": "11730 Ramona Boulevard, El Monte, CA, 91732",
-			"type": ["Wood Framing"],
-			},
-			{
-			"contractor": "Hensel Phelps Construction Company",
-			"address": "312 North Record Avenue, Los Angeles, ,",
-			"type": ["Commercial - Concrete", "General Contractor"],
-			},
-			{
-			"contractor": "M K H Inc. dba Ritmo",
-			"address": "1025 North Vermont Avenue, Los Angeles, CA, 90029",
-			"type": ["Commercial - Concrete"],
-			},
-			{
-			"contractor": "Jordan Drywall Inc",
-			"address": "530 South Olive Street, Los Angeles, ,",
-			"type": ["Drywall Com", "Metal Stud/Framing"],
-			},
-			{
-			"contractor": "TPOGJV/Tutor Perini",
-			"address": "2040 Century Park East, Los Angeles, CA, 90067",
-			"type": ["Commercial - Concrete", "General Contractor", "Heavy-Highway-Bridge"],
-			},
-			{
-			"contractor": "TPOGJV/Tutor Perini",
-			"address": "1801 Century Park East, Los Angeles, CA, 90067",
-			"type": ["Commercial - Concrete", "Drywall"],
-			},
-			{
-			"contractor": "WEBCOR CRAFT L P",
-			"address": "230 W Olympic Blvd, Los Angeles, CA, 90015",
-			"type": ["Commercial - Concrete"],
-			},
-			{
-			"contractor": "Fixed Dimensions dba Fixed Dimensions Carpentry",
-			"address": "200 Mesnagers Street, Los Angeles, CA, 90012",
-			"type": ["Cabinet Installation", "Commercial - Concrete"],
-			},
-			{
-			"contractor": "E & L Gonzalez Engineering Corp.",
-			"address": "1985 South Del Mar Avenue, San Gabriel, ,",
-			"type": ["Commercial - Concrete", "GC Bidding"],
-			}
+"contractor": "JAMOROSO CONSTRUCTION CO LLC",
+"address": "410 Center Street, Los Angeles, CA, 90012",
+"type": ["Commercial - Concrete", "General Contractor"],
+},
+{
+"contractor": "S JAMOROSO CONSTRUCTION CO LLC",
+"address": "4168 West Avenue 42, Los Angeles, CA, 90065",
+"type": ["Commercial - Concrete", "General Contractor"],
+},
+{
+"contractor": "ANNING - JOHNSON COMPANY",
+"address": "4701 South Santa Fe Avenue, Vernon, ,",
+"type": ["Drywall", "Drywall Com"],
+},
+{
+"contractor": "ARTCRAFTERS CABINETS",
+"address": "1500 North El Centro Avenue, Los Angeles, CA, 90028",
+"type": ["Cabinet Installation", "Millwork Installation"],
+},
+{
+"contractor": "BAYLEY CONSTRUCTION",
+"address": "8500 Beverly Boulevard, Los Angeles, CA, 90048",
+"type": ["Commercial - Concrete"],
+},
+{
+"contractor": "Best Interiors",
+"address": "1741 East 120th Street, Los Angeles, CA, 90059",
+"type": ["Drywall", "Drywall Com", "Metal Stud/Framing"],
+},
+{
+"contractor": "Best Interiors",
+"address": "150 North Orange Grove Boulevard, Pasadena, CA, 91103",
+"type": ["Acoustical", "Drywall", "Drywall Com", "Metal Stud/Framing"],
+},
+{
+"contractor": "GONSALVES & SANTUCCI INC dba CONCO",
+"address": "510 West 6th Street, Los Angeles, CA, 90014",
+"type": ["Commercial - Concrete", "Concrete - Horizontal Decks", "Concrete - VerticalConcrete", "General Contractor"],
+},
+{
+"contractor": "DAVCAL INC",
+"address": "1200 North State Street, Los Angeles, CA, 90033",
+"type": ["Drywall", "Drywall Com", "Metal Stud/Framing"],
+},
+{
+"contractor": "G & G DOOR PRODUCTS INC",
+"address": "312 North Juanita Avenue, Los Angeles, CA, 90004",
+"type": ["Commercial - Concrete"],
+},
+{
+"contractor": "G & G DOOR PRODUCTS INC",
+"address": "318 North Juanita Avenue, Los Angeles, CA, 90004",
+"type": ["Door Com"],
+},
+{
+"contractor": "G & G DOOR PRODUCTS INC",
+"address": "318 N. Juanita Ave., Los Angeles, CA, 90004",
+"type": ["Commercial - Concrete"],
+},
+{
+"contractor": "GRANI INSTALLATION INC",
+"address": "350 South Grand Avenue, Los Angeles, CA, 90071",
+"type": ["Acoustical"],
+},
+{
+"contractor": "INFINITY DRYWALL CONTRACTING INC",
+"address": "5231 Colfax Avenue, Los Angeles, CA, 91601",
+"type": ["Drywall", "Drywall Com", "Lath/Plaster/EIFS", "Metal Framing"],
+},
+{
+"contractor": "JOHN JORY CORPORATION",
+"address": "5500 Hollywood Blvd., Los Angeles,",
+"type": ["Drywall", "Drywall Com", "Metal Stud/Framing"],
+},
+{
+"contractor": "KAISER FOUNDATION HEALTH PLANINC",
+"address": "4950 Sunset Blvd, Los Angeles, CA, 90027",
+"type": ["Drywall Com"],
+},
+{
+"contractor": "KEENAN HOPKINS SUDER & STOWELL CONTRACTORS INC DBA (KHS&S)",
+"address": "3800 South Vermont Avenue, Los Angeles, CA, 90037",
+"type": ["Drywall", "Drywall Com", "Precast Concrete"],
+},
+{
+"contractor": "KEENAN HOPKINS SUDER & STOWELL CONTRACTORS INC DBA (KHS&S)",
+"address": "555 Crocker Street, Los Angeles, CA, 90013",
+"type": ["Commercial - Concrete", "Drywall", "Drywall Com", "Other"],
+},
+{
+"contractor": "WS KLEM CONTRACTOR INCORPORATED",
+"address": "3501 North Broadway, Los Angeles, ,",
+"type": ["Commercial - Concrete"],
+},
+{
+"contractor": "LARGO CONCRETE INC",
+"address": "1950 Avenue of the Stars, Los Angeles, CA, 90067",
+"type": ["Commercial - Concrete"],
+},
+{
+"contractor": "LARGO CONCRETE INC",
+"address": "5905 Wilshire Blvd, Los Angeles, CA, 90036",
+"type": ["Commercial - Concrete"],
+},
+{
+"contractor": "LARGO CONCRETE INC",
+"address": "5420 Sunset Boulevard, Los Angeles, CA, 90027",
+"type": ["Commercial - Concrete"],
+},
+{
+"contractor": "LARGO CONCRETE INC",
+"address": "3452 East Foothill Boulevard, Pasadena, ,",
+"type": ["Commercial - Concrete"],
+},
+{
+"contractor": "MIRAGE BUILDERS INC",
+"address": "1447 East 45th Street, Los Angeles, CA, 90011",
+"type": ["Drywall", "Drywall Com", "Lath/Plaster/EIFS", "Scaffold"],
+},
+{
+"contractor": "THE NEVELL GROUP INC DBA NGI",
+"address": "312 North Record Avenue, Los Angeles,",
+"type": ["Commercial - Acoustical", "Commercial - Framing", "Commercial - Lathe", "Dry Fin Com", "Drywall", "Drywall Com", "Insulation", "Plaster", "Scaffold"],
+},
+{
+"contractor": "ONYX BUILDING GROUP INC",
+"address": "8101 Rosemead Boulevard, Pico Rivera, ,",
+"type": ["Drywall Com"],
+},
+{
+"contractor": "PACIFIC WALL SYSTEMS INC",
+"address": "2244 Walnut Grove Avenue, Rosemead, CA, 91770",
+"type": ["Drywall"],
+},
+{
+"contractor": "PACIFIC WALL SYSTEMS INC",
+"address": "1025 West 34th Street, Los Angeles, ,",
+"type": ["Dry Fin Com", "Drywall", "Drywall Com", "Metal Stud/Framing"],
+},
+{
+"contractor": "CHARLES PANKOW BUILDERS LTD",
+"address": "600 San Pedro Street, Los Angeles, ,",
+"type": ["Commercial - Concrete", "General Contractor"],
+},
+{
+"contractor": "EXCEL CONTRACTORS INC DBA PROGRESSION DRYWALL CORP",
+"address": "1025 North Vermont Avenue, Los Angeles, CA, 90029",
+"type": ["Dry Fin Com", "Drywall", "Drywall Com", "Residential - Drywall"],
+},
+{
+"contractor": "EXCEL CONTRACTORS INC DBA PROGRESSION DRYWALL CORP",
+"address": "113 South Soto Street, Los Angeles, CA, 90033",
+"type": ["Drywall", "Drywall Com", "Metal Stud/Framing", "Residential - Drywall"],
+},
+{
+"contractor": "EXCEL CONTRACTORS INC DBA PROGRESSION DRYWALL CORP",
+"address": "1141 Crenshaw Boulevard, Los Angeles, CA, 90019",
+"type": ["Drywall", "Metal Stud/Framing", "Residential - Drywall"],
+},
+{
+"contractor": "EXCEL CONTRACTORS INC DBA PROGRESSION DRYWALL CORP",
+"address": "707 North Alvarado Street, Los Angeles, CA, 90026",
+"type": ["Drywall", "Residential - Drywall"],
+},
+{
+"contractor": "EXCEL CONTRACTORS INC DBA PROGRESSION DRYWALL CORP",
+"address": "103 North Chapel Avenue, Alhambra, CA, 91801",
+"type": ["Drywall", "Drywall Com"],
+},
+{
+"contractor": "QUALITY PRODUCTION SERVICES INC DBA QPS",
+"address": "312 North Juanita Avenue, Los Angeles, CA, 90004",
+"type": ["Drywall", "Metal Stud/Framing"],
+},
+{
+"contractor": "RUDOLPH & SLETTEN INC",
+"address": "1500 East Duarte Road, Duarte, ,",
+"type": ["Commercial - Concrete"],
+},
+{
+"contractor": "SCHMITT CONTRACTING INC",
+"address": "6020 Miles Avenue, Huntington Park,",
+"type": ["Commercial - Concrete", "Commercial - Framing", "Commercial - Lathe", "Concrete - Flatwork", "Dry Fin Com", "Drywall", "Drywall Com", "Insulation Commercial", "Plaster"],
+},
+{
+"contractor": "SCHMITT CONTRACTING INC",
+"address": "5905 Wilshire Boulevard, Los Angeles, ,",
+"type": ["Drywall"],
+},
+{
+"contractor": "SHARPE INTERIOR SYSTEMS INC",
+"address": "19148 Jamboree Rd, Irvine, CA, 92612",
+"type": ["Commercial - Framing", "Commercial - Lathe", "Dry Fin Com", "Drywall", "Drywall Com", "Plaster"],
+},
+{
+"contractor": "SHARPE INTERIOR SYSTEMS INC",
+"address": "400 South Hope Street, Los Angeles, ,",
+"type": ["Drywall"],
+},
+{
+"contractor": "Standard Drywall Inc",
+"address": "601 Pico Boulevard, Santa Monica, CA, 90405",
+"type": ["Drywall", "Drywall Com"],
+},
+{
+"contractor": "Standard Drywall Inc",
+"address": "601 Pico Boulevard, Santa Monica, CA, 90405",
+"type": ["Dry Fin Com", "Drywall", "Drywall Com", "Metal Stud/Framing"],
+},
+{
+"contractor": "STAR HARDWARE INC",
+"address": "3556 Whittier Boulevard, Los Angeles, ,",
+"type": ["Commercial - Concrete", "Doors & Hardware"],
+},
+{
+"contractor": "Swinerton Builders",
+"address": "555 Crocker Street, Los Angeles, CA, 90013",
+"type": ["Commercial - Concrete", "Concrete - VerticalConcrete", "Dry Fin Com", "Drywall", "Drywall Com", "Metal Stud/Framing", "Millwork Installation"],
+},
+{
+"contractor": "Swinerton Builders",
+"address": "9908 South Santa Monica Boulevard, Beverly Hills, ,",
+"type": ["Commercial - Cabinets", "Commercial - Concrete", "Drywall", "Drywall Com", "General Contractor", "Metal Framing", "Residential - Drywall"],
+},
+{
+"contractor": "Swinerton Builders",
+"address": "9420 Telstar Avenue, El Monte, ,",
+"type": ["Commercial - Concrete", "Drywall", "Drywall Com", "General Contractor"],
+},
+{
+"contractor": "TARLTON AND SON INC",
+"address": "312 North Juanita Avenue, Los Angeles, CA, 90004",
+"type": ["Drywall"],
+},
+{
+"contractor": "TRENDEX CORP",
+"address": "601 South Figueroa Street, Los Angeles, CA, 90017",
+"type": ["Drywall", "Metal Stud/Framing"],
+},
+{
+"contractor": "JTWIMSATT CONTRACTING CO INC",
+"address": "3401 South La Cienega Boulevard, Los Angeles, CA, 90016",
+"type": ["Commercial - Concrete"],
+},
+{
+"contractor": "AP CONSTRUCTION GROUP INC DBA AIR PLUS",
+"address": "450 North Grand Avenue, Los Angeles, CA, 90012",
+"type": ["Drywall", "Plaster"],
+},
+{
+"contractor": "INLINE DRYWALL (CALIFORNIA) INC",
+"address": "1002 South Hill Street, Los Angeles, ,",
+"type": ["Acoustical", "Drywall", "Drywall Com"],
+},
+{
+"contractor": "AMERICAN NATIONAL INSULATION DBA COAST BUILDING PRODUCTS",
+"address": "3000 West Olympic Boulevard, Los Angeles, CA, 90006",
+"type": ["Insulation"],
+},
+{
+"contractor": "Performance Contracting Inc",
+"address": "9000 Wilshire Boulevard, Beverly Hills, ,",
+"type": ["Acoustical", "Bathrooms", "Commercial - Acoustical", "Drywall"],
+},
+{
+"contractor": "NOVA DRYWALL SYSTEMS INC DBA NOVA SYSTEMS",
+"address": "525 South Santa Fe Ave., Los Angeles, CA, 90013",
+"type": ["Drywall", "Drywall Com", "Residential - Drywall"],
+},
+{
+"contractor": "SKANSKA-TRAYLOR SHEA A JOINT VENTURE",
+"address": "711 South La Brea Avenue, Los Angeles, CA, 90036",
+"type": ["Commercial - Concrete", "Concrete - Horizontal Decks", "Concrete Residential"],
+},
+{
+"contractor": "SKANSKA A-TRAYLOR - - SHEA A JOINT VENTURE",
+"address": "8401 North Gale Drive, Beverly Hills, CA, 90211",
+"type": ["Commercial - Concrete"],
+},
+{
+"contractor": "Jilk Heavy Construction Inc",
+"address": "8281 Mulholland Drive, Los Angeles, CA, 90046",
+"type": ["General Contractor"],
+},
+{
+"contractor": "ELLIOTT. / DRINKWARD CONSTRUCTION INC DBA ELLIOTT DRINKWARD CONSTRUCTION INC",
+"address": "9800 Grape Street, Los Angeles, CA, 90002",
+"type": ["Wood Framing"],
+},
+{
+"contractor": "ELLIOTT / DRINKWARD CONSTRUCTION INC DBA ELLIOTT DRINKWARD CONSTRUCTION INC",
+"address": "1025 North Vermont Avenue, Los Angeles, CA, 90029",
+"type": ["Wood Framing"],
+},
+{
+"contractor": "ELLIOTT / DRINKWARD CONSTRUCTION INC DBA ELLIOTT DRINKWARD CONSTRUCTION INC",
+"address": "800 West 85TH ST, Los Angeles, ,",
+"type": ["Commercial - Concrete", "Wood Framing"],
+},
+{
+"contractor": "ELLIOTT / DRINKWARD CONSTRUCTION INC DBA ELLIOTT DRINKWARD CONSTRUCTION INC",
+"address": "113 South Soto Street, Los Angeles, CA, 90033",
+"type": ["Commercial - Concrete", "Wood Framing"],
+},
+{
+"contractor": "ELLIOTT / DRINKWARD CONSTRUCTION INC DBA ELLIOTT DRINKWARD CONSTRUCTION INC",
+"address": "4020 Compton Avenue, Los Angeles, CA, 90011",
+"type": ["Commercial - Concrete", "Concrete - Residential", "Wood Framing"],
+},
+{
+"contractor": "ELLIOTT / DRINKWARD CONSTRUCTION INC DBA ELLIOTT DRINKWARD CONSTRUCTION INC",
+"address": "837 North Banning Boulevard, Los Angeles, ,",
+"type": ["Concrete - Residential", "Wood Framing"],
+},
+{
+"contractor": "ELLIOTT / DRINKWARD CONSTRUCTION INC DBA ELLIOTT DRINKWARD CONSTRUCTION INC",
+"address": "707 North Alvarado Street, Los Angeles, CA, 90026",
+"type": ["Framing Residential", "Wood Framing"],
+},
+{
+"contractor": "ELLIOTT / DRINKWARD CONSTRUCTION INC DBA ELLIOTT DRINKWARD CONSTRUCTION INC",
+"address": "103 North Chapel Avenue, Alhambra, CA, 91801",
+"type": ["Wood Framing"],
+},
+{
+"contractor": "ELLIOTT / DRINKWARD CONSTRUCTION INC DBA ELLIOTT DRINKWARD CONSTRUCTION INC",
+"address": "11730 Ramona Boulevard, El Monte, CA, 91732",
+"type": ["Wood Framing"],
+},
+{
+"contractor": "ELLIOTT / DRINKWARD CONSTRUCTION INC DBA ELLIOTT DRINKWARD CONSTRUCTION INC",
+"address": "7616 Pacific Boulevard, Huntington Park, CA, 90255",
+"type": ["Framing Residential", "Wood Framing"],
+},
+{
+"contractor": "TUTOR PERINI CORPORATION",
+"address": "10971 Wilshire Boulevard, Los Angeles, CA, 90024",
+"type": ["Commercial - Concrete"],
+},
+{
+"contractor": "MARTIN BROS/MARCOWALL INC",
+"address": "1840 Century Park East, Los Angeles, CA, 90067",
+"type": ["Drywall", "Drywall Com"],
+},
+{
+"contractor": "INTERIOR PLUS INC",
+"address": "501 South Marengo Avenue, Alhambra, CA, 91803",
+"type": ["Acoustical", "Doors & Hardware", "Dry Fin Com", "Drywall", "Drywall Com", "General Contractor", "Metal Stud/Framing"],
+},
+{
+"contractor": "Stacy and Witbeck Inc",
+"address": "6001 Forest Lawn Drive, Los Angeles, CA, 90068",
+"type": ["Commercial - Concrete", "Concrete - VerticalConcrete"],
+},
+{
+"contractor": "INDUSTRY DRYWALL & FRAMING INC DBA INDUSTRY DRYWALL & METAL STUD FRAMING",
+"address": "1024 North Orange Drive, Los Angeles, CA, 90038",
+"type": ["Drywall", "Metal Stud/Framing"],
+},
+{
+"contractor": "Jordan Drywall Inc",
+"address": "5500 Hollywood Blvd., Los Angeles, ,",
+"type": ["Drywall", "Metal Stud/Framing"],
+},
+{
+"contractor": "TPOGJV/Tutor Perini",
+"address": "2040 Century Park East, Los Angeles, CA, 90067",
+"type": ["Commercial - Concrete", "General Contractor", "Heavy-Highway-Bridge"],
+},
+{
+"contractor": "TPOGJV/Tutor Perini",
+"address": "10971 Wilshire Boulevard, Los Angeles, CA, 90024",
+"type": ["Commercial - Concrete", "General Contractor", "PileDriving"],
+},
+{
+"contractor": "Very Good Building & Construction",
+"address": "6642 Rego Park Court, Las Vegas, NV, 89166",
+"type": ["General Contractor"],
+},
+{
+"contractor": "WEBCOR CRAFT L P",
+"address": "1002 South Hill Street, Los Angeles, ,",
+"type": ["Commercial - Concrete"],
+},
+{
+"contractor": "CML SPECIALTIES LLC",
+"address": "201 Centre Plaza Drive, Monterey Park, CA, 91754",
+"type": ["Acoustical", "Commercial - Concrete"],
+},
+{
+"contractor": "Lincoln Hall Company Inc. dba Lincoln Hall Painting",
+"address": "823 1/2 North Cahuenga Boulevard, Los Angeles, ,",
+"type": ["Acoustical", "Commercial - Acoustical"],
+},
+{
+"contractor": "Domestic Rail Solutions Corp",
+"address": "11500 Wilshire, Los Angeles, CA, 90025",
+"type": ["Other"],
+},
+{
+"contractor": "The Conco Companies",
+"address": "510 West 6th Street, Los Angeles, CA, 90014",
+"type": ["Commercial - Concrete"],
+},
+{
+"contractor": "Fixed Dimensions dba Fixed Dimensions Carpentry",
+"address": "200 Mesnagers Street, Los Angeles, CA, 90012",
+"type": ["Cabinet Installation", "Commercial - Concrete"],
+},
+{
+"contractor": "Elljay Acoustics Inc",
+"address": "533 South Fremont Avenue, Los Angeles, CA, 90071",
+"type": ["Commercial - Acoustical"],
+},
+{
+"contractor": "RAYMOND-STANDARD A JOINT VENTURE",
+"address": "3950 West Century Boulevard, Inglewood, ,",
+"type": ["Drywall", "Insulation", "Metal Stud/Framing", "Taping", "Wood Framing"],
+},
+{
+"contractor": "Parkco Construction Inc.",
+"address": "619 South Ardmore Avenue, Los Angeles, ,",
+"type": ["Commercial - Concrete"],
+}
 		]
+		
+		console.log(mapdata.length + " sites");
 			
 		var map;
 		var markers = [];

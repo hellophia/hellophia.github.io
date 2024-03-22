@@ -14,7 +14,7 @@
 		
 		.holder{
 			position:relative;
-			height:500px;
+			height:600px;
 		}
 		
 		.field{
@@ -88,7 +88,7 @@
 			width:100%;
 			height:100%;
 			position:absolute;
-			background-image: url('img/bg.gif');
+			background-image: url('img/bg.png');
 			background-repeat: repeat;
 		}
 		
@@ -125,6 +125,11 @@
 			border-radius:50px;
 			display:inline-block;
 			margin:0 40px;
+			overflow: hidden;
+		}
+		
+		.faceholder img{
+			object-fit:cover;
 		}
 		
 		.exploringthinking{
@@ -177,7 +182,7 @@
 			transform: translate(-50%, -50%);
 			background-color:#26233c;
 			color:#abb1c1;
-			padding:8px 20px;
+			//padding:8px 20px;
 			max-width:50%;
 			visibility:visible;
 		}
@@ -205,7 +210,7 @@
 		.sparkle{
 			display:inline-block;
 			cursor: pointer;
-			position:relative;
+			position:absolute;
 			color:#ffec51;
 			text-align:center;
 			height:50px;
@@ -223,6 +228,22 @@
 			padding:2px;
 		}
 		
+		.texting{
+			padding:5px;
+			border-radius:12px;
+			margin:10px 20%;
+			display:inline-block;
+		}
+		.sfdtext{
+			background-color:#313149;
+			align-self:flex-start;
+		}
+		.bobtext{
+			background-color:#3c3c76;
+			text-align:right;
+			align-self:flex-end;
+		}
+		
 		*{
 			//outline: 1px solid red;
 		}
@@ -235,11 +256,56 @@
 	
 		<div id="exploring">
 		
-			<div style="left:20%;top:50%;" class="sparkle" id="sparkle" data-target="window1">·</div>
+			<div style="left:46%;top:30%;" class="sparkle" id="sparkle" data-target="window1">·</div>
+			
+			<div style="left:54%;top:28%;" class="sparkle" id="sparkle" data-target="window2">·</div>
+			
+			<div style="left:66%;top:57%;" class="sparkle" id="sparkle" data-target="window3">·</div>
+			
+			<div style="left:35%;top:5%;" class="sparkle" id="sparkle" data-target="window4">·</div>
+			
+			<div style="left:76%;top:37%;" class="sparkle" id="sparkle" data-target="window5">·</div>
+			
+			<div style="left:27%;top:50%;" class="sparkle" id="sparkle" data-target="window6">·</div>
 		
 			<div id="overlay" class="overlay invisible">
 			
-			<div class="explorewindow border hidden" id="window1">hey <span class="wordtoget" id="Albert">Albert</span> blah blah blah <span class="wordtoget" id="Thumb">Thumb</span> and also <span class="wordtoget" id="Geller">Geller</span> </div>
+			<div class="explorewindow border hidden" id="window1">
+				<img src="img/sfdcloseup.png">
+				<div style="position:absolute;left:55%;top:40%;">Now let's make some <span class="wordtoget" id="mac and cheese">mac and cheese</span>...</div>
+			</div>
+			
+			<div class="explorewindow border hidden" id="window2">
+				<img src="img/bobcloseup.png">
+				<div style="position:absolute;left:10%;top:40%;">I found a really <br>
+					good <span class="wordtoget" id="numberphile">numberphile</span> <br>
+					last night...</div>
+			</div>
+			
+			<div class="explorewindow border hidden" id="window3">
+				a black <span class="wordtoget" id="hole">hole</span> can even <span class="wordtoget" id="suck">suck</span> in <span class="wordtoget" id="light">light</span>
+			</div>
+			
+			<div class="explorewindow border hidden" id="window4">
+				<img src="img/sfdphone.png">
+				<div style="position:absolute;left:15%;top:60%;">Doweling Jig <span class="wordtoget" id="tool">Tool</span></div>
+			</div>
+			
+			<div class="explorewindow border hidden" id="window5">
+				<img src="img/bobphone.png">
+				<div style="position:absolute;left:0;top:0;display:flex;flex-direction:column">
+					<div style="text-align:center"><span class="wordtoget" id="sfd">sfd</span> my boo</div>
+					<div class="texting sfdtext">hi <span class="wordtoget" id="boob">boob</span> can I <span class="wordtoget" id="stop">stop</span> by? I'm hungry</div>
+					<div class="texting bobtext">sure bb</div>
+					<div class="texting bobtext">you can <span class="wordtoget" id="come">come</span> over anytime</div>
+					<div class="texting bobtext">what do you wanna <span class="wordtoget" id="eat">eat</span>? kabob? hot chicken <span class="wordtoget" id="finger">finger</span>? zhengyalov hatz?</div>
+					<div class="texting sfdtext">idk omw</div>
+				</div>
+			</div>
+			
+			<div class="explorewindow border hidden" id="window6">
+				<span class="wordtoget" id="poppers">poppers</span> <span class="wordtoget" id="lube">lube</span> <span class="wordtoget" id="glasses">glasses</span> <span class="wordtoget" id="idol">idol</span>
+			</div>
 	
 		</div>
 		
@@ -250,7 +316,7 @@
 			<div style="display:flex;flex-direction:column;flex-grow:1;flex-basis:0;">
 				<div class="scrollnotes notfilled border">The scroll is not filled in.</div>
 				<div class="textholder border">
-					<span class="field hole empty name" id="sfd"></span> went over to <span class="field hole empty name" id="boob"></span>'s place to <span class="field hole empty verb" id="eat"></span> <span class="field hole empty noun" id="mac and cheese"></span>. But first, <span class="field hole empty name" id="sfd"></span> wanted to <span class="field hole empty verb" id="suck"></span> <span class="field hole empty name" id="boob"></span>'s <span class="field hole empty noun" id="tool"></span>. <span class="field hole empty name" id="boob"></span> put a <span class="field hole empty noun" id="plug"></span> in <span class="field hole empty name" id="sfd"></span>'s <span class="field hole empty noun" id="hole"></span> and used the <span class="field hole empty noun" id="idol"></span> to make <span class="field hole empty name" id="sfd"></span> <span class="field hole empty verb" id="come"></span>.
+					<span class="field hole empty name" id="sfd"></span> went over to <span class="field hole empty name" id="boob"></span>'s place to <span class="field hole empty verb" id="eat"></span> <span class="field hole empty noun" id="mac and cheese"></span>. But first, <span class="field hole empty name" id="sfd"></span> wanted to <span class="field hole empty verb" id="suck"></span> <span class="field hole empty name" id="boob"></span>'s <span class="field hole empty noun" id="tool"></span>. <span class="field hole empty name" id="boob"></span> put a <span class="field hole empty noun" id="finger"></span> in <span class="field hole empty name" id="sfd"></span>'s <span class="field hole empty noun" id="hole"></span> and used the <span class="field hole empty noun" id="idol"></span> to make <span class="field hole empty name" id="sfd"></span> <span class="field hole empty verb" id="come"></span>.
 				</div>
 			</div>
 			<div style="display:flex;flex-direction:column;flex-grow:1;flex-basis:0;">
@@ -258,14 +324,16 @@
 				<div class="identityholder border" style="">
 					
 					<div>
-					<div class="faceholder"></div>
-					<div class="faceholder"></div>
+					<div class="faceholder"><img src="img/bobidentity.png"></div>
+					<div class="faceholder"><img src="img/sfdidentity.png"></div>
 					</div>
 					<span class="field hole empty name" id="boob"></span>
 					<span class="field hole empty name" id="sfd"></span>
 					
 				</div>
 			</div>
+			
+			<div class="explorewindow border hidden" id="youwin">you win</div>
 
 		</div>
 		
@@ -276,7 +344,7 @@
 		<div class="gotwordsholder" id="gotwordsholder"></div>
 	</div>
 	
-	<div class="exploringthinking border" id="exploringthinking">Exploring <span id="arrow">⟻&emsp;</span> Thinking</div>
+	<div class="exploringthinking border" id="exploringthinking">Exploring <span id="arrow" style="color:white;">⟻&emsp;</span> Thinking</div>
 	
 	<script>
 		
@@ -285,57 +353,82 @@
 			{
 				"word": "sfd",
 				"type": "name",
-				"found": true
+				"found": false
 			},
 			{
 				"word": "boob",
 				"type": "name",
-				"found": true
+				"found": false
 			},
 			{
 				"word": "mac and cheese",
 				"type": "noun",
-				"found": true
+				"found": false
 			},
 			{
 				"word": "tool",
 				"type": "noun",
-				"found": true
+				"found": false
 			},
 			{
 				"word": "hole",
 				"type": "noun",
-				"found": true
+				"found": false
 			},
 			{
-				"word": "plug",
+				"word": "finger",
 				"type": "noun",
-				"found": true
+				"found": false
 			},
 			{
 				"word": "idol",
 				"type": "noun",
-				"found": true
+				"found": false
+			},
+			{
+				"word": "numberphile",
+				"type": "noun",
+				"found": false
+			},
+			{
+				"word": "light",
+				"type": "noun",
+				"found": false
+			},
+			{
+				"word": "poppers",
+				"type": "noun",
+				"found": false
+			},
+			{
+				"word": "lube",
+				"type": "noun",
+				"found": false
+			},
+			{
+				"word": "glasses",
+				"type": "noun",
+				"found": false
 			},
 			{
 				"word": "come",
 				"type": "verb",
-				"found": true
+				"found": false
 			},
 			{
 				"word": "eat",
 				"type": "verb",
-				"found": true
+				"found": false
 			},
 			{
 				"word": "stop",
 				"type": "verb",
-				"found": true
+				"found": false
 			},
 			{
 				"word": "suck",
 				"type": "verb",
-				"found": true
+				"found": false
 			}
 		]
 		
@@ -363,6 +456,8 @@
 		var gotwordsnum = 0;
 		var maxgotwords = worddata.length;
 		
+		var youwin = document.getElementById('youwin');
+		
 		var dragged = null;
 		
 		// positioning the exploring thinking toggle
@@ -380,7 +475,6 @@
 		
 		// sparkles which open explore windows
 		const sparkles = document.querySelectorAll(".sparkle");
-		const sparkle = document.getElementById('sparkle');
 
 		sparkles.forEach(sparkle => {
 		  sparkle.addEventListener('click', function() {
@@ -412,6 +506,9 @@
 				addword(word);
 			}
 		});
+		
+		// instantiate gotwordsholder
+		gotwordsholder.textContent = (gotwordsnum.toString()+"/"+maxgotwords.toString());
 		
 		// how to add words to the gotwordsholder
 		function addword(word){
@@ -622,6 +719,10 @@
 					        holeword.removeEventListener('dragend', dragEnd);
 							holeword.draggable = false;
 						});
+						if (identitiesfilled === true){
+							console.log("winning");
+							youwin.classList.remove('hidden');
+						}
 					}
 					else {
 						identitiesfilled = true;
@@ -651,15 +752,17 @@
 		const characters = ['·','˖','✜','×','+','╳','┼','✛','⊹',''];
 		const fontsize = ['100%','100%','50%','80%','120%','100%','100%','120%','100%','100%'];
 		const lineheight = ['50px','35px','50px','50px','50px','50px','50px','50px','45px','50px'];
-		let frameIndex = 0;
 
 		function animateSparkle() {
-			setInterval(() => {
-				sparkle.textContent = characters[frameIndex];
-				sparkle.style.fontSize = fontsize[frameIndex];
-				sparkle.style.lineHeight = lineheight[frameIndex];
-				frameIndex = (frameIndex + 1) % characters.length;
-			}, 200);
+			sparkles.forEach(sparkle => {
+				let frameIndex = 0;
+				setInterval(() => {
+					sparkle.textContent = characters[frameIndex];
+					sparkle.style.fontSize = fontsize[frameIndex];
+					sparkle.style.lineHeight = lineheight[frameIndex];
+					frameIndex = (frameIndex + 1) % characters.length;
+				}, 200);
+			});
 		}
 
 		animateSparkle();
@@ -673,6 +776,8 @@
 		make sparkle red when words got
 		
 		"There are identities to be discovered."
+		
+		win screen
 		
 		*/
 		
