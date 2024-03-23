@@ -917,10 +917,6 @@
 					"local": "743",
 					"address": "911 20th Street, 911 20th Street, Bakersfield, CA, USA, Bakersfield, CA 93301"
 				},
-		        {
-					"local": "743",
-					"address": "911 20th Street, 911 20th Street, Bakersfield, CA, USA, Bakersfield, CA 93301"
-				}
 		    ];
 		
 		console.log(mapdata.length + " sites");
@@ -941,9 +937,7 @@
 		
 		// add locals
 		function addlocals(){
-			console.log("adding locals...")
 		    locals.forEach(function(entry) {
-				console.log("attempting"+ entry.local);
 				var geocoder = new google.maps.Geocoder();
 		        geocoder.geocode({'address': entry.address}, function(results, status) {
 		            if (status === 'OK') {
@@ -970,8 +964,6 @@
 						marker.addListener('click', function() {
 							infowindow.open(map, marker);
 						});
-						
-						console.log("success");
 						
 		            } else {
 		                console.error('Geocode was not successful for the following reason: ' + status);
