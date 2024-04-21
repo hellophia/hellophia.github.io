@@ -88,7 +88,7 @@
 			width:100%;
 			height:100%;
 			position:absolute;
-			background-image: url('img/bg.png');
+			background-image: url('img/bg.gif');
 			background-repeat: repeat;
 		}
 		
@@ -231,7 +231,7 @@
 		.texting{
 			padding:5px;
 			border-radius:12px;
-			margin:10px 20%;
+			margin:5px 24%;
 			display:inline-block;
 		}
 		.sfdtext{
@@ -271,30 +271,37 @@
 			<div id="overlay" class="overlay invisible">
 			
 			<div class="explorewindow border hidden" id="window1">
-				<img src="img/sfdcloseup.png">
+				<img src="img/sfdcloseup.gif">
 				<div style="position:absolute;left:55%;top:40%;">Now let's make some <span class="wordtoget" id="mac and cheese">mac and cheese</span>...</div>
 			</div>
 			
 			<div class="explorewindow border hidden" id="window2">
-				<img src="img/bobcloseup.png">
+				<img src="img/bobcloseup.gif">
 				<div style="position:absolute;left:10%;top:40%;">I found a really <br>
 					good <span class="wordtoget" id="numberphile">numberphile</span> <br>
 					last night...</div>
 			</div>
 			
 			<div class="explorewindow border hidden" id="window3">
-				a black <span class="wordtoget" id="hole">hole</span> can even <span class="wordtoget" id="suck">suck</span> in <span class="wordtoget" id="light">light</span>
+				<img src="img/laptop.gif">
+				<div style="position:absolute;left:26%;top:75%;font-size:60%;">
+				Watch a black <span class="wordtoget" id="hole">hole</span> <span class="wordtoget" id="suck">suck</span> in <span class="wordtoget" id="light">light</span> - Numberphile
+				<div style="font-size:80%;margin-top:4px;margin-left:35px;">Numberphile <span style="padding:2px;
+			border-radius:12px;background-color:#d8bcd6;color:#192e3b">Subscribe</span></div>
+				</div>
 			</div>
 			
 			<div class="explorewindow border hidden" id="window4">
-				<img src="img/sfdphone.png">
-				<div style="position:absolute;left:15%;top:60%;">Doweling Jig <span class="wordtoget" id="tool">Tool</span></div>
+				<img src="img/sfdphone.gif">
+				<div style="position:absolute;left:23%;top:65%;">Doweling Jig
+					<br><span class="wordtoget" id="tool">Tool</span>
+					<br>$59.99</div>
 			</div>
 			
 			<div class="explorewindow border hidden" id="window5">
-				<img src="img/bobphone.png">
-				<div style="position:absolute;left:0;top:0;display:flex;flex-direction:column">
-					<div style="text-align:center"><span class="wordtoget" id="sfd">sfd</span> my boo</div>
+				<img src="img/bobphone.gif">
+				<div style="position:absolute;left:-15px;top:55px;display:flex;flex-direction:column;font-size:60%">
+					<div style="text-align:center;padding-bottom:25px;">&emsp;&emsp;<span class="wordtoget" id="sfd">sfd</span> my boo</div>
 					<div class="texting sfdtext">hi <span class="wordtoget" id="boob">boob</span> can I <span class="wordtoget" id="stop">stop</span> by? I'm hungry</div>
 					<div class="texting bobtext">sure bb</div>
 					<div class="texting bobtext">you can <span class="wordtoget" id="come">come</span> over anytime</div>
@@ -304,7 +311,10 @@
 			</div>
 			
 			<div class="explorewindow border hidden" id="window6">
-				<span class="wordtoget" id="poppers">poppers</span> <span class="wordtoget" id="lube">lube</span> <span class="wordtoget" id="glasses">glasses</span> <span class="wordtoget" id="idol">idol</span>
+				<img src="img/idoletc.gif">
+				<div style="position:absolute;left:10%;top:70%;"><span class="wordtoget" id="lube">lube</span></div>
+				<div style="position:absolute;left:35%;top:40%"><span class="wordtoget" id="glasses">glasses</span></div>
+				<div style="position:absolute;left:80%;top:80%;"><span class="wordtoget" id="idol">idol</span></div>
 			</div>
 	
 		</div>
@@ -324,8 +334,8 @@
 				<div class="identityholder border" style="">
 					
 					<div>
-					<div class="faceholder"><img src="img/bobidentity.png"></div>
-					<div class="faceholder"><img src="img/sfdidentity.png"></div>
+					<div class="faceholder"><img src="img/bobidentity.gif"></div>
+					<div class="faceholder"><img src="img/sfdidentity.gif"></div>
 					</div>
 					<span class="field hole empty name" id="boob"></span>
 					<span class="field hole empty name" id="sfd"></span>
@@ -333,7 +343,11 @@
 				</div>
 			</div>
 			
-			<div class="explorewindow border hidden" id="youwin">you win</div>
+			<div class="explorewindow border hidden" id="youwin" style="padding:20px;">dear boob,
+				<br>you solved my sex puzzle!!! happy birthday! I love you very much. I think you are a smart and sensitive sweetheart. I love to run around with you, eat food with you, and play games with you. I love to cuddle and kiss in bed and listen to you talk about your thoughts and your life.
+				<br>I hope you have a wonderful and happy year being 39 and I am excited to have more cute fun with you!!!
+				<br>love, sfd &#60;3
+				<br></div>
 
 		</div>
 		
@@ -392,11 +406,6 @@
 			},
 			{
 				"word": "light",
-				"type": "noun",
-				"found": false
-			},
-			{
-				"word": "poppers",
 				"type": "noun",
 				"found": false
 			},
@@ -544,7 +553,7 @@
 			event.target.classList.remove('wordtoget');
 			event.target.classList.add('wordwasgot');
 			event.target.removeEventListener('click',getword)
-			findentry(event.target.textContent).found = true;
+			findentry(event.target.id).found = true;
 			addword(findentry(event.target.id));
 		}
 		
