@@ -1234,35 +1234,43 @@
 		const locals = [
 	        {
 				"local": "213",
-				"address": "1200 Corporate Center Drive, 3rd Floor, Monterey Park, CA 91754"
+				"address": "1200 Corporate Center Drive, 3rd Floor, Monterey Park, CA 91754",
+				"flowcode": "<a href='https://www.flowcode.com/page/carpenterslocal213'>flowcode</a>"
 			},
 	        {
 				"local": "323",
-				"address": "1010 Sandhill Ave, Carson, CA 90746"
+				"address": "1010 Sandhill Ave, Carson, CA 90746",
+				"flowcode": "<a href='https://www.flowcode.com/page/local323'>flowcode</a>"
 			},
 	        {
 				"local": "562",
-				"address": "341 East Wardlow Road, Long Beach, CA 90807"
+				"address": "341 East Wardlow Road, Long Beach, CA 90807",
+				"flowcode": "<a href='https://www.flowcode.com/page/local562'>flowcode</a>"
 			},
 	        {
 				"local": "661",
-				"address": "15881 Valley View Court, Sylmar, CA 91342"
+				"address": "15881 Valley View Court, Sylmar, CA 91342",
+				"flowcode": "<a href='https://www.flowcode.com/page/local661'>flowcode</a>"
 			},
 	        {
 				"local": "714",
-				"address": "7111 Firestone Boulevard, #122, Buena Park, CA 90621"
+				"address": "7111 Firestone Boulevard, #122, Buena Park, CA 90621",
+				"flowcode": "<a href='https://www.flowcode.com/page/local714'>flowcode</a>"
 			},
 			{
 				"local": "909",
-				"address": "3250 East Shelby Street, Ontario, CA 91764"
+				"address": "3250 East Shelby Street, Ontario, CA 91764",
+				"flowcode": "<a href='https://www.flowcode.com/page/local909'>flowcode</a>"
 			},
 	        {
 				"local": "721",
-				"address": "10015 Rose Hills Road, #100, Whittier, CA 90601"
+				"address": "10015 Rose Hills Road, #100, Whittier, CA 90601",
+				"flowcode": "<a href='https://www.flowcode.com/page/carpenterslocal721'>flowcode</a>"
 			},
 	        {
 				"local": "743",
-				"address": "911 20th Street, 911 20th Street, Bakersfield, CA, USA, Bakersfield, CA 93301"
+				"address": "911 20th Street, 911 20th Street, Bakersfield, CA, USA, Bakersfield, CA 93301",
+				"flowcode": "<a href='https://www.flowcode.com/page/carpenterslocal743'>flowcode</a>"
 			},
 		];
 		
@@ -1305,7 +1313,7 @@
 		                });
 						
 						var infowindow = new google.maps.InfoWindow({
-							content: "Local " + entry.local
+							content: "Local " + entry.local + " " + entry.flowcode;
 						});
 						
 						marker.addListener('click', function() {
