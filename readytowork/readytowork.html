@@ -31,6 +31,10 @@
 			flex-wrap: wrap;
 			justify-content: space-between;
 		}
+		.checkbox-column {
+		    display: flex;
+		    flex-direction: column;
+		}
 	    input[type="checkbox"] {
 	      width: 20px;
 	      height: 20px;
@@ -94,7 +98,11 @@
 		
 		<div style="display: flex;flex-direction: column;justify-content: space-around;"><button onclick="checkAll()">check all</button><button onclick="uncheckAll()">uncheck all</button></div>
 		
-		<div id="tags" style="padding-left:20px"></div>
+		<div id="tags" style="padding-left:20px">
+			<div class="checkbox-column" id="concretecolumn"></div>
+			<div class="checkbox-column" id="framingcolumn"></div>
+			<div class="checkbox-column" id="othercolumn"></div>
+		</div>
 
 	</div>
 	
@@ -1278,6 +1286,10 @@
 			
 		var map;
 		var markers = [];
+		
+		var concretecolumn = document.getElementById('concretecolumn');
+		var framingcolumn = document.getElementById('framingcolumn');
+		var othercolumn = document.getElementById('othercolumn');
 
 		// initialize the map
 		function initMap() {
@@ -1396,7 +1408,6 @@
 				allTypes.sort();
 
 			    // generate checkboxes for each type of work
-			    var checkboxesContainer = document.getElementById('tags');
 			    allTypes.forEach(function(workType) {
 			        var checkbox = document.createElement('input');
 			        checkbox.type = 'checkbox';
@@ -1406,7 +1417,14 @@
 			        var label = document.createElement('label');
 			        label.appendChild(checkbox);
 			        label.appendChild(document.createTextNode(workType));
-			        checkboxesContainer.appendChild(label);
+					
+					if (workType.toLowerCase().includes('concrete')) {
+					        concretecolumn.appendChild(label);
+					    } else if (workType.toLowerCase().includes('framing')) {
+					        framingcolumn.appendChild(label);
+					    } else {
+					        othercolumn.appendChild(label);
+					    }
         
 			        // add event listener to checkboxes to toggle markers
 			        checkbox.addEventListener('change', function() {
