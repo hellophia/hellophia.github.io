@@ -1387,9 +1387,13 @@
 			            uniqueTypes.add(workType); // add each type of work to the set
 			        });
 			    });
+				
+				//uniqueTypes = new Set([...uniqueTypes].sort());
 
 			    // convert the set to an array
 			    var allTypes = Array.from(uniqueTypes);
+				
+				allTypes.sort();
 
 			    // generate checkboxes for each type of work
 			    var checkboxesContainer = document.getElementById('tags');
