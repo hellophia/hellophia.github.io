@@ -34,6 +34,7 @@
 		.checkbox-column {
 		    display: flex;
 		    flex-direction: column;
+			padding-top:16px;
 		}
 	    input[type="checkbox"] {
 	      width: 20px;
@@ -42,11 +43,11 @@
 		  vertical-align: middle;
 	    }
 		label{
-			margin-left:16px;
+			margin-left:12px;
 			color: #e3e3e3;
 			display: inline-block;
 			white-space: nowrap;
-			flex: 0 0 20%;
+			//flex: 0 0 20%;
 		}
 	    button{
 	  	  font-family: "Noto Serif";
@@ -96,12 +97,27 @@
 	
 	<div style="display:flex;flex-direction:row;">
 		
-		<div style="display: flex;flex-direction: column;justify-content: space-around;"><button onclick="checkAll()">check all</button><button onclick="uncheckAll()">uncheck all</button></div>
+		<div style="display: flex;flex-direction: column;"><button onclick="checkAll()">check all</button><button onclick="uncheckAll()">uncheck all</button></div>
 		
 		<div id="tags" style="padding-left:20px">
-			<div class="checkbox-column" id="concretecolumn"></div>
-			<div class="checkbox-column" id="framingcolumn"></div>
-			<div class="checkbox-column" id="othercolumn"></div>
+			<div style="display: flex;
+			justify-content: space-between;">
+				<div class="checkbox-column" id="concretecolumn"></div>
+				<div>
+					<div class="checkbox-column" id="framingcolumn"></div>
+					<div class="checkbox-column" id="drywallcolumn"></div>
+				</div>
+				<div>
+					<div class="checkbox-column" id="cabinetcolumn"></div>
+					<div class="checkbox-column" id="lathecolumn"></div>
+				</div>
+				<div>
+					<div class="checkbox-column" id="acousticalcolumn"></div>
+					<div class="checkbox-column" id="doorcolumn"></div>
+					<div class="checkbox-column" id="insulationcolumn"></div>
+				</div>
+				<div class="checkbox-column" id="othercolumn"></div>
+			</div>
 		</div>
 
 	</div>
@@ -1289,6 +1305,12 @@
 		
 		var concretecolumn = document.getElementById('concretecolumn');
 		var framingcolumn = document.getElementById('framingcolumn');
+		var drywallcolumn = document.getElementById('drywallcolumn');
+		var cabinetcolumn = document.getElementById('cabinetcolumn');
+		var lathecolumn = document.getElementById('lathecolumn');
+		var acousticalcolumn = document.getElementById('acousticalcolumn');
+		var doorcolumn = document.getElementById('doorcolumn');
+		var insulationcolumn = document.getElementById('insulationcolumn');
 		var othercolumn = document.getElementById('othercolumn');
 
 		// initialize the map
@@ -1422,6 +1444,18 @@
 					        concretecolumn.appendChild(label);
 					    } else if (workType.toLowerCase().includes('framing')) {
 					        framingcolumn.appendChild(label);
+					    } else if (workType.toLowerCase().includes('dry')) {
+					        drywallcolumn.appendChild(label);
+					    } else if (workType.toLowerCase().includes('cab')) {
+					        cabinetcolumn.appendChild(label);
+					    } else if (workType.toLowerCase().includes('lath')) {
+					        lathecolumn.appendChild(label);
+					    } else if (workType.toLowerCase().includes('acoustical')) {
+					        acousticalcolumn.appendChild(label);
+					    } else if (workType.toLowerCase().includes('door')) {
+					        doorcolumn.appendChild(label);
+					    } else if (workType.toLowerCase().includes('insulation')) {
+					        insulationcolumn.appendChild(label);
 					    } else {
 					        othercolumn.appendChild(label);
 					    }
