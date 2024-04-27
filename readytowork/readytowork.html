@@ -299,11 +299,19 @@
 
 						// popup html
 						var contentString = '<div>contractor: <strong>' + entry.contractor +
-						'</strong><br>address: ' + entry.address +
-						'<br><br>project name: ' + (entry.projectname ? entry.projectname : '<span class="na">not available</span>') +
-						'<br>project start date: ' + (entry.projectstartdate ? entry.projectstartdate : 'not available') +
-						'<br>job start date: ' + (entry.jobstartdate ? entry.jobstartdate : 'not available') +
-						'<br><ul>';
+						'</strong><br>address: ' + entry.address;
+						
+						if (entry.projectname) {
+						    contentString += 'project name: ' + entry.projectname + '<br>';
+						}
+						if (entry.projectstartdate) {
+						    contentString += 'project start date: ' + entry.projectstartdate + '<br>';
+						}
+						if (entry.jobstartdate) {
+						    contentString += 'job start date: ' + entry.jobstartdate + '<br>';
+						}
+						
+						contentString += '<br><ul>';
 						
 						entry.type.forEach(function(workType) {
 							contentString += '<li>' + workType + '</li>';
