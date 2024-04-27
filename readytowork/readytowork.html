@@ -88,7 +88,7 @@
 		<div style="margin-left:20px">
 			<h2>LA Team Ready to Work Map</h2>
 			
-			<p>The data in this map is pulled from the Ready to Work lists available from <a href="https://www.flowcode.com/page/carpenterslocal213">Local 213</a> and <a href="https://www.flowcode.com/page/local661">Local 661</a>. It is current as of <strong>4/21/24</strong>. If you encounter errors or have design feedback, contact me at <a href="mailto:sophiafosterdimino@gmail.com">sophiafosterdimino@gmail.com</a>.</p>
+			<p>The data in this map is pulled from the Ready to Work lists available from <a href="https://www.flowcode.com/page/carpenterslocal213">Local 213</a>, <a href="https://www.flowcode.com/page/local661">Local 661</a>, and <a href="https://www.flowcode.com/page/local323">Local 323</a>. It is current as of <strong>4/27/24</strong>. If you encounter errors or have design feedback, contact me at <a href="mailto:sophiafosterdimino@gmail.com">sophiafosterdimino@gmail.com</a>.</p>
 			
 		</div>
 	</div>
@@ -130,6 +130,7 @@
 
     <script>
 		
+		// fetch the mapdata from the spreadsheet
 		fetch('https://opensheet.elk.sh/1x-Pp3f8HFcGj4KKxPOwT4Ii-U0A9AI3LZhoOCcQdlus/allsheets')
 		    .then(response => {
 		        if (!response.ok) {
@@ -146,16 +147,16 @@
 				    element.type = element.type.split(',').map(function(item) {
 						item = item.trim();
 
-				        // Remove all spaces from the item
+				        // remove all spaces
 				        item = item.replace(/\s+/g, '');
 						
 						// remove dash
 						item = item.replace(/-/g, '');
 
-				        // Add spaces back in before capital letters (unless at the beginning of the string)
+				        // add spaces back in before capital letters (unless at the beginning of the string)
 				        item = item.replace(/([A-Z])/g, ' $1');
 
-				        // Convert the first character to uppercase
+				        // convert the first character to uppercase
 				        item = item.charAt(0).toUpperCase() + item.slice(1);
 
 				        return item;
@@ -168,7 +169,8 @@
 		    .catch(error => {
 		        console.error('There was a problem fetching the data:', error);
 		    });
-					
+			
+		// local hall info
 		const locals = [
 	        {
 				"local": "213",
@@ -233,7 +235,6 @@
 		        zoom: 10
 		    });
 			
-		    //parseAndPlotMarkers();
 			addlocals();
 		}
 		
@@ -293,10 +294,17 @@
 						});
 
 						// popup html
-						var contentString = '<div><strong>' + entry.contractor + '</strong><br>' + entry.address + '<br><ul>';
+						var contentString = '<div>contractor: <strong>' + entry.contractor +
+						'</strong><br>project name:' + entry.projectname +
+						'<br>project start date:' + entry.projectstartdate +
+						'<br>job start date:' + entry.jobstartdate +
+						'<br>address:' + entry.address +
+						'<br><ul>';
+						
 						entry.type.forEach(function(workType) {
 							contentString += '<li>' + workType + '</li>';
 						});
+						
 						contentString += '</ul></div>';
 
 						// attach click listener to the marker to show details when clicked
