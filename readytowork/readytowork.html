@@ -299,7 +299,7 @@
 
 						// popup html
 						var contentString = '<div>contractor: <strong>' + entry.contractor +
-						'</strong><br>project name: ' + entry.projectname +
+						'</strong><br>project name: ' + (entry.projectname ? entry.projectname : 'not available') +
 						'<br>project start date: ' + entry.projectstartdate +
 						'<br>job start date: ' + entry.jobstartdate +
 						'<br>address: ' + entry.address +
