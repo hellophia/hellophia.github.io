@@ -74,6 +74,10 @@
 		a:visited{color:#757541;}
 		a:hover{color:#d3b690;}
 		
+		.na{
+			color: #d3c8c3;
+		}
+		
 		*{
 			//outline: 1px solid red;
 		}
@@ -295,10 +299,10 @@
 
 						// popup html
 						var contentString = '<div>contractor: <strong>' + entry.contractor +
-						'</strong><br>project name:' + entry.projectname +
-						'<br>project start date:' + entry.projectstartdate +
-						'<br>job start date:' + entry.jobstartdate +
-						'<br>address:' + entry.address +
+						'</strong><br>project name: ' + (typeof entry.projectname !== 'undefined') ? entry.projectname : '<span class="na">not available</span>' +
+						'<br>project start date: ' + entry.projectstartdate +
+						'<br>job start date: ' + entry.jobstartdate +
+						'<br>address: ' + entry.address +
 						'<br><ul>';
 						
 						entry.type.forEach(function(workType) {
