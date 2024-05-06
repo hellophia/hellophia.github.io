@@ -48,7 +48,7 @@
 		    songlist.forEach(song => {
 		        const songlink = document.createElement("a");
 		        songlink.textContent = `${song.bandName} - ${song.songName}`;
-		        songlink.href = `${song.fileName}.txt`;
+		        songlink.href = `letras/${song.fileName}.txt`;
 		        songlink.onclick = function(event) {
 		            event.preventDefault();
 		            loadlyrics(this.href);
