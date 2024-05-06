@@ -4,38 +4,53 @@
 		
 		@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
    
-		        body {
-		            font-family: "Noto Serif";
-		            color: #595941;
-		            background-color: #e3e3e3;
-					font-size:14px;
-		        }
-				
-				a:link {
-				  color: #757541;
-				}
-				a:visited {
-				  color: #757541;
-				}
-				a:hover {
-				  color: #595941;
-				  background-color:#d3c8c3;
-				}
-				a:active {
-		  		  color: #595941;
-		  		  background-color:#d3c8c3;
-				}
+        body {
+            font-family: "Noto Serif";
+            color: #595941;
+            background-color: #e3e3e3;
+			font-size:14px;
+        }
+		
+		a:link {
+		  color: #757541;
+		}
+		a:visited {
+		  color: #757541;
+		}
+		a:hover {
+		  color: #595941;
+		  background-color:#d3c8c3;
+		}
+		a:active {
+  		  color: #595941;
+  		  background-color:#d3c8c3;
+		}
+		
+		.container {
+		    display: flex;
+		    height: 100vh;
+		}
+
+		.songlistdiv {
+		    flex: 1;
+		}
+
+		.lyricsdiv {
+		    flex: 2;
+		}
 		
 	</style>
 </head>
 <body>
 	
-	<div id="songlistdiv">
+	<div style="container">
+		<div id="songlistdiv">
 		
-	</div>
+		</div>
 	
-	<div id="lyricsdiv">
+		<div id="lyricsdiv">
 		
+		</div>
 	</div>
 
 	<script src="songlist.js"></script>
