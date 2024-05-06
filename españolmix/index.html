@@ -1,0 +1,90 @@
+<html>
+<head>
+	<style>
+		
+		@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&family=Noto+Serif+JP&family=Noto+Serif:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap');
+   
+		        body {
+		            font-family: "Noto Serif JP";
+		            color: #595941;
+		            background-color: #e3e3e3;
+					font-size:14px;
+		        }
+				
+				a:link {
+				  color: #757541;
+				}
+				a:visited {
+				  color: #757541;
+				}
+				a:hover {
+				  color: #595941;
+				  background-color:#d3c8c3;
+				}
+				a:active {
+		  		  color: #595941;
+		  		  background-color:#d3c8c3;
+				}
+		
+	</style>
+</head>
+<body>
+	
+	<div id="songListContainer">
+		
+	</div>
+	
+	    <div id="lyricsContainer" style="display: none;">
+	        <button id="backButton">back</button>
+	        <div id="lyrics"></div>
+	    </div>
+
+		<script src="songList.js"></script>
+	    <script>
+			
+			document.addEventListener("DOMContentLoaded", function() {
+				const songListContainer = document.getElementById("songListContainer");
+				const lyricsContainer = document.getElementById("lyricsContainer");
+				const backButton = document.getElementById("backButton");
+				const lyricsContent = document.getElementById("lyrics");
+				
+			    songList.forEach(song => {
+			        const songLink = document.createElement("a");
+			        songLink.textContent = `${song.bandName} - ${song.songName}`;
+			        songLink.href = `${song.fileName}.txt`;
+			        songLink.onclick = function(event) {
+			            event.preventDefault();
+			            loadLyrics(this.href);
+			        };
+			        songListContainer.appendChild(songLink);
+			        songListContainer.appendChild(document.createElement("br"));
+			    });
+
+			    function loadLyrics(url) {
+			        fetch(url)
+			            .then(response => response.text())
+			            .then(text => {
+							console.log(text);
+			                lyricsContent.innerHTML = text;
+			                songListContainer.style.display = "none";
+			                lyricsContainer.style.display = "block";
+			            })
+			            .catch(error => console.error('Error loading lyrics:', error));
+			    }
+				
+			    function showSongList() {
+			        songListContainer.style.display = "block";
+			        lyricsContainer.style.display = "none";
+			    }
+
+			    // Back button functionality
+				backButton.addEventListener("click", function() {
+				        showSongList();
+					});
+				
+				});
+	    	
+	    </script>
+	
+</body>
+</html>
