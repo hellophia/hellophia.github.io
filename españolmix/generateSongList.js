@@ -8,15 +8,14 @@ fs.readdir(directoryPath, function(err, files) {
     if (err) {
         return console.error('Unable to scan directory: ' + err);
     } 
-
-    const txtFiles = files.filter(file => path.extname(file).toLowerCase() === '.txt');
-    const songlist = txtFiles.map(file => {
-        const fileName = file.replace('.txt', '');
-        const [bandName, songName] = fileName.split('_').map(word => {
-            return word.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
-        });
-        return { fileName, bandName, songName };
-    });
+	
+	const txtFiles = files.filter(file => path.extname(file).toLowerCase() === '.txt');
+	    const songlist = txtFiles.map(file => {
+	        const filePath = path.join(directoryPath, file);
+	        const fileContent = fs.readFileSync(filePath, 'utf8');
+	        const [bandName, songName] = fileContent.split('\n').map(line => line.trim());
+	        return { fileName: file, bandName, songName };
+	    });
     
     const jsCode = `const songlist = ${JSON.stringify(songlist)};`;
 
