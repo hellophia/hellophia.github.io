@@ -30,61 +30,46 @@
 </head>
 <body>
 	
-	<div id="songListContainer">
+	<div id="songlistdiv">
 		
 	</div>
 	
-	    <div id="lyricsContainer" style="display: none;">
-	        <button id="backButton">back</button>
-	        <div id="lyrics"></div>
-	    </div>
+	<div id="lyricsdiv">
+		
+	</div>
 
-		<script src="songList.js"></script>
-	    <script>
+	<script src="songlist.js"></script>
+    <script>
+		
+		document.addEventListener("DOMContentLoaded", function() {
+			const songlistdiv = document.getElementById("songlistdiv");
+			const lyricsdiv = document.getElementById("lyricsdiv");
 			
-			document.addEventListener("DOMContentLoaded", function() {
-				const songListContainer = document.getElementById("songListContainer");
-				const lyricsContainer = document.getElementById("lyricsContainer");
-				const backButton = document.getElementById("backButton");
-				const lyricsContent = document.getElementById("lyrics");
-				
-			    songList.forEach(song => {
-			        const songLink = document.createElement("a");
-			        songLink.textContent = `${song.bandName} - ${song.songName}`;
-			        songLink.href = `${song.fileName}.txt`;
-			        songLink.onclick = function(event) {
-			            event.preventDefault();
-			            loadLyrics(this.href);
-			        };
-			        songListContainer.appendChild(songLink);
-			        songListContainer.appendChild(document.createElement("br"));
-			    });
+		    songlist.forEach(song => {
+		        const songlink = document.createElement("a");
+		        songlink.textContent = `${song.bandName} - ${song.songName}`;
+		        songlink.href = `${song.fileName}.txt`;
+		        songlink.onclick = function(event) {
+		            event.preventDefault();
+		            loadlyrics(this.href);
+		        };
+		        songlistdiv.appendChild(songlink);
+		        songlistdiv.appendChild(document.createElement("br"));
+		    });
 
-			    function loadLyrics(url) {
-			        fetch(url)
-			            .then(response => response.text())
-			            .then(text => {
-							console.log(text);
-			                lyricsContent.innerHTML = text;
-			                songListContainer.style.display = "none";
-			                lyricsContainer.style.display = "block";
-			            })
-			            .catch(error => console.error('Error loading lyrics:', error));
-			    }
-				
-			    function showSongList() {
-			        songListContainer.style.display = "block";
-			        lyricsContainer.style.display = "none";
-			    }
-
-			    // Back button functionality
-				backButton.addEventListener("click", function() {
-				        showSongList();
-					});
-				
-				});
-	    	
-	    </script>
+		    function loadlyrics(url) {
+		        fetch(url)
+		            .then(response => response.text())
+		            .then(text => {
+						console.log(text);
+		                lyricsdiv.innerHTML = text;
+		            })
+		            .catch(error => console.error('Error loading lyrics:', error));
+		    }
+			
+			});
+    	
+    </script>
 	
 </body>
 </html>
