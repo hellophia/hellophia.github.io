@@ -2,7 +2,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const directoryPath = '/Users/sophiafoster-dimino/Dropbox/github/hellophia/españolmix'; // Change this to the path of your folder containing the .txt files
+const directoryPath = '/Users/sophiafoster-dimino/Dropbox/github/hellophia/españolmix/letras'; // Change this to the path of your folder containing the .txt files
 
 fs.readdir(directoryPath, function(err, files) {
     if (err) {
@@ -20,7 +20,7 @@ fs.readdir(directoryPath, function(err, files) {
     
     const jsCode = `const songList = ${JSON.stringify(songList)};`;
 
-    fs.writeFile('songList.js', jsCode, function(err) {
+    fs.writeFile('songlist.js', jsCode, function(err) {
         if (err) {
             return console.error('Error writing song list:', err);
         }
