@@ -3,3 +3,5 @@ cd /Users/sophiafoster-dimino/Dropbox/github/hellophia/españolmix
 python3 langdetect.py
 
 node generateSongList.py
+
+https://syrics-web.vercel.app/

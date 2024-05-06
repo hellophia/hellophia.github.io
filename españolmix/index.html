@@ -50,7 +50,7 @@
 		        songlink.textContent = `${song.bandName} - ${song.songName}`;
 				const fileName = encodeURIComponent(song.fileName + '.txt');
 				const url = 'letras/' + fileName;
-				songLink.href = url;
+				songlink.href = url;
 		        songlink.onclick = function(event) {
 		            event.preventDefault();
 		            loadlyrics(this.href);
