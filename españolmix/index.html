@@ -48,7 +48,7 @@
 		    songlist.forEach(song => {
 		        const songlink = document.createElement("a");
 		        songlink.textContent = `${song.bandName} - ${song.songName}`;
-				const fileName = encodeURIComponent(song.fileName + '.txt');
+				const fileName = song.fileName
 				const url = 'letras/' + fileName;
 				songlink.href = url;
 		        songlink.onclick = function(event) {
