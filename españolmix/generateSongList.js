@@ -10,7 +10,7 @@ fs.readdir(directoryPath, function(err, files) {
     } 
 
     const txtFiles = files.filter(file => path.extname(file).toLowerCase() === '.txt');
-    const songList = txtFiles.map(file => {
+    const songlist = txtFiles.map(file => {
         const fileName = file.replace('.txt', '');
         const [bandName, songName] = fileName.split('_').map(word => {
             return word.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
@@ -18,7 +18,7 @@ fs.readdir(directoryPath, function(err, files) {
         return { fileName, bandName, songName };
     });
     
-    const jsCode = `const songList = ${JSON.stringify(songList)};`;
+    const jsCode = `const songlist = ${JSON.stringify(songlist)};`;
 
     fs.writeFile('songlist.js', jsCode, function(err) {
         if (err) {
