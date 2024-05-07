@@ -43,13 +43,13 @@
 </head>
 <body>
 	
-	<div classe="container">
+	<div class="container">
 		<div id="songlistdiv">
 		
 		</div>
 	
 		<div id="lyricsdiv">
-		
+		<ol></ol>
 		</div>
 	</div>
 
@@ -60,7 +60,10 @@
 			const songlistdiv = document.getElementById("songlistdiv");
 			const lyricsdiv = document.getElementById("lyricsdiv");
 			
+			const ol = document.getElementById("lyricslist");
+			
 		    songlist.forEach(song => {
+				const li = document.createElement("li");
 		        const songlink = document.createElement("a");
 		        songlink.textContent = `${song.bandName} - ${song.songName}`;
 				const fileName = song.fileName
@@ -70,8 +73,8 @@
 		            event.preventDefault();
 		            loadlyrics(this.href);
 		        };
-		        songlistdiv.appendChild(songlink);
-		        songlistdiv.appendChild(document.createElement("br"));
+				li.appendChild(songlink);
+				ol.appendChild(li);
 		    });
 
 		    function loadlyrics(url) {
