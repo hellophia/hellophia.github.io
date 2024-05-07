@@ -1,37 +1,39 @@
 <html>
 <head>
 <style>
+	
+	.container {
+		display: flex;
+		  flex-direction: row;
+		  flex-wrap: nowrap;
+		  justify-content: normal;
+		  align-items: normal;
+		  align-content: normal;
+	}
+
+	.column {
+		display: block;
+		  flex-grow: 0;
+		  flex-shrink: 1;
+		  flex-basis: auto;
+		  align-self: auto;
+		  order: 0;
+		  padding:20px;
+	}
+	
 </style>
 </head>
 <body>
-    testing
-
-    <script>
-        
-		fetch('https://opensheet.elk.sh/1x-Pp3f8HFcGj4KKxPOwT4Ii-U0A9AI3LZhoOCcQdlus/allsheets')
-		    .then(response => {
-		        if (!response.ok) {
-		            throw new Error('Network response was not ok');
-		        }
-		        return response.json(); // Parse JSON from the response
-		    })
-		    .then(data => {
-		        
-		        window.jsonData = data; // Assign the fetched data to a global variable
-				
-				window.jsonData.forEach(function(element) {
-				    // Split the workType string into an array using comma as the delimiter
-				    element.type = element.type.split(',').map(function(item) {
-				        return item.trim(); // Trim whitespace from each item
-				    });
-				});
-				
-				console.log(window.jsonData);
-		    })
-		    .catch(error => {
-		        console.error('There was a problem fetching the data:', error);
-		    });
-			
-    </script>
+	
+	<div style="container">
+		<div style="column" id="songlistdiv">
+		Etiam vel volutpat nulla, sit amet malesuada mauris. Morbi commodo, dui auctor rhoncus commodo, nibh diam venenatis augue, a posuere libero tortor tincidunt augue. Sed mollis, sapien interdum pellentesque vestibulum, quam dui facilisis elit, quis imperdiet risus nisi ut est. Cras hendrerit nisi et neque cursus, ac pulvinar leo elementum. Suspendisse egestas porttitor auctor. Quisque accumsan massa dui, vel venenatis purus imperdiet vitae. Praesent elementum luctus magna, sed euismod turpis congue non. Quisque nibh tellus, dignissim nec eleifend id, euismod sit amet lectus. Integer efficitur non ex at sodales. Fusce iaculis pretium enim sit amet sodales. Sed in nibh magna. Morbi ultricies odio id ipsum blandit sagittis. Fusce ullamcorper purus eros. Nam pellentesque vulputate sagittis.
+		</div>
+	
+		<div style="column" id="lyricsdiv">
+		Donec suscipit dui quis risus consectetur, non dictum augue volutpat. Sed et enim pretium, maximus tortor sed, elementum arcu. Aliquam facilisis aliquam magna. Maecenas at risus aliquam, volutpat magna eleifend, varius est. Quisque tristique odio libero, eu eleifend tortor rhoncus sed. Aenean eu auctor dolor. Proin ornare, risus in ultrices aliquam, dolor sem ultricies metus, non vulputate ante turpis in nisl. Donec scelerisque tempor pharetra. Nunc elementum tellus felis, at pretium orci finibus in.
+		</div>
+	</div>
+   
 </body>
 </html>

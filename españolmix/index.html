@@ -43,7 +43,7 @@
 </head>
 <body>
 	
-	<div style="container">
+	<div classe="container">
 		<div id="songlistdiv">
 		
 		</div>
@@ -78,13 +78,19 @@
 		        fetch(url)
 		            .then(response => response.text())
 		            .then(text => {
-						console.log(text);
-		                lyricsdiv.innerHTML = text;
+						const wrappedText = wrapParagraphs(text);
+		                lyricsdiv.innerHTML = wrappedText;
 		            })
 		            .catch(error => console.error('Error loading lyrics:', error));
 		    }
 			
 			});
+			
+			function wrapParagraphs(text) {
+			    const paragraphs = text.split('\n\n');
+			    const wrappedParagraphs = paragraphs.map(paragraph => `<p>${paragraph}</p>`);
+			    return wrappedParagraphs.join('');
+			}
     	
     </script>
 	
