@@ -139,9 +139,8 @@
 			    const paragraphs = text.split('\n\n');
 			    const wrappedParagraphs = paragraphs.map(paragraph => {
 			        const lines = paragraph.split('\n');
-			        const wrappedLines = lines.map(line => `<p>${line}</p>`);
-			        const wrappedParagraph = wrappedLines.join('');
-			        return `<div>${wrappedParagraph}</div>`;
+			        const wrappedLines = lines.map(line => line.trim()).join('<br>');
+			        return `<p>${wrappedLines}</p>`;
 			    });
 			    return wrappedParagraphs.join('');
 			}
