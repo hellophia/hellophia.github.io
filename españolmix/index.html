@@ -8,7 +8,7 @@
             font-family: "Noto Serif";
             color: #595941;
             background-color: #e3e3e3;
-			font-size:14px;
+			font-size:16px;
         }
 		
 		a:link {
@@ -26,17 +26,47 @@
   		  background-color:#d3c8c3;
 		}
 		
+		ol {
+		    list-style-type: none;
+		}
+
+		ol li {
+		    counter-increment: list-counter;
+		    margin-bottom: 10px;
+		}
+
+		ol li::before {
+		    content: counter(list-counter);
+		}
+		
+		ol li::before{
+			padding:8px;
+			border-radius: 50%;
+			display:inline-block;
+			text-align: center;
+			width:10px;
+			height:10px;
+			line-height:8px;
+			margin-right:8px;
+			color: #d3c8c3;
+			background-color: #db9c42;
+		}
+		
 		.container {
 		    display: flex;
 		    height: 100vh;
 		}
 
 		#songlistdiv {
-		    flex: 1;
+		    flex:1;
 		}
 
 		#lyricsdiv {
-		    flex: 2;
+		    flex:2;
+		}
+		
+		*{
+			//outline: 1px solid red;
 		}
 		
 	</style>
@@ -45,11 +75,11 @@
 	
 	<div class="container">
 		<div id="songlistdiv">
-		
+		<ol id="lyricslist"></ol>
 		</div>
 	
 		<div id="lyricsdiv">
-		<ol id="lyricslist"></ol>
+		
 		</div>
 	</div>
 
@@ -65,7 +95,7 @@
 		    songlist.forEach(song => {
 				const li = document.createElement("li");
 		        const songlink = document.createElement("a");
-		        songlink.textContent = `${song.bandName} - ${song.songName}`;
+		        songlink.textContent = `${song.bandName} – ${song.songName}`;
 				const fileName = song.fileName
 				const url = 'letras/' + fileName;
 				songlink.href = url;
