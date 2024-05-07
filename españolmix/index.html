@@ -49,12 +49,17 @@
 			line-height:8px;
 			margin-right:8px;
 			color: #d3c8c3;
-			background-color: #db9c42;
+			background-color: var(--random-color);
+		}
+		
+		ol{
+			padding:0;
 		}
 		
 		.container {
 		    display: flex;
 		    height: 100vh;
+			margin:20px;
 		}
 
 		#songlistdiv {
@@ -75,6 +80,9 @@
 	
 	<div class="container">
 		<div id="songlistdiv">
+			<div>
+				<p><span style="color:#d3b690;">˖</span><span style="color:#d3c8c3;">⁺</span><span style="color:#d3b690;">‧</span><span style="color:#d3c8c3;">₊</span><span style="color:#db9c42;">˚</span><span style="color:#d3b690;">✦</span> españolmix <span style="color:#d3b690;">✦</span><span style="color:#db9c42;">˚</span><span style="color:#d3c8c3;">₊</span><span style="color:#d3b690;">‧</span><span style="color:#d3c8c3;">⁺</span><span style="color:#d3b690;">˖</span><p>
+			</div>
 		<ol id="lyricslist"></ol>
 		</div>
 	
@@ -117,7 +125,15 @@
 		            .catch(error => console.error('Error loading lyrics:', error));
 		    }
 			
-			});
+		    const colors = ['#595941','#757541','#ba8a33','#db9c42','#86aeaf','#b9af2a','#6e7384','#8e7fa8','#da758f'];
+
+		    const listItems = document.querySelectorAll("#lyricslist li");
+
+		    listItems.forEach((li) => {
+		        const randomColor = colors[Math.floor(Math.random() * colors.length)];
+		        li.style.setProperty('--random-color', randomColor);
+		    });
+		});
 			
 			function wrapParagraphs(text) {
 			    const paragraphs = text.split('\n\n');
