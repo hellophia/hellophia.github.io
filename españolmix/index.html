@@ -88,7 +88,12 @@
 			
 			function wrapParagraphs(text) {
 			    const paragraphs = text.split('\n\n');
-			    const wrappedParagraphs = paragraphs.map(paragraph => `<p>${paragraph}</p>`);
+			    const wrappedParagraphs = paragraphs.map(paragraph => {
+			        const lines = paragraph.split('\n');
+			        const wrappedLines = lines.map(line => `<p>${line}</p>`);
+			        const wrappedParagraph = wrappedLines.join('');
+			        return `<div>${wrappedParagraph}</div>`;
+			    });
 			    return wrappedParagraphs.join('');
 			}
     	
