@@ -28,18 +28,16 @@
 		
 		ol {
 		    list-style-type: none;
+			padding:0;
 		}
 
-		ol li {
+		li {
 		    counter-increment: list-counter;
 		    margin-bottom: 10px;
 		}
-
-		ol li::before {
-		    content: counter(list-counter);
-		}
 		
 		ol li::before{
+			content: counter(list-counter);
 			padding:8px;
 			border-radius: 50%;
 			display:inline-block;
@@ -48,12 +46,12 @@
 			height:10px;
 			line-height:8px;
 			margin-right:8px;
-			color: #d3c8c3;
+			color: #dbd8d3;
 			background-color: var(--random-color);
 		}
 		
-		ol{
-			padding:0;
+		li.inactive::before{
+			background-color: #dbd8d3;
 		}
 		
 		.container {
@@ -76,6 +74,21 @@
 		    clear: both;
 		    max-width: max-content;
 		}
+		
+		#closeButton {
+		  position: fixed;
+		  top: 20px;
+		  right: 20px;
+		  width: 50px;
+		  height: 50px;
+		  font-size: 24px;
+		  background-color: #fff;
+		  border: 1px solid #ccc;
+		  border-radius: 50%;
+		  cursor: pointer;
+		  display: none;
+		}
+		
 		*{
 			//outline: 1px solid red;
 		}
@@ -84,10 +97,10 @@
 </head>
 <body>
 	
+	<button id="closeButton">×</button>
+	
 	<div class="container">
 		<div id="songlistdiv">
-			
-			<div class="info">testing</div><div class="info">testing</div><div class="info">testing</div>
 			
 			<div>
 				<p><span style="color:#d3b690;">˖</span><span style="color:#d3c8c3;">⁺</span><span style="color:#d3b690;">‧</span><span style="color:#d3c8c3;">₊</span><span style="color:#db9c42;">˚</span><span style="color:#d3b690;">✦</span> españolmix <span style="color:#d3b690;">✦</span><span style="color:#db9c42;">˚</span><span style="color:#d3c8c3;">₊</span><span style="color:#d3b690;">‧</span><span style="color:#d3c8c3;">⁺</span><span style="color:#d3b690;">˖</span><p>
@@ -105,10 +118,14 @@
 		
 		const colors = ['#595941','#757541','#ba8a33','#db9c42','#86aeaf','#b9af2a','#6e7384','#8e7fa8','#da758f'];
 		const lightcolors = ['#d3c8c3','#d3b690','#b9af2a','#b0b4b4','#d4be96','#dcb38b']
+		var randomColor = "";
+		const ligroup = [];
 		
 		document.addEventListener("DOMContentLoaded", function() {
+			
 			const songlistdiv = document.getElementById("songlistdiv");
 			const lyricsdiv = document.getElementById("lyricsdiv");
+			const closeButton = document.getElementById("closeButton");
 			
 			const ol = document.getElementById("lyricslist");
 			
@@ -116,12 +133,29 @@
 				const li = document.createElement("li");
 		        const songlink = document.createElement("a");
 		        songlink.textContent = `${song.bandName} – ${song.songName}`;
-				const fileName = song.fileName
-				const url = 'letras/' + fileName;
-				songlink.href = url;
+				songlink.href = 'letras/' + song.fileName
+				
+		        randomColor = colors[Math.floor(Math.random() * colors.length)];
+		        li.style.setProperty('--random-color', randomColor);
+				
+				ligroup.push(li);
+				
 		        songlink.onclick = function(event) {
 		            event.preventDefault();
 		            loadlyrics(this.href);
+					
+					closeButton.style.display = "block";
+					
+			        randomColor = colors[Math.floor(Math.random() * colors.length)];
+					const clickedIndex = ligroup.indexOf(event.currentTarget.parentElement);
+					ligroup[clickedIndex].style.setProperty('--random-color', randomColor);
+		            for (let j = 0; j < ligroup.length; j++) {
+		                if (j !== clickedIndex) {
+							console.log(j);
+		                    randomColor = "#bec3a8";
+							ligroup[j].style.setProperty('--random-color', randomColor);
+		                }
+					};
 		        };
 				li.appendChild(songlink);
 				ol.appendChild(li);
@@ -140,18 +174,16 @@
 						const infoItems = document.querySelectorAll(".info");
 		
 						infoItems.forEach((item) => {
-							const randomColor = lightcolors[Math.floor(Math.random() * lightcolors.length)];
+							randomColor = lightcolors[Math.floor(Math.random() * lightcolors.length)];
 							item.style.setProperty('--random-color', randomColor);
 						});
 			        })
 		            .catch(error => console.error('Error loading lyrics:', error));
 		    }
-
-		    const listItems = document.querySelectorAll("#lyricslist li");
-
-		    listItems.forEach((li) => {
-		        const randomColor = colors[Math.floor(Math.random() * colors.length)];
-		        li.style.setProperty('--random-color', randomColor);
+			
+			closeButton.addEventListener("click", function() {
+		        lyricsdiv.innerHTML = "";
+		        closeButton.style.display = "none";
 		    });
 			
 		});
