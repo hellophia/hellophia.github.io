@@ -9,6 +9,7 @@
             color: #595941;
             background-color: #e3e3e3;
 			font-size:16px;
+			margin:0;
         }
 		
 		a:link {
@@ -57,15 +58,20 @@
 		.container {
 		    display: flex;
 		    height: 100vh;
-			margin:20px;
 		}
 
 		#songlistdiv {
-		    flex:1;
+		    flex:2;
+			border-right: 4px solid #d8d3cc;
+			padding-top:40px;
+			padding-left:60px;
+			padding-right:20px;
+			padding-bottom:20px;
 		}
 
 		#lyricsdiv {
-		    flex:2;
+		    flex:5;
+			padding:20px;
 		}
 		
 		.info{
@@ -79,12 +85,15 @@
 		  position: fixed;
 		  top: 20px;
 		  right: 20px;
-		  width: 50px;
-		  height: 50px;
+		  width: 40px;
+		  height: 40px;
 		  color: #dbd8d3;
 		  background-color: var(--random-color);
 		  cursor: pointer;
 		  display: none;
+		  border: none;
+		  font-size: 20px;
+		  font-family: "Noto Serif";
 		}
 		
 		*{
@@ -151,7 +160,6 @@
 					ligroup[clickedIndex].style.setProperty('--random-color', randomColor);
 		            for (let j = 0; j < ligroup.length; j++) {
 		                if (j !== clickedIndex) {
-							console.log(j);
 		                    randomColor = "#bec3a8";
 							ligroup[j].style.setProperty('--random-color', randomColor);
 		                }
@@ -184,6 +192,11 @@
 			closeButton.addEventListener("click", function() {
 		        lyricsdiv.innerHTML = "";
 		        closeButton.style.display = "none";
+				
+	            for (let j = 0; j < ligroup.length; j++) {
+                    randomColor = colors[Math.floor(Math.random() * colors.length)];
+					ligroup[j].style.setProperty('--random-color', randomColor);
+				};
 		    });
 			
 		});
