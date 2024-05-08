@@ -131,16 +131,16 @@
 			            const remainingLines = lines.slice(2).join('\n');
 			            const wrappedText = `<div>${firstTwoLines}</div>${wrapParagraphs(remainingLines)}`;
 			            lyricsdiv.innerHTML = wrappedText;
+						
+						const infoItems = document.querySelectorAll("info");
+		
+						infoItems.forEach((item) => {
+							console.log(item);
+							const randomColor = lightcolors[Math.floor(Math.random() * lightcolors.length)];
+							item.style.setProperty('--random-color', randomColor);
+						});
 			        })
 		            .catch(error => console.error('Error loading lyrics:', error));
-					
-				const infoItems = document.querySelectorAll("info");
-		
-				infoItems.forEach((item) => {
-					console.log(item);
-					const randomColor = lightcolors[Math.floor(Math.random() * lightcolors.length)];
-					item.style.setProperty('--random-color', randomColor);
-				});
 		    }
 
 		    const listItems = document.querySelectorAll("#lyricslist li");
