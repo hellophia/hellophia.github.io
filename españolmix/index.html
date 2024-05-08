@@ -70,6 +70,10 @@
 		    flex:2;
 		}
 		
+		.info{
+			background-color: var(--random-color);
+		}
+		
 		*{
 			//outline: 1px solid red;
 		}
@@ -118,10 +122,13 @@
 		    function loadlyrics(url) {
 		        fetch(url)
 		            .then(response => response.text())
-		            .then(text => {
-						const wrappedText = wrapParagraphs(text);
-		                lyricsdiv.innerHTML = wrappedText;
-		            })
+					.then(text => {
+						const lines = text.split('\n');
+			            const firstTwoLines = lines.slice(0, 2).map(line => `<div class="info">${line}</div>`).join('');
+			            const remainingLines = lines.slice(2).join('\n');
+			            const wrappedText = `<div>${firstTwoLines}</div>${wrapParagraphs(remainingLines)}`;
+			            lyricsdiv.innerHTML = wrappedText;
+			        })
 		            .catch(error => console.error('Error loading lyrics:', error));
 		    }
 			
@@ -133,6 +140,15 @@
 		        const randomColor = colors[Math.floor(Math.random() * colors.length)];
 		        li.style.setProperty('--random-color', randomColor);
 		    });
+			
+			const lightcolors = ['#d3c8c3','#d3b690','#b9af2a','#b0b4b4','#d4be96','#dcb38b']
+			
+			const infoItems = document.querySelectorAll("info");
+			
+			infoItems.forEach((item) => {
+				const randomColor = lightcolors[Math.floor(Math.random() * lightcolors.length)];
+				item.style.setProperty('--random-color', randomColor);
+			});
 		});
 			
 			function wrapParagraphs(text) {
