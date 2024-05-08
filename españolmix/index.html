@@ -98,6 +98,9 @@
 	<script src="songlist.js"></script>
     <script>
 		
+		const colors = ['#595941','#757541','#ba8a33','#db9c42','#86aeaf','#b9af2a','#6e7384','#8e7fa8','#da758f'];
+		const lightcolors = ['#d3c8c3','#d3b690','#b9af2a','#b0b4b4','#d4be96','#dcb38b']
+		
 		document.addEventListener("DOMContentLoaded", function() {
 			const songlistdiv = document.getElementById("songlistdiv");
 			const lyricsdiv = document.getElementById("lyricsdiv");
@@ -131,17 +134,14 @@
 			        })
 		            .catch(error => console.error('Error loading lyrics:', error));
 					
-				const lightcolors = ['#d3c8c3','#d3b690','#b9af2a','#b0b4b4','#d4be96','#dcb38b']
-		
 				const infoItems = document.querySelectorAll("info");
 		
 				infoItems.forEach((item) => {
+					console.log(item);
 					const randomColor = lightcolors[Math.floor(Math.random() * lightcolors.length)];
 					item.style.setProperty('--random-color', randomColor);
 				});
 		    }
-			
-		    const colors = ['#595941','#757541','#ba8a33','#db9c42','#86aeaf','#b9af2a','#6e7384','#8e7fa8','#da758f'];
 
 		    const listItems = document.querySelectorAll("#lyricslist li");
 
