@@ -2,38 +2,30 @@
 <head>
 <style>
 	
-	.container {
-		display: flex;
-		  flex-direction: row;
-		  flex-wrap: nowrap;
-		  justify-content: normal;
-		  align-items: normal;
-		  align-content: normal;
+	.smallDiv {
+	    display: block;
+	    border: 1px solid black; /* Just for demonstration */
+	    padding: 5px; /* Just for demonstration */
+	    clear: both; /* Ensure each div starts on a new line */
+	    margin-bottom: 10px; /* Add margin to separate the divs vertically */
+	    max-width: max-content; /* Make each div only as wide as its content */
 	}
-
-	.column {
-		display: block;
-		  flex-grow: 0;
-		  flex-shrink: 1;
-		  flex-basis: auto;
-		  align-self: auto;
-		  order: 0;
-		  padding:20px;
-	}
+	
 	
 </style>
 </head>
 <body>
 	
-	<div style="container">
-		<div style="column" id="songlistdiv">
-		Etiam vel volutpat nulla, sit amet malesuada mauris. Morbi commodo, dui auctor rhoncus commodo, nibh diam venenatis augue, a posuere libero tortor tincidunt augue. Sed mollis, sapien interdum pellentesque vestibulum, quam dui facilisis elit, quis imperdiet risus nisi ut est. Cras hendrerit nisi et neque cursus, ac pulvinar leo elementum. Suspendisse egestas porttitor auctor. Quisque accumsan massa dui, vel venenatis purus imperdiet vitae. Praesent elementum luctus magna, sed euismod turpis congue non. Quisque nibh tellus, dignissim nec eleifend id, euismod sit amet lectus. Integer efficitur non ex at sodales. Fusce iaculis pretium enim sit amet sodales. Sed in nibh magna. Morbi ultricies odio id ipsum blandit sagittis. Fusce ullamcorper purus eros. Nam pellentesque vulputate sagittis.
-		</div>
-	
-		<div style="column" id="lyricsdiv">
-		Donec suscipit dui quis risus consectetur, non dictum augue volutpat. Sed et enim pretium, maximus tortor sed, elementum arcu. Aliquam facilisis aliquam magna. Maecenas at risus aliquam, volutpat magna eleifend, varius est. Quisque tristique odio libero, eu eleifend tortor rhoncus sed. Aenean eu auctor dolor. Proin ornare, risus in ultrices aliquam, dolor sem ultricies metus, non vulputate ante turpis in nisl. Donec scelerisque tempor pharetra. Nunc elementum tellus felis, at pretium orci finibus in.
-		</div>
+	<div id="container">
+	    <div class="smallDiv">Small Div 1</div>
+	    <div class="smallDiv">Small Div 2</div>
+	    <div class="smallDiv">Small Div 3</div>
+	    <div class="smallDiv">Small Div 4</div>
+	    <div class="smallDiv">Small Div 5</div>
+	    <div class="smallDiv">Small Div 6</div>
+	    <!-- Add more .smallDiv elements as needed -->
 	</div>
+	
    
 </body>
 </html>

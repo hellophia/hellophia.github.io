@@ -72,8 +72,10 @@
 		
 		.info{
 			background-color: var(--random-color);
+		    display: block;
+		    clear: both;
+		    max-width: max-content;
 		}
-		
 		*{
 			//outline: 1px solid red;
 		}
@@ -84,6 +86,9 @@
 	
 	<div class="container">
 		<div id="songlistdiv">
+			
+			<div class="info">testing</div><div class="info">testing</div><div class="info">testing</div>
+			
 			<div>
 				<p><span style="color:#d3b690;">˖</span><span style="color:#d3c8c3;">⁺</span><span style="color:#d3b690;">‧</span><span style="color:#d3c8c3;">₊</span><span style="color:#db9c42;">˚</span><span style="color:#d3b690;">✦</span> españolmix <span style="color:#d3b690;">✦</span><span style="color:#db9c42;">˚</span><span style="color:#d3c8c3;">₊</span><span style="color:#d3b690;">‧</span><span style="color:#d3c8c3;">⁺</span><span style="color:#d3b690;">˖</span><p>
 			</div>
@@ -132,12 +137,9 @@
 			            const wrappedText = `<div>${firstTwoLines}</div>${wrapParagraphs(remainingLines)}`;
 			            lyricsdiv.innerHTML = wrappedText;
 						
-						const infoItems = document.querySelectorAll("info");
-						console.log("running");
-						console.log(infoItems);
+						const infoItems = document.querySelectorAll(".info");
 		
 						infoItems.forEach((item) => {
-							console.log(item);
 							const randomColor = lightcolors[Math.floor(Math.random() * lightcolors.length)];
 							item.style.setProperty('--random-color', randomColor);
 						});
