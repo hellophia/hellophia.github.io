@@ -81,10 +81,8 @@
 		  right: 20px;
 		  width: 50px;
 		  height: 50px;
-		  font-size: 24px;
-		  background-color: #fff;
-		  border: 1px solid #ccc;
-		  border-radius: 50%;
+		  color: #dbd8d3;
+		  background-color: var(--random-color);
 		  cursor: pointer;
 		  display: none;
 		}
@@ -145,9 +143,11 @@
 		            loadlyrics(this.href);
 					
 					closeButton.style.display = "block";
+					randomColor = colors[Math.floor(Math.random() * colors.length)];
+					closeButton.style.setProperty('--random-color', randomColor);
 					
-			        randomColor = colors[Math.floor(Math.random() * colors.length)];
 					const clickedIndex = ligroup.indexOf(event.currentTarget.parentElement);
+					randomColor = colors[Math.floor(Math.random() * colors.length)];
 					ligroup[clickedIndex].style.setProperty('--random-color', randomColor);
 		            for (let j = 0; j < ligroup.length; j++) {
 		                if (j !== clickedIndex) {
