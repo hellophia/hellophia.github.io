@@ -1,11 +1,5 @@
 const songlist = [
     {
-        "fileName": "chicha-libre_danza-del-millonario.txt",
-        "artistName": "Chicha Libre",
-        "songName": "Danza Del Millonario",
-        "spotifyURI": "spotify:track:7ndS4yAvKF7vE7VG14fR0v"
-    },
-    {
         "fileName": "chicha-libre_el-borrachito.txt",
         "artistName": "Chicha Libre",
         "songName": "El Borrachito",
@@ -27,37 +21,19 @@ const songlist = [
         "fileName": "chicha-libre_yo-no-fui.txt",
         "artistName": "Chicha Libre",
         "songName": "Yo No Fui",
-        "spotifyURI": "spotify:track:5Pfx631lyElIrrHDwhvOhh"
+        "spotifyURI": "spotify:track:4HwRJ1KU4NLeSiRZhzbGyU"
     },
     {
         "fileName": "cuarteto-continental-de-alberto-maravi_alegria-y-amor.txt",
         "artistName": "Cuarteto Continental de Alberto Maraví",
         "songName": "Alegria y Amor",
-        "spotifyURI": "spotify:track:5Pfx631lyElIrrHDwhvOhh"
+        "spotifyURI": "spotify:track:47o4t0YseyNLzbPtDXLH4H"
     },
     {
         "fileName": "cuarteto-continental-de-alberto-maravi_el-orangutan.txt",
         "artistName": "Cuarteto Continental de Alberto Maraví",
         "songName": "El Orangután / El Gavilán / La Mula / El Camaleón / El Burrito / La Vaca Prieta / La Arañita / La Pulguita / El Vampiro /",
-        "spotifyURI": "spotify:track:5Pfx631lyElIrrHDwhvOhh"
-    },
-    {
-        "fileName": "juaneco-y-su-combo_linda-nena.txt",
-        "artistName": "Juaneco Y Su Combo",
-        "songName": "Linda Nena",
-        "spotifyURI": "spotify:track:5Pfx631lyElIrrHDwhvOhh"
-    },
-    {
-        "fileName": "juaneco-y-su-combo_mujer-hilandera.txt",
-        "artistName": "Juaneco Y Su Combo",
-        "songName": "Mujer Hilandera",
-        "spotifyURI": "spotify:track:66kkC9ctzgtNHT48HnhzXW"
-    },
-    {
-        "fileName": "juaneco-y-su-combo_vereda-tropical.txt",
-        "artistName": "Juaneco Y Su Combo",
-        "songName": "Vereda Tropical",
-        "spotifyURI": "spotify:track:3jCEn7J8VxW1VHR53p1mxy"
+        "spotifyURI": "spotify:track:6OUMKvjfdCX50LaWuEkDt5"
     },
     {
         "fileName": "la-union_todos-los-gatos-son-pardos.txt",
@@ -69,7 +45,7 @@ const songlist = [
         "fileName": "la-yegros_ya_no_llores.txt",
         "artistName": "La Yegros",
         "songName": "Ya No Llores",
-        "spotifyURI": ""
+        "spotifyURI": "spotify:track:6CsGiaFJz7Of9cbiab77v9"
     },
     {
         "fileName": "los-brujos_sucu-sucu.txt",
@@ -213,7 +189,7 @@ const songlist = [
         "fileName": "soda-stereo_nada-personal.txt",
         "artistName": "Soda Stereo",
         "songName": "Nada Personal",
-        "spotifyURI": "spotify:track:7ndS4yAvKF7vE7VG14fR0v"
+        "spotifyURI": "spotify:track:0cslUTJ5eB4hUNs0fKyh59"
     },
     {
         "fileName": "sonido-2000_mensaje-de-amor.txt",
@@ -225,6 +201,6 @@ const songlist = [
         "fileName": "sonido-2000_mi-carinito.txt",
         "artistName": "Sonido 2000",
         "songName": "Mi Cariñito",
-        "spotifyURI": "spotify:track:41DKTtlUzHS24sKO5a0CRK"
+        "spotifyURI": "spotify:track:46iQnRAQVbWZMuaW64cxEs"
     }
-];
+]
