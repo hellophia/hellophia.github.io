@@ -21,5 +21,5 @@ def main(folder_path):
                 print(f"{file_name}: {language}")
        
 # Replace 'folder_path' with the path to your folder containing the text files
-folder_path = '/Users/sophiafoster-dimino/Downloads/The Rough Guide to Psychedelic Cumbia'
+folder_path = '/Users/sophiafoster-dimino/Dropbox/github/hellophia/españolmix/letras to process'
 main(folder_path)

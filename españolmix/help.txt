@@ -1,9 +1,17 @@
+
+// automator workflow to convert .lrc to .txt files
+
+// how to detect languages (expects .txt files in letras to process
 terminal
 cd /Users/sophiafoster-dimino/Dropbox/github/hellophia/españolmix
 python3 langdetect.py
 
+// how to generate songlist
+terminal
+cd /Users/sophiafoster-dimino/Dropbox/github/hellophia/españolmix
 node generateSongList.py
 
+// how to get .lrcs
 https://syrics-web.vercel.app/
 
 python3 ejemplo.py <folder path>
