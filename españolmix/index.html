@@ -151,7 +151,7 @@
 			    songlist.forEach(song => {
 					const li = document.createElement("li");
 			        const songlink = document.createElement("a");
-			        songlink.textContent = `${song.bandName} – ${song.songName}`;
+			        songlink.textContent = `${song.artistName} – ${song.songName}`;
 					songlink.href = 'letras/' + song.fileName
 					songlink.setAttribute("data-spotify-id", song.spotifyURI);
 				
@@ -206,7 +206,7 @@
 						
 				        })
 			            .catch(error => console.error('Error loading lyrics:', error));
-			    }
+			    };
 			
 				closeButton.addEventListener("click", function() {
 		        
@@ -217,11 +217,9 @@
 	                    randomColor = colors[Math.floor(Math.random() * colors.length)];
 						ligroup[j].style.setProperty('--random-color', randomColor);
 					};
-				
-			    });
-			
-		})
-		};
+				});
+			};
+		});
 			
 		function wrapParagraphs(text) {
 		    const paragraphs = text.split('\n\n');
