@@ -201,9 +201,9 @@
 						.then(text => {
 							const lines = text.split('\n');
 						
-				            const firstThreeLines = lines.slice(3).join('\n');
+				            const firstThreeLines = lines.slice(0,3).map(line => `<div class="hide">${line}</div>`).join('')
 				            const remainingLines = lines.slice(3).join('\n');
-				            const wrappedText = `<div class="hide">${firstThreeLines}</div>${wrapParagraphs(remainingLines)}`;
+				            const wrappedText = `${firstThreeLines}${wrapParagraphs(remainingLines)}`;
 				            lyricsdiv.innerHTML = wrappedText;
 						
 							const infoItems = document.querySelectorAll(".info");
