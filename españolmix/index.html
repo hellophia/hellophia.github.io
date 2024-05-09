@@ -168,6 +168,7 @@
 				
 			        songlink.onclick = function(event) {
 			            event.preventDefault();
+						lyricsdiv.scrollTop = 0;
 			            loadlyrics(this.href);
 					
 						closeButton.style.display = "block";
