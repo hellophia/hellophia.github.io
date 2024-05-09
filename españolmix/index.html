@@ -178,22 +178,23 @@
 			                }
 						};
 			        };
-					
-					const callback = (EmbedController) => {
-				        document.querySelectorAll('a').forEach(
-				          song => {
-				            song.addEventListener('click', () => {
-				              EmbedController.loadUri(song.dataset.spotifyId)
-				            });
-				          })
-					};
-					
-					IFrameAPI.createController(element, options, callback);
 				
 					li.appendChild(songlink);
 					ol.appendChild(li);
 				
 			    });
+				
+				const callback = (EmbedController) => {
+			        document.querySelectorAll('a').forEach(
+			          song => {
+						  console.log(song)
+						  song.addEventListener('click', () => {
+							  EmbedController.loadUri(song.dataset.spotifyId)
+						  });
+					  })
+				};
+				
+				IFrameAPI.createController(element, options, callback);
 
 			    function loadlyrics(url) {
 			        fetch(url)
