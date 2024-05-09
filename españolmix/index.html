@@ -79,7 +79,7 @@
 		
 		#closeButton {
 		  position: fixed;
-		  top: 20px;
+		  top: 200px;
 		  right: 20px;
 		  width: 40px;
 		  height: 40px;
@@ -204,11 +204,8 @@
 			            .then(response => response.text())
 						.then(text => {
 							const lines = text.split('\n');
-						
-				            const firstThreeLines = lines.slice(0,3).map(line => `<div class="hide">${line}</div>`).join('')
 				            const remainingLines = lines.slice(3).join('\n');
-				            const wrappedText = `${firstThreeLines}${wrapParagraphs(remainingLines)}`;
-				            lyricsdiv.innerHTML = wrappedText;
+				            lyricsdiv.innerHTML = wrapParagraphs(remainingLines)
 						
 							const infoItems = document.querySelectorAll(".info");
 		
