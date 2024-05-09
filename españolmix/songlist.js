@@ -6,22 +6,10 @@ const songlist = [
         "spotifyURI": "spotify:track:67UCbbEv3B7wnQr7Z6Pm71"
     },
     {
-        "fileName": "chicha-libre_popcorn-andino.txt",
-        "artistName": "Chicha Libre",
-        "songName": "Popcorn Andino",
-        "spotifyURI": "spotify:track:7kkijB89vc5uGbG1WhUFZu"
-    },
-    {
         "fileName": "cuarteto-continental-de-alberto-maravi_alegria-y-amor.txt",
         "artistName": "Cuarteto Continental de Alberto Maraví",
         "songName": "Alegria y Amor",
         "spotifyURI": "spotify:track:47o4t0YseyNLzbPtDXLH4H"
-    },
-    {
-        "fileName": "cuarteto-continental-de-alberto-maravi_el-orangutan.txt",
-        "artistName": "Cuarteto Continental de Alberto Maraví",
-        "songName": "El Orangután / El Gavilán / La Mula / El Camaleón / El Burrito / La Vaca Prieta / La Arañita / La Pulguita / El Vampiro /",
-        "spotifyURI": "spotify:track:6OUMKvjfdCX50LaWuEkDt5"
     },
     {
         "fileName": "la-union_todos-los-gatos-son-pardos.txt",
@@ -36,12 +24,6 @@ const songlist = [
         "spotifyURI": "spotify:track:6CsGiaFJz7Of9cbiab77v9"
     },
     {
-        "fileName": "los-brujos_sucu-sucu.txt",
-        "artistName": "Los Brujos",
-        "songName": "Sucu Sucu",
-        "spotifyURI": "spotify:track:6wKR1OqtDjh9A3qLRnULM0"
-    },
-    {
         "fileName": "los-destellos_a-los-bosques.txt",
         "artistName": "Los Destellos",
         "songName": "A los Bosques",
@@ -51,13 +33,7 @@ const songlist = [
         "fileName": "los-destellos_carmen-rosa.txt",
         "artistName": "Los Destellos",
         "songName": "Carmen Rosa",
-        "spotifyURI": "spotify:track:4BfOcdCYedgH1hlcZlYVb7"
-    },
-    {
-        "fileName": "los-destellos_la-cerveza.txt",
-        "artistName": "Los Destellos",
-        "songName": "La Cerveza",
-        "spotifyURI": "spotify:track:3r3b7BHpEoP8j0bmdpXXr4"
+        "spotifyURI": "spotify:track:30iultpPIjXahfac9eq4Yj"
     },
     {
         "fileName": "los-diablos-rojos_ave-sin-rumbo.txt",
