@@ -228,5 +228,3 @@ const songlist = [
         "spotifyURI": "spotify:track:41DKTtlUzHS24sKO5a0CRK"
     }
 ];
-
-module.exports = songlist;

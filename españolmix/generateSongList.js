@@ -23,4 +23,4 @@ fs.readdirSync(folderPath).forEach(file => {
     }
 });
 
-fs.writeFileSync('songlist.js', `const songlist = ${JSON.stringify(songlist, null, 4)};\n\nmodule.exports = songlist;`);
+fs.writeFileSync('songlist.js', `const songlist = ${JSON.stringify(songlist, null, 4)}`);
