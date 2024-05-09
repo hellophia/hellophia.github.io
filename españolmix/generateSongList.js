@@ -2,27 +2,25 @@
 const fs = require('fs');
 const path = require('path');
 
-const directoryPath = '/Users/sophiafoster-dimino/Dropbox/github/hellophia/españolmix/letras'; // Change this to the path of your folder containing the .txt files
+const folderPath = '/Users/sophiafoster-dimino/Dropbox/github/hellophia/españolmix/letras';
 
-fs.readdir(directoryPath, function(err, files) {
-    if (err) {
-        return console.error('Unable to scan directory: ' + err);
-    } 
-	
-	const txtFiles = files.filter(file => path.extname(file).toLowerCase() === '.txt');
-	    const songlist = txtFiles.map(file => {
-	        const filePath = path.join(directoryPath, file);
-	        const fileContent = fs.readFileSync(filePath, 'utf8');
-	        const [bandName, songName] = fileContent.split('\n').map(line => line.trim());
-	        return { fileName: file, bandName, songName };
-	    });
-    
-    const jsCode = `const songlist = ${JSON.stringify(songlist)};`;
+const songlist = [];
 
-    fs.writeFile('songlist.js', jsCode, function(err) {
-        if (err) {
-            return console.error('Error writing song list:', err);
-        }
-        console.log('Song list generated successfully.');
-    });
+fs.readdirSync(folderPath).forEach(file => {
+    if (file.endsWith('.txt')) {
+        const filePath = path.join(folderPath, file);
+        const fileContent = fs.readFileSync(filePath, 'utf-8').split('\n');
+        const artistName = fileContent[0].trim();
+        const songName = fileContent[1].trim();
+        const spotifyURI = fileContent[2].trim(); // Assuming URI is on the third line
+
+        songlist.push({
+            fileName: file,
+            artistName: artistName,
+            songName: songName,
+            spotifyURI: spotifyURI
+        });
+    }
 });
+
+fs.writeFileSync('songlist.js', `const songlist = ${JSON.stringify(songlist, null, 4)};\n\nmodule.exports = songlist;`);
