@@ -1,31 +1,72 @@
-<html>
+<html lang="en">
 <head>
-<style>
-	
-	.smallDiv {
-	    display: block;
-	    border: 1px solid black; /* Just for demonstration */
-	    padding: 5px; /* Just for demonstration */
-	    clear: both; /* Ensure each div starts on a new line */
-	    margin-bottom: 10px; /* Add margin to separate the divs vertically */
-	    max-width: max-content; /* Make each div only as wide as its content */
-	}
-	
-	
-</style>
+  <title>A Spotify Embed Example</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    .episodes {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .episode {
+      min-width: max-content;
+      margin-bottom: .8rem;
+      padding: .8rem 1rem;
+      border-radius: 10px;
+      border: 0;
+      background: #191414;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .episode:hover {
+      background: #1Db954;
+    }
+
+    @media screen and (min-width: 860px) {
+      body {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+      }
+    }
+  </style>
 </head>
+
 <body>
-	
-	<div id="container">
-	    <div class="smallDiv">Small Div 1</div>
-	    <div class="smallDiv">Small Div 2</div>
-	    <div class="smallDiv">Small Div 3</div>
-	    <div class="smallDiv">Small Div 4</div>
-	    <div class="smallDiv">Small Div 5</div>
-	    <div class="smallDiv">Small Div 6</div>
-	    <!-- Add more .smallDiv elements as needed -->
-	</div>
-	
-   
+  <div class="episodes">
+    <button class="episode" data-spotify-id="spotify:track:05ATZnvkN5ZxZcxWGAuJdd">
+      My Path to Spotify: Women in Engineering
+    </button>
+    <button class="episode" data-spotify-id="spotify:track:7ndS4yAvKF7vE7VG14fR0v">
+      What is Backstage?
+    </button>
+    <button class="episode" data-spotify-id="spotify:track:67UCbbEv3B7wnQr7Z6Pm71">
+      Introducing Nerd Out@Spotify
+    </button>
+  </div>
+
+  <div id="embed-iframe"></div>
+  <script src="https://open.spotify.com/embed/iframe-api/v1" async>
+  </script>
+  <script type="text/javascript">
+    window.onSpotifyIframeApiReady = (IFrameAPI) => {
+      const element = document.getElementById('embed-iframe');
+      const options = {
+        width: '100%',
+        height: '160',
+        uri: ''
+      };
+      const callback = (EmbedController) => {
+        document.querySelectorAll('.episode').forEach(
+          episode => {
+            episode.addEventListener('click', () => {
+              EmbedController.loadUri(episode.dataset.spotifyId)
+            });
+          })
+      };
+      IFrameAPI.createController(element, options, callback);
+    };
+  </script>
 </body>
 </html>

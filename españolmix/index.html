@@ -52,7 +52,7 @@
 		
 		.container {
 		    display: flex;
-			//height:100vh;
+			height:100vh;
 		}
 
 		#songlistdiv {
@@ -145,10 +145,8 @@
 				const element = document.getElementById('embed-iframe');
 				const options = {
 					height: '160',
-					uri: 'spotify:episode:7makk4oTQel546B0PZlDM5'
+					uri: ''
 				};
-				const callback = (EmbedController) => {};
-				IFrameAPI.createController(element, options, callback);
 			
 			    songlist.forEach(song => {
 					const li = document.createElement("li");
@@ -166,8 +164,6 @@
 			            event.preventDefault();
 			            loadlyrics(this.href);
 					
-						EmbedController.loadUri(this.getAttribute("data-spotify-id"));
-					
 						closeButton.style.display = "block";
 						randomColor = colors[Math.floor(Math.random() * colors.length)];
 						closeButton.style.setProperty('--random-color', randomColor);
@@ -182,6 +178,17 @@
 			                }
 						};
 			        };
+					
+					const callback = (EmbedController) => {
+				        document.querySelectorAll('a').forEach(
+				          song => {
+				            song.addEventListener('click', () => {
+				              EmbedController.loadUri(song.dataset.spotifyId)
+				            });
+				          })
+					};
+					
+					IFrameAPI.createController(element, options, callback);
 				
 					li.appendChild(songlink);
 					ol.appendChild(li);
