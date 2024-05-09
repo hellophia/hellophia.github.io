@@ -52,6 +52,7 @@
 		
 		.container {
 		    display: flex;
+			//height:100vh;
 		}
 
 		#songlistdiv {
@@ -65,8 +66,7 @@
 		}
 
 		#lyricsdiv {
-		    flex:5;
-			padding:20px;
+			padding:40px;
 			overflow: auto;
 		}
 		
@@ -103,9 +103,7 @@
 	</style>
 </head>
 <body>
-	
-	<button id="closeButton">×</button>
-	
+
 	<div class="container">
 		<div id="songlistdiv">
 			
@@ -115,10 +113,12 @@
 		<ol id="lyricslist"></ol>
 		</div>
 		
-		<div>
-			<div id="embed-iframe"></div>
+		<div style="flex:5;">
+			<div style="padding:10px;">
+				<div id="embed-iframe"></div>
+			</div>
 			<div id="lyricsdiv">
-		
+				<button id="closeButton">×</button>
 			</div>
 		</div>
 	</div>
