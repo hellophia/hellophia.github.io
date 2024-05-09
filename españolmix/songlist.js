@@ -6,22 +6,10 @@ const songlist = [
         "spotifyURI": "spotify:track:67UCbbEv3B7wnQr7Z6Pm71"
     },
     {
-        "fileName": "chicha-libre_lupita-en-la-selva-y-el-doctor.txt",
-        "artistName": "Chicha Libre",
-        "songName": "Lupita En La Selva Y El Doctor",
-        "spotifyURI": "spotify:track:33G9qYMhqJJGi3tWNCrjzt"
-    },
-    {
         "fileName": "chicha-libre_popcorn-andino.txt",
         "artistName": "Chicha Libre",
         "songName": "Popcorn Andino",
         "spotifyURI": "spotify:track:7kkijB89vc5uGbG1WhUFZu"
-    },
-    {
-        "fileName": "chicha-libre_yo-no-fui.txt",
-        "artistName": "Chicha Libre",
-        "songName": "Yo No Fui",
-        "spotifyURI": "spotify:track:4HwRJ1KU4NLeSiRZhzbGyU"
     },
     {
         "fileName": "cuarteto-continental-de-alberto-maravi_alegria-y-amor.txt",
@@ -60,21 +48,9 @@ const songlist = [
         "spotifyURI": "spotify:track:6TeeuGTnFS7JO6aPpctOgw"
     },
     {
-        "fileName": "los-destellos_caprichosa.txt",
-        "artistName": "Los Destellos",
-        "songName": "Caprichosa",
-        "spotifyURI": "spotify:track:5Igc6l9s2xpz7RdTfcQvjD"
-    },
-    {
         "fileName": "los-destellos_carmen-rosa.txt",
         "artistName": "Los Destellos",
         "songName": "Carmen Rosa",
-        "spotifyURI": "spotify:track:4BfOcdCYedgH1hlcZlYVb7"
-    },
-    {
-        "fileName": "los-destellos_en-el-mundo-estas.txt",
-        "artistName": "Los Destellos",
-        "songName": "En el Mundo Estas",
         "spotifyURI": "spotify:track:4BfOcdCYedgH1hlcZlYVb7"
     },
     {
@@ -84,34 +60,10 @@ const songlist = [
         "spotifyURI": "spotify:track:3r3b7BHpEoP8j0bmdpXXr4"
     },
     {
-        "fileName": "los-destellos_muchachita-celosa.txt",
-        "artistName": "Los Destellos",
-        "songName": "Muchachita Celosa",
-        "spotifyURI": "spotify:track:3of8IwcVNREppKjv1ynvWx"
-    },
-    {
-        "fileName": "los-destellos_quinceanera.txt",
-        "artistName": "Los Destellos",
-        "songName": "Quinceañera",
-        "spotifyURI": "spotify:track:5qjjBwiMlqWnv2VOfhF1EY"
-    },
-    {
         "fileName": "los-diablos-rojos_ave-sin-rumbo.txt",
         "artistName": "Los Diablos Rojos",
         "songName": "Ave Sin Rumbo",
         "spotifyURI": "spotify:track:5iZ6o9ctcU15xT0IX1JrIS"
-    },
-    {
-        "fileName": "los-hermanos-zanartu_jardin-de-amor.txt",
-        "artistName": "Los Hermanos Zañartu",
-        "songName": "Jardín de Amor",
-        "spotifyURI": "spotify:track:3B6wB4RD9PCl4KJCVwZVf1"
-    },
-    {
-        "fileName": "los-hermanos-zanartu_muchachita-celosa.txt",
-        "artistName": "Los Hermanos Zañartu",
-        "songName": "Muchachita Celosa",
-        "spotifyURI": "spotify:track:71rJq8EYe53N1399IJBI4r"
     },
     {
         "fileName": "los-hermanos-zanartu_ojos-azules.txt",
@@ -130,24 +82,6 @@ const songlist = [
         "artistName": "Los Shapis",
         "songName": "Borrachito Borrachón",
         "spotifyURI": "spotify:track:33TDrBgqj4dPN6paINGVID"
-    },
-    {
-        "fileName": "los-shapis_el-aguajal.txt",
-        "artistName": "Los Shapis",
-        "songName": "El Aguajal",
-        "spotifyURI": "spotify:track:7nOD24bJ7hchHuwVpT9y9z"
-    },
-    {
-        "fileName": "los-shapis_esperanza-de-amor.txt",
-        "artistName": "Los Shapis",
-        "songName": "Esperanza de Amor",
-        "spotifyURI": "spotify:track:1BO79rblTswRVXn4wwJt8d"
-    },
-    {
-        "fileName": "los-shapis_perdidos.txt",
-        "artistName": "Los Shapis",
-        "songName": "Perdidos",
-        "spotifyURI": "spotify:track:6GSFq6EZXCUnP0BaHIRX27"
     },
     {
         "fileName": "malportado-kids_soy-la-pocha.txt",
