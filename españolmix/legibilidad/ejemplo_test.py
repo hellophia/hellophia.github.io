@@ -1,7 +1,7 @@
-Selena
-Techno Cumbia
-spotify:track:1osjnUPQh6PybX8czB1QFe
+import sys
+from legibilidad import *
 
+TextoDePrueba = '''
 Si vienen a bailar
 Pues vamos a gozar
 Si vienen a dormir
@@ -88,3 +88,7 @@ Le mueves para acá, le mueves para allá
 Este el nuevo baile de la techno cumbia
 Le mueves para acá, le mueves para allá
 Es el nuevo baile de la techno, techno cumbia
+
+'''
+
+print(fernandez_huerta(TextoDePrueba))

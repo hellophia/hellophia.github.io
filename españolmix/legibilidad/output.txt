@@ -1,0 +1,43 @@
+File Name	Mu Score	Readability Category
+chicha-libre_danza-del-millonario.txt	76.39	fácil
+soda-stereo_nada-personal.txt	78.28	fácil
+los-brujos_sucu-sucu.txt	87.59	muy fácil
+cuarteto-continental-de-alberto-maravi_alegria-y-amor.txt	75.45	fácil
+los-destellos_a-los-bosques.txt	68.79	bastante fácil
+chicha-libre_la-plata-(en-mi-carrito-de-lata).txt	107.56	muy fácil
+juaneco-y-su-combo_mujer-hilandera.txt	66.54	bastante fácil
+cuarteto-continental-de-alberto-maravi_el-orangutan.txt	81.90	fácil
+meridian-brothers_hablame-amigo-citadino.txt	70.75	bastante fácil
+los-shapis_borrachito-borrachon.txt	80.49	fácil
+los-invasores-de-progreso_las-cartas.txt	89.53	muy fácil
+manitas-nervosas_tu-carita-toda-hermosa.txt	76.57	fácil
+sonido-gallo-negro_cumbia-del-borras.txt	190.17	muy fácil 
+sonido-2000_mensaje-de-amor.txt	74.76	fácil
+mercedes-sosa_alfonsina-y-el-mar.txt	71.61	fácil
+los-hermanos-zanartu_jardin-de-amor.txt	67.13	bastante fácil
+los-destellos_the-rough-guide-to-psychedelic-cumbia.txt	91.58	muy fácil
+los-hermanos-zanartu_dulce-amor.txt	81.83	fácil
+picnic_callate-nina.txt	101.51	muy fácil
+sonido-gallo-negro_mambo-egipcio.txt	104.79	muy fácil
+la-union_todos-los-gatos-son-pardos.txt	81.41	fácil
+chicha-libre_popcorn-andino.txt	140.85	muy fácil
+los-destellos_quinceanera.txt	69.64	bastante fácil
+sonido-2000_mi-carinito.txt	93.50	muy fácil
+chicha-libre_yo-no-fui.txt	104.85	muy fácil
+juaneco-y-su-combo_linda-nena.txt	108.58	muy fácil
+los-shapis_perdidos.txt	69.34	bastante fácil
+los-destellos_muchachita-celosa.txt	77.94	fácil
+los-diablos-rojos_ave-sin-rumbo.txt	127.13	muy fácil
+ya-legros_ya_no_llores.txt	80.54	fácil
+los-shapis_esperanza-de-amor.txt	80.36	fácil
+los-shapis_el-aguajal.txt	76.88	fácil
+chicha-libre_el-borrachito.txt	72.30	fácil
+los-destellos_en-el-mundo-estas.txt	84.21	fácil
+los-destellos_carmen-rosa.txt	123.28	muy fácil
+los-hermanos-zanartu_ojos-azules.txt	120.23	muy fácil
+chicha-libre_lupita-en-la-selva-y-el-doctor.txt	87.95	muy fácil
+juaneco-y-su-combo_vereda-tropical.txt	99.15	muy fácil
+los-destellos_caprichosa.txt	75.99	fácil
+malportado-kids_soy-la-pocha.txt	102.75	muy fácil
+los-hermanos-zanartu_muchachita-celosa.txt	79.93	fácil
+selena_techno-cumbia.txt	123.41	muy fácil

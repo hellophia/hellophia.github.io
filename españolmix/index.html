@@ -61,11 +61,13 @@
 			padding-left:60px;
 			padding-right:20px;
 			padding-bottom:40px;
+			overflow: auto;
 		}
 
 		#lyricsdiv {
 		    flex:5;
 			padding:20px;
+			overflow: auto;
 		}
 		
 		.info{
@@ -90,6 +92,10 @@
 		  font-family: "Noto Serif";
 		}
 		
+		.hide{
+			display:none;
+		}
+		
 		*{
 			//outline: 1px solid red;
 		}
@@ -110,10 +116,12 @@
 		</div>
 	
 		<div id="lyricsdiv">
+			<div id="embed-iframe"></div>
 		
 		</div>
 	</div>
-
+	
+	<script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
 	<script src="songlist.js"></script>
     <script>
 		
@@ -168,9 +176,13 @@
 		            .then(response => response.text())
 					.then(text => {
 						const lines = text.split('\n');
-			            const firstTwoLines = lines.slice(0, 2).map(line => `<div class="info">${line}</div>`).join('');
-			            const remainingLines = lines.slice(2).join('\n');
-			            const wrappedText = `<div>${firstTwoLines}</div>${wrapParagraphs(remainingLines)}`;
+						
+						spotifyPlayer.src = "https://open.spotify.com/embed/track/" + lines[2];
+						EmbedController.loadUri(spotifyPlayer.src);
+						
+			            const firstThreeLines = lines.slice(3).join('\n');
+			            const remainingLines = lines.slice(3).join('\n');
+			            const wrappedText = `<div class="hide">${firstThreeLines}</div>${wrapParagraphs(remainingLines)}`;
 			            lyricsdiv.innerHTML = wrappedText;
 						
 						const infoItems = document.querySelectorAll(".info");
@@ -179,6 +191,7 @@
 							randomColor = lightcolors[Math.floor(Math.random() * lightcolors.length)];
 							item.style.setProperty('--random-color', randomColor);
 						});
+						
 			        })
 		            .catch(error => console.error('Error loading lyrics:', error));
 		    }
@@ -195,15 +208,25 @@
 			
 		});
 			
-			function wrapParagraphs(text) {
-			    const paragraphs = text.split('\n\n');
-			    const wrappedParagraphs = paragraphs.map(paragraph => {
-			        const lines = paragraph.split('\n');
-			        const wrappedLines = lines.map(line => line.trim()).join('<br>');
-			        return `<p>${wrappedLines}</p>`;
-			    });
-			    return wrappedParagraphs.join('');
-			}
+		function wrapParagraphs(text) {
+		    const paragraphs = text.split('\n\n');
+		    const wrappedParagraphs = paragraphs.map(paragraph => {
+		        const lines = paragraph.split('\n');
+		        const wrappedLines = lines.map(line => line.trim()).join('<br>');
+		        return `<p>${wrappedLines}</p>`;
+		    });
+		    return wrappedParagraphs.join('');
+		}
+		
+		window.onSpotifyIframeApiReady = (IFrameAPI) => {
+		  const element = document.getElementById('embed-iframe');
+		  const options = {
+		      uri: 'spotify:episode:7makk4oTQel546B0PZlDM5'
+		    };
+		  const callback = (EmbedController) => {};
+		  IFrameAPI.createController(element, options, callback);
+		};
+		
     	
     </script>
 	

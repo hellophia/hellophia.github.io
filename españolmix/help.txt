@@ -5,3 +5,5 @@ python3 langdetect.py
 node generateSongList.py
 
 https://syrics-web.vercel.app/
+
+python3 ejemplo.py <folder path>
