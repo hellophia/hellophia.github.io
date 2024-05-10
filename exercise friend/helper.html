@@ -7,6 +7,16 @@
 
 <style>
 	
+	@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
+
+    body {
+        font-family: "Noto Serif";
+        color: #595941;
+        background-color: #e3e3e3;
+		font-size:16px;
+		margin:0;
+    }
+	
   .accordion {
     border: 1px solid #ccc;
     margin-bottom: 10px;
@@ -135,16 +145,14 @@
 		var textList = document.querySelectorAll("#stretchList input[type='checkbox']");
 		var ssml = '<speak>';
 
-	    textList.forEach(item => {
-	      const checkbox = item;
-	      const text = checkbox.nextSibling.textContent.trim();
-		  
-	      if (!checkbox.dataset.group) {
-	        if (checkbox.checked) {
-	          ssml += text + ' ';
-	        }
-	      }
-	    });
+		textList.forEach(item => {
+			const checkbox = item;
+			const text = checkbox.nextSibling.textContent.trim();
+
+			if (!checkbox.dataset.group || checkbox.checked) {
+				ssml += text + ' ';
+			}
+		});
 
 		ssml += '</speak>';
 
