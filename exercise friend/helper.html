@@ -59,6 +59,7 @@
 
 			stretchList.appendChild(groupCheckboxes[groupName]);
 			stretchList.appendChild(groupLabel);
+			stretchList.appendChild(document.createElement('br'));
 		}
 
 			const stretchCheckbox = document.createElement('input');
@@ -76,7 +77,7 @@
 	}
 	
 	function speak() {
-		var textList = document.querySelectorAll("#stretchList div");
+		var textList = document.querySelectorAll("#stretchList input[type='checkbox']");
 		var ssml = '<speak>';
 
 		textList.forEach(item => {
