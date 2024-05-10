@@ -5,10 +5,30 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<style>
+	
+  .accordion {
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+  }
+
+  .accordion-header {
+    background-color: #f4f4f4;
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  .accordion-content {
+    display: none;
+    padding: 10px;
+  }
+  
+</style>
+
 </head>
 <body>
 
-<button onclick="speak()">Speak</button>
+<button onclick="speak()">speak</button>
 
 <audio id="audio" controls>
   Your browser does not support the audio element.
@@ -34,33 +54,58 @@
     .catch(error => console.error('Error fetching the data:', error));
 	
 	function createElements(data) {
+		
 		const stretchList = document.getElementById('stretchList');
 
-	  const groupCheckboxes = {};
+		const groupCheckboxes = {};
 
-	  data.forEach(item => {
-	    const groupName = item.group;
+		data.forEach(item => {
+			
+			const groupName = item.group;
 
-	    if (!groupCheckboxes[groupName]) {
-			groupCheckboxes[groupName] = document.createElement('input');
-			groupCheckboxes[groupName].type = 'checkbox';
-			groupCheckboxes[groupName].checked = true;
+			if (!groupCheckboxes[groupName]) {
+				
+		        const accordion = document.createElement('div');
+		        accordion.className = 'accordion';
+				
+				const header = document.createElement('div');
+				header.className = 'accordion-header';
+				
+				header.onclick = function() {
+					toggleAccordion(this);
+				};
+				
+				groupCheckboxes[groupName] = document.createElement('input');
+				groupCheckboxes[groupName].type = 'checkbox';
+				groupCheckboxes[groupName].checked = true;
 
-			const groupLabel = document.createElement('label');
-			groupLabel.textContent = groupName;
+				const groupLabel = document.createElement('label');
+				groupLabel.textContent = groupName;
 
-	        groupCheckboxes[groupName].addEventListener('change', function() {
-	          const groupCheckbox = this;
-	          const nestedCheckboxes = stretchList.querySelectorAll(`input[type='checkbox'][data-group='${CSS.escape(groupName)}']`);
-	          nestedCheckboxes.forEach(checkbox => {
-	            checkbox.checked = groupCheckbox.checked;
-	          });
-	        });
-
-			stretchList.appendChild(groupCheckboxes[groupName]);
-			stretchList.appendChild(groupLabel);
-			stretchList.appendChild(document.createElement('br'));
-		}
+			    groupCheckboxes[groupName].addEventListener('change', function() {
+			      const groupCheckbox = this;
+			      const nestedCheckboxes = stretchList.querySelectorAll(`input[type='checkbox'][data-group='${CSS.escape(groupName)}']`);
+			      nestedCheckboxes.forEach(checkbox => {
+			        checkbox.checked = groupCheckbox.checked;
+			      });
+			    });
+				
+				const content = document.createElement('div');
+				content.className = 'accordion-content';
+      
+				header.appendChild(groupCheckboxes[groupName]);
+				header.appendChild(groupLabel);
+				accordion.appendChild(header);
+				accordion.appendChild(content);
+				
+				groupAccordions[groupName] = {
+					accordion: accordion,
+					content: content
+				};
+				
+				stretchList.appendChild(accordion);
+				
+			}
 
 			const stretchCheckbox = document.createElement('input');
 			stretchCheckbox.type = 'checkbox';
@@ -69,25 +114,37 @@
 
 			const stretchLabel = document.createElement('label');
 			stretchLabel.textContent = item.stretch;
-
-			stretchList.appendChild(stretchCheckbox);
-			stretchList.appendChild(stretchLabel);
-			stretchList.appendChild(document.createElement('br'));
-	  });
+			
+			groupAccordions[groupName].content.appendChild(stretchCheckbox);
+			groupAccordions[groupName].content.appendChild(stretchLabel);
+			groupAccordions[groupName].content.appendChild(document.createElement('br'));
+			
+		});
+	}
+	
+	function toggleAccordion(header) {
+	  const content = header.nextElementSibling;
+	  if (content.style.display === "block") {
+	    content.style.display = "none";
+	  } else {
+	    content.style.display = "block";
+	  }
 	}
 	
 	function speak() {
 		var textList = document.querySelectorAll("#stretchList input[type='checkbox']");
 		var ssml = '<speak>';
 
-		textList.forEach(item => {
-			const checkbox = item;
-			const text = checkbox.nextSibling.textContent.trim();
-
-		    if (checkbox.checked) {
-		      ssml += text + ' ';
-		    }
-		  });
+	    textList.forEach(item => {
+	      const checkbox = item;
+	      const text = checkbox.nextSibling.textContent.trim();
+		  
+	      if (!checkbox.dataset.group) {
+	        if (checkbox.checked) {
+	          ssml += text + ' ';
+	        }
+	      }
+	    });
 
 		ssml += '</speak>';
 

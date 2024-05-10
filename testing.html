@@ -1,12 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Text-to-Speech with Accordion Menus</title>
+<style>
+  .accordion {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
 
+  .accordion-header {
+    background-color: #f4f4f4;
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  .accordion-content {
+    display: none;
+    padding: 10px;
+  }
+</style>
 </head>
 <body>
+
+<div id="accordionContainer">
+  <!-- Accordions will be dynamically added here -->
+</div>
 
 <button onclick="speak()">Speak</button>
 
@@ -14,65 +35,85 @@
   Your browser does not support the audio element.
 </audio>
 
-<div id="textList">
-  <div>
-    <input type="checkbox" id="checkbox1" checked>
-    <label for="checkbox1">Text 1:</label>
-    <span>This is the first text to be read.</span>
-  </div>
-  <div>
-    <input type="checkbox" id="checkbox2" checked>
-    <label for="checkbox2">Text 2:</label>
-    <span>This is the second text to be read.</span>
-  </div>
-  <div>
-    <input type="checkbox" id="checkbox3" checked>
-    <label for="checkbox3">Text 3:</label>
-    <span>This is the third text to be read.</span>
-  </div>
-</div>
-
 <script>
-	
-	function speak() {
-		var textList = document.querySelectorAll("#textList div");
-		var ssml = '<speak>';
+// Sample data fetched from the .tsv file
+const data = [
+  { stretch: 'Stretch1', switch: 'Switch1', time: '10s', reps: 5, group: 'warmup, upper body' },
+  { stretch: 'Stretch2', switch: 'Switch2', time: '15s', reps: 8, group: 'warmup, middle body' },
+  { stretch: 'Stretch3', switch: 'Switch3', time: '20s', reps: 10, group: 'warmup, lower body' }
+];
 
-		textList.forEach(function(item, index) {
-		var checkbox = item.querySelector("input[type='checkbox']");
-		var text = item.querySelector("span").textContent.trim();
+// Function to create accordion menus based on the fetched data
+function createAccordions() {
+  const accordionContainer = document.getElementById('accordionContainer');
 
-		if (checkbox.checked) {
-		  ssml += text + ' ';
-		}
-		});
+  // Group accordion mapping
+  const groupAccordions = {};
 
-		ssml += '</speak>';
+  data.forEach(item => {
+    const groupName = item.group;
+    
+    // Create accordion for the group if not created yet
+    if (!groupAccordions[groupName]) {
+      const accordion = document.createElement('div');
+      accordion.className = 'accordion';
+      
+      const header = document.createElement('div');
+      header.className = 'accordion-header';
+      header.textContent = groupName;
+      header.onclick = function() {
+        toggleAccordion(this);
+      };
+      
+      const content = document.createElement('div');
+      content.className = 'accordion-content';
+      
+      accordion.appendChild(header);
+      accordion.appendChild(content);
+      
+      groupAccordions[groupName] = {
+        accordion: accordion,
+        content: content
+      };
+      
+      accordionContainer.appendChild(accordion);
+    }
+    
+    // Create stretch item
+    const stretchItem = document.createElement('div');
+    stretchItem.textContent = item.stretch;
+    groupAccordions[groupName].content.appendChild(stretchItem);
+  });
+}
 
-		var xhr = new XMLHttpRequest();
-		var url = "https://texttospeech.googleapis.com/v1/text:synthesize?key=AIzaSyCcCQFbNls8ogpWJTshCm2ZTQLnx1x3tzE";
+// Function to toggle accordion content
+function toggleAccordion(header) {
+  const content = header.nextElementSibling;
+  if (content.style.display === "block") {
+    content.style.display = "none";
+  } else {
+    content.style.display = "block";
+  }
+}
 
-	    xhr.open("POST", url, true);
-	    xhr.setRequestHeader("Content-Type", "application/json");
+// Function to read checked items
+function speak() {
+  const textList = document.querySelectorAll("#accordionContainer .accordion-content div");
+  let ssml = '<speak>';
 
-	    xhr.onreadystatechange = function () {
-	      if (xhr.readyState === 4 && xhr.status === 200) {
-	        var response = JSON.parse(xhr.responseText);
-	        var audioUrl = "data:audio/mp3;base64," + response.audioContent;
-	        document.getElementById("audio").src = audioUrl;
-	        document.getElementById("audio").play();
-	      }
-	    };
+  textList.forEach(item => {
+    const text = item.textContent.trim();
+    ssml += text + ' ';
+  });
 
-	    var data = JSON.stringify({
-	      input: { ssml: ssml },
-	      voice: { languageCode: "en-US", ssmlGender: "NEUTRAL" },
-	      audioConfig: { audioEncoding: "MP3" }
-	    });
+  ssml += '</speak>';
 
-	    xhr.send(data);
-	}
+  // Fetch and process the ssml as before...
+  console.log(ssml);
+}
 
+// Call the function to create accordions when the page loads
+window.onload = createAccordions;
 </script>
 
 </body>
