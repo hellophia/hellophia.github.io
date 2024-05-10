@@ -147,10 +147,12 @@
 
 		textList.forEach(item => {
 			const checkbox = item;
-			const text = checkbox.nextSibling.textContent.trim();
+			const text = item.nextSibling.textContent.trim();
 
-			if (!checkbox.dataset.group || checkbox.checked) {
-				ssml += text + ' ';
+			if (checkbox.checked) {
+				if (!checkbox.dataset.group){
+					ssml += text + ' ';	
+				}
 			}
 		});
 
