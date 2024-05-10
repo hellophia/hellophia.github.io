@@ -149,10 +149,8 @@
 			const checkbox = item;
 			const text = item.nextSibling.textContent.trim();
 
-			if (checkbox.checked) {
-				if (!checkbox.dataset.group){
-					ssml += text + ' ';	
-				}
+			if (!checkbox.dataset.group || checkbox.checked) {
+				ssml += text + ' ';
 			}
 		});
 
