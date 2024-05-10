@@ -57,7 +57,7 @@
 		
 		const stretchList = document.getElementById('stretchList');
 
-		const groupAccordions = {};
+		const groupCheckboxes = {};
 
 		data.forEach(item => {
 			
@@ -98,7 +98,7 @@
 				accordion.appendChild(header);
 				accordion.appendChild(content);
 				
-				groupAccordions[groupName] = {
+				groupCheckboxes[groupName] = {
 					accordion: accordion,
 					content: content
 				};
@@ -115,9 +115,9 @@
 			const stretchLabel = document.createElement('label');
 			stretchLabel.textContent = item.stretch;
 			
-			groupAccordions[groupName].content.appendChild(stretchCheckbox);
-			groupAccordions[groupName].content.appendChild(stretchLabel);
-			groupAccordions[groupName].content.appendChild(document.createElement('br'));
+			groupCheckboxes[groupName].content.appendChild(stretchCheckbox);
+			groupCheckboxes[groupName].content.appendChild(stretchLabel);
+			groupCheckboxes[groupName].content.appendChild(document.createElement('br'));
 			
 		});
 	}
