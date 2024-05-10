@@ -14,22 +14,8 @@
   Your browser does not support the audio element.
 </audio>
 
-<div id="textList">
-  <div>
-    <input type="checkbox" id="checkbox1" checked>
-    <label for="checkbox1">Text 1:</label>
-    <span>This is the first text to be read.</span>
-  </div>
-  <div>
-    <input type="checkbox" id="checkbox2" checked>
-    <label for="checkbox2">Text 2:</label>
-    <span>This is the second text to be read.</span>
-  </div>
-  <div>
-    <input type="checkbox" id="checkbox3" checked>
-    <label for="checkbox3">Text 3:</label>
-    <span>This is the third text to be read.</span>
-  </div>
+<div id="stretchList">
+
 </div>
 
 <script>
@@ -46,18 +32,37 @@
     })
     .catch(error => console.error('Error fetching the data:', error));
 	
+	function createElements() {
+	  const stretchList = document.getElementById('stretchList');
+
+	  data.forEach(item => {
+	    const div = document.createElement('div');
+    
+	    const checkbox = document.createElement('input');
+	    checkbox.type = 'checkbox';
+	    checkbox.checked = true;
+	    div.appendChild(checkbox);
+    
+	    const label = document.createElement('label');
+	    label.textContent = item.stretch;
+	    div.appendChild(label);
+    
+	    stretchList.appendChild(div);
+	  });
+	}
+	
 	function speak() {
-		var textList = document.querySelectorAll("#textList div");
+		var textList = document.querySelectorAll("#stretchList div");
 		var ssml = '<speak>';
 
-		textList.forEach(function(item, index) {
-		var checkbox = item.querySelector("input[type='checkbox']");
-		var text = item.querySelector("span").textContent.trim();
+		textList.forEach(item => {
+		    const checkbox = item.querySelector("input[type='checkbox']");
+		    const text = item.querySelector("label").textContent.trim();
 
-		if (checkbox.checked) {
-		  ssml += text + ' ';
-		}
-		});
+		    if (checkbox.checked) {
+		      ssml += text + ' ';
+		    }
+		  });
 
 		ssml += '</speak>';
 
@@ -84,6 +89,8 @@
 
 	    xhr.send(data);
 	}
+	
+	window.onload = createElements;
 
 </script>
 
