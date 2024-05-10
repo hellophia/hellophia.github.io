@@ -34,6 +34,18 @@
 
 <script>
 	
+  fetch('data.tsv')
+    .then(response => response.text())
+    .then(data => {
+      const lines = data.split('\n').slice(1);
+      const items = lines.map(line => {
+        const [stretch, switchVal, time, reps, group] = line.split('\t');
+        return { stretch, switch: switchVal, time, reps: parseInt(reps), group };
+      });
+      console.log(items);
+    })
+    .catch(error => console.error('Error fetching the data:', error));
+	
 	function speak() {
 		var textList = document.querySelectorAll("#textList div");
 		var ssml = '<speak>';
