@@ -34,21 +34,44 @@
     .catch(error => console.error('Error fetching the data:', error));
 	
 	function createElements(data) {
-	  const stretchList = document.getElementById('stretchList');
+		const stretchList = document.getElementById('stretchList');
+
+	  const groupCheckboxes = {};
 
 	  data.forEach(item => {
-	    const div = document.createElement('div');
-    
-	    const checkbox = document.createElement('input');
-	    checkbox.type = 'checkbox';
-	    checkbox.checked = true;
-	    div.appendChild(checkbox);
-    
-	    const label = document.createElement('label');
-	    label.textContent = item.stretch;
-	    div.appendChild(label);
-    
-	    stretchList.appendChild(div);
+	    const groupName = item.group;
+
+	    if (!groupCheckboxes[groupName]) {
+			groupCheckboxes[groupName] = document.createElement('input');
+			groupCheckboxes[groupName].type = 'checkbox';
+			groupCheckboxes[groupName].checked = true;
+
+			const groupLabel = document.createElement('label');
+			groupLabel.textContent = groupName;
+
+			groupCheckboxes[groupName].addEventListener('change', function() {
+				const groupCheckbox = this;
+				const nestedCheckboxes = stretchList.querySelectorAll(`input[type='checkbox'][data-group='${groupName}']`);
+				nestedCheckboxes.forEach(checkbox => {
+					checkbox.checked = groupCheckbox.checked;
+				});
+			});
+
+			stretchList.appendChild(groupCheckboxes[groupName]);
+			stretchList.appendChild(groupLabel);
+		}
+
+			const stretchCheckbox = document.createElement('input');
+			stretchCheckbox.type = 'checkbox';
+			stretchCheckbox.checked = true;
+			stretchCheckbox.dataset.group = groupName;
+
+			const stretchLabel = document.createElement('label');
+			stretchLabel.textContent = item.stretch;
+
+			stretchList.appendChild(stretchCheckbox);
+			stretchList.appendChild(stretchLabel);
+			stretchList.appendChild(document.createElement('br'));
 	  });
 	}
 	
