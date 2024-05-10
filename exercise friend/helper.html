@@ -49,13 +49,13 @@
 			const groupLabel = document.createElement('label');
 			groupLabel.textContent = groupName;
 
-			groupCheckboxes[groupName].addEventListener('change', function() {
-				const groupCheckbox = this;
-				const nestedCheckboxes = stretchList.querySelectorAll(`input[type='checkbox'][data-group='${groupName}']`);
-				nestedCheckboxes.forEach(checkbox => {
-					checkbox.checked = groupCheckbox.checked;
-				});
-			});
+	        groupCheckboxes[groupName].addEventListener('change', function() {
+	          const groupCheckbox = this;
+	          const nestedCheckboxes = stretchList.querySelectorAll(`input[type='checkbox'][data-group='${CSS.escape(groupName)}']`);
+	          nestedCheckboxes.forEach(checkbox => {
+	            checkbox.checked = groupCheckbox.checked;
+	          });
+	        });
 
 			stretchList.appendChild(groupCheckboxes[groupName]);
 			stretchList.appendChild(groupLabel);
