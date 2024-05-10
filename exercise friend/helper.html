@@ -81,8 +81,8 @@
 		var ssml = '<speak>';
 
 		textList.forEach(item => {
-		    const checkbox = item.querySelector("input[type='checkbox']");
-		    const text = item.querySelector("label").textContent.trim();
+			const checkbox = item;
+			const text = checkbox.nextSibling.textContent.trim();
 
 		    if (checkbox.checked) {
 		      ssml += text + ' ';
