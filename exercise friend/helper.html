@@ -146,6 +146,9 @@
 		var ssml = '<speak>';
 
 		textList.forEach(item => {
+			console.log(item)
+			console.log(item.nextSibling)
+			console.log(checkbox.dataset.group)
 			const checkbox = item;
 			const text = item.nextSibling.textContent.trim();
 
