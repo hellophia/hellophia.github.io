@@ -56,6 +56,7 @@
 		height: 20px;
 		margin-right:6px;
 		vertical-align: middle;
+		background-color: #dbd8d3;
 	}
 	
 	label{
@@ -75,9 +76,6 @@
   
   .triangle {
       margin-right: 10px;
-  }
-  .triangle.rotate {
-      transform: rotate(90deg);
   }
   
 </style>
@@ -140,9 +138,10 @@
 				
 				const triangle = document.createElement('div');
 				triangle.className = 'triangle';
-				triangle.textcontent = "▶";
+				triangle.textcontent = ">";
+				//▶
 				
-				triangle.onclick = function() {
+				header.onclick = function() {
 					toggleAccordion(this);
 				};
 				
