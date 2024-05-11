@@ -30,7 +30,6 @@
   }
 
   .accordion-header {
-    cursor: pointer;
 	padding:8px;
   }
 
@@ -207,6 +206,8 @@
 	  } else {
 	    content.style.display = "block";
 	  }
+	  console.log(header.children);
+	  //▼
 	}
 	
 	function speak() {
@@ -253,7 +254,7 @@
 
 	    var data = JSON.stringify({
 	      input: { ssml: ssml },
-	      voice: { languageCode: "en-US", ssmlGender: "NEUTRAL" },
+	      voice: { languageCode: "en-US", "name": "en-US-Studio-O", ssmlGender: "FEMALE" },
 	      audioConfig: { audioEncoding: "MP3" }
 	    });
 
