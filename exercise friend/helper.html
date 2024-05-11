@@ -157,6 +157,12 @@
 
 			if ((checkbox.dataset.group != undefined) & (checkbox.checked)) {
 				ssml += text + ' ';
+				
+				const time = checkbox.dataset.time;
+				      if (time) {
+				        ssml += `<break time="${time}s"/>`;
+				      }
+					  
 			}
 		});
 
