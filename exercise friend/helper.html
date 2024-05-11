@@ -72,7 +72,7 @@
 		data.forEach(item => {
 			
 			const groupName = item.group;
-			console.log(groupCheckboxes[groupName]);
+			console.log(item.group);
 
 			if (groupCheckboxes[groupName] === undefined) {
 				
@@ -130,8 +130,6 @@
 			groupCheckboxes[groupName].content.appendChild(stretchCheckbox);
 			groupCheckboxes[groupName].content.appendChild(stretchLabel);
 			groupCheckboxes[groupName].content.appendChild(document.createElement('br'));
-			
-			console.log(groupCheckboxes[groupName].content);
 			
 		});
 	}
