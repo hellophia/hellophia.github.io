@@ -74,7 +74,7 @@
 			const groupName = item.group;
 			console.log(groupCheckboxes[groupName]);
 
-			if (!groupCheckboxes[groupName]) {
+			if (groupCheckboxes[groupName] === undefined) {
 				
 		        const accordion = document.createElement('div');
 		        accordion.className = 'accordion';
@@ -122,6 +122,7 @@
 			stretchCheckbox.type = 'checkbox';
 			stretchCheckbox.checked = true;
 			stretchCheckbox.dataset.group = groupName;
+			stretchCheckbox.dataset.time = item.time;
 
 			const stretchLabel = document.createElement('label');
 			stretchLabel.textContent = item.stretch;
