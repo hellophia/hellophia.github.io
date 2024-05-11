@@ -154,7 +154,7 @@
 			console.log(item.nextSibling)
 			console.log(checkbox.dataset.group)
 
-			if (!checkbox.dataset.group || checkbox.checked) {
+			if ((checkbox.dataset.group != undefined) & (checkbox.checked)) {
 				ssml += text + ' ';
 			}
 		});
