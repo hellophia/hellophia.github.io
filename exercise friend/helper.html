@@ -27,12 +27,12 @@
 	}
 	
   .accordion {
-    margin-bottom: 10px;
   }
 
   .accordion-header {
     background-color: var(--random-color);;
     cursor: pointer;
+	padding:20px;
   }
 
   .accordion-content {
@@ -56,7 +56,6 @@
 		height: 20px;
 		margin-right:6px;
 		vertical-align: middle;
-		background-color: #dbd8d3;
 	}
 	
 	label{
@@ -85,7 +84,7 @@
 
 	<div class="container">
 		
-		<div style="display:flex">
+		<div style="display:flex;margin-bottom:20px;">
 
 			<button onclick="speak()">speak</button>
 
@@ -138,8 +137,7 @@
 				
 				const triangle = document.createElement('div');
 				triangle.className = 'triangle';
-				triangle.textcontent = ">";
-				//▶
+				triangle.textContent = "▶";
 				
 				header.onclick = function() {
 					toggleAccordion(this);
