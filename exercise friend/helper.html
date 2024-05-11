@@ -30,9 +30,8 @@
   }
 
   .accordion-header {
-    background-color: var(--random-color);;
     cursor: pointer;
-	padding:20px;
+	padding:8px;
   }
 
   .accordion-content {
@@ -75,6 +74,7 @@
   
   .triangle {
       margin-right: 10px;
+	  display:inline-block;
   }
   
 </style>
@@ -102,7 +102,8 @@
 
 <script>
 	
-	const lightcolors = ['#d3c8c3','#d3b690','#b9af2a','#b0b4b4','#d4be96','#dcb38b']
+	const lightcolors = ['#d3c8c3','#d3b690','#b9af2a','#b0b4b4','#d4be96','#dcb38b'];
+	let currentIndex = 0;
 	
   fetch('data.tsv')
     .then(response => response.text())
@@ -139,7 +140,7 @@
 				triangle.className = 'triangle';
 				triangle.textContent = "▶";
 				
-				header.onclick = function() {
+				triangle.onclick = function() {
 					toggleAccordion(this);
 				};
 				
@@ -173,9 +174,12 @@
 				};
 				
 				stretchList.appendChild(accordion);
-				
-		        randomColor = lightcolors[Math.floor(Math.random() * lightcolors.length)];
-		        header.style.setProperty('--random-color', randomColor);
+
+			    header.style.backgroundColor = lightcolors[currentIndex];
+			    currentIndex++;
+			    if (currentIndex >= lightcolors.length) {
+			        currentIndex = 0;
+			    }
 				
 			}
 
