@@ -72,10 +72,6 @@
 		data.forEach(item => {
 			
 			const groupName = item.group;
-			console.log(item.group);
-			console.log(groupName);
-			console.log(groupCheckboxes);
-			console.log(groupCheckboxes[groupName]);
 
 			if (groupCheckboxes[groupName] === undefined) {
 				
@@ -126,6 +122,7 @@
 			stretchCheckbox.checked = true;
 			stretchCheckbox.dataset.group = groupName;
 			stretchCheckbox.dataset.time = item.time;
+			stretchCheckbox.dataset.switch = item.switchVal;
 
 			const stretchLabel = document.createElement('label');
 			stretchLabel.textContent = item.stretch;
@@ -159,9 +156,12 @@
 				ssml += text + ' ';
 				
 				const time = checkbox.dataset.time;
-				      if (time) {
-				        ssml += `<break time="${time}s"/>`;
-				      }
+				if (time) {
+					ssml += `<break time="${time}s"/>`;
+	  				if (checkbox.dataset.switch === 'y') {
+						ssml += `switch ${text} <break time="${time}s"/>`;
+					}
+				}
 					  
 			}
 		});
