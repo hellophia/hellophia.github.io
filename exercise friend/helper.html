@@ -72,6 +72,7 @@
 		data.forEach(item => {
 			
 			const groupName = item.group;
+			console.log(groupCheckboxes[groupname]);
 
 			if (!groupCheckboxes[groupName]) {
 				
@@ -149,10 +150,6 @@
 			
 			const checkbox = item;
 			const text = item.nextSibling.textContent.trim();
-			
-			console.log(item)
-			console.log(item.nextSibling)
-			console.log(checkbox.dataset.group)
 
 			if ((checkbox.dataset.group != undefined) & (checkbox.checked)) {
 				ssml += text + ' ';
