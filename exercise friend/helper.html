@@ -53,7 +53,7 @@
 	input[type="checkbox"] {
 		width: 20px;
 		height: 20px;
-		margin-right:6px;
+		margin: 0px 6px;
 		vertical-align: middle;
 	}
 	
@@ -73,7 +73,7 @@
   }
   
   .triangle {
-      margin-right: 10px;
+      margin: 0px 10px;
 	  display:inline-block;
   }
   
@@ -163,8 +163,8 @@
 				content.className = 'accordion-content';
       
 				header.appendChild(triangle);
-				header.appendChild(groupLabel);
 				header.appendChild(groupCheckboxes[groupName]);
+				header.appendChild(groupLabel);
 				accordion.appendChild(header);
 				accordion.appendChild(content);
 				
