@@ -55,8 +55,8 @@
     .then(data => {
 		const lines = data.split('\n').slice(1);
 		  const items = lines.map(line => {
-		    const [stretch, switchVal, time, reps, group] = line.split('\t').map(item => item.replace(/\r/g, ''));
-		    return { stretch, switch: switchVal, time, reps: parseInt(reps), group };
+		    const [stretch, bothsides, time, reps, group] = line.split('\t').map(item => item.replace(/\r/g, ''));
+		    return { stretch, bothsides, time, reps: parseInt(reps), group };
 		  });
 		  console.log(items);
 		  createElements(items);
@@ -122,7 +122,7 @@
 			stretchCheckbox.checked = true;
 			stretchCheckbox.dataset.group = groupName;
 			stretchCheckbox.dataset.time = item.time;
-			stretchCheckbox.dataset.switch = item.switchVal;
+			stretchCheckbox.dataset.bothsides = item.bothsides;
 			console.log(stretchCheckbox);
 			console.log(item.switchVal);
 
@@ -160,7 +160,7 @@
 				const time = checkbox.dataset.time;
 				if (time) {
 					ssml += `<break time="${time}s"/>`;
-	  				if (checkbox.dataset.switch === 'y') {
+	  				if (checkbox.dataset.bothsides === 'y') {
 						ssml += `switch ${text} <break time="${time}s"/>`;
 					}
 				}
@@ -169,6 +169,7 @@
 		});
 
 		ssml += '</speak>';
+		console.log(ssml);
 
 		var xhr = new XMLHttpRequest();
 		var url = "https://texttospeech.googleapis.com/v1/text:synthesize?key=AIzaSyCcCQFbNls8ogpWJTshCm2ZTQLnx1x3tzE";
