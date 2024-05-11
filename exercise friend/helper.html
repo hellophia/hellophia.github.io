@@ -23,6 +23,7 @@
 	
 	.container{
 		width: 50%;
+		margin-top:40px;
 	}
 	
   .accordion {
@@ -31,7 +32,6 @@
 
   .accordion-header {
     background-color: var(--random-color);;
-    padding: 10px;
     cursor: pointer;
   }
 
@@ -41,12 +41,14 @@
   }
   
   audio {
-      width: 200px;
-      height: auto;
-	  background-color: #b0b4b4;
-	  border-radius: 0px;
-	  padding:10px;
 	  color: #86aeaf;
+	  width:100%;
+  }
+  audio::-webkit-media-controls-panel{
+	  background-color: #b0b4b4;
+  }
+  audio::-webkit-media-controls-enclosure {
+      border-radius: 0;
   }
   
 	input[type="checkbox"] {
@@ -63,12 +65,19 @@
   button{
 	  font-family: "Noto Serif";
 	  font-size:18px;
-	  padding:10px;
+	  padding:10px 30px;
 	  background-color: #d3c8c3;
 	  color: #404030;
 	  border:none;
 	  text-align:center;
-	  
+	  cursor:pointer;
+  }
+  
+  .triangle {
+      margin-right: 10px;
+  }
+  .triangle.rotate {
+      transform: rotate(90deg);
   }
   
 </style>
@@ -77,12 +86,16 @@
 <body>
 
 	<div class="container">
+		
+		<div style="display:flex">
 
-		<button onclick="speak()">speak</button>
+			<button onclick="speak()">speak</button>
 
-		<audio id="audio" controls>
-		  Your browser does not support the audio element.
-		</audio>
+			<audio id="audio" controls>
+			  Your browser does not support the audio element.
+			</audio>
+		
+		</div>
 
 		<div id="stretchList">
 
@@ -125,7 +138,11 @@
 				const header = document.createElement('div');
 				header.className = 'accordion-header';
 				
-				header.onclick = function() {
+				const triangle = document.createElement('div');
+				triangle.className = 'triangle';
+				triangle.textcontent = "▶";
+				
+				triangle.onclick = function() {
 					toggleAccordion(this);
 				};
 				
@@ -147,8 +164,9 @@
 				const content = document.createElement('div');
 				content.className = 'accordion-content';
       
-				header.appendChild(groupCheckboxes[groupName]);
+				header.appendChild(triangle);
 				header.appendChild(groupLabel);
+				header.appendChild(groupCheckboxes[groupName]);
 				accordion.appendChild(header);
 				accordion.appendChild(content);
 				
