@@ -11,19 +11,26 @@
 
     body {
         font-family: "Noto Serif";
-        color: #595941;
+        color: #303028;
         background-color: #e3e3e3;
 		font-size:16px;
-		margin:0;
+		margin:0px;
+		padding:0px;
+		display:flex;
+		justify-content: center;
+		align-items: center;
     }
 	
+	.container{
+		width: 50%;
+	}
+	
   .accordion {
-    border: 1px solid #ccc;
     margin-bottom: 10px;
   }
 
   .accordion-header {
-    background-color: #f4f4f4;
+    background-color: var(--random-color);;
     padding: 10px;
     cursor: pointer;
   }
@@ -33,22 +40,59 @@
     padding: 10px;
   }
   
+  audio {
+      width: 200px;
+      height: auto;
+	  background-color: #b0b4b4;
+	  border-radius: 0px;
+	  padding:10px;
+	  color: #86aeaf;
+  }
+  
+	input[type="checkbox"] {
+		width: 20px;
+		height: 20px;
+		margin-right:6px;
+		vertical-align: middle;
+	}
+	
+	label{
+		margin-left:12px;
+	}
+  
+  button{
+	  font-family: "Noto Serif";
+	  font-size:18px;
+	  padding:10px;
+	  background-color: #d3c8c3;
+	  color: #404030;
+	  border:none;
+	  text-align:center;
+	  
+  }
+  
 </style>
 
 </head>
 <body>
 
-<button onclick="speak()">speak</button>
+	<div class="container">
 
-<audio id="audio" controls>
-  Your browser does not support the audio element.
-</audio>
+		<button onclick="speak()">speak</button>
 
-<div id="stretchList">
+		<audio id="audio" controls>
+		  Your browser does not support the audio element.
+		</audio>
 
-</div>
+		<div id="stretchList">
+
+		</div>
+
+	</div>
 
 <script>
+	
+	const lightcolors = ['#d3c8c3','#d3b690','#b9af2a','#b0b4b4','#d4be96','#dcb38b']
 	
   fetch('data.tsv')
     .then(response => response.text())
@@ -115,6 +159,9 @@
 				
 				stretchList.appendChild(accordion);
 				
+		        randomColor = lightcolors[Math.floor(Math.random() * lightcolors.length)];
+		        header.style.setProperty('--random-color', randomColor);
+				
 			}
 
 			const stretchCheckbox = document.createElement('input');
@@ -146,6 +193,7 @@
 	function speak() {
 		var textList = document.querySelectorAll("#stretchList input[type='checkbox']");
 		var ssml = '<speak>';
+		ssml += 'hey. here goes your exercise routine. hope you enjoy it. okay. <break time="1"/>';
 
 		textList.forEach(item => {
 			
