@@ -285,19 +285,6 @@
 						ssml += `${text}, ${time} seconds. <break time="${time}s"/>`;
 					}
 				}
-				
-				
-				console.log(checkbox.dataset.reps);
-  				if (checkbox.dataset.bothsides === 'y') {
-					ssml += `, first side.`;
-				}
-				const time = checkbox.dataset.time;
-				if (time) {
-					ssml += `${time} seconds. <break time="${time}s"/>`;
-	  				if (checkbox.dataset.bothsides === 'y') {
-						ssml += `switch ${text}, ${time} seconds. <break time="${time}s"/>`;
-					}
-				}
 					  
 			}
 		});
