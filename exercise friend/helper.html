@@ -76,6 +76,10 @@
 	  display:inline-block;
   }
   
+  .time{
+	  color:#404030;
+  }
+  
 </style>
 
 </head>
@@ -192,8 +196,13 @@
 			const stretchLabel = document.createElement('label');
 			stretchLabel.textContent = item.stretch;
 			
+			const timeSpan = document.createElement('span');
+			timeSpan.className = 'time';
+			timeSpan.textContent = item.time + ' seconds';
+			
 			groupCheckboxes[groupName].content.appendChild(stretchCheckbox);
 			groupCheckboxes[groupName].content.appendChild(stretchLabel);
+			groupCheckboxes[groupName].content.appendChild(timeSpan);
 			groupCheckboxes[groupName].content.appendChild(document.createElement('br'));
 			
 		});
