@@ -263,26 +263,27 @@
 					if (bothsides === 'y'){
 						ssml += `${text}, first side.`
 						for (i=0;i<reps;i++){
-							ssml += ` ${i+1} <break time="${exercisetime}s"/>`
+							ssml += ` ${i+1} <break time="${exercisetime}s"/> `
 						}
 						ssml += `${text}, other side.`
 						for (i=0;i<reps;i++){
-							ssml += ` ${i+1} <break time="${exercisetime}s"/>`
+							ssml += ` ${i+1} <break time="${exercisetime}s"/> `
 						}
 					}
 					else{
 						ssml += text;
 						for (i=0;i<reps;i++){
-							ssml += ` ${i+1} <break time="${exercisetime}s"/>`
+							ssml += ` ${i+1} <break time="${exercisetime}s"/> `
 						}
 					}
 				}
 				else{
 					if (bothsides === 'y'){
-						ssml += `${text}, first side, ${exercisetime} seconds. <break time="${exercisetime}s"/> ${text}, other side, ${exercisetime} seconds. <break time="${exercisetime}s"/>`;
+						ssml += text + `, first side, ${exercisetime} seconds. <break time="${exercisetime}s"/> `
+						ssml += text + `, other side, ${exercisetime} seconds. <break time="${exercisetime}s"/> `;
 					}
 					else{
-						ssml += `${text}, ${exercisetime} seconds. <break time="${exercisetime}s"/>`;
+						ssml += text + `, ${exercisetime} seconds. <break time="${exercisetime}s"/>`;
 					}
 				}
 					  
