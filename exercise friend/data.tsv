@@ -1,24 +1,35 @@
 stretch	bothsides	time	reps	group
-neck	y	10		upper
-wrists	y	10		upper
-shoulder lift	y	10		upper
-cross body shoulder stretch	y	10		upper
-side stretch	y	15		upper
-pecs	y	15		upper
-thread the needle	y	15		upper
-seated twist	y	15		middle
-figure four	y	15		middle
-lying down twist	y	20		middle
-cat cow		5	10	middle
-cobra		10	1	middle
-lunge	y	15		middle
-hamstrings	y	20		lower
-quads	y	15		lower
-calves	y	15		lower
+neck	y	10		warmup_upper
+wrists	y	10		warmup_upper
+shoulder lift	y	10		warmup_upper
+cross body shoulder stretch	y	10		warmup_upper
+side stretch	y	15		warmup_upper
+pecs	y	15		warmup_upper
+thread the needle	y	15		warmup_upper
+seated twist	y	15		warmup_middle
+figure four	y	15		warmup_middle
+lying down twist	y	20		warmup_middle
+cat cow		5	10	warmup_middle
+cobra		10	1	warmup_middle
+lunge	y	15		warmup_middle
+hamstrings	y	20		warmup_lower
+quads	y	15		warmup_lower
+calves	y	15		warmup_lower
 mickey plank		20		core
 side plank	y	45		core
 bird dog		15	10	core
-floor leg raises				core
+floor leg raises		3	20	core
 dead bug		20		core
 squats		2	20	core
-pallof press	y			core
+neck rub		20	1	shoulder_attention
+pull head down	y	10		shoulder_attention
+look towards downward facing hand		1	20	shoulder_attention
+cat cow on elbows		5	10	shoulder_attention
+banded pull-apart		3	20	shoulder_attention
+eagle arm stretch	y	10		shoulder_attention
+look into armpit nerve floss	y	3	10	shoulder_attention
+seated leg lifts	y	2	20	knee_attention
+lying down knees up leg lifts	y	2	20	knee_attention
+lying down hip push		3	10	knee_attention
+on all fours leg lift	y	2	15	knee_attention
+crossed leg rock	y	30		knee_attention
