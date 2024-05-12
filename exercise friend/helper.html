@@ -69,6 +69,7 @@
 	  border:none;
 	  text-align:center;
 	  cursor:pointer;
+	  white-space: nowrap;
   }
   
   .triangle {
@@ -234,7 +235,7 @@
 	}
 	
 	function speak() {
-		loadingText = "loading..."
+		loadingText = "loading"
 		var spannedText = loadingText.split('').map(letter => `<span>${letter}</span>`).join('');
 		document.getElementById("speakButton").innerHTML = spannedText;
 		
@@ -257,9 +258,9 @@
 				
 				const time = checkbox.dataset.time;
 				if (time) {
-					ssml += `<break time="${time}s"/>`;
+					ssml += `${time} seconds. <break time="${time}s"/>`;
 	  				if (checkbox.dataset.bothsides === 'y') {
-						ssml += `switch ${text} <break time="${time}s"/>`;
+						ssml += `switch ${text}, ${time} seconds. <break time="${time}s"/>`;
 					}
 				}
 					  
