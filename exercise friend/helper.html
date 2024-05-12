@@ -253,7 +253,7 @@
 			
 			const checkbox = item;
 			const text = item.nextSibling.textContent.trim();
-			const time = checkbox.dataset.time;
+			const exercisetime = checkbox.dataset.time;
 			const bothsides = checkbox.dataset.bothsides;
 			const reps = checkbox.dataset.reps;
 
@@ -263,26 +263,26 @@
 					if (bothsides === 'y'){
 						ssml += `${text}, first side.`
 						for (i=0;i<reps;i++){
-							ssml += `${i} <break time="${time}s"/>`
+							ssml += `${i} <break time="${exercisetime}s"/>`
 						}
 						ssml += `${text}, other side.`
 						for (i=0;i<reps;i++){
-							ssml += `${i} <break time="${time}s"/>`
+							ssml += `${i} <break time="${exercisetime}s"/>`
 						}
 					}
 					else{
 						ssml += text;
 						for (i=0;i<reps;i++){
-							ssml += `${i} <break time="${time}s"/>`
+							ssml += `${i} <break time="${exercisetime}s"/>`
 						}
 					}
 				}
 				else{
 					if (bothsides === 'y'){
-						ssml += `${text}, first side. ${time} seconds. <break time="${time}s"/> ${text}, other side. ${time} seconds. <break time="${time}s"/>`;
+						ssml += `${text}, first side. ${exercisetime} seconds. <break time="${exercisetime}s"/> ${text}, other side. ${exercisetime} seconds. <break time="${exercisetime}s"/>`;
 					}
 					else{
-						ssml += `${text}, ${time} seconds. <break time="${time}s"/>`;
+						ssml += `${text}, ${exercisetime} seconds. <break time="${exercisetime}s"/>`;
 					}
 				}
 					  
