@@ -236,7 +236,7 @@
 	function speak() {
 		loadingText = "loading..."
 		var spannedText = loadingText.split('').map(letter => `<span>${letter}</span>`).join('');
-		document.getElementById("speakButton").textContent = spannedText;
+		document.getElementById("speakButton").innerHTML = spannedText;
 		
 		const letters = document.querySelectorAll("#speakButton span");
 		letters.forEach((letter, index) =>{
@@ -245,7 +245,7 @@
 		
 		var textList = document.querySelectorAll("#stretchList input[type='checkbox']");
 		var ssml = '<speak>';
-		ssml += 'hey. here goes your exercise routine. hope you enjoy it. okay. <break time="1"/>';
+		ssml += 'hey. here goes your exercise routine. hope you enjoy it. <break time="1"/>';
 
 		textList.forEach(item => {
 			
@@ -280,7 +280,7 @@
 	        var audioUrl = "data:audio/mp3;base64," + response.audioContent;
 	        document.getElementById("audio").src = audioUrl;
 	        document.getElementById("audio").play();
-			document.getElementById("speakButton").textContent = "⟶speak";
+			document.getElementById("speakButton").innerHTML = "⟶speak";
 	      }
 	    };
 
