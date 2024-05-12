@@ -207,6 +207,7 @@
 			stretchCheckbox.dataset.group = groupName;
 			stretchCheckbox.dataset.time = item.time;
 			stretchCheckbox.dataset.bothsides = item.bothsides;
+			stretchCheckbox.dataset.reps = item.reps;
 
 			const stretchLabel = document.createElement('label');
 			stretchLabel.textContent = item.stretch;
@@ -255,6 +256,7 @@
 
 			if ((checkbox.dataset.group != undefined) & (checkbox.checked)) {
 				ssml += text + ' ';
+				console.log(checkbox.dataset.reps);
   				if (checkbox.dataset.bothsides === 'y') {
 					ssml += `, first side.`;
 				}
