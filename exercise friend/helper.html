@@ -255,7 +255,9 @@
 
 			if ((checkbox.dataset.group != undefined) & (checkbox.checked)) {
 				ssml += text + ' ';
-				
+  				if (checkbox.dataset.bothsides === 'y') {
+					ssml += `, first side.`;
+				}
 				const time = checkbox.dataset.time;
 				if (time) {
 					ssml += `${time} seconds. <break time="${time}s"/>`;
