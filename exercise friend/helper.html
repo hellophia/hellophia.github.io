@@ -253,9 +253,40 @@
 			
 			const checkbox = item;
 			const text = item.nextSibling.textContent.trim();
+			const time = checkbox.dataset.time;
+			const bothsides = checkbox.dataset.bothsides;
+			const reps = checkbox.dataset.reps;
 
 			if ((checkbox.dataset.group != undefined) & (checkbox.checked)) {
-				ssml += text + ' ';
+
+				if (reps){
+					if (bothsides === 'y'){
+						ssml += `${text}, first side.`
+						for (i=0;i<reps;i++){
+							ssml += `${i} <break time="${time}s"/>`
+						}
+						ssml += `${text}, other side.`
+						for (i=0;i<reps;i++){
+							ssml += `${i} <break time="${time}s"/>`
+						}
+					}
+					else{
+						ssml += text;
+						for (i=0;i<reps;i++){
+							ssml += `${i} <break time="${time}s"/>`
+						}
+					}
+				}
+				else{
+					if (bothsides === 'y'){
+						ssml += `${text}, first side. ${time} seconds. <break time="${time}s"/> ${text}, other side. ${time} seconds. <break time="${time}s"/>`;
+					}
+					else{
+						ssml += `${text}, ${time} seconds. <break time="${time}s"/>`;
+					}
+				}
+				
+				
 				console.log(checkbox.dataset.reps);
   				if (checkbox.dataset.bothsides === 'y') {
 					ssml += `, first side.`;
