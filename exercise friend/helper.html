@@ -261,7 +261,7 @@
 
 			if ((checkbox.dataset.group != undefined) & (checkbox.checked)) {
 
-				if (reps){
+				if (reps>0){
 					if (bothsides === 'y'){
 						ssml += `${text}, first side.`
 						for (i=0;i<reps;i++){
@@ -281,9 +281,8 @@
 				}
 				else {
 				    if (bothsides === 'y') {
-				        ssml += exercisetime + "seconds";
-						//ssml += text + `, first side, ${exercisetime} seconds. <break time="${exercisetime}s"/> `;
-				        //ssml += text + `, other side, ${exercisetime} seconds. <break time="${exercisetime}s"/> `;
+						ssml += text + `, first side, ${exercisetime} seconds. <break time="${exercisetime}s"/> `;
+				        ssml += text + `, other side, ${exercisetime} seconds. <break time="${exercisetime}s"/> `;
 				    } else {
 				        ssml += text + `, ${exercisetime} seconds. <break time="${exercisetime}s"/>`;
 				    }
