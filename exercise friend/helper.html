@@ -281,8 +281,9 @@
 				}
 				else {
 				    if (bothsides === 'y') {
-				        ssml += text + `, first side, ${exercisetime} seconds. <break time="${exercisetime}s"/> `;
-				        ssml += text + `, other side, ${exercisetime} seconds. <break time="${exercisetime}s"/> `;
+				        ssml += exercisetime + "seconds";
+						//ssml += text + `, first side, ${exercisetime} seconds. <break time="${exercisetime}s"/> `;
+				        //ssml += text + `, other side, ${exercisetime} seconds. <break time="${exercisetime}s"/> `;
 				    } else {
 				        ssml += text + `, ${exercisetime} seconds. <break time="${exercisetime}s"/>`;
 				    }
