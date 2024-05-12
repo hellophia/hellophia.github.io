@@ -82,16 +82,16 @@
 	  margin: 0px 10px;
   }
   
-  @keyframes loadingAnimation {
-      0% { transform: translateY(0); }
-      25% { transform: translateY(-2px); }
-      50% { transform: translateY(0); }
-      75% { transform: translateY(-2px); }
-      100% { transform: translateY(0); }
+  #speakButton span{
+	  display: inline-block;
+	  animation: wave .75s infinite steps(1);
+	  //transform-origin: 50% 50%;
   }
-
-  #speakButton.loading {
-      animation: loadingAnimation 1s infinite;
+  
+  @keyframes wave{
+    50%{
+     transform: translatey(-10px); 
+    }
   }
   
 </style>
@@ -234,8 +234,14 @@
 	}
 	
 	function speak() {
-		document.getElementById("speakButton").textContent = "loading...";
-		document.getElementById("speakButton").classList.add("loading");
+		loadingText = "loading..."
+		var spannedText = loadingText.split('').map(letter => `<span>${letter}</span>`).join('');
+		document.getElementById("speakButton").textContent = spannedText;
+		
+		const letters = document.querySelectorAll("#speakButton span");
+		letters.forEach((letter, index) =>{
+			letter.style.animationDelay = `${index * 0.1}s`;
+		})
 		
 		var textList = document.querySelectorAll("#stretchList input[type='checkbox']");
 		var ssml = '<speak>';
@@ -274,8 +280,7 @@
 	        var audioUrl = "data:audio/mp3;base64," + response.audioContent;
 	        document.getElementById("audio").src = audioUrl;
 	        document.getElementById("audio").play();
-			document.getElementById("speakButton").textContent = "⟶ speak";
-			document.getElementById("speakButton").classList.remove("loading");
+			document.getElementById("speakButton").textContent = "⟶speak";
 	      }
 	    };
 
