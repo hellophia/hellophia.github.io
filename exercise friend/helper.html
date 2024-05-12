@@ -78,8 +78,20 @@
   }
   
   .time{
-	  color:#d3c8c3;
+	  color:#d3b690;
 	  margin: 0px 10px;
+  }
+  
+  @keyframes loadingAnimation {
+      0% { transform: translateY(0); }
+      25% { transform: translateY(-2px); }
+      50% { transform: translateY(0); }
+      75% { transform: translateY(-2px); }
+      100% { transform: translateY(0); }
+  }
+
+  #speakButton.loading {
+      animation: loadingAnimation 1s infinite;
   }
   
 </style>
@@ -223,6 +235,7 @@
 	
 	function speak() {
 		document.getElementById("speakButton").textContent = "loading...";
+		document.getElementById("speakButton").classList.add("loading");
 		
 		var textList = document.querySelectorAll("#stretchList input[type='checkbox']");
 		var ssml = '<speak>';
@@ -248,7 +261,6 @@
 		});
 
 		ssml += '</speak>';
-		console.log(ssml);
 
 		var xhr = new XMLHttpRequest();
 		var url = "https://texttospeech.googleapis.com/v1/text:synthesize?key=AIzaSyCcCQFbNls8ogpWJTshCm2ZTQLnx1x3tzE";
@@ -263,6 +275,7 @@
 	        document.getElementById("audio").src = audioUrl;
 	        document.getElementById("audio").play();
 			document.getElementById("speakButton").textContent = "⟶ speak";
+			document.getElementById("speakButton").classList.remove("loading");
 	      }
 	    };
 
