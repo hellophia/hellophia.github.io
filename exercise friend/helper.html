@@ -203,11 +203,11 @@
 	  const content = header.nextElementSibling;
 	  if (content.style.display === "block") {
 	    content.style.display = "none";
+		header.querySelector('.triangle').textContent = '▶';
 	  } else {
 	    content.style.display = "block";
+		header.querySelector('.triangle').textContent = '▼';
 	  }
-	  console.log(header.children);
-	  //▼
 	}
 	
 	function speak() {
