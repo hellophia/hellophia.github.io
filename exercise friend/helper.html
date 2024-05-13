@@ -179,7 +179,7 @@
 				groupCheckboxes[groupName].checked = true;
 
 				const groupLabel = document.createElement('label');
-				groupLabel.textContent = groupName;
+				groupLabel.textContent = groupName.replace(/_/g, ' ');
 
 			    groupCheckboxes[groupName].addEventListener('change', function() {
 			      const groupCheckbox = this;
@@ -227,7 +227,7 @@
 			groupCheckboxes[groupName].content.appendChild(stretchCheckbox);
 			groupCheckboxes[groupName].content.appendChild(stretchLabel);
 			
-			if(item.reps > 0){
+			if(item.reps > 1){
 				const repspan = document.createElement('span');
 				repspan.className = 'reps';
 				repspan.textContent = item.reps + ' reps';
