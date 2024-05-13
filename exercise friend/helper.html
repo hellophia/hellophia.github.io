@@ -80,8 +80,20 @@
   
   .time{
 	  color:#d3b690;
-	  margin: 0px 10px;
+	  margin: 0px 8px;
   }
+  
+  .reps{
+	  color: #d3b690;
+	  margin: 0px 8px;
+  }
+  
+  .sides{
+	  color: #a5b4cb;
+	  margin: 0px 8px;
+  }
+  
+  bec3a8
   
   #speakButton span{
 	  display: inline-block;
@@ -212,13 +224,28 @@
 			const stretchLabel = document.createElement('label');
 			stretchLabel.textContent = item.stretch;
 			
-			const timeSpan = document.createElement('span');
-			timeSpan.className = 'time';
-			timeSpan.textContent = item.time + ' seconds';
-			
 			groupCheckboxes[groupName].content.appendChild(stretchCheckbox);
 			groupCheckboxes[groupName].content.appendChild(stretchLabel);
-			groupCheckboxes[groupName].content.appendChild(timeSpan);
+			
+			if(item.reps > 0){
+				const repspan = document.createElement('span');
+				repspan.className = 'reps';
+				repspan.textContent = item.reps + ' reps';
+				groupCheckboxes[groupName].content.appendChild(repspan);
+			}
+			else{
+				const timeSpan = document.createElement('span');
+				timeSpan.className = 'time';
+				timeSpan.textContent = item.time + ' seconds';
+				groupCheckboxes[groupName].content.appendChild(timeSpan);
+				if(item.bothsides === "y"){
+					const sidesspan = document.createElement('span');
+					sidesspan.className = 'sides';
+					sidesspan.textContent = 'per side';
+					groupCheckboxes[groupName].content.appendChild(sidesspan);
+				}
+			}
+			
 			groupCheckboxes[groupName].content.appendChild(document.createElement('br'));
 			
 		});
