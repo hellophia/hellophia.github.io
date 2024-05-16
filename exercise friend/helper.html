@@ -79,17 +79,17 @@
   }
   
   .time{
-	  color:#d3b690;
+	  color: #b0b4b4;
 	  margin: 0px 8px;
   }
   
   .reps{
-	  color: #a5b4cb;
+	  color: #d4be96;
 	  margin: 0px 8px;
   }
   
   .sides{
-	  color: #a5b4cb;
+	  color: #dcb38b;
 	  margin: 0px 8px;
   }
   
@@ -288,7 +288,7 @@
 
 			if ((checkbox.dataset.group != undefined) & (checkbox.checked)) {
 
-				if (reps>0){
+				if (reps>1){
 					if (bothsides === 'y'){
 						ssml += `${text}, first side.`
 						for (i=0;i<reps;i++){
@@ -318,6 +318,7 @@
 			}
 		});
 
+		ssml += "hey. your workout is all done. go and live your life and have fun. see you next time.";
 		ssml += '</speak>';
 		console.log(ssml);
 
