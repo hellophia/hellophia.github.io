@@ -135,9 +135,10 @@
 	const lightcolors = ['#d3c8c3','#d3b690','#b9af2a','#b0b4b4','#d4be96','#dcb38b'];
 	let currentIndex = 0;
 	
-  fetch('data.tsv')
-    .then(response => response.text())
-    .then(data => {
+	//get the data and make js object
+	fetch('data.tsv')
+	.then(response => response.text())
+	.then(data => {
 		const lines = data.split('\n').slice(1);
 		  const items = lines.map(line => {
 		    const [stretch, bothsides, time, reps, group] = line.split('\t').map(item => item.replace(/\r/g, ''));
@@ -145,38 +146,40 @@
 		  });
 		  console.log(items);
 		  createElements(items);
-    })
-    .catch(error => console.error('Error fetching the data:', error));
-	
+	})
+	.catch(error => console.error('Error fetching the data:', error));
+
+	//make the exercise elements
 	function createElements(data) {
-		
+	
 		const stretchList = document.getElementById('stretchList');
 
 		const groupCheckboxes = {};
 
 		data.forEach(item => {
-			
+		
 			const groupName = item.group;
 
+			//if the group header doesn't exist yet, make it
 			if (groupCheckboxes[groupName] === undefined) {
-				
+			
 		        const accordion = document.createElement('div');
 		        accordion.className = 'accordion';
-				
+			
 				const header = document.createElement('div');
 				header.className = 'accordion-header';
-				
+			
 				const triangle = document.createElement('div');
 				triangle.className = 'triangle';
 				triangle.textContent = "▶";
-				
+			
 				triangle.onclick = function() {
 					toggleAccordion(header);
 				};
-				
+			
 				groupCheckboxes[groupName] = document.createElement('input');
 				groupCheckboxes[groupName].type = 'checkbox';
-				groupCheckboxes[groupName].checked = true;
+				groupCheckboxes[groupName].checked = false;
 
 				const groupLabel = document.createElement('label');
 				groupLabel.textContent = groupName.replace(/_/g, ' ');
@@ -188,21 +191,21 @@
 			        checkbox.checked = groupCheckbox.checked;
 			      });
 			    });
-				
+			
 				const content = document.createElement('div');
 				content.className = 'accordion-content';
-      
+  
 				header.appendChild(triangle);
 				header.appendChild(groupCheckboxes[groupName]);
 				header.appendChild(groupLabel);
 				accordion.appendChild(header);
 				accordion.appendChild(content);
-				
+			
 				groupCheckboxes[groupName] = {
 					accordion: accordion,
 					content: content
 				};
-				
+			
 				stretchList.appendChild(accordion);
 
 			    header.style.backgroundColor = lightcolors[currentIndex];
@@ -210,12 +213,13 @@
 			    if (currentIndex >= lightcolors.length) {
 			        currentIndex = 0;
 			    }
-				
+			
 			}
 
+			//make a checkbox for exercises
 			const stretchCheckbox = document.createElement('input');
 			stretchCheckbox.type = 'checkbox';
-			stretchCheckbox.checked = true;
+			stretchCheckbox.checked = false;
 			stretchCheckbox.dataset.group = groupName;
 			stretchCheckbox.dataset.time = item.time;
 			stretchCheckbox.dataset.bothsides = item.bothsides;
@@ -223,10 +227,10 @@
 
 			const stretchLabel = document.createElement('label');
 			stretchLabel.textContent = item.stretch;
-			
+		
 			groupCheckboxes[groupName].content.appendChild(stretchCheckbox);
 			groupCheckboxes[groupName].content.appendChild(stretchLabel);
-			
+		
 			if(item.reps > 1){
 				const repspan = document.createElement('span');
 				repspan.className = 'reps';
@@ -245,9 +249,9 @@
 					groupCheckboxes[groupName].content.appendChild(sidesspan);
 				}
 			}
-			
+		
 			groupCheckboxes[groupName].content.appendChild(document.createElement('br'));
-			
+		
 		});
 	}
 	
