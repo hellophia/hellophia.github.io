@@ -1,10 +1,58 @@
-stretch	switch?	time per	reps	group
-straight leg leaning forward hands on wall calf raises		1	15	atg
-bent leg standing straight hands on wall calf raises		1	15	atg
-couch stretch	y	20		atg
-back to wall leaning back tibialis raise			15	atg
-split squat	y			atg
-seated goodmorning		3	15	atg
-nordic curl		5	15	atg
-				l_sit_progression
-				handstand_progression
+stretch	bothsides	time	reps	group
+neck	y	10		warmup_upper
+wrists	y	10		warmup_upper
+shoulder lift	y	10		warmup_upper
+cross body shoulder stretch	y	10		warmup_upper
+side stretch	y	15		warmup_upper
+pecs	y	15		warmup_upper
+thread the needle	y	15		warmup_upper
+seated twist	y	15		warmup_middle
+figure four	y	15		warmup_middle
+lying down twist	y	20		warmup_middle
+cat cow		5	10	warmup_middle
+cobra		10	1	warmup_middle
+lunge	y	15		warmup_middle
+pigeon	y	15		warmup_lower
+butterfly		20	1	warmup_lower
+hamstrings	y	20		warmup_lower
+quads	y	15		warmup_lower
+calves	y	15		warmup_lower
+mickey plank		0.5	20	core
+side plank	y	45		core
+bird dog		15	10	core
+floor leg raises		3	20	core
+dead bug		2	20	core
+squats		2	20	core
+neck rub		20	1	shoulder_attention
+pull head down	y	10		shoulder_attention
+look towards downward facing hand		1	20	shoulder_attention
+cat cow on elbows		5	10	shoulder_attention
+banded pull-apart		3	20	shoulder_attention
+eagle arm stretch	y	10		shoulder_attention
+look into armpit nerve floss	y	3	10	shoulder_attention
+seated leg lifts	y	1	20	knee_attention
+lying down knees up leg lifts	y	1	20	knee_attention
+lying down hip push		2	10	knee_attention
+on all fours leg lift	y	1	15	knee_attention
+crossed leg rock	y	25		knee_attention
+squeeze ring	y	0.5	20	wrist_attention
+squeeze and release	y	2	15	wrist_attention
+pinch grip	y	1	10	wrist_attention
+extensor flex	y	1	20	wrist_attention
+floor press		2	10	wrist_attention
+neck curls		2	15	winny_neck
+lying down on tummy off edge neck extension		1	15	winny_neck
+head off edge facing up neck rotation		1	15	winny_neck
+flexion		1	15	resistance_neck
+extension		1	15	resistance_neck
+rotation		1	15	resistance_neck
+lateral flexion	y	1	15	resistance_neck
+finger pulses		0.5	15	gmb_wrists
+palm pulses		0.5	15	gmb_wrists
+side to side palm rotations		0.5	20	gmb_wrists
+front facing elbow rotations		1	15	gmb_wrists
+side to side wrist stretch		1	20	gmb_wrists
+rear facing wrist stretch, palms down		1	15	gmb_wrists
+rear facing wrist stretch, palms up		1	15	gmb_wrists
+rear facing elbow rotations		1	15	gmb_wrists
+forward facing wrist stretch		1	15	gmb_wrists
