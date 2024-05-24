@@ -2,112 +2,115 @@
 <html lang="en">
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
+	<style>
 	
-	@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
+		@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
 
-    body {
-        font-family: "Noto Serif";
-        color: #303028;
-        background-color: #e3e3e3;
-		font-size:16px;
-		margin:0px;
-		padding:0px;
-		display:flex;
-		justify-content: center;
-		align-items: center;
-    }
+	    body {
+	        font-family: "Noto Serif";
+	        color: #303028;
+	        background-color: #e3e3e3;
+			font-size:16px;
+			margin:0px;
+			padding:0px;
+			display:flex;
+			justify-content: center;
+			align-items: center;
+	    }
 	
-	.container{
-		width: 50%;
-		margin-top:40px;
-	}
+		.container{
+			width: 50%;
+			margin-top:40px;
+		}
 	
-  .accordion {
-  }
+		.accordion {
+		}
 
-  .accordion-header {
-	padding:8px;
-  }
+		.accordion-header {
+			padding:8px;
+		}
 
-  .accordion-content {
-    display: none;
-    padding: 10px;
-  }
+		.accordion-content {
+			display: none;
+			padding: 10px;
+		}
+
+		audio {
+			color: #86aeaf;
+			width:100%;
+		}
+		audio::-webkit-media-controls-panel{
+			background-color: #b0b4b4;
+		}
+		audio::-webkit-media-controls-enclosure {
+			border-radius: 0;
+		}
+
+		input[type="checkbox"] {
+			width: 20px;
+			height: 20px;
+			margin: 0px 6px;
+			vertical-align: middle;
+		}
+
+		label{
+			margin-left:12px;
+		}
+
+		button{
+			font-family: "Noto Serif";
+			font-size:18px;
+			padding:10px 30px;
+			background-color: #d3c8c3;
+			color: #404030;
+			border:none;
+			text-align:center;
+			cursor:pointer;
+			white-space: nowrap;
+		}
+
+		.triangle {
+			margin: 0px 10px;
+			display:inline-block;
+			cursor: pointer;
+		}
+
+		.time{
+			color: #b0b4b4;
+			margin: 0px 8px;
+		}
+
+		.reps{
+			color: #d4be96;
+			margin: 0px 8px;
+		}
+
+		.sides{
+			color: #dcb38b;
+			margin: 0px 8px;
+		}
+
+		#speakButton span{
+		  display: inline-block;
+		  animation: wave .75s infinite steps(1);
+		  //transform-origin: 50% 50%;
+		}
+
+		@keyframes wave{
+			50%{
+			 transform: translatey(-4px); 
+			}
+		}
+		
+	    @media only screen and (max-width: 800px) {
+			.container{
+				width: 90%;
+			}
   
-  audio {
-	  color: #86aeaf;
-	  width:100%;
-  }
-  audio::-webkit-media-controls-panel{
-	  background-color: #b0b4b4;
-  }
-  audio::-webkit-media-controls-enclosure {
-      border-radius: 0;
-  }
-  
-	input[type="checkbox"] {
-		width: 20px;
-		height: 20px;
-		margin: 0px 6px;
-		vertical-align: middle;
-	}
-	
-	label{
-		margin-left:12px;
-	}
-  
-  button{
-	  font-family: "Noto Serif";
-	  font-size:18px;
-	  padding:10px 30px;
-	  background-color: #d3c8c3;
-	  color: #404030;
-	  border:none;
-	  text-align:center;
-	  cursor:pointer;
-	  white-space: nowrap;
-  }
-  
-  .triangle {
-      margin: 0px 10px;
-	  display:inline-block;
-	  cursor: pointer;
-  }
-  
-  .time{
-	  color: #b0b4b4;
-	  margin: 0px 8px;
-  }
-  
-  .reps{
-	  color: #d4be96;
-	  margin: 0px 8px;
-  }
-  
-  .sides{
-	  color: #dcb38b;
-	  margin: 0px 8px;
-  }
-  
-  bec3a8
-  
-  #speakButton span{
-	  display: inline-block;
-	  animation: wave .75s infinite steps(1);
-	  //transform-origin: 50% 50%;
-  }
-  
-  @keyframes wave{
-    50%{
-     transform: translatey(-4px); 
-    }
-  }
-  
-</style>
+	</style>
 
 </head>
 <body>
@@ -135,6 +138,25 @@
 	const lightcolors = ['#d3c8c3','#d3b690','#b9af2a','#b0b4b4','#d4be96','#dcb38b'];
 	let currentIndex = 0;
 	
+	// fetch the data from the spreadsheet
+	fetch('https://opensheet.elk.sh/1osuWeLX42mewfnpqIbYoUMNgtGscNcouADfZRGOLQxc/exercises')
+	    .then(response => {
+	        if (!response.ok) {
+	            throw new Error('network response error');
+	        }
+	        return response.json();
+	    })
+	    .then(data => {
+	        
+	        const items = data;
+			createElements(items);
+			
+	    })
+	    .catch(error => {
+	        console.error('data fetching error', error);
+	    });
+	
+	/*
 	//get the data and make js object
 	fetch('data.tsv')
 	.then(response => response.text())
@@ -147,7 +169,8 @@
 		  console.log(items);
 		  createElements(items);
 	})
-	.catch(error => console.error('Error fetching the data:', error));
+	.catch(error => console.error('data fetching error:', error));
+	*/
 
 	//make the exercise elements
 	function createElements(data) {
