@@ -109,10 +109,11 @@
 			.container{
 				width: 90%;
 			}
-  
-	</style>
+		}
+			
+			</style>
+	</head>
 
-</head>
 <body>
 
 	<div class="container">
@@ -155,22 +156,6 @@
 	    .catch(error => {
 	        console.error('data fetching error', error);
 	    });
-	
-	/*
-	//get the data and make js object
-	fetch('data.tsv')
-	.then(response => response.text())
-	.then(data => {
-		const lines = data.split('\n').slice(1);
-		  const items = lines.map(line => {
-		    const [stretch, bothsides, time, reps, group] = line.split('\t').map(item => item.replace(/\r/g, ''));
-		    return { stretch, bothsides, time, reps: parseInt(reps), group };
-		  });
-		  console.log(items);
-		  createElements(items);
-	})
-	.catch(error => console.error('data fetching error:', error));
-	*/
 
 	//make the exercise elements
 	function createElements(data) {
@@ -436,7 +421,6 @@
 
 	    return estimatedTime;
 	}
-	
 
 </script>
 
