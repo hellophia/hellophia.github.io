@@ -180,13 +180,13 @@
 		const groupCheckboxes = {};
 
 		data.forEach(item => {
-		
+			
 			const groupName = item.group;
 
 			//if the group header doesn't exist yet, make it
 			if (groupCheckboxes[groupName] === undefined) {
-			
-		        const accordion = document.createElement('div');
+				
+				const accordion = document.createElement('div');
 		        accordion.className = 'accordion';
 			
 				const header = document.createElement('div');
@@ -246,6 +246,7 @@
 			stretchCheckbox.dataset.group = groupName;
 			stretchCheckbox.dataset.time = item.time;
 			stretchCheckbox.dataset.bothsides = item.bothsides;
+			stretchCheckbox.dataset.recover = item.recover;
 			stretchCheckbox.dataset.reps = item.reps;
 
 			const stretchLabel = document.createElement('label');
@@ -300,53 +301,94 @@
 		})
 		
 		var textList = document.querySelectorAll("#stretchList input[type='checkbox']");
+
+		var filteredTextList = Array.from(textList).filter(checkbox => {
+		    return checkbox.checked && checkbox.dataset.group !== undefined;
+		});
+		
 		var ssml = '<speak>';
 		ssml += 'hey. here goes your exercise routine. hope you enjoy it. <break time="1"/>';
 
-		textList.forEach(item => {
+		filteredTextList.forEach((item, index) => {
 			
 			const checkbox = item;
 			const text = item.nextSibling.textContent.trim();
 			const exercisetime = checkbox.dataset.time;
 			const bothsides = checkbox.dataset.bothsides;
 			const reps = checkbox.dataset.reps;
+			const recover = checkbox.dataset.recover;
 			
-			console.log(exercisetime);
-
-			if ((checkbox.dataset.group != undefined) & (checkbox.checked)) {
-
-				if (reps>1){
-					if (bothsides === 'y'){
-						ssml += `${text}, first side.`
-						for (i=0;i<reps;i++){
-							ssml += ` ${i+1} <break time="${exercisetime}s"/> `
-						}
-						ssml += `${text}, other side.`
-						for (i=0;i<reps;i++){
-							ssml += ` ${i+1} <break time="${exercisetime}s"/> `
-						}
-					}
-					else{
-						ssml += text;
-						for (i=0;i<reps;i++){
-							ssml += ` ${i+1} <break time="${exercisetime}s"/> `
-						}
-					}
-				}
-				else {
-				    if (bothsides === 'y') {
-						ssml += text + `, first side, ${exercisetime} seconds. <break time="${exercisetime}s"/> `;
-				        ssml += text + `, other side, ${exercisetime} seconds. <break time="${exercisetime}s"/> `;
-				    } else {
-				        ssml += text + `, ${exercisetime} seconds. <break time="${exercisetime}s"/>`;
-				    }
-				}
-					  
+			if(filteredTextList[index+1] !== undefined){
+				var nextexercise = filteredTextList[index+1].nextSibling.textContent.trim();
 			}
+
+			if (reps>1){
+				if (bothsides === 'y'){
+					ssml += `${text}, first side. <break time="1s"/> `
+					for (i=0;i<reps;i++){
+						ssml += ` ${i+1} <break time="${exercisetime}s"/> `
+					}
+					ssml += `${text}, other side. <break time="1s"/> `
+					for (i=0;i<reps;i++){
+						ssml += ` ${i+1} <break time="${exercisetime}s"/> `
+					}
+					if (recover > 0){
+						ssml += `rest for ${recover} seconds. <break time="${recover}s"/> `
+						if(filteredTextList[index+1] !== undefined){
+							ssml += `get ready for ${nextexercise}. <break time="3s"/>`
+						}
+					}
+				}
+				else{
+					ssml += `${text} <break time="1s"/> `;
+					for (i=0;i<reps;i++){
+						ssml += ` ${i+1} <break time="${exercisetime}s"/> `
+					}
+					if (recover > 0){
+						ssml += `rest for ${recover} seconds. <break time="${recover}s"/> `
+						if(filteredTextList[index+1] !== undefined){
+							ssml += `get ready for ${nextexercise}. <break time="3s"/>`
+						}
+					}
+				}
+			}
+			else {
+			    if (bothsides === 'y') {
+					ssml += text + `, first side, ${exercisetime} seconds. <break time="${exercisetime}s"/> `;
+			        ssml += text + `, other side, ${exercisetime} seconds. <break time="${exercisetime}s"/> `;
+					if (recover > 0){
+						ssml += `rest for ${recover} seconds. <break time="${recover}s"/> `
+						if(filteredTextList[index+1] !== undefined){
+							ssml += `get ready for ${nextexercise}. <break time="3s"/>`
+						}
+					}
+			    } else {
+			        ssml += text + `, ${exercisetime} seconds. <break time="${exercisetime}s"/>`;
+					if (recover > 0){
+						ssml += `rest for ${recover} seconds. <break time="${recover}s"/> `
+						if(filteredTextList[index+1] !== undefined){
+							ssml += `get ready for ${nextexercise}. <break time="3s"/>`
+						}
+					}
+			    }
+			}
+			
 		});
 
 		ssml += "hey. your workout is all done. go and live your life and have fun. see you next time.";
 		ssml += '</speak>';
+		
+		const estimatedTime = estimateReadingTime(ssml);
+		
+		let minutes = Math.round(estimatedTime / 60);
+		
+		let newString = ` it should take about ${minutes} minutes.`;
+
+		let openingTag = "hope you enjoy it.";
+		let insertionPoint = ssml.indexOf(openingTag) + openingTag.length;
+
+		ssml = ssml.slice(0, insertionPoint) + newString + ssml.slice(insertionPoint);
+		
 		console.log(ssml);
 
 		var xhr = new XMLHttpRequest();
@@ -364,6 +406,7 @@
 			document.getElementById("speakButton").innerHTML = "⟶speak";
 	      }
 	    };
+		
 
 	    var data = JSON.stringify({
 	      input: { ssml: ssml },
@@ -373,6 +416,27 @@
 
 	    xhr.send(data);
 	}
+	
+	function estimateReadingTime(ssml) {
+		
+	    const wordsPerSecond = 2.5;
+
+	    const textContent = ssml.replace(/<[^>]*>/g, '');
+	    const wordCount = textContent.split(/\s+/).filter(word => word.length > 0).length;
+
+	    let estimatedTime = wordCount / wordsPerSecond;
+		
+	    const breakTimes = ssml.match(/<break[^>]*time="([\d.]+)s"[^>]*>/g) || [];
+	    breakTimes.forEach(breakTag => {
+	        const match = breakTag.match(/time="([\d.]+)s"/);
+	        if (match && match[1]) {
+	            estimatedTime += parseFloat(match[1]);
+	        }
+	    });
+
+	    return estimatedTime;
+	}
+	
 
 </script>
 
