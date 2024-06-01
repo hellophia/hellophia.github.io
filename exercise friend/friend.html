@@ -278,11 +278,16 @@
             const checkboxes = groupCheckboxes[groupName].content.querySelectorAll("input[type='checkbox']");
             const filteredTextList = Array.from(checkboxes)
             generatessml(filteredTextList);
-			let minutes = Math.round(estimateReadingTime(ssml) / 60);
+			let totalSeconds = estimateReadingTime(ssml);
+			let minutes = Math.round(totalSeconds / 60);
+			let seconds = Math.round(totalSeconds % 60);
+			if (seconds < 10) {
+			        seconds = '0' + seconds;
+			    }
 			
 			const headerDiv = groupCheckboxes[groupName].accordion.querySelector(".accordion-header");
             const spanElement = document.createElement('span');
-            spanElement.textContent = `${minutes} minutes`;
+            spanElement.textContent = `${minutes}:${seconds}`;
 			spanElement.classList.add('grouptime', 'infotag');
             headerDiv.appendChild(spanElement);
 		}
@@ -320,8 +325,10 @@
 		generatessml(filteredTextList);
 		
 		//add in the time estimate
-		let minutes = Math.round(estimateReadingTime(ssml) / 60);
-		let newString = ` it should take about ${minutes} minutes.`;
+		let totalSeconds = estimateReadingTime(ssml);
+		let minutes = Math.round(totalSeconds / 60);
+		let seconds = Math.round(totalSeconds % 60);
+		let newString = ` it should take about ${minutes} minutes and ${seconds} seconds.`;
 		let openingTag = "hope you enjoy it.";
 		let insertionPoint = ssml.indexOf(openingTag) + openingTag.length;
 		ssml = ssml.slice(0, insertionPoint) + newString + ssml.slice(insertionPoint);
@@ -368,12 +375,13 @@
 			const bothsides = checkbox.dataset.bothsides;
 			const reps = checkbox.dataset.reps;
 			const recover = checkbox.dataset.recover;
-			const getreadystring = `get ready for ${nextexercise}. <break time="3s"/>`
-			const reststring = `rest for ${recover} seconds. <break time="${recover}s"/> `
 			
 			if(filteredTextList[index+1] !== undefined){
 				var nextexercise = filteredTextList[index+1].nextSibling.textContent.trim();
 			}
+			
+			const getreadystring = `get ready for ${nextexercise}. <break time="3s"/>`
+			const reststring = `rest for ${recover} seconds. <break time="${recover}s"/> `
 			
 			function recovery(){
 				ssml += reststring
