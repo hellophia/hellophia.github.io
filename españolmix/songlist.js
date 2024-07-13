@@ -60,6 +60,12 @@ const songlist = [
         "spotifyURI": "spotify:track:33TDrBgqj4dPN6paINGVID"
     },
     {
+        "fileName": "luis-miguel_ahora-te-puedes-marchar.txt",
+        "artistName": "Luis Miguel",
+        "songName": "Ahora Te Puedes Marchar",
+        "spotifyURI": "spotify:track:1uKjQoh8JZj9ryuYRhpd7E"
+    },
+    {
         "fileName": "malportado-kids_soy-la-pocha.txt",
         "artistName": "Malportado Kids",
         "songName": "Soy la Pocha",
@@ -82,6 +88,12 @@ const songlist = [
         "artistName": "Meridian Brothers",
         "songName": "Háblame Amigo Citadino",
         "spotifyURI": "spotify:track:3P3K6zVQzikERF4rZ4XLzr"
+    },
+    {
+        "fileName": "meridian-brothers_mi-pregunta.txt",
+        "artistName": "Meridian Brothers",
+        "songName": "Mi Pregunta",
+        "spotifyURI": "spotify:track:4wCKQujqdBboh2Uh8XWels"
     },
     {
         "fileName": "picnic_callate-nina.txt",
