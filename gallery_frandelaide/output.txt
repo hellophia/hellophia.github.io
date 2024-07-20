@@ -1,0 +1,25 @@
+<ul>
+  <li><img src="img/adelaide-06.png"><span class="tooltiptext adelaide">Adelaide</span></li>
+  <li><img src="img/frances-06.png"><span class="tooltiptext frances">Frances</span></li>
+  <li><img src="img/adelaide-02.png"><span class="tooltiptext adelaide">Adelaide</span></li>
+  <li><img src="img/adelaide-05.png"><span class="tooltiptext adelaide">Adelaide</span></li>
+  <li><img src="img/adelaide-08.png"><span class="tooltiptext adelaide">Adelaide</span></li>
+  <li><img src="img/adelaide-03.png"><span class="tooltiptext adelaide">Adelaide</span></li>
+  <li><img src="img/frances-10.png"><span class="tooltiptext frances">Frances</span></li>
+  <li><img src="img/frances-11.png"><span class="tooltiptext frances">Frances</span></li>
+  <li><img src="img/adelaide-10.png"><span class="tooltiptext adelaide">Adelaide</span></li>
+  <li><img src="img/frances-08.png"><span class="tooltiptext frances">Frances</span></li>
+  <li><img src="img/frances-07.png"><span class="tooltiptext frances">Frances</span></li>
+  <li><img src="img/frances-02.png"><span class="tooltiptext frances">Frances</span></li>
+  <li><img src="img/adelaide-11.png"><span class="tooltiptext adelaide">Adelaide</span></li>
+  <li><img src="img/adelaide-01.png"><span class="tooltiptext adelaide">Adelaide</span></li>
+  <li><img src="img/frances-04.png"><span class="tooltiptext frances">Frances</span></li>
+  <li><img src="img/frances-09.png"><span class="tooltiptext frances">Frances</span></li>
+  <li><img src="img/frances-03.png"><span class="tooltiptext frances">Frances</span></li>
+  <li><img src="img/adelaide-04.png"><span class="tooltiptext adelaide">Adelaide</span></li>
+  <li><img src="img/adelaide-09.png"><span class="tooltiptext adelaide">Adelaide</span></li>
+  <li><img src="img/adelaide-07.png"><span class="tooltiptext adelaide">Adelaide</span></li>
+  <li><img src="img/frances-05.png"><span class="tooltiptext frances">Frances</span></li>
+  <li><img src="img/frances-01.png"><span class="tooltiptext frances">Frances</span></li>
+  <li><img src="img/frances-12.png"><span class="tooltiptext frances">Frances</span></li>
+</ul>

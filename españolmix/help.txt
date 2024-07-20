@@ -1,5 +1,11 @@
 
+// get .lrcs
+https://syrics-web.vercel.app/spotify
+
 // automator workflow to convert .lrc to .txt files
+
+// remove timestamps (note space)
+\[\d+:\d+\.\d+\] 
 
 // how to detect languages (expects .txt files in letras to process
 terminal
@@ -9,9 +15,6 @@ python3 langdetect.py
 // how to generate songlist
 terminal
 cd /Users/sophiafoster-dimino/Dropbox/github/hellophia/españolmix
-node generateSongList.py
-
-// how to get .lrcs
-https://syrics-web.vercel.app/
+node generateSongList.js
 
 python3 ejemplo.py <folder path>

@@ -1,0 +1,124 @@
+<html>
+
+<head>
+	<style>
+		
+		@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playwrite+DK+Uloopet:wght@300&display=swap');
+		
+		body{
+			background:#dbd8d3;
+		}
+		
+		.adelaide{
+			background:#e69ec3;
+			color:#212121;
+			font-family:Playwrite DK Uloopet;
+			font-size:30px;
+		}
+		
+		.frances{
+			background: #d6b476;
+			color:#404030;
+			font-family:Caveat;
+			font-size:40px;
+		}
+		
+		ul {
+		  display: flex;
+		  flex-wrap: wrap;
+		  list-style-type: none;
+		  justify-content: space-between;
+		  margin:50px;
+		  row-gap: 60px;
+		  column-gap: 30px;
+		  padding:0px;
+		}
+
+		li {
+		  height: 40vh;
+		}
+		
+		li:last-child {
+		  //margin:auto;
+		}
+
+		img {
+		  max-height: 100%;
+		  border-style: solid;
+		  border-width: 4px;
+		  border-top-color: #65311d;
+		  border-right-color: #744637;
+		  border-bottom-color: #e7d6d1;
+		  border-left-color: #91614b;
+		  box-shadow: 8px 8px 10px 0px black;
+		  outline: 12px solid #bd8359;
+		}
+		
+		.tooltiptext {
+		  visibility: hidden;
+		  text-align: center;
+		  position: absolute;
+		  z-index: 1;
+		  padding:20px;
+		  -webkit-mask: var(--mask);
+		  mask: var(--mask);
+		  --mask: 
+		  	linear-gradient(#000 0 0) 50%/calc(100% - 20px) calc(100% - 20px) no-repeat,
+			radial-gradient(farthest-side,#000 98%,#0000) 0 0/20px 20px round;
+		}
+		
+		li:hover .tooltiptext {
+			visibility: visible;
+		}
+		
+		/**{border:1px solid red;}*/
+		
+	</style>
+</head>
+
+<body>
+
+	<ul>
+	  <li><img src="img/adelaide-06.png"><span class="tooltiptext adelaide">Adelaide</span></li>
+	  <li><img src="img/frances-06.png"><span class="tooltiptext frances">Frances</span></li>
+	  <li><img src="img/adelaide-02.png"><span class="tooltiptext adelaide">Adelaide</span></li>
+	  <li><img src="img/adelaide-05.png"><span class="tooltiptext adelaide">Adelaide</span></li>
+	  <li><img src="img/adelaide-08.png"><span class="tooltiptext adelaide">Adelaide</span></li>
+	  <li><img src="img/adelaide-03.png"><span class="tooltiptext adelaide">Adelaide</span></li>
+	  <li><img src="img/frances-10.png"><span class="tooltiptext frances">Frances</span></li>
+	  <li><img src="img/frances-11.png"><span class="tooltiptext frances">Frances</span></li>
+	  <li><img src="img/adelaide-10.png"><span class="tooltiptext adelaide">Adelaide</span></li>
+	  <li><img src="img/frances-08.png"><span class="tooltiptext frances">Frances</span></li>
+	  <li><img src="img/frances-07.png"><span class="tooltiptext frances">Frances</span></li>
+	  <li><img src="img/frances-02.png"><span class="tooltiptext frances">Frances</span></li>
+	  <li><img src="img/adelaide-11.png"><span class="tooltiptext adelaide">Adelaide</span></li>
+	  <li><img src="img/adelaide-01.png"><span class="tooltiptext adelaide">Adelaide</span></li>
+	  <li><img src="img/frances-04.png"><span class="tooltiptext frances">Frances</span></li>
+	  <li><img src="img/frances-09.png"><span class="tooltiptext frances">Frances</span></li>
+	  <li><img src="img/frances-03.png"><span class="tooltiptext frances">Frances</span></li>
+	  <li><img src="img/adelaide-04.png"><span class="tooltiptext adelaide">Adelaide</span></li>
+	  <li><img src="img/adelaide-09.png"><span class="tooltiptext adelaide">Adelaide</span></li>
+	  <li><img src="img/adelaide-07.png"><span class="tooltiptext adelaide">Adelaide</span></li>
+	  <li><img src="img/frances-05.png"><span class="tooltiptext frances">Frances</span></li>
+	  <li><img src="img/frances-01.png"><span class="tooltiptext frances">Frances</span></li>
+	  <li><img src="img/frances-12.png"><span class="tooltiptext frances">Frances</span></li>
+	</ul>
+	
+	<script>
+	
+		var tooltip = document.querySelectorAll('.tooltiptext');
+
+		document.addEventListener('mousemove', fn, false);
+
+		function fn(e) {
+		    for (var i=tooltip.length; i--;) {
+		        tooltip[i].style.left = (e.pageX + 10) + 'px';
+		        tooltip[i].style.top = (e.pageY + 10) + 'px';
+		    }
+		}
+		
+	</script>
+	
+</body>
+
+</html>
