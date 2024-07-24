@@ -7,6 +7,8 @@
 		
 		body{
 			background:#dbd8d3;
+			height: 100vh;
+			margin: 0;
 		}
 		
 		.adelaide{
@@ -28,10 +30,9 @@
 		  flex-wrap: wrap;
 		  list-style-type: none;
 		  justify-content: space-between;
-		  margin:50px;
 		  row-gap: 60px;
 		  column-gap: 30px;
-		  padding:0px;
+		  padding:75px;
 		}
 
 		li {
@@ -69,6 +70,77 @@
 		
 		li:hover .tooltiptext {
 			visibility: visible;
+		}
+		
+		.background1 {
+		  --s: 156px;
+		  --c1: #dad2cd;
+		  --c2: #cac0d1;
+  
+		  background:
+		    repeating-conic-gradient(var(--c1) 0 45deg,var(--c2) 0 90deg)
+		    0/var(--s) var(--s);
+		}
+		
+		.background2 {
+		  --s: 100px;
+		  --c1: #0072d7;
+		  --c2: #9ad8b4;
+  
+		  background:
+		    conic-gradient(var(--c1)   135deg,var(--c2) 0 270deg,
+		                   var(--c1) 0 315deg,var(--c2) 0)
+		    0/var(--s) var(--s);
+		}
+		
+		.background3 {
+  		  --s: 160px;
+  		  --c1: #f1afd5;
+  		  --c2: #fbe9f3;
+  
+  		  background:
+  		    conic-gradient(from  30deg at 87.5% 75%,var(--c1)  60deg,var(--c2) 0 120deg,#0000 0) 0 calc(.2165*var(--s)),
+  		    conic-gradient(from -90deg at 50%   25%,var(--c2)  60deg,var(--c1) 0 180deg,#0000 0),
+  		    conic-gradient(from  90deg at 50%   75%,var(--c2) 120deg,var(--c1) 0 180deg,#0000 0),
+  		    conic-gradient(from -30deg at 87.5% 50%,var(--c2) 120deg,var(--c1) 0 240deg,#0000 0),
+  		    conic-gradient(from  90deg at 37.5% 50%,var(--c2) 120deg,var(--c1) 0 180deg,var(--c2) 0 240deg,var(--c1) 0);
+  		  background-size: var(--s) calc(.866*var(--s));
+		}
+		
+		.background4 {
+  		  --s: 75px;
+  		  --c1: #fbe9f3;
+  		  --c2: #bfef00;
+  
+  		  background:
+  		    conic-gradient(
+  		      var(--c2)   63.43deg ,var(--c1) 0 116.36deg,
+  		      var(--c2) 0 180deg   ,var(--c1) 0 243.43deg,
+  		      var(--c2) 0 296.15deg,var(--c1) 0);
+  		  background-size: calc(2*var(--s)) var(--s);
+		}
+		
+		.background5 {
+		  --s: 160px;
+		  --c1: #b9e4cb;
+		  --c2: #ffff13;
+  
+		  --_g: var(--c1) 0 25%,#0000 0 50%;
+		  background:
+		   repeating-conic-gradient(at 33% 33%,var(--_g)),
+		   repeating-conic-gradient(at 66% 66%,var(--_g)),
+		   var(--c2); 
+		  background-size: var(--s) var(--s); 
+		}
+		
+		.background6 {
+		  --s: 100px;
+		  --c1: #ffffc1;
+		  --c2: #b9e4cb;
+  
+		  background: 
+		    linear-gradient(-26.56deg,var(--c1) 33%,var(--c2) 33.3% 66.6%,var(--c1) 67%) 
+		    0/var(--s) var(--s);
 		}
 		
 		/**{border:1px solid red;}*/
@@ -116,6 +188,22 @@
 		        tooltip[i].style.top = (e.pageY + 10) + 'px';
 		    }
 		}
+		
+		document.addEventListener("DOMContentLoaded", function() {
+			
+            const backgrounds = [
+                'background1',
+                'background2',
+                'background3',
+                'background4',
+                'background5',
+                'background6'
+            ];
+			
+            const randomBackground = backgrounds[Math.floor(Math.random() * backgrounds.length)];
+
+            document.body.classList.add(randomBackground);
+        });
 		
 	</script>
 	
