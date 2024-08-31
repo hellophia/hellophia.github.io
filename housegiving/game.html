@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>housegiving</title>
+    
+	<style>
+	
+		body {
+		    margin: 0;
+		    padding: 0;
+		    height: 100vh;
+		    background-color: #f0f0f0;
+			overflow: hidden;
+			background-color: #233a34;    
+			transition: background-color 1s linear;
+		}
+
+		img {
+		    max-width: 100%;
+		    display: block;
+		    margin: 0 auto;
+		}
+		
+		.fade-out { animation: fadeOutAnimation ease 2s; }
+		
+		.fade-in { animation: fadeInAnimation ease 2s; }
+		
+		@keyframes fadeOutAnimation { 0% { opacity: 1; } 100% { opacity: 0; } }
+		@keyframes fadeInAnimation { 0% { opacity: 0; } 100% { opacity: 1; } }
+
+		.hidden {
+		    display: none;
+		}
+		
+		.invisible{
+			opacity: 0;
+		}
+		
+		#title{
+			width:80%;
+			padding-top:200px;
+		}
+
+		#character {
+			width:20%;
+		    position: absolute;
+		    top: 0;
+		    left: 50%;
+		    transform: translateX(-50%);
+		}
+
+		@keyframes slideDown {
+		    0% { top: -50%; }
+		    100% { top: 50%; }
+		}
+
+		.objects {
+		    width: 100%;
+			height: 100vh;
+		}
+		
+		.objects .object:nth-child(1) { left: 5%; }
+		.objects .object:nth-child(2) { left: 25%; }
+		.objects .object:nth-child(3) { left: 45%; }
+		.objects .object:nth-child(4) { left: 65%; }
+		.objects .object:nth-child(5) { left: 85%; }
+		
+		.object{
+			width:10%;
+			position:absolute;
+			top:10%;
+			transition: transform 1s ease-in-out, left 1s ease-in-out, top 1s ease-in-out;
+		}
+		
+		#house {
+			width:20%;
+		    position: absolute;
+		    bottom: 0;
+		    right: 10%;
+		}
+		
+		*{
+			//border:1px red solid;
+		}
+	
+	</style>
+
+</head>
+<body>
+    
+    <img id="title" src="housegiving.png" class="fade-in">
+
+    <img id="character" src="pinna.png" class="hidden">
+
+	<div class="objects">
+        <img class="object invisible" src="stuffie.png">
+        <img class="object invisible" src="thing.png">
+        <img class="object invisible" src="toyhouse.png">
+        <img class="object invisible" src="toycar.png">
+        <img class="object invisible" src="lemon.png">
+	</div>
+	
+	<img id="house" src="house.png" class="hidden">
+
+    <script>
+    	
+		document.addEventListener('DOMContentLoaded', function () {
+			
+			const sfx1 = new Audio('sfx1.wav');
+			const sfx2 = new Audio('sfx2.wav');
+			const sfx3 = new Audio('sfx3.wav');
+			const sfx4 = new Audio('sfx4.wav');
+			const sfx5 = new Audio('sfx5.wav');
+			const music = new Audio('music.wav');
+			const housegiving = new Audio('housegiving.wav');
+			
+		    const title = document.getElementById('title');
+		    const character = document.getElementById('character');
+			const objects = document.querySelectorAll('.object');
+			const house = document.getElementById('house');
+			let clickCount = 0;
+
+		    title.addEventListener('click', function () {
+				
+				housegiving.play();
+				setTimeout(() => {
+					music.play();
+				}, 1500);
+				
+		        title.classList.remove('fade-in');
+				title.classList.add('fade-out');
+				document.body.style.backgroundColor = '#b8a4c3';
+
+		        setTimeout(() => {
+		            title.classList.add('hidden');
+					
+		            character.classList.remove('hidden');
+		            character.style.animation = 'slideDown 2s ease forwards';
+					
+					setTimeout(() => {
+						objects.forEach((object, index) => {
+							
+							setTimeout(() => {
+								object.classList.remove('invisible');
+							}, index * 500);
+							
+							object.addEventListener('click', () => {
+								
+								const audio = new Audio(`sfx${index + 1}.wav`);
+								audio.play()
+								
+								const randomAngle = Math.floor(Math.random() * 36) + 10;
+								const randomX = Math.floor(Math.random() * 20)+15;
+								const randomY = Math.floor(Math.random() * 20)+55;
+								object.style.position = 'absolute';
+								object.style.left = `${randomX}vh`;
+								object.style.top = `${randomY}vh`;
+								object.style.transform = `rotate(${randomAngle}deg)`;
+								
+								if (!object.classList.contains('clicked')) {
+									object.classList.add('clicked');
+									clickCount++;
+								
+									if (clickCount === objects.length) {
+										document.body.style.backgroundColor = '#f1dbcb';
+										house.classList.remove('hidden');
+										house.classList.add('fade-in');
+									}
+								}
+							});
+							
+						});
+					},2000);
+					
+		        }, 2000);
+		    });
+		});
+		
+    </script>
+	
+</body>
+</html>
