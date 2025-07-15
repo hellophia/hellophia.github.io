@@ -1,6 +1,6 @@
+from PIL import Image
 import os
 import json
-from PIL import Image
 
 img_dir = '/Users/sfd/Dropbox/github/hellophia/do_it_for_him/imgs'
 output_file = 'images.json'
@@ -12,7 +12,15 @@ for filename in os.listdir(img_dir):
         path = os.path.join(img_dir, filename)
         with Image.open(path) as img:
             width, height = img.size
-            aspect = 'square' if abs(width - height) < 50 else 'landscape' if width > height else 'portrait'
+            ratio = width / height
+
+            if 0.85 <= ratio <= 1.15:
+                aspect = 'square'
+            elif ratio > 1.1:
+                aspect = 'landscape'
+            else:
+                aspect = 'portrait'
+
             image_data.append({
                 'filename': filename,
                 'width': width,
