@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>voice friend</title>
+  <script src="https://unpkg.com/tone@next/build/Tone.js"></script>
+</head>
+<body>
+  <button id="play">play</button>
+
+  <script>
+      const synth = new Tone.MonoSynth({
+        oscillator: {
+          type: "triangle"
+        },
+        envelope: {
+          attack: 0.05,
+          decay: 0.8,
+          sustain: 0.6,
+          release: 0.2
+        },
+        filter: {
+          type: "lowpass",
+          rolloff: -24,
+          Q: 1
+        },
+        filterEnvelope: {
+          attack: 0.01,
+          decay: 0.1,
+          sustain: 0.5,
+          release: 0.2,
+          baseFrequency: 600,
+          octaves: 3
+        }
+      }).toDestination();
+
+	  const notes = generateArpeggioWarmup("C3", "E3");
+	  const noteDuration = 0.5;
+	  const pauseDuration = (noteDuration * 5) + 1;
+
+      document.getElementById("play").addEventListener("click", async () => {
+		  await Tone.start();
+		  let time = Tone.now();
+        notes.forEach((note, i) => {
+			if (note === "pause") {
+			      time += pauseDuration;
+			    } else {
+			      synth.triggerAttackRelease(note, noteDuration, time);
+			      time += noteDuration;
+			    }
+        });
+      });
+	  
+	  function generateArpeggioWarmup(
+	    startingNote,
+	    endingNote,
+	    shape = "octave", // "classic" or "octave"
+		shapeloop = false,
+		shapedirection = false,
+		loopback = false
+	  ) {
+	    const output = [];
+
+	    const noteToMidi = Tone.Frequency;
+	    const startMidi = noteToMidi(startingNote).toMidi();
+	    const endMidi = noteToMidi(endingNote).toMidi();
+		
+		const step = startMidi <= endMidi ? 1 : -1;
+		
+		function buildArpeggio(rootMidi) {
+		    const direction = shapedirection ? 1 : -1;
+
+		    const root = Tone.Frequency(rootMidi, "midi").toNote();
+		    const third = Tone.Frequency(rootMidi + direction * 4, "midi").toNote();
+		    const fifth = Tone.Frequency(rootMidi + direction * 7, "midi").toNote();
+		    const octave = Tone.Frequency(rootMidi + direction * 12, "midi").toNote();
+
+		    let upPattern;
+
+		    if (shape === "classic") {
+		      upPattern = [root, third, fifth];
+		    } else if (shape === "octave") {
+		      upPattern = [root, third, fifth, octave];
+		    } else {
+		      throw new Error(`Unknown shape: ${shape}`);
+		    }
+
+		    if (shapeloop) {
+		      const downPattern = [...upPattern].slice(0, -1).reverse();
+		      return [...upPattern, ...downPattern];
+		    } else {
+		      return upPattern;
+		    }
+		  }
+
+		  // Forward arpeggios
+		  for (let midi = startMidi; step > 0 ? midi <= endMidi : midi >= endMidi; midi += step) {
+		    output.push(...buildArpeggio(midi), "pause");
+		  }
+
+		  // Loop back if requested
+		  if (loopback) {
+		    for (
+		      let midi = endMidi - step;
+		      step > 0 ? midi >= startMidi : midi <= startMidi;
+		      midi -= step
+		    ) {
+		      output.push(...buildArpeggio(midi), "pause");
+		    }
+		  }
+
+		  return output;
+	  }
+	  
+    </script>
+	  
+</body>
+</html>
