@@ -12,6 +12,12 @@
     "aspect": "landscape"
   },
   {
+    "filename": "philip-seymour-hoffman.webp",
+    "width": 1800,
+    "height": 1672,
+    "aspect": "square"
+  },
+  {
     "filename": "maxvonsydow.jpg",
     "width": 350,
     "height": 438,
@@ -66,6 +72,12 @@
     "aspect": "portrait"
   },
   {
+    "filename": "4891.webp",
+    "width": 1200,
+    "height": 900,
+    "aspect": "landscape"
+  },
+  {
     "filename": "bryanferry.jpg",
     "width": 400,
     "height": 612,
@@ -102,10 +114,34 @@
     "aspect": "landscape"
   },
   {
+    "filename": "donald-sutherland.jpeg",
+    "width": 640,
+    "height": 427,
+    "aspect": "landscape"
+  },
+  {
     "filename": "wileywiggins.jpg",
     "width": 1024,
     "height": 552,
     "aspect": "landscape"
+  },
+  {
+    "filename": "philip-seymour-hoffman-3.png",
+    "width": 564,
+    "height": 576,
+    "aspect": "square"
+  },
+  {
+    "filename": "philip-seymour-hoffman-2.jpg",
+    "width": 1024,
+    "height": 682,
+    "aspect": "landscape"
+  },
+  {
+    "filename": "maxvonsydow.jpeg",
+    "width": 204,
+    "height": 247,
+    "aspect": "portrait"
   },
   {
     "filename": "utena.png",
