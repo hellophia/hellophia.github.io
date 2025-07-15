@@ -3,18 +3,45 @@
 <head>
 	<style>
 		
+		@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+		
+		body{
+			background-color: #6475ab;
+		}
+		
 		#container {
 		  position: relative;
-		  width: 600px;
-		  margin: 50px auto;
+		  margin: 0;
+		  padding: 0;
 		}
-		#placard {
-		  background: #ffe;
-		  border: 4px solid #000;
-		  padding: 20px;
-		  font-size: 24px;
+		
+		.center {
+		  display: flex;
+		    justify-content: center;
+		    align-items: center;
+		    height: 100vh;
+		}
+		.outer-border {
+		  border: 2px solid black;
+		  display: inline-block;
+		  padding: 0px;
+		}
+
+		.middle-border {
+		  border: 30px solid #aa885c;
+		  padding: 0px;
+		}
+
+		.inner-border {
+		  border: 2px solid black;
+		  padding: 12px 28px;
+		  background-color: #c2c0cc;
+		  font-size: 66px;
+		  font-family: "Rubik", sans-serif;
+		  font-weight: 700;
+		  letter-spacing:12px;
+		  line-height:100px;
 		  text-align: center;
-		  position: relative;
 		}
 		.img-overlay {
 		  position: absolute;
@@ -28,29 +55,55 @@
 
 <body>
 	
-	<div id="container">
-	  <div id="placard">Don't forget: you're here forever.</div>
-	  
+	<div class="container">
+	<div class="center">
+	  <div class="outer-border">
+	    <div class="middle-border">
+	      <div class="inner-border">
+	        <div class="placard-text">
+	          DON'T FORGET:<br>YOU'RE HERE<br>FOREVER.
+	        </div>
+	      </div>
+	    </div>
+	  </div>  
+	</div>
 	</div>
 	
 	<script>
-	fetch('images.json')
-	  .then(res => res.json())
-	  .then(images => {
-	    const container = document.getElementById('container');
-	    const shuffled = images.sort(() => 0.5 - Math.random()).slice(0, 11);
+	
+		const imageSlots = [
+		  { x: 40,  y: 20,  width: 100, aspect: "square" },
+		  { x: 220, y: 10,  width: 120, aspect: "landscape" },
+		  { x: 380, y: 30,  width: 90,  aspect: "portrait" },
+		  // ... up to 11 entries
+		];
+	
+	  fetch('images.json')
+	    .then(res => res.json())
+	    .then(images => {
+	      const container = document.getElementById('container');
+    
+	      imageSlots.forEach((slot, i) => {
+	        // Filter images that match the required aspect
+	        const matches = images.filter(img => img.aspect === slot.aspect);
+	        if (matches.length === 0) return; // no match, skip
 
-	    shuffled.forEach((imgData, i) => {
-	      const img = document.createElement('img');
-	      img.src = `img/${imgData.filename}`;
-	      img.classList.add('img-overlay');
-	      // Example position logic (you'll need to tune these)
-	      img.style.top = `${20 + i * 10}px`;
-	      img.style.left = `${30 + (i * 40) % 300}px`;
-	      img.style.width = imgData.aspect === 'square' ? '100px' : '140px';
-	      container.appendChild(img);
+	        // Randomly pick one that hasn't been used yet
+	        const index = Math.floor(Math.random() * matches.length);
+	        const selected = matches.splice(index, 1)[0]; // remove it to prevent reuse
+
+	        // Create image
+	        const img = document.createElement('img');
+	        img.src = `img/${selected.filename}`;
+	        img.classList.add('img-overlay');
+	        img.style.width = `${slot.width}px`;
+	        img.style.left = `${slot.x}px`;
+	        img.style.top = `${slot.y}px`;
+
+	        container.appendChild(img);
+	      });
 	    });
-	  });
+	
 	</script>
 	
 </body>
