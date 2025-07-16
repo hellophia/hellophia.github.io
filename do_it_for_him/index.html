@@ -114,7 +114,7 @@
 			  img.style.width = `${slot.width}px`;
 			  document.body.appendChild(img);
 
-			  if (isDebugMode()) {
+			  if (showDebugNumbers) {
 			    const label = document.createElement('div');
 			    label.textContent = slot.slot;
 			    label.className = 'img-label';
