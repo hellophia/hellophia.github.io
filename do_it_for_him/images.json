@@ -186,6 +186,12 @@
     "aspect": "landscape"
   },
   {
+    "filename": "zidane.jpg",
+    "width": 534,
+    "height": 800,
+    "aspect": "portrait"
+  },
+  {
     "filename": "brianeno4.jpg",
     "width": 1058,
     "height": 1058,
@@ -244,5 +250,11 @@
     "width": 1080,
     "height": 720,
     "aspect": "landscape"
+  },
+  {
+    "filename": "wanda.jpg",
+    "width": 337,
+    "height": 505,
+    "aspect": "portrait"
   }
 ]
