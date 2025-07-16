@@ -117,7 +117,7 @@
 			  img.style.left = `${slot.x}px`;
 			  img.style.top = `${slot.y}px`;
 			  img.style.width = `${slot.width}px`;
-			  document.body.appendChild(img);
+			  document.getElementById('container').appendChild(img);
 
 			  if (showDebugNumbers) {
 			    const label = document.createElement('div');
@@ -125,7 +125,7 @@
 			    label.className = 'img-label';
 			    label.style.left = `${slot.x}px`;
 			    label.style.top = `${slot.y}px`;
-			    document.body.appendChild(label);
+			    document.getElementById('container').appendChild(label);
 			  }
 			
 	      });
