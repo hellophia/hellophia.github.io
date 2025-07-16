@@ -24,9 +24,21 @@
     "aspect": "landscape"
   },
   {
+    "filename": "kurt-russell.jpg",
+    "width": 324,
+    "height": 216,
+    "aspect": "landscape"
+  },
+  {
     "filename": "vonsydow2.webp",
     "width": 960,
     "height": 640,
+    "aspect": "landscape"
+  },
+  {
+    "filename": "orson-welles-2.png",
+    "width": 2700,
+    "height": 1800,
     "aspect": "landscape"
   },
   {
@@ -40,12 +52,6 @@
     "width": 1346,
     "height": 2048,
     "aspect": "portrait"
-  },
-  {
-    "filename": "magicflute.png",
-    "width": 1620,
-    "height": 1080,
-    "aspect": "landscape"
   },
   {
     "filename": "joshoconnor5.png",
@@ -100,6 +106,12 @@
     "width": 250,
     "height": 333,
     "aspect": "portrait"
+  },
+  {
+    "filename": "mads-mikkelsen.png",
+    "width": 700,
+    "height": 700,
+    "aspect": "square"
   },
   {
     "filename": "maxvonsydow-3.webp",
@@ -168,6 +180,12 @@
     "aspect": "landscape"
   },
   {
+    "filename": "rutger-hauer.jpg",
+    "width": 521,
+    "height": 521,
+    "aspect": "square"
+  },
+  {
     "filename": "meredith.png",
     "width": 1240,
     "height": 827,
@@ -180,22 +198,34 @@
     "aspect": "square"
   },
   {
+    "filename": "magic-flute.png",
+    "width": 2700,
+    "height": 1800,
+    "aspect": "landscape"
+  },
+  {
     "filename": "johnoconnor3.jpg",
     "width": 1242,
     "height": 1543,
     "aspect": "portrait"
   },
   {
+    "filename": "magic-flute-2.png",
+    "width": 1800,
+    "height": 1800,
+    "aspect": "square"
+  },
+  {
+    "filename": "david-byrne.jpg",
+    "width": 1499,
+    "height": 999,
+    "aspect": "landscape"
+  },
+  {
     "filename": "robertmitchum.jpg",
     "width": 1634,
     "height": 2048,
     "aspect": "portrait"
-  },
-  {
-    "filename": "orsonwelles.webp",
-    "width": 310,
-    "height": 207,
-    "aspect": "landscape"
   },
   {
     "filename": "obrother.png",
