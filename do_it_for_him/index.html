@@ -107,46 +107,42 @@
 		  { slot: 1, x: 490,  y: 265,  width: 48, aspect: "square" },
 		  { slot: 2, x: 590, y: 335,  width: 145, aspect: "landscape" },
 		  { slot: 3, x: 1000, y: 500,  width: 300,  aspect: "portrait" },
-		  { slot: 4, x: 1000, y: 220,  width: 350, aspect: "landscape" },
-			{ slot: 5, x: 850, y: 200,  width: 190, aspect: "landscape" },
-			{ slot: 6, x: 500, y: 350,  width: 300, aspect: "landscape" },
+		  { slot: 4, x: 950, y: 220,  width: 350, aspect: "landscape" },
+			{ slot: 5, x: 820, y: 200,  width: 190, aspect: "landscape" },
+			{ slot: 6, x: 400, y: 350,  width: 300, aspect: "landscape" },
 		];
 	
 	  fetch('images.json')
 	    .then(res => res.json())
 	    .then(images => {
-	      const container = document.getElementById('container');
+			let imagePool = [...images];
+	      
+		  	const container = document.getElementById('container');
     
 	      imageSlots.forEach((slot, i) => {
-	        // Filter images that match the required aspect
-	        const matches = images.filter(img => img.aspect === slot.aspect);
-	        if (matches.length === 0) return; // no match, skip
+			  const matches = imagePool.filter(img => img.aspect === slot.aspect);
+			  if (matches.length === 0) return;
 
-	        // Randomly pick one that hasn't been used yet
-	        const index = Math.floor(Math.random() * matches.length);
-	        const selected = matches.splice(index, 1)[0]; // remove it to prevent reuse
+			  const chosen = matches[Math.floor(Math.random() * matches.length)];
 
-	        // Create image
-	        const img = document.createElement('img');
-	        img.src = `imgs/${selected.filename}`;
-	        img.classList.add('img-overlay');
-	        img.style.width = `${slot.width}px`;
-	        img.style.left = `${slot.x}px`;
-	        img.style.top = `${slot.y}px`;
+			  imagePool = imagePool.filter(img => img.filename !== chosen.filename);
 
-	        container.appendChild(img);
-			
-			const debugCheckbox = document.getElementById('showDebugToggle');
-			const isDebugMode = () => debugCheckbox?.checked;
+			  const img = document.createElement('img');
+			  img.src = `img/${chosen.filename}`;
+			  img.classList.add('img-overlay');
+			  img.style.left = `${slot.x}px`;
+			  img.style.top = `${slot.y}px`;
+			  img.style.width = `${slot.width}px`;
+			  document.body.appendChild(img);
 
-			if (isDebugMode()) {
-			  const label = document.createElement('div');
-			  label.textContent = slot.slot;
-			  label.className = 'img-label';
-			  label.style.left = `${slot.x}px`;
-			  label.style.top = `${slot.y}px`;
-			  document.body.appendChild(label);
-			}
+			  if (isDebugMode()) {
+			    const label = document.createElement('div');
+			    label.textContent = slot.slot;
+			    label.className = 'img-label';
+			    label.style.left = `${slot.x}px`;
+			    label.style.top = `${slot.y}px`;
+			    document.body.appendChild(label);
+			  }
 			
 	      });
 	    });
