@@ -47,6 +47,18 @@
 		  position: absolute;
 		}
 		
+		.img-label {
+		  position: absolute;
+		  font-size: 14px;
+		  color: white;
+		  background: rgba(0, 0, 0, 0.6);
+		  padding: 2px 5px;
+		  border-radius: 3px;
+		  font-family: sans-serif;
+		  pointer-events: none;
+		  z-index: 9999;
+		}
+		
 	</style>
 </head>
 
@@ -67,13 +79,16 @@
 	</div>
 	
 	<script>
+		
+		const showDebugNumbers = true;
 	
 		const imageSlots = [
-		  { x: 495,  y: 265,  width: 45, aspect: "square" },
-		  { x: 590, y: 335,  width: 145, aspect: "landscape" },
-		  { x: 1000, y: 500,  width: 300,  aspect: "portrait" },
-		  { x: 1000, y: 220,  width: 400, aspect: "landscape" },
-			{ x: 900, y: 200,  width: 190, aspect: "landscape" },
+		  { slot: 1, x: 492,  y: 265,  width: 47, aspect: "square" },
+		  { slot: 2, x: 590, y: 335,  width: 145, aspect: "landscape" },
+		  { slot: 3, x: 1000, y: 500,  width: 300,  aspect: "portrait" },
+		  { slot: 4, x: 1000, y: 220,  width: 350, aspect: "landscape" },
+			{ slot: 5, x: 850, y: 200,  width: 190, aspect: "landscape" },
+			{ slot: 6, x: 500, y: 350,  width: 300, aspect: "landscape" },
 		];
 	
 	  fetch('images.json')
@@ -99,6 +114,15 @@
 	        img.style.top = `${slot.y}px`;
 
 	        container.appendChild(img);
+			
+			if (showDebugNumbers) {
+			  const label = document.createElement('div');
+			  label.textContent = slot.slot;
+			  label.className = 'img-label';
+			  label.style.left = `${slot.x}px`;
+			  label.style.top = `${slot.y}px`;
+			  document.body.appendChild(label); // or append to container if preferred
+			}
 	      });
 	    });
 	
