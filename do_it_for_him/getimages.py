@@ -14,7 +14,7 @@ for filename in os.listdir(img_dir):
             width, height = img.size
             ratio = width / height
 
-            if 0.85 <= ratio <= 1.15:
+            if 0.90 <= ratio <= 1.1:
                 aspect = 'square'
             elif ratio > 1.1:
                 aspect = 'landscape'
