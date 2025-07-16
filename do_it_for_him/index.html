@@ -7,11 +7,13 @@
 		
 		body{
 			margin: 0;
+			padding: 0;
 			display: flex;
 			justify-content: center;
 			align-items: center;
 			height: 100vh;
 			background-color: #6475ab;
+			
 		}
 		
 		#container {
@@ -20,12 +22,17 @@
 		  padding: 0;
 		  width: 1000px;
 		  height: 800px;
+		  
 		}
 		
 		.outer-border {
 		  border: 2px solid black;
 		  display: inline-block;
 		  padding: 0px;
+		  position: absolute;
+		   top: 50%;
+		   left: 50%;
+		   transform: translate(-50%, -50%);
 		}
 
 		.middle-border {
