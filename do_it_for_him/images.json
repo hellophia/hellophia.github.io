@@ -108,12 +108,6 @@
     "aspect": "portrait"
   },
   {
-    "filename": "mads-mikkelsen.png",
-    "width": 700,
-    "height": 700,
-    "aspect": "square"
-  },
-  {
     "filename": "maxvonsydow-3.webp",
     "width": 1200,
     "height": 800,
@@ -181,8 +175,8 @@
   },
   {
     "filename": "rutger-hauer.jpg",
-    "width": 521,
-    "height": 521,
+    "width": 357,
+    "height": 357,
     "aspect": "square"
   },
   {
@@ -196,6 +190,12 @@
     "width": 1058,
     "height": 1058,
     "aspect": "square"
+  },
+  {
+    "filename": "christian-slater.jpg",
+    "width": 987,
+    "height": 658,
+    "aspect": "landscape"
   },
   {
     "filename": "magic-flute.png",
