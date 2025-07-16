@@ -1,32 +1,32 @@
 [
   {
     "filename": "spoorloos.jpg",
-    "width": 2048,
+    "width": 1842,
     "height": 1228,
     "aspect": "landscape"
   },
   {
     "filename": "utena.webp",
-    "width": 641,
-    "height": 479,
+    "width": 634,
+    "height": 423,
     "aspect": "landscape"
   },
   {
     "filename": "philip-seymour-hoffman.webp",
-    "width": 1800,
+    "width": 1672,
     "height": 1672,
     "aspect": "square"
   },
   {
-    "filename": "maxvonsydow.jpg",
-    "width": 350,
-    "height": 438,
-    "aspect": "portrait"
+    "filename": "shep.jpg",
+    "width": 931,
+    "height": 620,
+    "aspect": "landscape"
   },
   {
     "filename": "vonsydow2.webp",
     "width": 960,
-    "height": 720,
+    "height": 640,
     "aspect": "landscape"
   },
   {
@@ -43,7 +43,7 @@
   },
   {
     "filename": "magicflute.png",
-    "width": 2400,
+    "width": 1620,
     "height": 1080,
     "aspect": "landscape"
   },
@@ -70,12 +70,6 @@
     "width": 416,
     "height": 612,
     "aspect": "portrait"
-  },
-  {
-    "filename": "4891.webp",
-    "width": 1200,
-    "height": 900,
-    "aspect": "landscape"
   },
   {
     "filename": "bryanferry.jpg",
@@ -108,8 +102,20 @@
     "aspect": "portrait"
   },
   {
-    "filename": "block.png",
-    "width": 2880,
+    "filename": "maxvonsydow-3.webp",
+    "width": 1200,
+    "height": 800,
+    "aspect": "landscape"
+  },
+  {
+    "filename": "maxvonsydow-2.jpg",
+    "width": 350,
+    "height": 438,
+    "aspect": "portrait"
+  },
+  {
+    "filename": "maxvonsydow-3.png",
+    "width": 2700,
     "height": 1800,
     "aspect": "landscape"
   },
@@ -121,19 +127,19 @@
   },
   {
     "filename": "wileywiggins.jpg",
-    "width": 1024,
+    "width": 828,
     "height": 552,
     "aspect": "landscape"
   },
   {
     "filename": "philip-seymour-hoffman-3.png",
     "width": 564,
-    "height": 576,
+    "height": 564,
     "aspect": "square"
   },
   {
     "filename": "philip-seymour-hoffman-2.jpg",
-    "width": 1024,
+    "width": 1023,
     "height": 682,
     "aspect": "landscape"
   },
@@ -144,26 +150,32 @@
     "aspect": "portrait"
   },
   {
+    "filename": "toshiro-mifune.webp",
+    "width": 960,
+    "height": 640,
+    "aspect": "landscape"
+  },
+  {
     "filename": "utena.png",
     "width": 1624,
-    "height": 1218,
+    "height": 1083,
     "aspect": "landscape"
   },
   {
     "filename": "dante.jpg",
     "width": 600,
-    "height": 419,
+    "height": 400,
     "aspect": "landscape"
   },
   {
     "filename": "meredith.png",
-    "width": 1928,
+    "width": 1240,
     "height": 827,
     "aspect": "landscape"
   },
   {
     "filename": "brianeno4.jpg",
-    "width": 1200,
+    "width": 1058,
     "height": 1058,
     "aspect": "square"
   },
@@ -182,12 +194,12 @@
   {
     "filename": "orsonwelles.webp",
     "width": 310,
-    "height": 229,
+    "height": 207,
     "aspect": "landscape"
   },
   {
     "filename": "obrother.png",
-    "width": 2400,
+    "width": 1620,
     "height": 1080,
     "aspect": "landscape"
   },
@@ -196,5 +208,11 @@
     "width": 679,
     "height": 1024,
     "aspect": "portrait"
+  },
+  {
+    "filename": "nigel-chapman.jpg",
+    "width": 1080,
+    "height": 720,
+    "aspect": "landscape"
   }
 ]
