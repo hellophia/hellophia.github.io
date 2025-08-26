@@ -30,10 +30,22 @@
     "aspect": "landscape"
   },
   {
+    "filename": "johnson-brothers.png",
+    "width": 1080,
+    "height": 1620,
+    "aspect": "portrait"
+  },
+  {
     "filename": "vonsydow2.webp",
     "width": 960,
     "height": 640,
     "aspect": "landscape"
+  },
+  {
+    "filename": "robertredford.jpg",
+    "width": 542,
+    "height": 812,
+    "aspect": "portrait"
   },
   {
     "filename": "orson-welles-2.png",
@@ -118,6 +130,12 @@
     "width": 1200,
     "height": 800,
     "aspect": "landscape"
+  },
+  {
+    "filename": "adam-driver.png",
+    "width": 570,
+    "height": 855,
+    "aspect": "portrait"
   },
   {
     "filename": "maxvonsydow-2.jpg",
@@ -220,6 +238,12 @@
     "width": 1058,
     "height": 1058,
     "aspect": "square"
+  },
+  {
+    "filename": "robertredford2.jpg",
+    "width": 212,
+    "height": 318,
+    "aspect": "portrait"
   },
   {
     "filename": "christian-slater.jpg",
