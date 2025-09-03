@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ava cake</title>
+  <style>
+    body {
+      background: #ea98ff;
+      margin: 0;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #game-container {
+      position: relative;
+      width: 600px;
+      height: 600px;
+    }
+    .ingredient {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      cursor: pointer;
+      transition: opacity 0.3s;
+    }
+    #bowl {
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      cursor: pointer;
+      z-index: 2;
+    }
+    #cake-result {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      display: none;
+      z-index: 3;
+    }
+  </style>
+</head>
+<body>
+  <div id="game-container">
+    <img id="cake-result" src="" alt="Cake Result">
+    <img id="bowl" src="bowl.png" alt="Bowl">
+  </div>
+  
+  <audio id="good-ingredient-sound" src="goodingredient.wav" preload="auto"></audio>
+  <audio id="bad-ingredient-sound" src="badingredient.wav" preload="auto"></audio>
+  <audio id="good-cake-sound" src="goodcake.wav" preload="auto"></audio>
+  <audio id="bad-cake-sound" src="badcake.wav" preload="auto"></audio>
+
+  <script>
+    const ingredients = [
+      { name: 'good1', src: 'good1.png' },
+      { name: 'good2', src: 'good2.png' },
+      { name: 'good3', src: 'good3.png' },
+      { name: 'good4', src: 'good4.png' },
+      { name: 'good5', src: 'good5.png' },
+      { name: 'good6', src: 'good6.png' },
+		{ name: 'bad1', src: 'bad1.png' },
+		{ name: 'bad2', src: 'bad2.png' },
+		{ name: 'bad3', src: 'bad3.png' },
+		{ name: 'bad4', src: 'bad4.png' },
+    ];
+
+    const correctIngredients = ['good1', 'good2', 'good3', 'good4', 'good5', 'good6']; // 🍓 cake
+
+    const selectedIngredients = new Set();
+    const container = document.getElementById('game-container');
+    const bowl = document.getElementById('bowl');
+    const cakeResult = document.getElementById('cake-result');
+	
+    const goodIngredientSound = document.getElementById('good-ingredient-sound');
+    const badIngredientSound = document.getElementById('bad-ingredient-sound');
+    const goodCakeSound = document.getElementById('good-cake-sound');
+    const badCakeSound = document.getElementById('bad-cake-sound');
+
+    // Arrange ingredients in a circle
+    const centerX = 300, centerY = 300, radius = 220;
+    ingredients.forEach((ingredient, index) => {
+      const angle = (2 * Math.PI / ingredients.length) * index;
+      const x = centerX + radius * Math.cos(angle) - 50;
+      const y = centerY + radius * Math.sin(angle) - 50;
+
+      const img = document.createElement('img');
+      img.src = ingredient.src;
+      img.alt = ingredient.name;
+      img.className = 'ingredient';
+      img.style.left = `${x}px`;
+      img.style.top = `${y}px`;
+      img.dataset.name = ingredient.name;
+
+      img.addEventListener('click', () => {
+        selectedIngredients.add(ingredient.name);
+        img.style.opacity = 0;
+        img.style.pointerEvents = 'none';
+		
+	    if (ingredient.name.includes('good')) {
+	             goodIngredientSound.currentTime = 0;
+	             goodIngredientSound.play();
+	           } else if (ingredient.name.includes('bad')) {
+	             badIngredientSound.currentTime = 0;
+	             badIngredientSound.play();
+	           }
+      });
+
+      container.appendChild(img);
+    });
+
+	bowl.addEventListener('click', () => {
+	      document.querySelectorAll('.ingredient').forEach(el => el.style.display = 'none');
+	      bowl.style.display = 'none';
+
+	      const selected = Array.from(selectedIngredients).sort();
+	      const correct = [...correctIngredients].sort();
+	      const isCorrect = JSON.stringify(selected) === JSON.stringify(correct);
+
+	      // Set image and sound for the result
+	      if (isCorrect) {
+	        cakeResult.src = 'strawberry.png';
+	        goodCakeSound.currentTime = 0;
+	        goodCakeSound.play();
+	      } else {
+	        cakeResult.src = 'chocolate.png';
+	        badCakeSound.currentTime = 0;
+	        badCakeSound.play();
+	      }
+
+	      cakeResult.style.display = 'block';
+	    });
+  </script>
+</body>
+</html>
