@@ -119,7 +119,7 @@
 	.hkl{
 		text-align: right;
 		padding: 8px;
-		background-color:#e3e3e3;
+		background-color:#b0b4b4;
 	}
 	
 	</style>
@@ -152,6 +152,41 @@
 	</div>
 
 <script>
+	
+	//randomizer
+	function pickRandom(arr) {
+	  return arr[Math.floor(Math.random() * arr.length)];
+	}
+	
+	//intro
+	const in1 = ["hey, here goes your exercise routine.","hello, it's time to exercise.","let's begin your workout routine."];
+	const in2 = ["hope you enjoy it.","please do your very best.","stay strong!"];
+	const hklin1 = ["what's up bitch.","hello future sweaty little worm.","hey there daddy."];
+	const hklin2 = ["welcome to the temple of pain.","you are going to work out right this very minute.","time to fucking work out."];
+	const randomIntro = ``
+	
+	if (hkl){
+		randomIntro = `${pickRandom(hklin1)} ${pickRandom(hklin2)}`;
+	}
+	else{
+		randomIntro = `${pickRandom(in1)} ${pickRandom(in2)}`;
+	}
+	sml += "good job sweaty boy, you fucking killed it. ooh I'm so scared of your muscles. you'd better come back in a couple days or I'm going to haunt you in the nighttime.";
+	//outro
+	const out1 = ["your workout is all done.","you have completed your workout.","workout complete!"];
+	const out2 = ["go and live your life and have fun.","congratulations and good job.","what a success."];
+	const out3 = ["see you next time.","bye for now!","enjoy the rest of your day."];
+	const hklout1 = ["good job sweaty boy, you fucking killed it.","great job daddy.","you vanquished the fuck out of that routine."];
+	const hklout2 = ["ooh I'm so scared of your muscles.","you are growing ever more powerful.","damn you look strong."];
+	const hklout3 = ["see you next time, or else I'm going to haunt you.","if you don't return to the gym within seven days, a ghost is going to come out of the toilet while you pee.","you have satiated the gym demon... for now."];
+	const randomOutro = ``
+	
+	if (hkl){
+		randomOutro = `${pickRandom(hklout1)} ${pickRandom(hklout2)} ${pickRandom(hklout3)}`;
+	}
+	else{
+		randomOutro = `${pickRandom(out1)} ${pickRandom(out2)} ${pickRandom(out2)}`;
+	}
 	
 	//array of colors for the headers to cycle thru
 	const lightcolors = ['#d3c8c3','#d3b690','#b9af2a','#b0b4b4','#d4be96','#dcb38b'];
@@ -336,21 +371,13 @@
 		//make ssml from it
 		generatessml(filteredTextList);
 		
-		//do the intro
-
+		//do the intro, with time estimate
 		let introString = "<speak>"
-		if (hkl){
-			introString += "what's up bitch. it's time to do your little exercise routine."
-		} else {
-			introString += "hey, here goes your exercise routine. hope you enjoy it."
-		}
-		
-		//add in the time estimate
+		introString += randomIntro
 		let totalSeconds = estimateReadingTime(ssml);
 		let minutes = Math.round(totalSeconds / 60);
 		let seconds = Math.round(totalSeconds % 60);
 		let timeString = ` it should take about ${minutes} minutes and ${seconds} seconds.`;
-		
 		ssml = introString + timeString + ssml;
 		
 		console.log(ssml);
@@ -451,12 +478,9 @@
 			}
 			
 		});
-
-		if (hkl){
-			ssml += "good job sweaty boy, you fucking killed it. ooh I'm so scared of your muscles. you'd better come back in a couple days or I'm going to haunt you in the nighttime.";
-		} else {
-			ssml += "hey, your workout is all done. go and live your life and have fun. see you next time.";
+			
 		}
+		ssml += randomOutro;
 		
 		ssml += '</speak>';
 	}
