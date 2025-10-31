@@ -167,6 +167,8 @@
 	}
 	
 	//intro
+	var ssml = '';
+		
 	const in1 = ["hey, here goes your exercise routine.","hello, it's time to exercise.","let's begin your workout routine."];
 	const in2 = ["hope you enjoy it.","please do your very best.","stay strong!"];
 	const hklin1 = ["what's up bitch.","hello future sweaty little worm.","hey there daddy."];
@@ -179,7 +181,7 @@
 	else{
 		randomIntro = `${pickRandom(in1)} ${pickRandom(in2)}`;
 	}
-	sml += "good job sweaty boy, you fucking killed it. ooh I'm so scared of your muscles. you'd better come back in a couple days or I'm going to haunt you in the nighttime.";
+
 	//outro
 	const out1 = ["your workout is all done.","you have completed your workout.","workout complete!"];
 	const out2 = ["go and live your life and have fun.","congratulations and good job.","what a success."];
@@ -199,7 +201,6 @@
 	//array of colors for the headers to cycle thru
 	const lightcolors = ['#d3c8c3','#d3b690','#b9af2a','#b0b4b4','#d4be96','#dcb38b'];
 	let currentIndex = 0;
-	var ssml = '';
 	
 	// fetch the data from the spreadsheet as json using opensheet
 	fetch('https://opensheet.elk.sh/1osuWeLX42mewfnpqIbYoUMNgtGscNcouADfZRGOLQxc/exercises')
