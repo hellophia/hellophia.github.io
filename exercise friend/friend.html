@@ -337,11 +337,12 @@
 		generatessml(filteredTextList);
 		
 		//do the intro
+
 		let introString = "<speak>"
-		if (hkl == false){
-			introstring = "hey, here goes your exercise routine. hope you enjoy it."
+		if (hkl){
+			introString += "what's up bitch. it's time to do your little exercise routine."
 		} else {
-			introstring = "what's up bitch, it's time to do your little exercise routine."
+			introString += "hey, here goes your exercise routine. hope you enjoy it."
 		}
 		
 		//add in the time estimate
