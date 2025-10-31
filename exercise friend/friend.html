@@ -118,6 +118,8 @@
 	
 	.hkl{
 		text-align: right;
+		padding: 8px;
+		background-color:#86aeaf;
 	}
 	
 	</style>
@@ -334,14 +336,21 @@
 		//make ssml from it
 		generatessml(filteredTextList);
 		
+		//do the intro
+		let introString = "<speak>"
+		if (hkl == false){
+			introstring = "hey, here goes your exercise routine. hope you enjoy it."
+		} else {
+			introstring = "what's up bitch, it's time to do your little exercise routine."
+		}
+		
 		//add in the time estimate
 		let totalSeconds = estimateReadingTime(ssml);
 		let minutes = Math.round(totalSeconds / 60);
 		let seconds = Math.round(totalSeconds % 60);
-		let newString = ` it should take about ${minutes} minutes and ${seconds} seconds.`;
-		let openingTag = "hope you enjoy it.";
-		let insertionPoint = ssml.indexOf(openingTag) + openingTag.length;
-		ssml = ssml.slice(0, insertionPoint) + newString + ssml.slice(insertionPoint);
+		let timeString = ` it should take about ${minutes} minutes and ${seconds} seconds.`;
+		
+		ssml = introString + timeString + ssml;
 		
 		console.log(ssml);
 
@@ -375,8 +384,7 @@
 	//make ssml for the robot to speak
 	function generatessml(filteredTextList){
 		
-		ssml = '<speak>';
-		ssml += 'hey. here goes your exercise routine. hope you enjoy it. <break time="1"/>';
+		ssml = '<break time="1"/>';
 
 		filteredTextList.forEach((item, index) => {
 			
@@ -443,7 +451,12 @@
 			
 		});
 
-		ssml += "hey. your workout is all done. go and live your life and have fun. see you next time.";
+		if (hkl == false){
+			ssml += "hey. your workout is all done. go and live your life and have fun. see you next time.";
+		} else {
+			ssml += "good job sweaty boy, you fucking killed it. ooh I'm so scared of your muscles. you'd better come back in a couple days or I'm going to haunt you in the nighttime.";
+		}
+		
 		ssml += '</speak>';
 	}
 	
