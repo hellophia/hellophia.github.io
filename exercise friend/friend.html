@@ -153,6 +153,14 @@
 
 <script>
 	
+	//are we hkl?
+	let hkl = false;
+	const hklbox = document.getElementById('hklbox');
+	hklbox.addEventListener('change', function() {
+		hkl = this.checked;
+	    console.log("hkl =", hkl);
+	});
+	
 	//randomizer
 	function pickRandom(arr) {
 	  return arr[Math.floor(Math.random() * arr.length)];
@@ -504,14 +512,6 @@
 
 	    return estimatedTime;
 	}
-	
-	let hkl = false;
-
-	  const hklbox = document.getElementById('hklbox');
-	  hklbox.addEventListener('change', function() {
-	    hkl = this.checked;
-	    console.log("hkl =", hkl);
-	  });
 
 </script>
 
