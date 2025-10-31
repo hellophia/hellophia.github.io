@@ -116,6 +116,10 @@
 		}
 	}
 	
+	.hkl{
+		text-align: right;
+	}
+	
 	</style>
 	
 </head>
@@ -133,6 +137,11 @@
 			</audio>
 		
 		</div>
+		
+		<div class="hkl">
+			<label for="hklbox">are you hkl?</label>
+			<input type="checkbox" id="hklbox">
+		 </div>
 
 		<div id="stretchList">
 
@@ -458,6 +467,14 @@
 
 	    return estimatedTime;
 	}
+	
+	let hkl = false;
+
+	  const hklbox = document.getElementById('hklbox');
+	  hklbox.addEventListener('change', function() {
+	    hkl = this.checked;
+	    console.log("hkl =", hkl);
+	  });
 
 </script>
 

@@ -42,6 +42,12 @@
     "aspect": "landscape"
   },
   {
+    "filename": "always-sunny.jpg",
+    "width": 1038,
+    "height": 604,
+    "aspect": "landscape"
+  },
+  {
     "filename": "robertredford.jpg",
     "width": 542,
     "height": 812,
@@ -114,6 +120,12 @@
     "aspect": "portrait"
   },
   {
+    "filename": "kurt-cobain-3.jpg",
+    "width": 364,
+    "height": 549,
+    "aspect": "portrait"
+  },
+  {
     "filename": "toolatenow.png",
     "width": 768,
     "height": 1077,
@@ -124,6 +136,12 @@
     "width": 250,
     "height": 333,
     "aspect": "portrait"
+  },
+  {
+    "filename": "kurt-cobain-2.jpg",
+    "width": 588,
+    "height": 417,
+    "aspect": "landscape"
   },
   {
     "filename": "maxvonsydow-3.webp",
@@ -147,6 +165,12 @@
     "filename": "maxvonsydow-3.png",
     "width": 2700,
     "height": 1800,
+    "aspect": "landscape"
+  },
+  {
+    "filename": "srk.jpg",
+    "width": 640,
+    "height": 468,
     "aspect": "landscape"
   },
   {
@@ -183,6 +207,12 @@
     "filename": "drew-scanlon.gif",
     "width": 725,
     "height": 484,
+    "aspect": "landscape"
+  },
+  {
+    "filename": "kurt-cobain.jpg",
+    "width": 612,
+    "height": 408,
     "aspect": "landscape"
   },
   {
@@ -285,6 +315,12 @@
     "filename": "robertmitchum.jpg",
     "width": 1634,
     "height": 2048,
+    "aspect": "portrait"
+  },
+  {
+    "filename": "johnny-cash.jpeg",
+    "width": 449,
+    "height": 600,
     "aspect": "portrait"
   },
   {

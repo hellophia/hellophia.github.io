@@ -1,0 +1,2 @@
+cd /Users/sfd/Dropbox/github/hellophia/do_it_for_him
+python3 getimages.py
