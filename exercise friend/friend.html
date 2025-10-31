@@ -174,13 +174,6 @@
 	const hklin1 = ["what's up bitch.","hello future sweaty little worm.","hey there daddy."];
 	const hklin2 = ["welcome to the temple of pain.","you are going to work out right this very minute.","time to fucking work out."];
 	var randomIntro = ``
-	
-	if (hkl){
-		randomIntro = `${pickRandom(hklin1)} ${pickRandom(hklin2)}`;
-	}
-	else{
-		randomIntro = `${pickRandom(in1)} ${pickRandom(in2)}`;
-	}
 
 	//outro
 	const out1 = ["your workout is all done.","you have completed your workout.","workout complete!"];
@@ -190,13 +183,6 @@
 	const hklout2 = ["ooh I'm so scared of your muscles.","you are growing ever more powerful.","damn you look strong."];
 	const hklout3 = ["see you next time, or else I'm going to haunt you.","if you don't return to the gym within seven days, a ghost is going to come out of the toilet while you pee.","you have satiated the gym demon... for now."];
 	var randomOutro = ``
-	
-	if (hkl){
-		randomOutro = `${pickRandom(hklout1)} ${pickRandom(hklout2)} ${pickRandom(hklout3)}`;
-	}
-	else{
-		randomOutro = `${pickRandom(out1)} ${pickRandom(out2)} ${pickRandom(out2)}`;
-	}
 	
 	//array of colors for the headers to cycle thru
 	const lightcolors = ['#d3c8c3','#d3b690','#b9af2a','#b0b4b4','#d4be96','#dcb38b'];
@@ -382,6 +368,12 @@
 		
 		//do the intro, with time estimate
 		let introString = "<speak>"
+		if (hkl){
+			randomIntro = `${pickRandom(hklin1)} ${pickRandom(hklin2)}`;
+		}
+		else{
+			randomIntro = `${pickRandom(in1)} ${pickRandom(in2)}`;
+		}
 		introString += randomIntro
 		let totalSeconds = estimateReadingTime(ssml);
 		let minutes = Math.round(totalSeconds / 60);
@@ -488,6 +480,12 @@
 			
 		});
 
+		if (hkl){
+			randomOutro = `${pickRandom(hklout1)} ${pickRandom(hklout2)} ${pickRandom(hklout3)}`;
+		}
+		else{
+			randomOutro = `${pickRandom(out1)} ${pickRandom(out2)} ${pickRandom(out2)}`;
+		}
 		ssml += randomOutro;
 		
 		ssml += '</speak>';
