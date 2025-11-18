@@ -429,7 +429,7 @@
 			}
 			
 			const getreadystring = `get ready for ${nextexercise}. <break time="3s"/>`
-			const reststring = `rest for ${recover} seconds. <break time="${recover}s"/> `
+			const reststring = `rest for ${recover} seconds. the next exercise is ${nextexercise}. <break time="${recover}s"/> `
 			
 			function recovery(){
 				ssml += reststring
@@ -484,7 +484,7 @@
 			randomOutro = `${pickRandom(hklout1)} ${pickRandom(hklout2)} ${pickRandom(hklout3)}`;
 		}
 		else{
-			randomOutro = `${pickRandom(out1)} ${pickRandom(out2)} ${pickRandom(out2)}`;
+			randomOutro = `${pickRandom(out1)} ${pickRandom(out2)} ${pickRandom(out3)}`;
 		}
 		ssml += randomOutro;
 		
