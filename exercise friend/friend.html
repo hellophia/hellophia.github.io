@@ -188,6 +188,10 @@
 	const lightcolors = ['#d3c8c3','#d3b690','#b9af2a','#b0b4b4','#d4be96','#dcb38b'];
 	let currentIndex = 0;
 	
+	//text reading rates for high frequency reps
+	const prosody1sec = "80%";
+	const prosody1_5sec = "60%";
+	
 	// fetch the data from the spreadsheet as json using opensheet
 	fetch('https://opensheet.elk.sh/1osuWeLX42mewfnpqIbYoUMNgtGscNcouADfZRGOLQxc/exercises')
 	    .then(response => {
@@ -382,6 +386,7 @@
 		ssml = introString + timeString + ssml;
 		
 		console.log(ssml);
+		console.log("LENGTH:", ssml.length);
 
 		//send it off to the tts mines
 		var xhr = new XMLHttpRequest();
@@ -410,10 +415,19 @@
 	    xhr.send(data);
 	}
 	
+	//prosody functionality for high frequency reps
+	function repsWithProsody(reps, rate) {
+	    let numbers = [];
+	    for (let i = 1; i <= reps; i++) {
+	        numbers.push(i);
+	    }
+	    return `<prosody rate="${rate}">${numbers.join(', ')}</prosody> `;
+	}
+	
 	//make ssml for the robot to speak
 	function generatessml(filteredTextList){
 		
-		ssml = '<break time="1"/>';
+		ssml = '<break time="1s"/>';
 
 		filteredTextList.forEach((item, index) => {
 			
@@ -439,43 +453,57 @@
 				}
 			}
 
-			if (reps>1){
-				if (bothsides === 'y'){
-					ssml += `${text}, first side. <break time="1s"/> `
-					for (i=0;i<reps;i++){
-						ssml += ` ${i+1} <break time="${exercisetime}s"/> `
-					}
-					ssml += `${text}, other side. <break time="1s"/> `
-					for (i=0;i<reps;i++){
-						ssml += ` ${i+1} <break time="${exercisetime}s"/> `
-					}
-					if (recover > 0){
-						recovery();
-					}
-				}
-				else{
-					ssml += `${text} <break time="1s"/> `;
-					for (i=0;i<reps;i++){
-						ssml += ` ${i+1} <break time="${exercisetime}s"/> `
-					}
-					if (recover > 0){
-						recovery();
-					}
-				}
-			}
-			else {
+			if (reps > 1) {
+
+			    // Decide whether to use prosody-speed mode
+			    let useProsody = (exercisetime == 1 || exercisetime == 1.5);
+
+			    let rate = "100%";
+			    if (exercisetime == 1) rate = prosody1sec;
+			    if (exercisetime == 1.5) rate = prosody1_5sec;
+
 			    if (bothsides === 'y') {
-					ssml += text + `, first side, ${exercisetime} seconds. <break time="${exercisetime}s"/> `;
-			        ssml += text + `, other side, ${exercisetime} seconds. <break time="${exercisetime}s"/> `;
-					if (recover > 0){
-						recovery();
-					}
+
+			        // FIRST SIDE
+			        ssml += `${text}, first side. <break time="1s"/> `;
+
+			        if (useProsody) {
+			            ssml += repsWithProsody(reps, rate);
+			        } else {
+			            for (let i = 0; i < reps; i++) {
+			                ssml += ` ${i + 1} <break time="${exercisetime}s"/> `;
+			            }
+			        }
+
+			        // OTHER SIDE
+			        ssml += `${text}, other side. <break time="1s"/> `;
+
+			        if (useProsody) {
+			            ssml += repsWithProsody(reps, rate);
+			        } else {
+			            for (let i = 0; i < reps; i++) {
+			                ssml += ` ${i + 1} <break time="${exercisetime}s"/> `;
+			            }
+			        }
+
+			        if (recover > 0) recovery();
+
 			    } else {
-			        ssml += text + `, ${exercisetime} seconds. <break time="${exercisetime}s"/> `;
-					if (recover > 0){
-						recovery();
-					}
+
+			        // SINGLE SIDE EXERCISE
+			        ssml += `${text} <break time="1s"/> `;
+
+			        if (useProsody) {
+			            ssml += repsWithProsody(reps, rate);
+			        } else {
+			            for (let i = 0; i < reps; i++) {
+			                ssml += ` ${i + 1} <break time="${exercisetime}s"/> `;
+			            }
+			        }
+
+			        if (recover > 0) recovery();
 			    }
+
 			}
 			
 		});
