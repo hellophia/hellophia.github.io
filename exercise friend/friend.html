@@ -428,7 +428,7 @@
 				var nextexercise = filteredTextList[index+1].nextSibling.textContent.trim();
 			}
 			
-			const getreadystring = `get ready for ${nextexercise}. <break time="3s"/>`
+			const getreadystring = `get ready for ${nextexercise}. <break time="3s"/> `
 			const reststring = `rest for ${recover} seconds. the next exercise is ${nextexercise}. <break time="${recover}s"/> `
 			
 			function recovery(){
@@ -471,7 +471,7 @@
 						recovery();
 					}
 			    } else {
-			        ssml += text + `, ${exercisetime} seconds. <break time="${exercisetime}s"/>`;
+			        ssml += text + `, ${exercisetime} seconds. <break time="${exercisetime}s"/> `;
 					if (recover > 0){
 						recovery();
 					}
