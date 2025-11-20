@@ -387,31 +387,74 @@
 		const ssmlParts = safeSplitSSML(ssml);
 		console.log("SSML parts:", ssmlParts.length);
 
-		//send it off to the tts mines
-		var xhr = new XMLHttpRequest();
-		var url = "https://texttospeech.googleapis.com/v1/text:synthesize?key=AIzaSyCcCQFbNls8ogpWJTshCm2ZTQLnx1x3tzE";
+		if (ssmlParts.length === 1) {
+		        sendTTS(ssmlParts[0], function (audioUrl) {
+		            document.getElementById("audio").src = audioUrl;
+		            document.getElementById("audio").play();
+		            document.getElementById("speakButton").innerHTML = "⟶speak";
+		        });
+		    } else {
+		        sendTTS(ssmlParts[0], function (audioUrl) {
+		            document.getElementById("audio").src = audioUrl;
+		            document.getElementById("audio").play();
+		        });
+
+		        sendTTS(ssmlParts[1], function (audioUrl2) {
+		            injectSecondPlayer(audioUrl2);
+		            document.getElementById("speakButton").innerHTML = "⟶speak";
+		        });
+		    }
+	}
+	
+	// send it off to the tts mines
+	function sendTTS(ssmlChunk, callback) {
+	    var xhr = new XMLHttpRequest();
+	    var url = "https://texttospeech.googleapis.com/v1/text:synthesize?key=AIzaSyCcCQFbNls8ogpWJTshCm2ZTQLnx1x3tzE";
 
 	    xhr.open("POST", url, true);
 	    xhr.setRequestHeader("Content-Type", "application/json");
 
 	    xhr.onreadystatechange = function () {
-	      if (xhr.readyState === 4 && xhr.status === 200) {
-	        var response = JSON.parse(xhr.responseText);
-	        var audioUrl = "data:audio/mp3;base64," + response.audioContent;
-	        document.getElementById("audio").src = audioUrl;
-	        document.getElementById("audio").play();
-			document.getElementById("speakButton").innerHTML = "⟶speak";
-	      }
+	        if (xhr.readyState === 4 && xhr.status === 200) {
+	            var response = JSON.parse(xhr.responseText);
+	            var audioUrl = "data:audio/mp3;base64," + response.audioContent;
+	            callback(audioUrl);
+	        }
 	    };
 
-
 	    var data = JSON.stringify({
-	      input: { ssml: ssml },
-	      voice: { languageCode: "en-US", "name": "en-US-Studio-O", ssmlGender: "FEMALE" },
-	      audioConfig: { audioEncoding: "MP3" }
+	        input: { ssml: ssmlChunk },
+	        voice: { languageCode: "en-US", "name": "en-US-Studio-O", ssmlGender: "FEMALE" },
+	        audioConfig: { audioEncoding: "MP3" }
 	    });
 
 	    xhr.send(data);
+	}
+	
+	// second player if needed
+	function injectSecondPlayer(audioUrl2) {
+
+	    const old = document.getElementById("audio2");
+	    if (old) old.parentNode.remove();
+
+	    const container = document.createElement("div");
+	    container.style.display = "flex";
+	    container.style.marginTop = "10px";
+
+	    const audio2 = document.createElement("audio");
+	    audio2.id = "audio2";
+	    audio2.controls = true;
+	    audio2.src = audioUrl2;
+
+	    const label = document.createElement("div");
+	    label.textContent = "part 2:";
+	    label.style.marginRight = "10px";
+
+	    container.appendChild(label);
+	    container.appendChild(audio2);
+
+	    const originalBlock = document.getElementById("audio").parentNode;
+	    originalBlock.insertAdjacentElement("afterend", container);
 	}
 
 	//make ssml for the robot to speak
