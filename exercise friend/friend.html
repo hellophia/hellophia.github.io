@@ -380,6 +380,8 @@
 		let seconds = Math.round(totalSeconds % 60);
 		let timeString = ` it should take about ${minutes} minutes and ${seconds} seconds.`;
 		ssml = introString + timeString + ssml;
+		
+		const ssmlParts = safeSplitSSML(ssml);
 
 		if (ssmlParts.length === 1) {
 			
