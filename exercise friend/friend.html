@@ -381,19 +381,24 @@
 		let timeString = ` it should take about ${minutes} minutes and ${seconds} seconds.`;
 		ssml = introString + timeString + ssml;
 
-		console.log(ssml);
-		console.log("LENGTH:", ssml.length);
-		
-		const ssmlParts = safeSplitSSML(ssml);
-		console.log("SSML parts:", ssmlParts.length);
-
 		if (ssmlParts.length === 1) {
+			
+				console.log(ssmlParts[0]);
+				console.log("LENGTH:", ssml.length);
+			
 		        sendTTS(ssmlParts[0], function (audioUrl) {
 		            document.getElementById("audio").src = audioUrl;
 		            document.getElementById("audio").play();
 		            document.getElementById("speakButton").innerHTML = "⟶speak";
 		        });
 		    } else {
+				
+				console.log(ssmlParts[0]);
+				console.log("LENGTH:", ssml.length);
+				
+				console.log(ssmlParts[1]);
+				console.log("LENGTH:", ssml.length);
+				
 		        sendTTS(ssmlParts[0], function (audioUrl) {
 		            document.getElementById("audio").src = audioUrl;
 		            document.getElementById("audio").play();
