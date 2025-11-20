@@ -368,7 +368,6 @@
 
 		//do the intro, with time estimate
 		let introString = "<speak>"
-		introString += "testing. 1, 2, 3, 4, 5. 1. 2. 3. 4. 5. 1! 2! 3! 4! 5! 1? 2? 3? 4? 5? 1... 2... 3... 4... 5... 1 - 2 - 3 - 4 - 5. 1 – 2 – 3 – 4 – 5. end testing."
 		if (hkl){
 			randomIntro = `${pickRandom(hklin1)} ${pickRandom(hklin2)}`;
 		}
@@ -383,6 +382,10 @@
 		ssml = introString + timeString + ssml;
 
 		console.log(ssml);
+		console.log("LENGTH:", ssml.length);
+		
+		const ssmlParts = safeSplitSSML(ssml);
+		console.log("SSML parts:", ssmlParts.length);
 
 		//send it off to the tts mines
 		var xhr = new XMLHttpRequest();
@@ -512,6 +515,31 @@
 	    });
 
 	    return estimatedTime;
+	}
+	
+	function safeSplitSSML(ssml) {
+	    const LIMIT = 4800;
+	    if (ssml.length < LIMIT) return [ssml];  // no split needed
+
+	    const mid = Math.floor(ssml.length / 2);
+
+	    // walk backward from the midpoint to find a valid split point
+	    let splitPoint = mid;
+	    while (splitPoint > 0 && ssml[splitPoint] !== ">") {
+	        splitPoint--;
+	    }
+
+	    // if we landed inside a tag, move forward to end of tag
+	    if (ssml[splitPoint + 1] === "<") {
+	        while (splitPoint < ssml.length && ssml[splitPoint] !== ">") {
+	            splitPoint++;
+	        }
+	    }
+
+	    const part1 = ssml.slice(0, splitPoint + 1) + "</speak>";
+	    const part2 = "<speak>" + ssml.slice(splitPoint + 1);
+
+	    return [part1, part2];
 	}
 
 </script>
