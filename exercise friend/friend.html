@@ -372,11 +372,13 @@
 		generatessml(filteredTextList);
 		
 		console.log(filteredTextList);
+		console.log(ssml.length);
 		
-		const ssmlParts = [];
+		var ssmlParts = [];
 		
 	    // check length and split if needed
 	    if (ssml.length < 4800) {
+			console.log("splitting");
 			const midpoint = Math.ceil(filteredTextList.length / 2);
 			ssmlParts.push(generatessml(filteredTextList.slice(0, midpoint)));
 			ssmlParts.push(generatessml(filteredTextList.slice(midpoint)));
@@ -416,8 +418,9 @@
 			ssmlParts[0] += generateOutro();
 			ssmlParts[0] += '</speak>';
 			
+			console.log("one part");
 			console.log(ssmlParts[0]);
-			console.log("LENGTH:", ssml.length);
+			console.log("LENGTH:", ssmlParts[0].length);
 			
 			sendTTS(ssmlParts[0], function (audioUrl) {
 				document.getElementById("audio").src = audioUrl;
@@ -434,11 +437,12 @@
 			ssmlParts[1] += generateOutro();
 			ssmlParts[1] += '</speak>';
 			
+			console.log("two parts");
 			console.log(ssmlParts[0]);
-			console.log("LENGTH:", ssml.length);
+			console.log("LENGTH:", ssmlParts[0].length);
 			
 			console.log(ssmlParts[1]);
-			console.log("LENGTH:", ssml.length);
+			console.log("LENGTH:", ssmlParts[1].length);
 				
 	        sendTTS(ssmlParts[0], function (audioUrl) {
 	            document.getElementById("audio").src = audioUrl;
