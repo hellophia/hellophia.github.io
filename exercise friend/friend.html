@@ -516,18 +516,20 @@
 			const bothsides = checkbox.dataset.bothsides;
 			const reps = checkbox.dataset.reps;
 			const recover = checkbox.dataset.recover;
+			const getreadystring = '';
+			const reststring = '';
 			
 			// if this isn't the last exercise,
 			if(filteredTextList[index+1] !== undefined){
 				var nextexercise = filteredTextList[index+1].nextSibling.textContent.trim();
-				const getreadystring = `get ready for ${nextexercise}. <break time="3s"/>`
-				const reststring = `rest for ${recover} seconds. the next exercise is ${nextexercise}. <break time="${recover}s"/> `
+				getreadystring = `get ready for ${nextexercise}. <break time="3s"/>`
+				reststring = `rest for ${recover} seconds. the next exercise is ${nextexercise}. <break time="${recover}s"/> `
 			}
-
+			
 			function recovery(){
 				// if this isn't the last exercise,
 				if(filteredTextList[index+1] !== undefined){
-					ssml += reststring
+					ssml += reststring;
 					ssml += getreadystring;
 				}
 			}
