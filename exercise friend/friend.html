@@ -377,7 +377,7 @@
 		var ssmlParts = [];
 		
 	    // check length and split if needed
-	    if (ssml.length < 4800) {
+	    if (ssml.length > 4800) {
 			console.log("splitting");
 			const midpoint = Math.ceil(filteredTextList.length / 2);
 			ssmlParts.push(generatessml(filteredTextList.slice(0, midpoint)));
