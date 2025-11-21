@@ -171,6 +171,7 @@
 
 	// intro
 	var ssml = '';
+	var ssml2 = '';
 
 	const in1 = ["hey, here goes your exercise routine.","hello, it's time to exercise.","let's begin your workout routine."];
 	const in2 = ["hope you enjoy it.","please do your very best.","stay strong!"];
@@ -372,56 +373,83 @@
 		
 		console.log(filteredTextList);
 		
+		const ssmlParts = [];
+		
 	    // check length and split if needed
 	    if (ssml.length < 4800) {
-	    	
+			const midpoint = Math.ceil(filteredTextList.length / 2);
+			ssmlParts.push(generatessml(filteredTextList.slice(0, midpoint)));
+			ssmlParts.push(generatessml(filteredTextList.slice(midpoint)));
+	    } else {
+	    	ssmlParts.push(ssml;)
 	    }
-
-		// do the intro, with time estimate
-		let introString = "<speak>"
+		
+		// add the outro
+		function generateOutro(){
+			if (hkl){
+				randomOutro = `${pickRandom(hklout1)} ${pickRandom(hklout2)} ${pickRandom(hklout3)}`;
+			}
+			else{
+				randomOutro = `${pickRandom(out1)} ${pickRandom(out2)} ${pickRandom(out2)}`;
+				randomOutro = `${pickRandom(out1)} ${pickRandom(out2)} ${pickRandom(out3)}`;
+			}
+			return randomOutro;
+		}
+		
+		// add the intro, with time estimate
 		if (hkl){
 			randomIntro = `${pickRandom(hklin1)} ${pickRandom(hklin2)}`;
 		}
 		else{
 			randomIntro = `${pickRandom(in1)} ${pickRandom(in2)}`;
 		}
-		introString += randomIntro
 		let totalSeconds = estimateReadingTime(ssml);
 		let minutes = Math.round(totalSeconds / 60);
 		let seconds = Math.round(totalSeconds % 60);
 		let timeString = ` it should take about ${minutes} minutes and ${seconds} seconds.`;
-		ssml = introString + timeString + ssml;
+		ssmlParts[0] = randomIntro + timeString + ssmlParts[0];
 		
-		const ssmlParts = safeSplitSSML(ssml);
-
 		if (ssmlParts.length === 1) {
+			//if one part,
 			
-				console.log(ssmlParts[0]);
-				console.log("LENGTH:", ssml.length);
+			ssmlParts[0] = '<speak>' + ssmlParts[0];
+			ssmlParts[0] += generateOutro();
+			ssmlParts[0] += '</speak>';
 			
-		        sendTTS(ssmlParts[0], function (audioUrl) {
-		            document.getElementById("audio").src = audioUrl;
-		            document.getElementById("audio").play();
-		            document.getElementById("speakButton").innerHTML = "⟶speak";
-		        });
-		    } else {
+			console.log(ssmlParts[0]);
+			console.log("LENGTH:", ssml.length);
+			
+			sendTTS(ssmlParts[0], function (audioUrl) {
+				document.getElementById("audio").src = audioUrl;
+				document.getElementById("audio").play();
+				document.getElementById("speakButton").innerHTML = "⟶speak";
+			});
+		} else {
+			//if two parts,
+			
+			ssmlParts[0] = '<speak>' + ssmlParts[0];
+			ssmlParts[0] += ' this workout has been split into two parts. please play the second part now. ';
+			ssmlParts[0] += '</speak>';
+			ssmlParts[1] = '<speak>' + ' here is the second part of your workout. ' + ssmlParts[1];
+			ssmlParts[1] += generateOutro();
+			ssmlParts[1] += '</speak>';
+			
+			console.log(ssmlParts[0]);
+			console.log("LENGTH:", ssml.length);
+			
+			console.log(ssmlParts[1]);
+			console.log("LENGTH:", ssml.length);
 				
-				console.log(ssmlParts[0]);
-				console.log("LENGTH:", ssml.length);
-				
-				console.log(ssmlParts[1]);
-				console.log("LENGTH:", ssml.length);
-				
-		        sendTTS(ssmlParts[0], function (audioUrl) {
-		            document.getElementById("audio").src = audioUrl;
-		            document.getElementById("audio").play();
-		        });
+	        sendTTS(ssmlParts[0], function (audioUrl) {
+	            document.getElementById("audio").src = audioUrl;
+	            document.getElementById("audio").play();
+	        });
 
-		        sendTTS(ssmlParts[1], function (audioUrl2) {
-		            injectSecondPlayer(audioUrl2);
-		            document.getElementById("speakButton").innerHTML = "⟶speak";
-		        });
-		    }
+	        sendTTS(ssmlParts[1], function (audioUrl2) {
+	            injectSecondPlayer(audioUrl2);
+	            document.getElementById("speakButton").innerHTML = "⟶speak";
+	        });
+	    }
 	}
 	
 	// send it off to the tts mines
@@ -488,18 +516,18 @@
 			const bothsides = checkbox.dataset.bothsides;
 			const reps = checkbox.dataset.reps;
 			const recover = checkbox.dataset.recover;
-
+			
+			// if this isn't the last exercise,
 			if(filteredTextList[index+1] !== undefined){
 				var nextexercise = filteredTextList[index+1].nextSibling.textContent.trim();
+				const getreadystring = `get ready for ${nextexercise}. <break time="3s"/>`
+				const reststring = `rest for ${recover} seconds. the next exercise is ${nextexercise}. <break time="${recover}s"/> `
 			}
 
-			const getreadystring = `get ready for ${nextexercise}. <break time="3s"/>`
-			const reststring = `rest for ${recover} seconds. the next exercise is ${nextexercise}. <break time="${recover}s"/> `
-
 			function recovery(){
-				ssml += reststring
-				//if this isn't the last exercise,
+				// if this isn't the last exercise,
 				if(filteredTextList[index+1] !== undefined){
+					ssml += reststring
 					ssml += getreadystring;
 				}
 			}
@@ -545,16 +573,6 @@
 
 		});
 
-		if (hkl){
-			randomOutro = `${pickRandom(hklout1)} ${pickRandom(hklout2)} ${pickRandom(hklout3)}`;
-		}
-		else{
-			randomOutro = `${pickRandom(out1)} ${pickRandom(out2)} ${pickRandom(out2)}`;
-			randomOutro = `${pickRandom(out1)} ${pickRandom(out2)} ${pickRandom(out3)}`;
-		}
-		ssml += randomOutro;
-
-		ssml += '</speak>';
 	}
 
 	// estimate time it takes to read any given ssml
