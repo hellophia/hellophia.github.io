@@ -123,6 +123,7 @@
 		text-align: right;
 		padding: 8px;
 		background-color:#b0b4b4;
+		margin: 20px 0;
 	}
 	
 	</style>
@@ -133,7 +134,7 @@
 
 	<div class="container">
 		
-		<div style="display:flex;margin-bottom:20px;">
+		<div style="display:flex;">
 
 			<button id="speakButton" class="audiohelper" onclick="speak()">⟶speak</button>
 
@@ -477,7 +478,6 @@
 
 	    const container = document.createElement("div");
 	    container.style.display = "flex";
-	    container.style.marginTop = "10px";
 
 	    const audio2 = document.createElement("audio");
 	    audio2.id = "audio2";
