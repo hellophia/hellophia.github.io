@@ -397,11 +397,7 @@
 		else{
 			randomIntro = `${pickRandom(in1)} ${pickRandom(in2)}`;
 		}
-		let totalSeconds = estimateReadingTime(ssml);
-		let minutes = Math.round(totalSeconds / 60);
-		let seconds = Math.round(totalSeconds % 60);
-		let timeString = ` it should take about ${minutes} minutes and ${seconds} seconds.`;
-		ssmlParts[0] = randomIntro + timeString + ssmlParts[0];
+		ssmlParts[0] = randomIntro + ssmlParts[0];
 		
 		if (ssmlParts.length === 1) {
 			//if one part,
