@@ -170,9 +170,6 @@
 	}
 
 	// intro
-	var ssml = '';
-	var ssml2 = '';
-
 	const in1 = ["hey, here goes your exercise routine.","hello, it's time to exercise.","let's begin your workout routine."];
 	const in2 = ["hope you enjoy it.","please do your very best.","stay strong!"];
 	const hklin1 = ["what's up bitch.","hello future sweaty little worm.","hey there daddy."];
@@ -322,8 +319,7 @@
 		for (let groupName in groupCheckboxes) {
             const checkboxes = groupCheckboxes[groupName].content.querySelectorAll("input[type='checkbox']");
             const filteredTextList = Array.from(checkboxes)
-            generatessml(filteredTextList);
-			let totalSeconds = estimateReadingTime(ssml);
+			let totalSeconds = estimateReadingTime(generatessml(filteredTextList));
 			let minutes = Math.round(totalSeconds / 60);
 			let seconds = Math.round(totalSeconds % 60);
 			if (seconds < 10) {
@@ -368,22 +364,18 @@
 		    return checkbox.checked && checkbox.dataset.group !== undefined;
 		});
 
-		// make ssml from it
-		generatessml(filteredTextList);
-		
-		console.log(filteredTextList);
-		console.log(ssml.length);
-		
-		var ssmlParts = [];
+		// make trial ssml from it
+		var trialssml = generatessml(filteredTextList);
 		
 	    // check length and split if needed
+		var ssmlParts = [];
 	    if (ssml.length > 4800) {
 			console.log("splitting");
 			const midpoint = Math.ceil(filteredTextList.length / 2);
 			ssmlParts.push(generatessml(filteredTextList.slice(0, midpoint)));
 			ssmlParts.push(generatessml(filteredTextList.slice(midpoint)));
 	    } else {
-	    	ssmlParts.push(ssml);
+	    	ssmlParts.push(trialssml);
 	    }
 		
 		// add the outro
@@ -510,7 +502,7 @@
 	// make ssml for the robot to speak
 	function generatessml(filteredTextList){
 
-		ssml = '<break time="1"/>';
+		let ssml = '<break time="1"/>';
 
 		filteredTextList.forEach((item, index) => {
 
@@ -579,6 +571,7 @@
 
 		});
 
+		return ssml;
 	}
 
 	// estimate time it takes to read any given ssml
@@ -600,31 +593,6 @@
 	    });
 
 	    return estimatedTime;
-	}
-	
-	function safeSplitSSML(ssml) {
-	    const LIMIT = 4800;
-	    if (ssml.length < LIMIT) return [ssml];  // no split needed
-
-	    const mid = Math.floor(ssml.length / 2);
-
-	    // walk backward from the midpoint to find a valid split point
-	    let splitPoint = mid;
-	    while (splitPoint > 0 && ssml[splitPoint] !== ">") {
-	        splitPoint--;
-	    }
-
-	    // if we landed inside a tag, move forward to end of tag
-	    if (ssml[splitPoint + 1] === "<") {
-	        while (splitPoint < ssml.length && ssml[splitPoint] !== ">") {
-	            splitPoint++;
-	        }
-	    }
-
-	    const part1 = ssml.slice(0, splitPoint + 1) + "</speak>";
-	    const part2 = "<speak>" + ssml.slice(splitPoint + 1);
-
-	    return [part1, part2];
 	}
 
 </script>
