@@ -148,6 +148,11 @@
 			<label for="hklbox">are you hkl?</label>
 			<input type="checkbox" id="hklbox">
 		 </div>
+		 
+ 		<div class="hkl">
+ 			<label for="elobox">are you elo?</label>
+ 			<input type="checkbox" id="elobox">
+ 		 </div>
 
 		<div id="stretchList">
 
@@ -162,7 +167,17 @@
 	const hklbox = document.getElementById('hklbox');
 	hklbox.addEventListener('change', function() {
 		hkl = this.checked;
+		if (hklbox.checked) elobox.checked = false;
 	    console.log("hkl =", hkl);
+	});
+	
+	// are we elo?
+	let elo = false;
+	const elobox = document.getElementById('elobox');
+	elobox.addEventListener('change', function() {
+		elo = this.checked;
+		if (elobox.checked) hklbox.checked = false;
+	    console.log("elo =", elo);
 	});
 
 	// randomizer
@@ -170,21 +185,48 @@
 	  return arr[Math.floor(Math.random() * arr.length)];
 	}
 
-	// intro
-	const in1 = ["hey, here goes your exercise routine.","hello, it's time to exercise.","let's begin your workout routine."];
-	const in2 = ["hope you enjoy it.","please do your very best.","stay strong!"];
-	const hklin1 = ["what's up bitch.","hello future sweaty little worm.","hey there daddy."];
-	const hklin2 = ["welcome to the temple of pain.","you are going to work out right this very minute.","time to fucking work out."];
-	var randomIntro = ``
+	const intros = {
+	  normal: {
+	    s1: ["hey, here goes your exercise routine.", "hello, it's time to exercise.", "let's begin your workout routine."],
+	    s2: ["hope you enjoy it.", "please do your very best.", "stay strong!"]
+	  },
+	  hkl: {
+	    s1: ["what's up bitch.", "hello future sweaty little worm.", "hey there daddy."],
+	    s2: ["welcome to the temple of pain.", "you are going to work out right this very minute.", "time to fucking work out."]
+	  },
+	  elo: {
+	    s1: ["greetings noble eleanor.", "well well well, look who decided to do her physical therapy.", "welcome weary traveler."],
+	    s2: ["you've made an excellent decision.", "your wisdom and perseverance are the envy of all.", "I am very impressed with your fastidiousness."]
+	  }
+	};
 
-	// outro
-	const out1 = ["your workout is all done.","you have completed your workout.","workout complete!"];
-	const out2 = ["go and live your life and have fun.","congratulations and good job.","what a success."];
-	const out3 = ["see you next time.","bye for now!","enjoy the rest of your day."];
-	const hklout1 = ["good job sweaty boy, you fucking killed it.","great job daddy.","you vanquished the fuck out of that routine."];
-	const hklout2 = ["ooh I'm so scared of your muscles.","you are growing ever more powerful.","damn you look strong."];
-	const hklout3 = ["see you next time, or else I'm going to haunt you.","if you don't return to the gym within seven days, a ghost is going to come out of the toilet while you pee.","you have satiated the gym demon... for now."];
-	var randomOutro = ``
+	const outros = {
+	  normal: {
+	    s1: ["your workout is all done.","you have completed your workout.","workout complete!"],
+	    s2: ["go and live your life and have fun.","congratulations and good job.","what a success."],
+	    s3: ["see you next time.","bye for now!","enjoy the rest of your day."]
+	  },
+	  hkl: {
+	    s1: ["good job sweaty boy, you fucking killed it.","great job daddy.","you vanquished the fuck out of that routine."],
+	    s2: ["ooh I'm so scared of your muscles.","you are growing ever more powerful.","damn you look strong."],
+	    s3: ["see you next time, or else I'm going to haunt you.","if you don't return to the gym within seven days, a ghost is going to come out of the toilet while you pee.","you have satiated the gym demon... for now."]
+	  },
+	  hkl: {
+	    s1: ["you have completed your physical therapy.","thou hast vanquished your PT.","you are all done now!"],
+	    s2: ["hip hip hooray.","oh you did such a good job.","what a tremendous accomplishment."],
+	    s3: ["now you are free to spend the rest of your day basking in deep satisfaction.","you should feel very proud of yourself.","I applaud you and place a laurel wreath on your head."]
+	  }
+	};
+	
+	function generateIntro(mode) {
+		const set = intros[mode];
+	  return `${pickRandom(set.s1)} ${pickRandom(set.s2)}`;
+	}
+
+	function generateOutro(mode) {
+	  const set = outros[mode];
+	  return `${pickRandom(set.s1)} ${pickRandom(set.s2)} ${pickRandom(set.s3)}`;
+	}
 
 	// array of colors for the headers to cycle thru
 	const lightcolors = ['#d3c8c3','#d3b690','#b9af2a','#b0b4b4','#d4be96','#dcb38b'];
@@ -378,33 +420,23 @@
 	    } else {
 	    	ssmlParts.push(trialssml);
 	    }
-		
-		// add the outro
-		function generateOutro(){
-			if (hkl){
-				randomOutro = `${pickRandom(hklout1)} ${pickRandom(hklout2)} ${pickRandom(hklout3)}`;
-			}
-			else{
-				randomOutro = `${pickRandom(out1)} ${pickRandom(out2)} ${pickRandom(out2)}`;
-				randomOutro = `${pickRandom(out1)} ${pickRandom(out2)} ${pickRandom(out3)}`;
-			}
-			return randomOutro;
+
+		function getMode() {
+		  if (hkl) return "hkl";
+		  if (elo) return "elo";
+		  return "normal";
 		}
-		
-		// add the intro, with time estimate
-		if (hkl){
-			randomIntro = `${pickRandom(hklin1)} ${pickRandom(hklin2)}`;
-		}
-		else{
-			randomIntro = `${pickRandom(in1)} ${pickRandom(in2)}`;
-		}
-		ssmlParts[0] = randomIntro + ssmlParts[0];
+		const mode = getMode();
+		const intro = generateIntro(mode);
+		const outro = generateOutro(mode);
+
+		ssmlParts[0] = intro + ssmlParts[0];
 		
 		if (ssmlParts.length === 1) {
 			//if one part,
 			
 			ssmlParts[0] = '<speak>' + ssmlParts[0];
-			ssmlParts[0] += generateOutro();
+			ssmlParts[0] += outro;
 			ssmlParts[0] += '</speak>';
 			
 			console.log("one part");
@@ -423,7 +455,7 @@
 			ssmlParts[0] += ' this workout has been split into two parts. please play the second part now. ';
 			ssmlParts[0] += '</speak>';
 			ssmlParts[1] = '<speak>' + ' here is the second part of your workout. ' + ssmlParts[1];
-			ssmlParts[1] += generateOutro();
+			ssmlParts[1] += outro;
 			ssmlParts[1] += '</speak>';
 			
 			console.log("two parts");
