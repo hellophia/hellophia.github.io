@@ -567,7 +567,7 @@
 			        if (!elo){
 						ssml += `${text}, other side. <break time="1s"/> `
 					}else{
-						ssml += `now it's time to switch to the other side. <break time="1s"/> ` + `${text}, other side. <break time="1s"/> `;
+						ssml += `now it's time to switch to the other side. <break time="3s"/> ` + `${text}, other side. <break time="1s"/> `;
 					}
 					for (i=0;i<reps;i++){
 						ssml += ` ${i+1} <break time="${exercisetime}s"/> `
@@ -592,7 +592,7 @@
 			        if (!elo){
 						ssml += text + `, other side, ${exercisetime} seconds. <break time="${exercisetime}s"/> `;
 					}else{
-						ssml += `now it's time to switch to the other side. <break time="1s"/> ` + text + `, other side, ${exercisetime} seconds. <break time="${exercisetime}s"/> `;
+						ssml += `now it's time to switch to the other side. <break time="3s"/> ` + text + `, other side, ${exercisetime} seconds. <break time="${exercisetime}s"/> `;
 					}
 					if (recover > 0){
 						recovery();
