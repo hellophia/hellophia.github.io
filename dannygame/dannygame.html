@@ -9,7 +9,11 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play dannygame.</tw-noscript></noscript></tw-story>
-<tw-storydata name="dannygame" startnode="1" creator="Twine" creator-version="2.11.1" format="Harlowe" format-version="3.3.9" ifid="CC01276B-547B-4036-90C4-0092162270AB" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">img {
+<tw-storydata name="dannygame" startnode="1" creator="Twine" creator-version="2.11.1" format="Harlowe" format-version="3.3.9" ifid="CC01276B-547B-4036-90C4-0092162270AB" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+
+img {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -17,8 +21,13 @@
   height: auto;
 }
 
+h3{
+  font-family: 'Spectra', 'Roboto Serif', serif;
+  font-style: italic;
+}
+
 tw-story{
-  font-family: 'Roboto Serif', serif;
+  font-family: 'Noto Serif', 'Roboto Serif', serif;
   font-size:1.25em;
 }
 
@@ -59,6 +68,10 @@ tw-link {
 tw-link:hover {
   background-color:#d8c540;
   color:#5a3e0a;
+}
+
+tw-link:visited {
+    color:#5a3e0a;
 }
 
 .bgimage{
@@ -356,7 +369,11 @@ return { start, stop };
 
 })();
 
-window.addEventListener("beforeunload", GuineaGame.stop);</script><tw-tag name="field" color="green"></tw-tag><tw-passagedata pid="1" name="start" tags="" position="550,50" size="100,100">who are you?
+window.addEventListener("beforeunload", GuineaGame.stop);</script><tw-tag name="field" color="green"></tw-tag><tw-passagedata pid="1" name="start" tags="" position="550,50" size="100,100">=&gt;&lt;=
+###(text-style: &quot;buoy&quot;)[BREATH OF THE HAMSTER AND GUINEA PIG]
+&lt;=
+
+who are you?
 
 &lt;img src=&quot;hamster.webp&quot;/&gt;
 [[a hamster]]
@@ -451,6 +468,10 @@ some drawing ....... memphis
 some sounds ....... daniel robin
 some sounds ....... memphis
 ideas ....... daniel robin
+the name of the game is based on breath of the wild zelda because it&#39;s named breath of the hamster and guinea pig
+
+&lt;img src=&quot;tips.png&quot;/&gt;
+&quot;tips are OK. I&#39;m not pressuring you to not give me money&quot; – daniel robin
 (set: $level to 1)
 [[play again?-&gt;start]]
 ]</tw-passagedata><tw-passagedata pid="12" name="game2" tags="" position="925,1325" size="100,100">&lt;div id=&quot;game&quot; class=&quot;bgimage&quot; style=&quot;background-image: url(&#39;spacebg.png&#39;);&quot;&gt;
