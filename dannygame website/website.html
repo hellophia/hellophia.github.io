@@ -1,0 +1,66 @@
+<html>
+
+<head>
+	<style>
+		
+		.body{
+			background-color:white;
+		}
+		
+		h1{
+			background-color:black;
+			color:white;
+			text-align: center;
+			font-size:120px;
+		}
+		
+		h2{
+			text-align:center;
+			margin:-50px;
+			padding:0px;
+			font-size:120px;
+		}
+		
+		.entry{
+		    display: flex;
+		     justify-content: center;
+		     align-items: center;
+		}
+		
+	</style>
+</head>
+
+<body>
+	
+	<h1>DANNY'S WEBSITE</h1>
+	
+	<h2>🎮🐇</h2>
+	
+	<div class="entry">
+	<p>what is your idea for a videogame?</p>
+	
+	<input id="name" placeholder="your name" />
+	<textarea id="message" maxlength="280" placeholder="your idea here..."></textarea>
+	<select id="emoji">
+	  <option>🎮</option>
+	  <option>😉</option>
+	  <option>🥸</option>
+	  <option>🙂</option>
+	  <option>🍕</option>
+	  <option>🍄‍</option>
+	  <option>🌀</option>
+	</select>
+	<button onclick="submitPost()">post your idea</button>
+
+</div>
+	<hr>
+	<div id="posts"></div>
+
+	<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+	<script>
+		
+	</script>
+	
+</body>
+
+</html>
