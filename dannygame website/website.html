@@ -58,7 +58,60 @@
 
 	<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 	<script>
-		
+		const SUPABASE_URL = "https://iqpnhitazpnolwexyhdl.supabase.co"
+		const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlxcG5oaXRhenBub2x3ZXh5aGRsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI0MDU3MDYsImV4cCI6MjA4Nzk4MTcwNn0.vFdSWe9AbmexTF2DHgfjPcbOsU0AbIXW6C2b3Hf2FjQ"
+
+		const { createClient } = supabase
+		const client = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+
+		async function submitPost() {
+		  const name = document.getElementById("name").value
+		  const message = document.getElementById("message").value
+		  const emoji = document.getElementById("emoji").value
+
+		  if (!name || !message) {
+		    alert("Please enter name and message")
+		    return
+		  }
+
+		  const { error } = await client
+		    .from("posts")
+		    .insert([{ name, message, emoji }])
+
+		  if (error) {
+		    alert("Error posting: " + error.message)
+		  } else {
+		    document.getElementById("message").value = ""
+		    loadPosts()
+		  }
+		}
+
+		async function loadPosts() {
+		  const { data, error } = await client
+		    .from("posts")
+		    .select("*")
+		    .order("created_at", { ascending: false })
+
+		  if (error) {
+		    console.error(error)
+		    return
+		  }
+
+		  const postsDiv = document.getElementById("posts")
+		  postsDiv.innerHTML = ""
+
+		  data.forEach(post => {
+		    const div = document.createElement("div")
+		    div.innerHTML = `
+		      <strong>${post.name}</strong> ${post.emoji}<br>
+		      ${post.message}
+		      <hr>
+		    `
+		    postsDiv.appendChild(div)
+		  })
+		}
+
+		loadPosts()
 	</script>
 	
 </body>
