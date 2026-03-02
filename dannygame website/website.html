@@ -3,15 +3,27 @@
 <head>
 	<style>
 		
-		.body{
-			background-color:white;
+		@import url('https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
+		
+		body{
+			background-color:#e3e3e3;
+			font-family: Noto Serif;
 		}
 		
 		h1{
-			background-color:black;
-			color:white;
+			background-color:#212121;
+			font-family: Arvo;
+			color:#d6d4b8;
 			text-align: center;
 			font-size:120px;
+			  padding: 20px;
+			  box-shadow:
+				0 0 0 10px #66208f,
+			    0 0 0 20px #53a1b9,
+			    0 0 0 30px #f4955c,
+			    0 0 0 40px #c2e373;
+
+			  margin: 80px;
 		}
 		
 		h2{
@@ -22,9 +34,23 @@
 		}
 		
 		.entry{
-		    display: flex;
-		     justify-content: center;
-		     align-items: center;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 10px;
+			margin: 40px auto;
+		}
+		
+		input,
+		textarea,
+		button,
+		select {
+		  font-family: inherit;
+		}
+		
+		textarea {
+		  resize: none; /* optional */
+		  height: 2.5em;
 		}
 		
 	</style>
@@ -32,9 +58,10 @@
 
 <body>
 	
-	<h1>DANNY'S WEBSITE</h1>
+	<div><h1>DANNY'S WEBSITE</h1>
 	
 	<h2>🎮🐇</h2>
+</div>
 	
 	<div class="entry">
 	<p>what is your idea for a videogame?</p>
