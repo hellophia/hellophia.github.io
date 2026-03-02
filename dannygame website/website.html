@@ -50,7 +50,7 @@
 	  <option>🍄‍</option>
 	  <option>🌀</option>
 	</select>
-	<button onclick="submitPost()">post your idea</button>
+	<button id="postButton">post your idea</button>
 
 </div>
 	<hr>
@@ -59,7 +59,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 	<script>
 		const SUPABASE_URL = "https://iqpnhitazpnolwexyhdl.supabase.co"
-		const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlxcG5oaXRhenBub2x3ZXh5aGRsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI0MDU3MDYsImV4cCI6MjA4Nzk4MTcwNn0.vFdSWe9AbmexTF2DHgfjPcbOsU0AbIXW6C2b3Hf2FjQ"
+		const SUPABASE_ANON_KEY = "sb_publishable_ZzINcS2Yp72XIzWf1m28LQ_n1YEdOwP"
 
 		const { createClient } = supabase
 		const client = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
@@ -112,6 +112,11 @@
 		}
 
 		loadPosts()
+		
+document
+  .getElementById("postButton")
+  .addEventListener("click", submitPost)
+		
 	</script>
 	
 </body>
