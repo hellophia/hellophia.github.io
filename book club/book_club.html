@@ -104,6 +104,7 @@
 	    board.innerHTML = ""
 
 	    data.forEach(entry => {
+			
 			const currentValue = parseProgress(entry.current_page)
 			const totalValue = parseProgress(entry.total_pages)
 
@@ -112,7 +113,6 @@
 			if (currentValue !== null && totalValue !== null && totalValue > 0) {
 			  percent = Math.min((currentValue / totalValue) * 100, 100)
 			}
-	      )
 
 	      const container = document.createElement("div")
 	      container.className = "progress-container"
