@@ -1,0 +1,171 @@
+<html>
+
+<head>
+	<style>
+		body {
+		  background: black;
+		  color: white;
+		  font-family: Arial, sans-serif;
+		  text-align: center;
+		}
+
+		.entry {
+		  display: flex;
+		  justify-content: center;
+		  gap: 10px;
+		  margin: 20px auto;
+		}
+
+		input, button {
+		  font-family: inherit;
+		  padding: 6px;
+		}
+
+		.progress-container {
+		  width: 60%;
+		  margin: 15px auto;
+		  text-align: left;
+		}
+
+		.progress-bar-bg {
+		  background: #333;
+		  height: 20px;
+		  border-radius: 10px;
+		  overflow: hidden;
+		}
+
+		.progress-bar-fill {
+		  background: yellow;
+		  height: 100%;
+		  width: 0%;
+		}
+	</style>
+</head>
+
+<body>
+  <h1>book club</h1>
+
+  <div class="entry">
+    <input id="name" placeholder="Name">
+    <input id="current" type="number" placeholder="current page">
+    <input id="total" type="number" placeholder="total pages">
+    <button onclick="submitProgress()">submit</button>
+  </div>
+
+  <div id="board"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+	  
+	  const SUPABASE_URL = "https://hellophia.github.io/book%20club/book_club.html"
+	  const SUPABASE_KEY = "sb_publishable_ZzINcS2Yp72XIzWf1m28LQ_n1YEdOwP"
+
+	  const { createClient } = supabase
+	  const client = createClient(SUPABASE_URL, SUPABASE_KEY)
+
+	  async function submitProgress() {
+	    const name = document.getElementById("name").value
+	    const current_page = parseInt(document.getElementById("current").value)
+	    const total_pages = parseInt(document.getElementById("total").value)
+
+	    if (!name || !current_page || !total_pages) {
+	      alert("Fill all fields")
+	      return
+	    }
+
+	    // Check if user already exists
+	    const { data: existing } = await client
+	      .from("book_progress")
+	      .select("*")
+	      .eq("name", name)
+	      .single()
+
+	    if (existing) {
+	      await client
+	        .from("book_progress")
+	        .update({ current_page, total_pages, updated_at: new Date() })
+	        .eq("name", name)
+	    } else {
+	      await client
+	        .from("book_progress")
+	        .insert([{ name, current_page, total_pages }])
+	    }
+
+	    loadBoard()
+	  }
+
+	  async function loadBoard() {
+	    const { data } = await client
+	      .from("book_progress")
+	      .select("*")
+	      .order("updated_at", { ascending: false })
+
+	    const board = document.getElementById("board")
+	    board.innerHTML = ""
+
+	    data.forEach(entry => {
+			const currentValue = parseProgress(entry.current_page)
+			const totalValue = parseProgress(entry.total_pages)
+
+			let percent = 0
+
+			if (currentValue !== null && totalValue !== null && totalValue > 0) {
+			  percent = Math.min((currentValue / totalValue) * 100, 100)
+			}
+	      )
+
+	      const container = document.createElement("div")
+	      container.className = "progress-container"
+
+	      container.innerHTML = `
+	        <strong>${entry.name}</strong> — 
+	        ${entry.current_page}/${entry.total_pages}
+<button onclick="editEntry('${entry.name}', '${entry.current_page}', '${entry.total_pages}')">
+  Edit
+</button>
+
+	        <div class="progress-bar-bg">
+	          <div class="progress-bar-fill" style="width:${percent}%"></div>
+	        </div>
+	      `
+
+	      board.appendChild(container)
+	    })
+	  }
+
+	  function editEntry(name, current, total) {
+	    document.getElementById("name").value = name
+	    document.getElementById("current").value = current
+	    document.getElementById("total").value = total
+	  }
+	  
+	  function parseProgress(value) {
+	    // If it's purely numeric, treat as page number
+	    if (!isNaN(value)) {
+	      return parseFloat(value)
+	    }
+
+	    // If it contains ":", treat as time
+	    if (value.includes(":")) {
+	      const parts = value.split(":").map(Number)
+
+	      if (parts.length === 2) {
+	        // mm:ss
+	        return parts[0] * 60 + parts[1]
+	      }
+
+	      if (parts.length === 3) {
+	        // hh:mm:ss
+	        return parts[0] * 3600 + parts[1] * 60 + parts[2]
+	      }
+	    }
+
+	    return null
+	  }
+
+	  loadBoard()
+	
+  </script>
+</body>
+
+</html>
