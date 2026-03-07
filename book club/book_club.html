@@ -2,10 +2,13 @@
 
 <head>
 	<style>
+		
+		@import url('https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
+		
 		body {
-		  background: black;
-		  color: white;
-		  font-family: Arial, sans-serif;
+		  background: #212121;
+		  color: #dad7d3;
+		  font-family: "Noto Serif", serif;
 		  text-align: center;
 		}
 
@@ -29,8 +32,7 @@
 
 		.progress-bar-bg {
 		  background: #333;
-		  height: 20px;
-		  border-radius: 10px;
+		  height: 30px;
 		  overflow: hidden;
 		}
 
@@ -39,23 +41,46 @@
 		  height: 100%;
 		  width: 0%;
 		}
+		
+		.entry-box {
+		  width: 50%;
+		  margin: 20px auto;
+		  padding: 15px;
+
+		  border: 6px solid white;
+
+		  box-shadow:
+		    0 0 0 11px black,
+		    0 0 0 13px white,
+		    0 0 0 18px black,
+		    0 0 0 20px white;
+		}
 	</style>
 </head>
 
 <body>
-  <h1>book club</h1>
+  <h1>𐡷 book club 𐡸</h1>
 
   <div class="entry">
     <input id="name" placeholder="name">
-    <input id="current" type="number" placeholder="current page">
-    <input id="total" type="number" placeholder="total pages">
+    <input id="current" placeholder="current page">
+    <input id="total" placeholder="total pages">
     <button id="postButton">submit</button>
   </div>
 
-  <div id="board"></div>
+  <div id="entry-box"><div id="board"></div></div>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
+	  
+	  const barColors = [
+	    "#5d453e",
+	    "#735a42",
+	    "#deae5a",
+	    "#ed841b",
+	    "#c55d86",
+		"#565e3c"
+	  ]
 	  
 	  const SUPABASE_URL = "https://iqpnhitazpnolwexyhdl.supabase.co"
 	  const SUPABASE_KEY = "sb_publishable_ZzINcS2Yp72XIzWf1m28LQ_n1YEdOwP"
@@ -104,6 +129,8 @@
 
 	    data.forEach(entry => {
 			
+			const color = barColors[Math.floor(Math.random() * barColors.length)]
+			
 			const currentValue = parseProgress(entry.current_page)
 			const totalValue = parseProgress(entry.total_pages)
 
@@ -119,23 +146,14 @@
 	      container.innerHTML = `
 	        <strong>${entry.name}</strong> — 
 	        ${entry.current_page}/${entry.total_pages}
-<button onclick="editEntry('${entry.name}', '${entry.current_page}', '${entry.total_pages}')">
-  Edit
-</button>
 
 	        <div class="progress-bar-bg">
-	          <div class="progress-bar-fill" style="width:${percent}%"></div>
+	          <div class="progress-bar-fill" style="width:${percent}%; background:${color};"></div>
 	        </div>
 	      `
 
 	      board.appendChild(container)
 	    })
-	  }
-
-	  function editEntry(name, current, total) {
-	    document.getElementById("name").value = name
-	    document.getElementById("current").value = current
-	    document.getElementById("total").value = total
 	  }
 	  
 	  function parseProgress(value) {
