@@ -25,7 +25,7 @@
 		}
 
 		.progress-container {
-    		  width: 52ch;
+    		  width: 50ch;
     		  margin: 0 auto;
 		}
 		
@@ -50,6 +50,10 @@
 		  font-family: monospace;
 		  letter-spacing: 1px;
 		  margin-top: 6px;
+		}
+		
+		.bar-empty {
+		  opacity: 0.5;
 		}
 		
 	</style>
@@ -81,11 +85,14 @@
 	  ]
 	  
 	  function buildBar(percent) {
-	    const width = 50
-	    const filled = Math.round((percent / 100) * width)
-	    const empty = width - filled
+		  const width = 50
+		  const filled = Math.round((percent / 100) * width)
+		  const empty = width - filled
 
-	    return "█".repeat(filled) + "░".repeat(empty)
+		  const filledPart = "█".repeat(filled)
+		  const emptyPart = `<span class="bar-empty">${"░".repeat(empty)}</span>`
+
+		  return filledPart + emptyPart
 	  }
 	  
 	  const SUPABASE_URL = "https://iqpnhitazpnolwexyhdl.supabase.co"
