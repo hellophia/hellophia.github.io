@@ -55,6 +55,20 @@
 		    0 0 0 18px black,
 		    0 0 0 20px white;
 		}
+		
+		.entry-header {
+		  display: flex;
+		  justify-content: space-between;
+		  margin-bottom: 6px;
+		}
+		
+		.ascii-bar {
+		  font-family: monospace;
+		  letter-spacing: 1px;
+		  margin-top: 6px;
+		  color: yellow;
+		}
+		
 	</style>
 </head>
 
@@ -67,6 +81,7 @@
     <input id="total" placeholder="total pages">
     <button id="postButton">submit</button>
   </div>
+  <p style="font-style:italic">you can also enter timecodes for an audiobook in the format HH:MM, for example 0:12 / 3:45.</p>
 
   <div id="entry-box"><div id="board"></div></div>
 
@@ -81,6 +96,14 @@
 	    "#c55d86",
 		"#565e3c"
 	  ]
+	  
+	  function buildBar(percent) {
+	    const width = 30
+	    const filled = Math.round((percent / 100) * width)
+	    const empty = width - filled
+
+	    return "█".repeat(filled) + "░".repeat(empty)
+	  }
 	  
 	  const SUPABASE_URL = "https://iqpnhitazpnolwexyhdl.supabase.co"
 	  const SUPABASE_KEY = "sb_publishable_ZzINcS2Yp72XIzWf1m28LQ_n1YEdOwP"
@@ -139,17 +162,19 @@
 			if (currentValue !== null && totalValue !== null && totalValue > 0) {
 			  percent = Math.min((currentValue / totalValue) * 100, 100)
 			}
+			
+			const bar = buildBar(percent)
 
 	      const container = document.createElement("div")
 	      container.className = "progress-container"
 
 	      container.innerHTML = `
-	        <strong>${entry.name}</strong> — 
-	        ${entry.current_page}/${entry.total_pages}
+			<div class="entry-header">
+			<span class="reader-name">${entry.name}</span>
+			<span class="page-info">${entry.current_page}/${entry.total_pages}</span>
+			</div>
 
-	        <div class="progress-bar-bg">
-	          <div class="progress-bar-fill" style="width:${percent}%; background:${color};"></div>
-	        </div>
+	        <div class="ascii-bar">${bar}</div>
 	      `
 
 	      board.appendChild(container)
