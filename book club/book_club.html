@@ -49,7 +49,7 @@
     <input id="name" placeholder="name">
     <input id="current" type="number" placeholder="current page">
     <input id="total" type="number" placeholder="total pages">
-    <button onclick="submitProgress()">submit</button>
+    <button id="postButton">submit</button>
   </div>
 
   <div id="board"></div>
@@ -73,7 +73,6 @@
 	      return
 	    }
 
-	    // Check if user already exists
 	    const { data: existing } = await client
 	      .from("book_progress")
 	      .select("*")
@@ -140,12 +139,10 @@
 	  }
 	  
 	  function parseProgress(value) {
-	    // If it's purely numeric, treat as page number
 	    if (!isNaN(value)) {
 	      return parseFloat(value)
 	    }
 
-	    // If it contains ":", treat as time
 	    if (value.includes(":")) {
 	      const parts = value.split(":").map(Number)
 
@@ -164,6 +161,10 @@
 	  }
 
 	  loadBoard()
+	  
+document
+  .getElementById("postButton")
+  .addEventListener("click", submitProgress)
 	
   </script>
 </body>
