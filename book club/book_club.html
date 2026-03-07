@@ -29,24 +29,10 @@
 		  margin: 15px auto;
 		  text-align: left;
 		}
-
-		.progress-bar-bg {
-		  background: #333;
-		  height: 30px;
-		  overflow: hidden;
-		}
-
-		.progress-bar-fill {
-		  background: yellow;
-		  height: 100%;
-		  width: 0%;
-		}
 		
-		.entry-box {
-		  width: 50%;
-		  margin: 20px auto;
-		  padding: 15px;
-
+		.board {
+  		  width: 52ch;
+  		  margin: 0 auto;
 		  border: 6px solid white;
 
 		  box-shadow:
@@ -59,14 +45,14 @@
 		.entry-header {
 		  display: flex;
 		  justify-content: space-between;
-		  margin-bottom: 6px;
+		  margin-bottom: 4px;
+		  white-space: nowrap;
 		}
 		
 		.ascii-bar {
 		  font-family: monospace;
 		  letter-spacing: 1px;
 		  margin-top: 6px;
-		  color: yellow;
 		}
 		
 	</style>
@@ -83,7 +69,7 @@
   </div>
   <p style="font-style:italic">you can also enter timecodes for an audiobook in the format HH:MM, for example 0:12 / 3:45.</p>
 
-  <div id="entry-box"><div id="board"></div></div>
+  <div id="board"></div>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
@@ -98,7 +84,7 @@
 	  ]
 	  
 	  function buildBar(percent) {
-	    const width = 30
+	    const width = 50
 	    const filled = Math.round((percent / 100) * width)
 	    const empty = width - filled
 
@@ -174,7 +160,7 @@
 			<span class="page-info">${entry.current_page}/${entry.total_pages}</span>
 			</div>
 
-	        <div class="ascii-bar">${bar}</div>
+	        <div class="ascii-bar" style="color: ${color}};">${bar}</div>
 	      `
 
 	      board.appendChild(container)
