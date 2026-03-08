@@ -23,20 +23,16 @@
 		  font-family: inherit;
 		  padding: 6px;
 		}
-
-		.progress-container {
-    		  width: 50ch;
-    		  margin: 0 auto;
-		}
 		
-		.test {
-		  border: 6px solid white;
+		.progress-container {
+		  width: 50ch;
+		  margin: 0 auto;
+		}
 
-		  box-shadow:
-		    0 0 0 11px black,
-		    0 0 0 13px white,
-		    0 0 0 18px black,
-		    0 0 0 20px white;
+		@media (max-width: 600px) {
+		  .progress-container {
+		    width: 18ch;
+		  }
 		}
 		
 		.entry-header {
@@ -109,14 +105,18 @@
 	  }
 	  
 	  function buildBar(percent) {
-		  const width = 50
-		  const filled = Math.round((percent / 100) * width)
-		  const empty = width - filled
 
-		  const filledPart = "█".repeat(filled)
-		  const emptyPart = `<span class="bar-empty">${"░".repeat(empty)}</span>`
+	    const width = window.matchMedia("(max-width: 600px)").matches
+	      ? 18   // mobile width
+	      : 50   // desktop width
 
-		  return filledPart + emptyPart
+	    const filled = Math.round((percent / 100) * width)
+	    const empty = width - filled
+
+	    const filledPart = "█".repeat(filled)
+	    const emptyPart = `<span class="bar-empty">${"░".repeat(empty)}</span>`
+
+	    return filledPart + emptyPart
 	  }
 	  
 	  const SUPABASE_URL = "https://iqpnhitazpnolwexyhdl.supabase.co"
