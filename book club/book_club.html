@@ -56,11 +56,20 @@
 		  opacity: 0.5;
 		}
 		
+		.month {
+		  padding: 2px 6px;
+		  color:#212121;
+		}
+		
 	</style>
 </head>
 
 <body>
   <h1>𐡷 book club 𐡸</h1>
+  
+  <p><span class="month">February</span> – Grimmish by Michael Winkler</p>
+  <p><span class="month">March</span> – ???? by ????</p>
+  <p><span class="month">April</span> – ???? by ????</p>
 
   <div class="entry">
     <input id="name" placeholder="name">
@@ -83,6 +92,21 @@
 	    "#c55d86",
 		"#565e3c"
 	  ]
+	  
+	  function colorMonths() {
+	    const months = document.querySelectorAll("span.month")
+	    let lastColor = null
+
+	    months.forEach(month => {
+	      let color
+	      do {
+	        color = barColors[Math.floor(Math.random() * barColors.length)]
+	      } while (color === lastColor)
+
+	      month.style.backgroundColor = color
+	      lastColor = color
+	    })
+	  }
 	  
 	  function buildBar(percent) {
 		  const width = 50
@@ -194,6 +218,8 @@
 	  }
 
 	  loadBoard()
+	  
+	  colorMonths()
 	  
 document
   .getElementById("postButton")
