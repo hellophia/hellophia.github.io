@@ -1,0 +1,39 @@
+(set: $items to (dm:
+
+"Magic D20", (dm:
+    "found", false,
+    "hint", "",
+    "image", ""
+),
+
+"Nancy comic", (dm:
+    "found", false,
+    "hint", "Go ask your dada if he has anything useful. He's working at the deli right now.",
+    "image", ""
+),
+
+"Potato", (dm:
+    "found", false,
+    "hint", "Do you think maybe Ian has any ideas? He's at Daily. You can get there through the kudzu.",
+    "image", ""
+),
+
+"Mahmoo Dahdoos", (dm:
+    "found", false,
+    "hint", "I wish mahmoo and dahdoo were here... they would probably know what to do.",
+    "image", ""
+),
+
+"Sticky hand", (dm:
+    "found", false,
+    "hint", "I think I see Mem and Maggie playing outside, they probably wanna help you out!",
+    "image", ""
+),
+
+"Feather", (dm:
+    "found", false,
+    "hint", "I bet Maggie's got a lot of weird stuff, maybe go ask her if you can borrow something?",
+    "image", ""
+)
+
+))

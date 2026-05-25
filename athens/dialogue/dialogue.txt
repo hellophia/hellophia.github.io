@@ -1,0 +1,144 @@
+(set: $dialoguetext to (a:
+(dm:
+"character","dahdoo",
+"mood","neutral",
+"text","OooOOOoooOoo..."),
+(dm:
+"character","mahmoo",
+"mood","neutral",
+"text","Waauuaaauuaaa..."),
+(dm:
+"character","danny",
+"mood","worried",
+"text","Huh?!"),
+(dm:
+"character","dahdoo",
+"mood","neutral",
+"text","... hey Danny..."),
+(dm:
+"character","danny",
+"mood","neutral",
+"text","Did you guys hear that weird voice that woke me up?"),
+(dm:
+"character","dahdoo",
+"mood","neutral",
+"text","Yup..."),
+(dm:
+"character","mahmoo",
+"mood","neutral",
+"text","Sure did!"),
+(dm:
+"character","danny",
+"mood","surprised",
+"text","Well, what should I do?"),
+(dm:
+"character","dahdoo",
+"mood","neutral",
+"text","... oooOOooOoo..."),
+(dm:
+"character","dahdoo",
+"mood","neutral",
+"text","... I dunno..."),
+(dm:
+"character","mahmoo",
+"mood","neutral",
+"text","But maybe put us in your backpack and we'll see what we can do!"),
+(dm:
+"character","narrator",
+"mood","none",
+"text","Danny got the Mahmoo Dahdoo figures!"),
+(dm:
+"character","danny",
+"mood","happy",
+"text","Uh, okay!")
+))
+
+(set: $dialoguetext to (a:
+(dm:
+"character","elo",
+"mood","happy",
+"text","Sup pup!"),
+(dm:
+"character","danny",
+"mood","worried",
+"text","Hey mama, I heard a weird voice in my room..."),
+(dm:
+"character","elo",
+"mood","flopsweat",
+"text","Wuh oh!"),
+(dm:
+"character","elo",
+"mood","happy",
+"text","Well, what did it say?"),
+(dm:
+"character","danny",
+"mood","neutral",
+"text","He said there was like... a big evil guy in Athens and I have to fight him?"),
+(dm:
+"character","elo",
+"mood","happy",
+"text","Wow! OK!"),
+(dm:
+"character","elo",
+"mood","happy",
+"text","Well it sounds like maybe you could use some help?"),
+(dm:
+"character","elo",
+"mood","happy",
+"text","Why dontcha take this? It's a magic D20 and I think it could really come in handy!"),
+(dm:
+"character","narrator",
+"mood","none",
+"text","Danny got the magic D20!"),
+(dm:
+"character","danny",
+"mood","happy",
+"text","Thanks mama!"),
+(dm:
+"character","elo",
+"mood","happy",
+"text","No problem! If you get stuck on your quest you can always come back and talk to me about it, I'll try to help you out!")
+))
+
+(set: $dialoguetext to (a:
+(dm:
+"character","narrator",
+"mood","none",
+"text","You knock on the door..."),
+(dm:
+"character","narrator",
+"mood","none",
+"text","... and it swings open!"),
+(dm:
+"character","danny",
+"mood","surprised",
+"text","HELLO?"),
+(dm:
+"character","danny",
+"mood","surprised",
+"text","AARON FU!!"),
+(dm:
+"character","danny",
+"mood","surprised",
+"text","Can I have any powerful items you got??"),
+(dm:
+"character","danny",
+"mood","neutral",
+"text","Hello...?"),
+(dm:
+"character","danny",
+"mood","neutral",
+"text","..."),
+(dm:
+"character","danny",
+"mood","surprised",
+"text","I'm gonna go inside your house now!!"),
+(dm:
+"character","danny",
+"mood","worried",
+"text","..."),
+(dm:
+"character","danny",
+"mood","surprised",
+"text","OK here I go!!")
+))
