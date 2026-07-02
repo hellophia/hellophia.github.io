@@ -20,17 +20,102 @@ danny,neutral,He said there was like... a big evil guy in Athens and I have to f
 elo,happy,Wow! OK!
 elo,happy,Well it sounds like maybe you could use some help?
 elo,happy,Why dontcha take this? It's a magic D20 and I think it could really come in handy!
-narrator,none,Danny got the magic D20!
+narrator,none,Danny got the D20!
 danny,happy,Thanks mama!
 elo,happy,"No problem! If you get stuck on your quest you can always come back and talk to me about it, I'll try to help you out!"
 ,,
 narrator,none,You knock on the door...
 narrator,none,... and it swings open!
-danny,surprised,HELLO?
-danny,surprised,AARON FU!!
-danny,surprised,Can I have any powerful items you got??
+danny,yelling,HELLO?
+danny,yelling,AARON FU!!
+danny,yelling,Can I have any powerful items you got??
 danny,neutral,Hello...?
 danny,neutral,...
-danny,surprised,I'm gonna go inside your house now!!
+danny,yelling,I'm gonna go inside your house now!!
 danny,worried,...
-danny,surprised,OK here I go!!
+danny,yelling,OK here I go!!
+,,
+danny,surprised,What the heck??
+danny,neutral,This is crazy! Was Aaron Fu's house like this before?
+danny,worried,... I have a bad feeling about this...
+,,
+narrator,none,The tub is filled with water and ice cubes.
+narrator,none,Danny got the cold plunge pool!
+danny,happy,It's so lucky that I have such a big backpack.
+,,
+narrator,none,You see a big door with three locks on it.
+,,
+narrator,none,"You've unlocked one lock on the big door, but there are still two locks on it."
+,,
+narrator,none,"You've unlocked two locks on the big door, but there's still one lock on it."
+,,
+narrator,none,Danny used the bronze key!
+,,
+narrator,none,Danny used the silver key!
+,,
+narrator,none,Danny used the golden key!
+,,
+narrator,none,The door opened!
+,,
+skeleton,neutral,Hello!
+danny,surprised,AAAAH!
+skeleton,neutral,"Please, there is no need to shout!"
+skeleton,neutral,Welcome to the labyrinth!
+danny,worried,Aren't you gonna shoot me with arrows?
+skeleton,neutral,That would be most rude!
+skeleton,neutral,"Instead, I will extend you traditional labyrinth hospitality by offering you a riddle!"
+skeleton,neutral,"If you can solve my riddle, I will give you this shiny bronze key!"
+skeleton,neutral,I think you'll agree that this arrangement is most civilized!
+skeleton,neutral,Now. Ahem:
+,,
+creeper,neutral,hEy MaN wHaT'S uP
+danny,surprised,AAAAH!
+creeper,neutral,wOaH yOu'rE bEiNg So LoUd
+creeper,neutral,tHiS lAbYrInTh Is SuPpOsEd To Be A rElAxInG pLaCe
+creeper,neutral,Aren't you gonna blow me up?
+creeper,neutral,nAh MaN tHaT kInDa SoUnDs LiKe A dRaG
+creeper,neutral,yOu KnOw LiKe I wOuLd BlOw Up ToO
+creeper,neutral,hOw AbOuT a RiDdLe InStEaD?
+,,
+chicken,neutral,...
+danny,neutral,...
+chicken,neutral,...
+danny,surprised,Hello?
+chicken,neutral,...
+danny,neutral,Why do you have a shiny key?
+chicken,neutral,...
+danny,happy,Can I have it?
+chicken,neutral,...
+chicken,neutral,... maybe...
+danny,surprised,!!!
+chicken,neutral,... if you can solve my riddle!
+,,
+skeleton,neutral,"You won my key, yet still wish to converse with me? How flattering!"
+skeleton,neutral,I do enjoy living in the labyrinth. The humid air does wonders for my skin.
+,,
+creeper,neutral,"yEaH i LiKe LiViNg In ThE lAbYrInTh. ExCePt WhEn I rUn InTo SkElEtOn, ThAt GuY iS sO aNnOyInG."
+,,
+chicken,neutral,Good luck out there!
+,,
+danny,worried,... what.
+danny,worried,This looks like... the entrance to a crazy maze.
+danny,worried,I wish I wasn't doing this all by myself...
+danny,neutral,... but at least I have all this weird stuff...
+danny,worried,...
+danny,determined,I'm not scared!
+,,
+melissa,neutral,What's up Danny!
+joey,neutral,Hi Danny!
+melissa,neutral,So what brings you to our house?
+joey,neutral,Yeah! Also... how did you get here..?
+joey,worried,Where are your parents??
+danny,worried,I need weapons!!
+melissa,neutral,Everything OK bud?
+joey,worried,Yeah uh... you can always talk to us!
+danny,surprised,No time for talk! There is an evil! Do you have any sticks?
+melissa,neutral,I do actually have some willow left over from the swan...
+narrator,none,Danny got a willow stick!
+joey,neutral,"I uh... I don't have any sticks, but maybe the pen is mightier than the sword?"
+narrator,none,Danny got a Mermin comic book!
+joey,neutral,Does that help?
+danny,happy,Probably!

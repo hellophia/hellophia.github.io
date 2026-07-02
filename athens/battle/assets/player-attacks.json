@@ -1,0 +1,152 @@
+[
+    {
+        "id": 1,
+        "name": "D20",
+        "spriteKey": "D20",
+        "url": "../assets/images/player-attacks/attack-d20.png",
+        "frameWidth": 300,
+        "frameHeight": 375,
+        "sound": "D20",
+        "soundurl": "../assets/sfx/player-attacks/d20.wav",
+        "animation": "",
+        "position": {
+            "x": 745,
+            "y": 140
+        }
+    },
+    {
+        "id": 2,
+        "name": "Nancy comic",
+        "spriteKey": "NANCY",
+        "url": "../assets/images/player-attacks/attack-nancy.png",
+        "frameWidth": 300,
+        "frameHeight": 300,
+        "sound": "NANCY",
+        "soundurl": "../assets/sfx/player-attacks/nancy.wav",
+        "animation": true,
+        "position": {
+            "x": 745,
+            "y": 140
+        }
+    },
+    {
+        "id": 3,
+        "name": "Mahmoo Dahdoos",
+        "spriteKey": "STATUES",
+        "url": "../assets/images/player-attacks/attack-statues.png",
+        "frameWidth": 300,
+        "frameHeight": 390,
+        "sound": "STATUES",
+        "soundurl": "../assets/sfx/player-attacks/statues.wav",
+        "animation": true,
+        "position": {
+            "x": 745,
+            "y": 140
+        }
+    },
+    {
+        "id": 4,
+        "name": "Cold plunge pool",
+        "spriteKey": "POOL",
+        "url": "../assets/images/player-attacks/attack-pool.png",
+        "frameWidth": 400,
+        "frameHeight": 450,
+        "sound": "POOL",
+        "soundurl": "../assets/sfx/player-attacks/bucket.wav",
+        "animation": true,
+        "position": {
+            "x": 745,
+            "y": 140
+        }
+    },
+    {
+        "id": 5,
+        "name": "Potato",
+        "spriteKey": "POTATO",
+        "url": "../assets/images/player-attacks/attack-potato.png",
+        "frameWidth": 375,
+        "frameHeight": 500,
+        "sound": "POTATO",
+        "soundurl": "../assets/sfx/player-attacks/nancy.wav",
+        "animation": true,
+        "position": {
+            "x": 745,
+            "y": 140
+        }
+    },
+    {
+        "id": 6,
+        "name": "Cell phone",
+        "spriteKey": "DIRTBIKE",
+        "url": "../assets/images/player-attacks/attack-dirtbike.png",
+        "frameWidth": 400,
+        "frameHeight": 400,
+        "sound": "DIRTBIKE",
+        "soundurl": "../assets/sfx/player-attacks/dirtbike.wav",
+        "animation": true,
+        "position": {
+            "x": 745,
+            "y": 140
+        }
+    },
+    {
+        "id": 7,
+        "name": "Feather",
+        "spriteKey": "CHICKEN",
+        "url": "../assets/images/player-attacks/attack-chicken.png",
+        "frameWidth": 300,
+        "frameHeight": 300,
+        "sound": "CHICKEN",
+        "soundurl": "../assets/sfx/player-attacks/chicken.wav",
+        "animation": true,
+        "position": {
+            "x": 745,
+            "y": 140
+        }
+    },
+    {
+        "id": 8,
+        "name": "Willow",
+        "spriteKey": "SWAN",
+        "url": "../assets/images/player-attacks/attack-swan.png",
+        "frameWidth": 250,
+        "frameHeight": 500,
+        "sound": "SWAN",
+        "soundurl": "../assets/sfx/player-attacks/swan.wav",
+        "animation": true,
+        "position": {
+            "x": 745,
+            "y": 140
+        }
+    },
+    {
+        "id": 9,
+        "name": "Lollipop",
+        "spriteKey": "CHUPA",
+        "url": "../assets/images/player-attacks/attack-chupa.png",
+        "frameWidth": 300,
+        "frameHeight": 325,
+        "sound": "CHUPA",
+        "soundurl": "../assets/sfx/player-attacks/chupa.wav",
+        "animation": true,
+        "position": {
+            "x": 745,
+            "y": 140
+        }
+    },
+    {
+        "id": 10,
+        "name": "Mermin book",
+        "spriteKey": "MERMIN",
+        "url": "../assets/images/player-attacks/attack-chupa.png",
+        "frameWidth": 300,
+        "frameHeight": 325,
+        "sound": "MERMIN",
+        "soundurl": "../assets/sfx/player-attacks/chupa.wav",
+        "animation": "",
+        "position": {
+            "x": 745,
+            "y": 140
+        }
+    }
+]

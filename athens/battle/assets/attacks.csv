@@ -1,0 +1,11 @@
+id,name,spriteKey,url,frameWidth,frameHeight,x,y,sound,soundurl,animation
+1,shiitake mushrooms,MUSHROOM,../assets/images/enemy-attacks/attack-mushroom.png,420,325,300,400,MUSHROOM,../assets/sfx/enemy-attacks/mushroom.wav,TRUE
+3,15 expired porkchops,PORKCHOP,../assets/images/enemy-attacks/attack-porkchop.png,300,230,300,400,PORKCHOP,../assets/sfx/enemy-attacks/porkchop.wav,TRUE
+4,dwarf fortress,DWARF,../assets/images/enemy-attacks/attack-slash.png,300,300,300,400,DWARF,../assets/sfx/enemy-attacks/porkchop.wav,
+2,land of monsters,MONSTER,../assets/images/enemy-attacks/attack-monster.png,350,245,300,400,MONSTER,../assets/sfx/enemy-attacks/monster.wav,
+8,capital,CAPITAL,../assets/images/enemy-attacks/attack-capital.png,770,500,300,400,CAPITAL,../assets/sfx/enemy-attacks/capital.wav,TRUE
+9,throat singing,THROAT,../assets/images/enemy-attacks/attack-capital.png,300,300,300,400,THROAT,../assets/sfx/enemy-attacks/capital.wav,TRUE
+7,eyes nor hand,BIRD,../assets/images/enemy-attacks/attack-bird.png,275,300,300,400,BIRD,../assets/sfx/enemy-attacks/bird.wav,
+10,beessert,BEES,../assets/images/enemy-attacks/attack-capital.png,300,300,300,400,BEES,../assets/sfx/enemy-attacks/capital.wav,
+11,drive by bicycle,BIKE,../assets/images/enemy-attacks/attack-capital.png,300,300,300,400,BEES,../assets/sfx/enemy-attacks/capital.wav,
+12,eye guy,EYE,../assets/images/enemy-attacks/attack-capital.png,300,300,300,400,BEES,../assets/sfx/enemy-attacks/capital.wav,

@@ -1,0 +1,1 @@
+json can also include frameRate and scale, they have defaults in the Attack class
