@@ -185,6 +185,33 @@
 	  return arr[Math.floor(Math.random() * arr.length)];
 	}
 
+	// array of colors for the headers to cycle thru
+	const lightcolors = ['#d3c8c3','#d3b690','#b9af2a','#b0b4b4','#d4be96','#dcb38b'];
+	let currentIndex = 0;
+
+	fetch('https://opensheet.elk.sh/1osuWeLX42mewfnpqIbYoUMNgtGscNcouADfZRGOLQxc/voices')
+	    .then(response => {
+	        if (!response.ok) {
+	            throw new Error('network response error');
+	        }
+	        return response.json();
+	    })
+	    .then(data => {
+
+	        const voices = data;
+			generateVoices(voices);
+
+	    })
+	    .catch(error => {
+	        console.error('data fetching error', error);
+	    });
+
+		function generateVoices(voices){
+console.log(voices);
+console.log(voices.hkl);
+console.log();
+		}
+
 	const intros = {
 	  normal: {
 	    s1: ["hey, here goes your exercise routine.", "hello, it's time to exercise.", "let's begin your workout routine."],
@@ -227,10 +254,6 @@
 	  const set = outros[mode];
 	  return `${pickRandom(set.s1)} ${pickRandom(set.s2)} ${pickRandom(set.s3)}`;
 	}
-
-	// array of colors for the headers to cycle thru
-	const lightcolors = ['#d3c8c3','#d3b690','#b9af2a','#b0b4b4','#d4be96','#dcb38b'];
-	let currentIndex = 0;
 
 	// fetch the data from the spreadsheet as json using opensheet
 	fetch('https://opensheet.elk.sh/1osuWeLX42mewfnpqIbYoUMNgtGscNcouADfZRGOLQxc/exercises')
