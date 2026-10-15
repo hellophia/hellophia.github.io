@@ -189,69 +189,51 @@
 	const lightcolors = ['#d3c8c3','#d3b690','#b9af2a','#b0b4b4','#d4be96','#dcb38b'];
 	let currentIndex = 0;
 
-	fetch('https://opensheet.elk.sh/1osuWeLX42mewfnpqIbYoUMNgtGscNcouADfZRGOLQxc/normal_voices')
-	    .then(response => {
-	        if (!response.ok) {
-	            throw new Error('network response error');
-	        }
-	        return response.json();
-	    })
-	    .then(data => {
+	const voiceSheetId = '1osuWeLX42mewfnpqIbYoUMNgtGscNcouADfZRGOLQxc';
+const voiceTabs = {
+  normal: 'normal_voices',
+  hkl: 'hkl_voices',
+  elo: 'elo_voices'
+};
+const voiceColumns = ['intro_s1', 'intro_s2', 'outro_s1', 'outro_s2', 'outro_s3'];
+const voices = {};
 
-	        const voices = data;
-			generateVoices(voices);
+function transposeVoices(rows) {
+  return Object.fromEntries(
+    voiceColumns.map(column => [
+      column,
+      rows
+        .map(row => row[column]?.trim())
+        .filter(Boolean)
+    ])
+  );
+}
 
-	    })
-	    .catch(error => {
-	        console.error('data fetching error', error);
-	    });
+const voicesReady = Promise.all(
+  Object.entries(voiceTabs).map(async ([mode, tab]) => {
+    const response = await fetch(
+      `https://opensheet.elk.sh/${voiceSheetId}/${tab}`
+    );
 
-		function generateVoices(voices){
-console.log(voices);
-		}
+    if (!response.ok) {
+      throw new Error(`could not load the ${tab} voice sheet.`);
+    }
 
-	const intros = {
-	  normal: {
-	    s1: ["hey, here goes your exercise routine.", "hello, it's time to exercise.", "let's begin your workout routine."],
-	    s2: ["hope you enjoy it.", "please do your very best.", "stay strong!"]
-	  },
-	  hkl: {
-	    s1: ["what's up bitch.", "hello future sweaty little worm.", "hey there daddy."],
-	    s2: ["welcome to the temple of pain.", "you are going to work out right this very minute.", "time to fucking work out."]
-	  },
-	  elo: {
-	    s1: ["greetings noble eleanor.", "well well well, look who decided to do her physical therapy.", "welcome weary traveler."],
-	    s2: ["you've made an excellent decision.", "your wisdom and perseverance are the envy of all.", "I am very impressed with your fastidiousness."]
-	  }
-	};
+    voices[mode] = transposeVoices(await response.json());
+  })
+).catch(error => {
+  console.error('voice sheet loading error:', error);
+});
 
-	const outros = {
-	  normal: {
-	    s1: ["your workout is all done.","you have completed your workout.","workout complete!"],
-	    s2: ["go and live your life and have fun.","congratulations and good job.","what a success."],
-	    s3: ["see you next time.","bye for now!","enjoy the rest of your day."]
-	  },
-	  hkl: {
-	    s1: ["good job sweaty boy, you fucking killed it.","great job daddy.","you vanquished the fuck out of that routine."],
-	    s2: ["ooh I'm so scared of your muscles.","you are growing ever more powerful.","damn you look strong."],
-	    s3: ["see you next time, or else I'm going to haunt you.","if you don't return to the gym within seven days, a ghost is going to come out of the toilet while you pee.","you have satiated the gym demon... for now."]
-	  },
-	  elo: {
-	    s1: ["you have completed your physical therapy.","thou hast completed your PT.","you are all done now!"],
-	    s2: ["hip hip hooray.","oh you did such a good job.","what a tremendous accomplishment."],
-	    s3: ["now you are free to spend the rest of your day basking in deep satisfaction.","you should feel very proud of yourself.","I applaud you and place a laurel wreath on your head."]
-	  }
-	};
-	
-	function generateIntro(mode) {
-		const set = intros[mode];
-	  return `${pickRandom(set.s1)} ${pickRandom(set.s2)}`;
-	}
+function generateIntro(mode) {
+  const set = voices[mode];
+  return `${pickRandom(set.intro_s1)} ${pickRandom(set.intro_s2)}`;
+}
 
-	function generateOutro(mode) {
-	  const set = outros[mode];
-	  return `${pickRandom(set.s1)} ${pickRandom(set.s2)} ${pickRandom(set.s3)}`;
-	}
+function generateOutro(mode) {
+  const set = voices[mode];
+  return `${pickRandom(set.outro_s1)} ${pickRandom(set.outro_s2)} ${pickRandom(set.outro_s3)}`;
+}
 
 	// fetch the data from the spreadsheet as json using opensheet
 	fetch('https://opensheet.elk.sh/1osuWeLX42mewfnpqIbYoUMNgtGscNcouADfZRGOLQxc/exercises')
@@ -411,7 +393,9 @@ console.log(voices);
 	}
 
 	// on click to speak,
-	function speak() {
+	async function speak() {
+
+		await voicesReady;
 
 		//do the loading animation
 		loadingText = "loading"
