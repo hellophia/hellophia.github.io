@@ -189,7 +189,7 @@
 	const lightcolors = ['#d3c8c3','#d3b690','#b9af2a','#b0b4b4','#d4be96','#dcb38b'];
 	let currentIndex = 0;
 
-	fetch('https://opensheet.elk.sh/1osuWeLX42mewfnpqIbYoUMNgtGscNcouADfZRGOLQxc/voices')
+	fetch('https://opensheet.elk.sh/1osuWeLX42mewfnpqIbYoUMNgtGscNcouADfZRGOLQxc/normal_voices')
 	    .then(response => {
 	        if (!response.ok) {
 	            throw new Error('network response error');
@@ -208,8 +208,6 @@
 
 		function generateVoices(voices){
 console.log(voices);
-console.log(voices[3].hkl);
-console.log(voices[4].elo);
 		}
 
 	const intros = {
